@@ -1,0 +1,147 @@
+site_name: Curso de Vue.js 3 - CIFP Txurdinaga LHII
+site_url: https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/
+theme:
+  name: material
+  language: es
+  logo: images/Icono_TX.png
+  favicon: http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png
+  custom_dir: overrides
+  features:
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.expand
+    - i18n.redirect
+    - i18n
+  palette:
+    - scheme: default
+      primary: '#004c95'
+      accent: '#e95f15'
+      toggle:
+        icon: material/brightness-7
+        name: Aldatu modu ilunera
+    - scheme: slate
+      primary: '#004c95'
+      accent: '#e95f15'
+      toggle:
+        icon: material/brightness-4
+        name: Aldatu modu argira
+extra_css:
+- stylesheets/extra.css
+extra_javascript:
+- scripts/checkboxes.js
+- javascripts/sidebar.js
+plugins:
+- search
+- i18n:
+    default_language: es
+    docs_structure: folder
+    docs_dir: docs
+    nav_translations:
+      # Mapeo de rutas entre idiomas - Fundamentos/Oinarriak
+      'fundamentos/introduccion.md': 'oinarriak/sarrera.md'
+      'fundamentos/interpolacion.md': 'oinarriak/interpolazioa.md'
+      'fundamentos/vbind-vmodel.md': 'oinarriak/vbind-vmodel.md'
+      'fundamentos/v-if_v-for.md': 'oinarriak/v-if_v-for.md'
+      'fundamentos/propiedades-computadas.md': 'oinarriak/kalkulatutako-propietateak.md'
+      'fundamentos/eventos.md': 'oinarriak/gertaerak.md'
+      'fundamentos/ciclo-vida.md': 'oinarriak/bizitza-zikloa.md'
+      
+      # Conceptos Básicos / Oinarrizko Kontzeptuak
+      'conceptos-basicos/introduccion.md': 'oinarrizko-kontzeptuak/sarrera.md'
+      'conceptos-basicos/primer-ejemplo.md': 'oinarrizko-kontzeptuak/lehen-aurkezpena.md'
+      
+      # Componentes / Osagaiak
+      'componentes/creacion.md': 'osagaiak/sortu.md'
+      'componentes/comunicacion.md': 'osagaiak/komunikazioa.md'
+    languages:
+      - locale: es
+        name: Español
+        default: true
+        nav: 
+          - Inicio: 'es/index.md'
+          - '1. Conceptos Básicos':
+            - '1.1. Introducción a Vue': 'es/conceptos-basicos/introduccion.md'
+            - '1.2. Tu primera aplicación': 'es/conceptos-basicos/primer-ejemplo.md'
+          - '2. Fundamentos':
+            - '2.1. Introducción': 'es/fundamentos/introduccion.md'
+            - '2.2. Interpolación y Directivas': 'es/fundamentos/interpolacion.md'
+            - '2.3. V-bind y V-model': 'es/fundamentos/vbind-vmodel.md'
+            - '2.4. V-if y V-for': 'es/fundamentos/v-if_v-for.md'
+            - '2.5. Propiedades Computadas': 'es/fundamentos/propiedades-computadas.md'
+            - '2.6. Manejo de Eventos': 'es/fundamentos/eventos.md'
+            - '2.7. Ciclo de Vida': 'es/fundamentos/ciclo-vida.md'
+          - '3. Componentes':
+            - '3.1. Creación y Uso': 'es/componentes/creacion.md'
+            - '3.2. Comunicación entre Componentes': 'es/componentes/comunicacion.md'
+          - '4. Peticiones HTTP':
+            - '4.1. Introducción': 'http/introduccion.md'
+            - '4.2. Uso de Fetch API': 'http/fetch.md'
+            - '4.3. Uso de Axios': 'http/axios.md'
+            - '4.4. Uso de Alova': 'http/alova.md'
+          - '5. Enrutamiento con Vue Router':
+            - '5.1. Introducción': 'routing/introduccion.md'
+            - '5.2. Rutas Básicas': 'routing/rutas-basicas.md'
+            - '5.3. Navegación Avanzada': 'routing/navegacion-avanzada.md'
+          - '6. Gestión de Estado con Pinia':
+            - '6.1. Introducción a Pinia': 'pinia/introduccion.md'
+            - '6.2. Stores en Pinia': 'pinia/stores.md'
+            - '6.3. Conceptos Avanzados': 'pinia/avanzado.md'
+          - '7. Proyecto Práctico':
+            - '7.1. Estructura del Proyecto': 'proyecto/estructura.md'
+            - '7.2. Ejercicios Guiados': 'proyecto/ejercicios.md'
+      - locale: eu
+        name: Euskara
+        nav:
+          - Hasiera: 'eu/index.md'
+          - '1. Oinarrizko Kontzeptuak':
+            - '1.1. Vue-ri Sarrera': 'eu/oinarrizko-kontzeptuak/sarrera.md'
+            - '1.2. Zure Lehen Aplikazioa': 'eu/oinarrizko-kontzeptuak/lehen-aurkezpena.md'
+          - '2. Oinarriak':
+            - '2.1. Sarrera': 'eu/oinarriak/sarrera.md'
+            - '2.2. Interpolazioa eta Zuzentarauak': 'eu/oinarriak/interpolazioa.md'
+            - '2.3. V-bind eta V-model': 'eu/oinarriak/vbind-vmodel.md'
+            - '2.4. V-if eta V-for': 'eu/oinarriak/v-if_v-for.md'
+            - '2.5. Kalkulatutako Propietateak': 'eu/oinarriak/kalkulatutako-propietateak.md'
+            - '2.6. Gertaeren Kudeaketa': 'eu/oinarriak/gertaerak.md'
+            - '2.7. Bizitza Zikloa': 'eu/oinarriak/bizitza-zikloa.md'
+          - '3. Osagaiak':
+            - '3.1. Sortzea eta Erabiltzea': 'eu/osagaiak/sortu.md'
+            - '3.2. Osagaien Arteko Komunikazioa': 'eu/osagaiak/komunikazioa.md'
+          - '4. HTTP Eskariak':
+            - '4.1. Sarrera': 'http-eskariak/sarrera.md'
+            - '4.2. Fetch API Erabiliz': 'http-eskariak/fetch.md'
+            - '4.3. Axios Erabiliz': 'http-eskariak/axios.md'
+            - '4.4. Alova Erabiliz': 'http-eskariak/alova.md'
+          - '5. Vue Router-ekin':
+            - '5.1. Sarrera': 'vue-router/sarrera.md'
+            - '5.2. Oinarrizko Bideak': 'vue-router/oinarrizko-bideak.md'
+            - '5.3. Nabigazio Aurreratua': 'vue-router/nabigazio-aurreratua.md'
+          - '6. Egoeraren Kudeaketa Pinia-rekin':
+            - '6.1. Pinia-ri Sarrera': 'pinia/sarrera.md'
+            - '6.2. Pinia-ko Denda': 'pinia/dendak.md'
+            - '6.3. Gai Aurreratuak': 'pinia/aurreratua.md'
+          - '7. Proiektu Praktikoa':
+            - '7.1. Proiektuaren Egitura': 'proiektua/egitura.md'
+            - '7.2. Gidatutako Ariketa': 'proiektua/ariketak.md'
+markdown_extensions:
+- admonition
+- pymdownx.tasklist:
+    clickable_checkbox: true
+    custom_checkbox: true
+- toc:
+    permalink: true
+- footnotes
+- tables
+# Configuración de navegación principal (para compatibilidad)
+# La navegación real ahora está definida en la sección de idiomas
+nav:
+  - Inicio: index.md
+  - '1. Introducción':
+    - '1.1. ¿Qué es Safe Exam Browser?': introduccion/que_es_seb.md
+  - '2. Instalación':
+    - '2.1. Instalación de SEB': instalacion/instalacion.md
+  - '3. Configuración':
+    - '3.1. Configuración Básica': configuracion/configuracion_basica.md
+    - '3.2. Integración con Moodle': configuracion/integracion_moodle.md

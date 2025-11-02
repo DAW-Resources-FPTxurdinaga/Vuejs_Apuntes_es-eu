@@ -1,0 +1,932 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/SEB_Tutorial/eu/configuracion/archivos_configuracion/">
+      
+      
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Archivos configuracion - Safe Exam Browser Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#archivos-de-configuracion-seb" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Safe Exam Browser Tutorial" class="md-header__button md-logo" aria-label="Safe Exam Browser Tutorial" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Safe Exam Browser Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Archivos configuracion
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../configuracion/archivos_configuracion/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Safe Exam Browser Tutorial" class="md-nav__button md-logo" aria-label="Safe Exam Browser Tutorial" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Safe Exam Browser Tutorial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Sarrera
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Sarrera
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sarrera/zer_da_seb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Zer da Safe Exam Browser?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Instalazioa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Instalazioa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instalazioa/instalatu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. SEB Instalazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Konfigurazioa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Konfigurazioa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfigurazioa/konfigurazioa_oinarria/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Konfigurazioa Oinarrizkoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfigurazioa/moodle_integrazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Moodle-rekin integrazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../konfigurazioa/fitxategiak_konfigurazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Konfigurazio fitxategiak (.seb)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tipos-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Tipos de configuración
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Tipos de configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-configuracion-para-examen" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Configuración para Examen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuracion-para-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Configuración para Cliente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-de-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      📋 Ejemplos de configuración
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 Ejemplos de configuración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-acceso-restringido-a-urls-especificas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Ejemplo 1: Acceso restringido a URLs específicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-aplicaciones-permitidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Ejemplo 2: Aplicaciones permitidas
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-usar-los-archivos-seb" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Cómo usar los archivos .seb
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#personalizacion-de-configuraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Personalización de configuraciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Personalización de configuraciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parámetros comunes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recomendaciones-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Recomendaciones de seguridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actualizacion-de-configuraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Actualización de configuraciones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="-cómo-usar-los-archivos-seb"></a></p>
+<h1 id="archivos-de-configuracion-seb">📁 Archivos de configuración .seb<a class="headerlink" href="#archivos-de-configuracion-seb" title="Permanent link">&para;</a></h1>
+<h2 id="tipos-de-configuracion">⚙️ Tipos de configuración<a class="headerlink" href="#tipos-de-configuracion" title="Permanent link">&para;</a></h2>
+<p>SEB ofrece dos tipos principales de configuraciones que puedes preparar desde el menú de configuración:</p>
+<h3 id="1-configuracion-para-examen">1. Configuración para Examen<a class="headerlink" href="#1-configuracion-para-examen" title="Permanent link">&para;</a></h3>
+<p>Esta opción permite crear un archivo de configuración específico para un examen. Es ideal cuando necesitas configuraciones temporales que solo se aplicarán durante la duración de un examen.</p>
+<p><img alt="Menú de configuración para examen" src="../../../images/menu_config_exam.png" />
+<em>Figura 1: Menú de configuración para crear un archivo de examen</em></p>
+<h3 id="2-configuracion-para-cliente">2. Configuración para Cliente<a class="headerlink" href="#2-configuracion-para-cliente" title="Permanent link">&para;</a></h3>
+<p>Esta opción crea una configuración persistente que se aplicará al cliente SEB cada vez que se inicie. Es útil para configuraciones permanentes en equipos del aula.</p>
+<p><img alt="Menú de configuración para cliente" src="../../../images/menu_config_client.png" />
+<em>Figura 2: Menú de configuración para cliente SEB</em></p>
+<h2 id="ejemplos-de-configuracion">📋 Ejemplos de configuración<a class="headerlink" href="#ejemplos-de-configuracion" title="Permanent link">&para;</a></h2>
+<p>A continuación se presentan ejemplos prácticos de archivos de configuración .seb para diferentes escenarios de uso.</p>
+<h3 id="ejemplo-1-acceso-restringido-a-urls-especificas">🔒 Ejemplo 1: Acceso restringido a URLs específicas<a class="headerlink" href="#ejemplo-1-acceso-restringido-a-urls-especificas" title="Permanent link">&para;</a></h3>
+<p><strong>Caso de uso</strong>: Exámenes donde solo se permite el acceso al Moodle del instituto y a recursos educativos específicos.</p>
+<p><strong>Características principales</strong>:
+- Solo permite el acceso a:
+  - <code>https://elearning5.hezkuntza.net/015763</code> (Moodle del instituto)
+  - <code>https://www.w3schools.com</code> (Recursos educativos)
+- Bloquea todos los demás sitios web
+- Navegación en modo pantalla completa
+- Deshabilitación de funciones no deseadas</p>
+<ul>
+<li><strong>1. Configuración de contraseña</strong></li>
+</ul>
+<p>La protección con contraseña evita que los estudiantes modifiquen la configuración de SEB. Para configurarla:</p>
+<ul>
+<li>Clave: <code>12345678</code></li>
+<li>Se configura en el apartado "General" de la configuración de SEB</li>
+</ul>
+<p><img alt="Configuración de contraseña en SEB" src="../../../images/url_permitidas_general.png" />
+<em>Figura 1: Configuración de la contraseña en el apartado General de SEB</em></p>
+<p><strong>2. Configuración de URLs permitidas</strong></p>
+<p>Para restringir el acceso únicamente a las páginas web deseadas:</p>
+<ol>
+<li>Ve a la pestaña "Network"</li>
+<li>Habilita la opción "Enable URL Filtering"</li>
+<li>Configura las reglas para permitir solo:</li>
+<li><code>https://elearning5.hezkuntza.net/015763*</code></li>
+<li><code>https://www.w3schools.com/*</code></li>
+</ol>
+<p><img alt="Configuración de URLs permitidas en SEB" src="../../../images/url_permitidas_network.png" />
+<em>Figura 2: Configuración de URLs permitidas en la pestaña Network</em></p>
+<h3 id="ejemplo-2-aplicaciones-permitidas">🔒 Ejemplo 2: Aplicaciones permitidas<a class="headerlink" href="#ejemplo-2-aplicaciones-permitidas" title="Permanent link">&para;</a></h3>
+<p><strong>Caso de uso</strong>: Exámenes donde los estudiantes necesitan acceder a herramientas de desarrollo específicas junto con recursos en línea.</p>
+<p><strong>Características principales</strong>:
+- Permite el acceso a las mismas URLs del ejemplo anterior
+- Habilita dos aplicaciones adicionales:
+  - Explorador de Windows (para gestión de archivos)
+  - Visual Studio Code (para desarrollo)</p>
+<p><strong>Configuración de aplicaciones</strong>:</p>
+<ol>
+<li>Ve a la pestaña "Applications"</li>
+<li>Habilita "Allow applications"</li>
+<li>Añade las aplicaciones permitidas:</li>
+<li><code>explorer.exe</code> (Explorador de Windows)</li>
+<li><code>code.exe</code> (Visual Studio Code)</li>
+</ol>
+<p><img alt="Configuración de aplicaciones permitidas - VS Code" src="../../../images/menu_applications_VS-code.png" />
+<em>Figura 3: Habilitando Visual Studio Code en las aplicaciones permitidas</em></p>
+<p><img alt="Configuración de aplicaciones permitidas - Explorador" src="../../../images/menu_applications_explorer.png" />
+<em>Figura 4: Habilitando el Explorador de Windows en las aplicaciones permitidas</em></p>
+<p>**Cómo usarlo":</p>
+<ol>
+<li><a href="https://drive.google.com/file/d/13cdAcXQvs8_Z57c36eWad536QGMj7v01/view?usp=sharing">Descargar archivo de configuración .seb</a></li>
+<li>Sigue las instrucciones de <a href="#-cómo-usar-los-archivos-seb">cómo usar los archivos .seb</a></li>
+</ol>
+<h2 id="como-usar-los-archivos-seb">📝 Cómo usar los archivos .seb<a class="headerlink" href="#como-usar-los-archivos-seb" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Descarga</strong> el archivo de configuración deseado, y al abrirlo se ejecutará en SEB</li>
+<li><strong>En Moodle</strong>:<ul>
+<li>Ve al cuestionario donde quieras aplicar la configuración</li>
+<li>En la configuración del cuestionario, busca la sección "Safe Exam Browser"</li>
+<li>Selecciona "Usar archivo de configuración existente"</li>
+<li>Sube el archivo .seb descargado</li>
+<li>Guarda los cambios</li>
+</ul>
+</li>
+</ol>
+<h2 id="personalizacion-de-configuraciones">🔧 Personalización de configuraciones<a class="headerlink" href="#personalizacion-de-configuraciones" title="Permanent link">&para;</a></h2>
+<p>Los archivos .seb son archivos JSON que puedes editar con cualquier editor de texto. Estructura básica:</p>
+<pre><code class="language-json">{
+  &quot;sebExamConfig&quot;: {
+    &quot;startURL&quot;: &quot;https://tumoodle.com&quot;,
+    &quot;browserViewMode&quot;: 1,
+    &quot;allowQuit&quot;: false,
+    &quot;quitURL&quot;: &quot;about:blank&quot;,
+    &quot;allowReloadExam&quot;: false,
+    &quot;enableAudioControls&quot;: true
+  }
+}
+</code></pre>
+<h3 id="parametros-comunes">Parámetros comunes:<a class="headerlink" href="#parametros-comunes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>startURL</code>: URL que se abrirá al iniciar SEB</li>
+<li><code>browserViewMode</code>: 0 = ventana normal, 1 = pantalla completa</li>
+<li><code>allowQuit</code>: Permite salir de SEB (true/false)</li>
+<li><code>quitURL</code>: URL a la que redirigir al salir</li>
+<li><code>allowReloadExam</code>: Permite recargar el examen (true/false)</li>
+<li><code>enableAudioControls</code>: Habilita controles de audio (true/false)</li>
+</ul>
+<h2 id="recomendaciones-de-seguridad">⚠️ Recomendaciones de seguridad<a class="headerlink" href="#recomendaciones-de-seguridad" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Verificación previa</strong>:</li>
+<li>Siempre prueba las configuraciones en un entorno de prueba</li>
+<li>
+<p>Verifica que todas las restricciones funcionen como se espera</p>
+</li>
+<li>
+<p><strong>Personalización</strong>:</p>
+</li>
+<li>Ajusta las URLs según tu instalación de Moodle</li>
+<li>
+<p>Revisa y modifica las restricciones según tus necesidades específicas</p>
+</li>
+<li>
+<p><strong>Mantenimiento</strong>:</p>
+</li>
+<li>Mantén copias de seguridad de tus configuraciones</li>
+<li>Actualiza las configuraciones cuando actualices la versión de SEB</li>
+</ol>
+<h2 id="actualizacion-de-configuraciones">🔄 Actualización de configuraciones<a class="headerlink" href="#actualizacion-de-configuraciones" title="Permanent link">&para;</a></h2>
+<p>Si necesitas migrar configuraciones a una nueva versión de SEB:</p>
+<ol>
+<li>Abre el archivo .seb en un editor de texto</li>
+<li>Actualiza la versión del esquema si es necesario</li>
+<li>Verifica la compatibilidad con la versión de SEB instalada</li>
+<li>Prueba exhaustivamente antes de usar en producción</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/Tutorial_SEB/images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>

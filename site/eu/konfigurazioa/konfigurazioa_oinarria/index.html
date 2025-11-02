@@ -1,0 +1,1480 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/SEB_Tutorial/eu/konfigurazioa/konfigurazioa_oinarria/">
+      
+      
+        <link rel="prev" href="../../instalazioa/instalatu/">
+      
+      
+        <link rel="next" href="../moodle_integrazioa/">
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>3.1. Konfigurazioa Oinarrizkoa - Safe Exam Browser Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-safe-exam-browser-en-konfigurazioa" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Safe Exam Browser Tutorial" class="md-header__button md-logo" aria-label="Safe Exam Browser Tutorial" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Safe Exam Browser Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.1. Konfigurazioa Oinarrizkoa
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/SEB_Tutorial/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Safe Exam Browser Tutorial" class="md-nav__button md-logo" aria-label="Safe Exam Browser Tutorial" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Safe Exam Browser Tutorial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Sarrera
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Sarrera
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sarrera/zer_da_seb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Zer da Safe Exam Browser?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Instalazioa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Instalazioa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instalazioa/instalatu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. SEB Instalazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Konfigurazioa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Konfigurazioa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.1. Konfigurazioa Oinarrizkoa
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Konfigurazioa Oinarrizkoa
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-seb-ren-konfigurazioaren-sarrera" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. SEB-ren konfigurazioaren sarrera
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-konfigurazio-urratsez-urrats-gida" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Konfigurazio-urratsez urrats gida
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Konfigurazio-urratsez urrats gida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-urratsa-ireki-konfigurazio-tresna" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Urratsa: Ireki Konfigurazio-tresna
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Urratsa: Ireki Konfigurazio-tresna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-en" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows-en:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-urratsa-oinarrizko-konfigurazioa-orokorra-fitxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Urratsa: Oinarrizko Konfigurazioa (Orokorra fitxa)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-urratsa-erabiltzaile-interfazearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Urratsa: Erabiltzaile-interfazearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-urratsa-nabigatzailearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Urratsa: Nabigatzailearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-urratsa-aplikazioen-kontrola" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Urratsa: Aplikazioen kontrola
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-urratsa-sarearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Urratsa: Sarearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-urratsa-segurtasun-egitura-aurreratua" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Urratsa: Segurtasun-egitura aurreratua
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-urratsa-teklen-blokeoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Urratsa: Teklen blokeoa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-urratsa-lms-rako-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Urratsa: LMS-rako konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-gorde-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Gorde Konfigurazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-banatu-konfigurazio-fitxategia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Banatu Konfigurazio-fitxategia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-arazo-ohikoenak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5. Arazo Ohikoenak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5. Arazo Ohikoenak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abioaren-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abioaren arazoak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konexio-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konexio-arazoak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errendimendu-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errendimendu-arazoak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-konfigurazio-seguruaren-aholkuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6. Konfigurazio Seguruaren Aholkuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6. Konfigurazio Seguruaren Aholkuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hobespenak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hobespenak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segurtasun-gehigarria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segurtasun gehigarria
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-baliabide-gehigarriak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7. Baliabide Gehigarriak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7. Baliabide Gehigarriak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esteka-erabilgarriak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esteka erabilgarriak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laguntza-teknikoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laguntza Teknikoa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moodle_integrazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Moodle-rekin integrazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fitxategiak_konfigurazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Konfigurazio fitxategiak (.seb)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-seb-ren-konfigurazioaren-sarrera" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. SEB-ren konfigurazioaren sarrera
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-konfigurazio-urratsez-urrats-gida" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Konfigurazio-urratsez urrats gida
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Konfigurazio-urratsez urrats gida">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-urratsa-ireki-konfigurazio-tresna" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Urratsa: Ireki Konfigurazio-tresna
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Urratsa: Ireki Konfigurazio-tresna">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-en" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows-en:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-urratsa-oinarrizko-konfigurazioa-orokorra-fitxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Urratsa: Oinarrizko Konfigurazioa (Orokorra fitxa)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-urratsa-erabiltzaile-interfazearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Urratsa: Erabiltzaile-interfazearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-urratsa-nabigatzailearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Urratsa: Nabigatzailearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-urratsa-aplikazioen-kontrola" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Urratsa: Aplikazioen kontrola
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-urratsa-sarearen-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Urratsa: Sarearen konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-urratsa-segurtasun-egitura-aurreratua" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Urratsa: Segurtasun-egitura aurreratua
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-urratsa-teklen-blokeoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Urratsa: Teklen blokeoa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-urratsa-lms-rako-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Urratsa: LMS-rako konfigurazioa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-gorde-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Gorde Konfigurazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-banatu-konfigurazio-fitxategia" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Banatu Konfigurazio-fitxategia
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-arazo-ohikoenak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5. Arazo Ohikoenak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5. Arazo Ohikoenak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abioaren-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abioaren arazoak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konexio-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konexio-arazoak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errendimendu-arazoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errendimendu-arazoak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-konfigurazio-seguruaren-aholkuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6. Konfigurazio Seguruaren Aholkuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6. Konfigurazio Seguruaren Aholkuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hobespenak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hobespenak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segurtasun-gehigarria" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segurtasun gehigarria
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-baliabide-gehigarriak" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7. Baliabide Gehigarriak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.7. Baliabide Gehigarriak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esteka-erabilgarriak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Esteka erabilgarriak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#laguntza-teknikoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Laguntza Teknikoa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-safe-exam-browser-en-konfigurazioa">3. Safe Exam Browser-en Konfigurazioa<a class="headerlink" href="#3-safe-exam-browser-en-konfigurazioa" title="Permanent link">&para;</a></h1>
+<h2 id="31-seb-ren-konfigurazioaren-sarrera">3.1. SEB-ren konfigurazioaren sarrera<a class="headerlink" href="#31-seb-ren-konfigurazioaren-sarrera" title="Permanent link">&para;</a></h2>
+<p>SEB <code>.seb</code> fitxategi enkriptatuekin konfiguratzen da, azterketetan duen portaera kontrolatzeko. Garrantzitsua da konfigurazio-tresna ofiziala erabiltzea (<code>SebWindowsConfig.exe</code> Windows-en) fitxategi hauek sortzeko.</p>
+<div class="admonition warning">
+<p class="admonition-title">Garrantzitsua</p>
+<p>Ezarri beti administratzaile-pasahitza zure konfigurazioetan, aldaketa ez-baimenduak saihesteko.</p>
+</div>
+<h2 id="32-konfigurazio-urratsez-urrats-gida">3.2. Konfigurazio-urratsez urrats gida<a class="headerlink" href="#32-konfigurazio-urratsez-urrats-gida" title="Permanent link">&para;</a></h2>
+<h3 id="1-urratsa-ireki-konfigurazio-tresna">1. Urratsa: Ireki Konfigurazio-tresna<a class="headerlink" href="#1-urratsa-ireki-konfigurazio-tresna" title="Permanent link">&para;</a></h3>
+<h4 id="windows-en">Windows-en:<a class="headerlink" href="#windows-en" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Bilatu "SEB Config Tool" abioan.</li>
+<li>Edo exekutatu zuzenean <code>SebWindowsConfig.exe</code> instalazio-karpetatik (normalean <code>C:\Program Files\SafeExamBrowser\</code>).</li>
+</ol>
+<h3 id="2-urratsa-oinarrizko-konfigurazioa-orokorra-fitxa">2. Urratsa: Oinarrizko Konfigurazioa (Orokorra fitxa)<a class="headerlink" href="#2-urratsa-oinarrizko-konfigurazioa-orokorra-fitxa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Hasierako URLa</strong>:</li>
+<li>Sartu azterketaren URLa (adib: <code>https://zure-lms.eus/azterketa1</code>).</li>
+<li>
+<p>Ziurtatu <code>https://</code> erabiltzen duzula konexio seguruetarako.</p>
+</li>
+<li>
+<p><strong>Administratzaile-pasahitza</strong>:</p>
+</li>
+<li>Ezarri pasahitz indartsu bat (gutxienez 8 karaktere, maiuskulak, minuskulak, zenbakiak eta ikurrak).</li>
+<li>
+<p>Pasahitz hau beharko da konfigurazioa aldatzeko.</p>
+</li>
+<li>
+<p><strong>Baimendu SEB-tik irtetea</strong>:</p>
+</li>
+<li><strong>Gomendatua</strong>: Desgaitu aukera hau ikasleek nabigagailua ixtea eragozteko.</li>
+<li>
+<p>Gaituz gero, ezarri "Irteteko pasahitza" administratzailearen pasahitzaren desberdina.</p>
+</li>
+<li>
+<p><strong>Azterketa-modua</strong>:</p>
+</li>
+<li>Aukeratu "Erabili SEB konfigurazio-fitxategia azterketa bat hasteko".</li>
+<li>Honek azterketa bakoitzerako konfigurazio espezifikoak ahalbidetzen ditu.</li>
+</ol>
+<h3 id="3-urratsa-erabiltzaile-interfazearen-konfigurazioa">3. Urratsa: Erabiltzaile-interfazearen konfigurazioa<a class="headerlink" href="#3-urratsa-erabiltzaile-interfazearen-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Pantaila osoko modua</strong>:</li>
+<li>
+<p>Gaitu lanerako eremua maximizatzeko eta distrazioak minimizatzeko.</p>
+</li>
+<li>
+<p><strong>Abarra</strong>:</p>
+</li>
+<li>
+<p>Desgaitu sarbide ez-baimenduak saihesteko.</p>
+</li>
+<li>
+<p><strong>Orrialdearen birkarga</strong>:</p>
+</li>
+<li>Konfiguratu beharrezkoa bada:<ul>
+<li>"Baimendu abisua" itxiera ustekabekoak saihesteko.</li>
+<li>Edo desgaitu segurtasun handiagorako.</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-urratsa-nabigatzailearen-konfigurazioa">4. Urratsa: Nabigatzailearen konfigurazioa<a class="headerlink" href="#4-urratsa-nabigatzailearen-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Nabigazio-blokeoa</strong>:</li>
+<li>Gaitu "Blokeatu esteka leiho berrietara".</li>
+<li>
+<p>Desgaitu atzera/aurrera nabigazioa.</p>
+</li>
+<li>
+<p><strong>Bistaratze-aukerak</strong>:</p>
+</li>
+<li>Ezkutatu helbide-barra.</li>
+<li>Desgaitu ortografia-egiaztatzailea beharrezkoa ez bada.</li>
+</ol>
+<h3 id="5-urratsa-aplikazioen-kontrola">5. Urratsa: Aplikazioen kontrola<a class="headerlink" href="#5-urratsa-aplikazioen-kontrola" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Prozesuen monitorizazioa</strong>:</li>
+<li>
+<p>Gaitu "Monitorizatu Prozesuak".</p>
+</li>
+<li>
+<p><strong>Baimendutako aplikazioak</strong>:</p>
+</li>
+<li>
+<p>Gehitu baimendutako aplikazioak (adib: Windows kalkulagailua).</p>
+</li>
+<li>
+<p><strong>Blokeatutako aplikazioak</strong>:</p>
+</li>
+<li>Gehitu nabigatailuak (Chrome, Firefox, Edge).</li>
+<li>Sartu mezularitza edo pantaila-argazki aplikazioak.</li>
+</ol>
+<h3 id="6-urratsa-sarearen-konfigurazioa">6. Urratsa: Sarearen konfigurazioa<a class="headerlink" href="#6-urratsa-sarearen-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>URL iragazkia</strong>:</li>
+<li>Gaitu "URL iragazkia".</li>
+<li>Konfiguratu arauak:
+     <code>block:*
+     allow:zure-lms.eus/*</code></li>
+<li>Doitu domeinuak zure azterketa-plataformaren arabera.</li>
+</ol>
+<h3 id="7-urratsa-segurtasun-egitura-aurreratua">7. Urratsa: Segurtasun-egitura aurreratua<a class="headerlink" href="#7-urratsa-segurtasun-egitura-aurreratua" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Kiosko modua</strong>:</li>
+<li>Aukeratu "Sortu Mahaigain Berria".</li>
+<li>
+<p>Bakandu azterketa-saioa erabat.</p>
+</li>
+<li>
+<p><strong>Pantaila-argazkien aurkako babesa</strong>:</p>
+</li>
+<li>
+<p>Desgaitu pantaila-argazkiak ateratzeko aukera.</p>
+</li>
+<li>
+<p><strong>Sarbideen blokeoa</strong>:</p>
+</li>
+<li>Desgaitu Windows eguneraketak automatikoki.</li>
+<li>Blokeatu birtualizazio-makinak.</li>
+</ol>
+<h3 id="8-urratsa-teklen-blokeoa">8. Urratsa: Teklen blokeoa<a class="headerlink" href="#8-urratsa-teklen-blokeoa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Blokeatu beharreko teklak</strong>:</li>
+<li>Alt+Tab</li>
+<li>Ctrl+Alt+Del</li>
+<li>Impr Pant / Pantaila</li>
+<li>Windows tekla</li>
+<li>
+<p>Eskuin-klika</p>
+</li>
+<li>
+<p><strong>Laster-teklen pertsonalizazioa</strong>:</p>
+</li>
+<li>Desgaitu edo berresleitu tekla-konbinazioak beharren arabera.</li>
+</ol>
+<h3 id="9-urratsa-lms-rako-konfigurazioa">9. Urratsa: LMS-rako konfigurazioa<a class="headerlink" href="#9-urratsa-lms-rako-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Nabigatzailearen Azterketa Gakoa</strong>:</li>
+<li>Sortu gako bakarra azterketarako.</li>
+<li>
+<p>Kopiatu zure LMS-n (Moodle, etab.) azterketa konfiguratzean.</p>
+</li>
+<li>
+<p><strong>Konfigurazioaren egiaztapena</strong>:</p>
+</li>
+<li>SEB-ek gako hau egiaztatuko du azterketa hastean.</li>
+<li>Ziurtatu ikasleek konfigurazio zuzena erabiltzen dutela.</li>
+</ol>
+<h2 id="33-gorde-konfigurazioa">3.3. Gorde Konfigurazioa<a class="headerlink" href="#33-gorde-konfigurazioa" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Gorde Txantiloi gisa</strong>:</li>
+<li>Erabilgarri etorkizuneko azterketetarako.</li>
+<li>
+<p>Erabili <code>.seb</code> luzapena.</p>
+</li>
+<li>
+<p><strong>Babestu pasahitzarekin</strong>:</p>
+</li>
+<li>Ziurtatu fitxategia enkriptatuta dagoela.</li>
+<li>
+<p>Egiaztatu pasahitza eskatzen duela irekitzean.</p>
+</li>
+<li>
+<p><strong>Balioztatze-probak</strong>:</p>
+</li>
+<li>Probatu fitxategia probetako ordenagailu batean.</li>
+<li>Egiaztatu murrizketak guztiak.</li>
+</ol>
+<h2 id="34-banatu-konfigurazio-fitxategia">3.4. Banatu Konfigurazio-fitxategia<a class="headerlink" href="#34-banatu-konfigurazio-fitxategia" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Banaketa-metodoak</strong>:</li>
+<li>Igo fitxategia zure hezkuntza-plataformara.</li>
+<li>
+<p>Edo bidali posta elektronikoz ikasleei.</p>
+</li>
+<li>
+<p><strong>Argibideak ikasleentzat</strong>:</p>
+</li>
+<li>Azaldu nola ireki fitxategia SEB-ekin.</li>
+<li>Eskaini laguntza teknikoa beharrezkoa bada.</li>
+</ol>
+<h2 id="35-arazo-ohikoenak">3.5. Arazo Ohikoenak<a class="headerlink" href="#35-arazo-ohikoenak" title="Permanent link">&para;</a></h2>
+<h3 id="abioaren-arazoak">Abioaren arazoak<a class="headerlink" href="#abioaren-arazoak" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>SEB ez da abiatzen</strong>:</li>
+<li>Egiaztatu <code>.seb</code> fitxategia ez dagoela hondatuta.</li>
+<li>
+<p>Egiaztatu sistemaren baimenak.</p>
+</li>
+<li>
+<p><strong>Pasahitz-errorea</strong>:</p>
+</li>
+<li>Ziurtatu pasahitz zuzena erabiltzen ari zarela.</li>
+<li>Egiaztatu maiuskulak eta ikur bereziak.</li>
+</ul>
+<h3 id="konexio-arazoak">Konexio-arazoak<a class="headerlink" href="#konexio-arazoak" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>URLa ez da kargatzen</strong>:</li>
+<li>Egiaztatu Internet konexioa.</li>
+<li>Egiaztatu URLa zuzen idatzi duzula.</li>
+<li>Ziurtatu domeinua baimendutakoen zerrendan dagoela.</li>
+</ul>
+<h3 id="errendimendu-arazoak">Errendimendu-arazoak<a class="headerlink" href="#errendimendu-arazoak" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Geldoa</strong>:</li>
+<li>Itxi beste aplikazioak.</li>
+<li>Egiaztatu sistemaren baldintzak.</li>
+</ul>
+<h2 id="36-konfigurazio-seguruaren-aholkuak">3.6. Konfigurazio Seguruaren Aholkuak<a class="headerlink" href="#36-konfigurazio-seguruaren-aholkuak" title="Permanent link">&para;</a></h2>
+<h3 id="hobespenak">Hobespenak<a class="headerlink" href="#hobespenak" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Pasahitz sendoak</strong>:</li>
+<li>Erabili letrak, zenbakiak eta ikurrak.</li>
+<li>
+<p>Ez partekatu pasahitzak posta elektronikoz.</p>
+</li>
+<li>
+<p><strong>Aurreko probak</strong>:</p>
+</li>
+<li>Egin probak aurretik.</li>
+<li>
+<p>Egiaztatu murrizketak guztiak.</p>
+</li>
+<li>
+<p><strong>Segurtasun-kopia</strong>:</p>
+</li>
+<li>Gorde konfigurazioaren kopia bat.</li>
+<li>Dokumentatu egin dituzun aldaketak.</li>
+</ol>
+<h3 id="segurtasun-gehigarria">Segurtasun gehigarria<a class="headerlink" href="#segurtasun-gehigarria" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Eguneraketak</strong>:</li>
+<li>Mantendu SEB eguneratuta.</li>
+<li>
+<p>Egiaztatu segurtasun-eguneratzeak.</p>
+</li>
+<li>
+<p><strong>Monitorizazioa</strong>:</p>
+</li>
+<li>Gainbegiratu jarduera azterketetan.</li>
+<li>Erregistratu gorabeherak etorkizunerako hobekuntzak egiteko.</li>
+</ul>
+<h2 id="37-baliabide-gehigarriak">3.7. Baliabide Gehigarriak<a class="headerlink" href="#37-baliabide-gehigarriak" title="Permanent link">&para;</a></h2>
+<h3 id="esteka-erabilgarriak">Esteka erabilgarriak<a class="headerlink" href="#esteka-erabilgarriak" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://safeexambrowser.org/">SEB-ren Dokumentazio Ofiziala</a></li>
+<li><a href="https://safeexambrowser.org/windows/win_usermanual_en.html">Windows-erako Konfigurazio Gida</a></li>
+<li><a href="https://safeexambrowser.org/forum/">Laguntza Foroa</a></li>
+</ul>
+<h3 id="laguntza-teknikoa">Laguntza Teknikoa<a class="headerlink" href="#laguntza-teknikoa" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Jarri harremanetan zure erakundeko arreta-teknikoarekin.</li>
+<li>Eman arazoaren xehetasunak konponbide azkarrago baterako.</li>
+</ul>
+<hr />
+<p>Hurrengo kapituluan, ikusiko dugu nola integratu SEB Moodle, Blackboard eta Canvas bezalako ikaskuntza-plataformekin, eta nola kudeatu lineako azterketak modu eraginkorrean.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/Tutorial_SEB/images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,702 @@
+# 2.3 Condicionales y Bucles
+
+## Directiva v-if, v-else-if, v-else
+
+Las directivas condicionales permiten renderizar elementos basados en una condición.
+
+### Uso básico:
+
+```html
+<div v-if="puntuacion >= 90">
+  ¡Excelente!
+</div>
+<div v-else-if="puntuacion >= 70">
+  Bien hecho
+</div>
+<div v-else>
+  Sigue practicando
+</div>
+```
+
+### v-if vs v-show
+
+- `v-if`: Renderiza condicionalmente el elemento (lo añade/elimina del DOM)
+- `v-show`: Siempre renderiza el elemento, pero usa CSS para mostrarlo/ocultarlo
+
+```html
+<div v-if="mostrar">Usando v-if</div>
+<div v-show="mostrar">Usando v-show</div>
+```
+
+## Directiva v-for
+
+Permite iterar sobre arrays u objetos.
+
+### Iterando sobre arrays:
+
+```html
+<ul>
+  <li v-for="(tarea, index) in tareas" :key="tarea.id">
+    {{ index + 1 }}. {{ tarea.texto }}
+  </li>
+</ul>
+```
+
+### Iterando sobre objetos:
+
+```html
+<ul>
+  <li v-for="(valor, clave) in usuario" :key="clave">
+    {{ clave }}: {{ valor }}
+  </li>
+</ul>
+```
+
+### Iterando sobre objetos con índice:
+
+```html
+<template>
+  <div>
+    <h3>Información del usuario con índice:</h3>
+    <ul>
+      <li v-for="(valor, clave, index) in usuario" :key="clave">
+        #{{ index + 1 }} - {{ clave }}: {{ valor }}
+        <span v-if="index === Object.keys(usuario).length - 1"> (Último elemento)</span>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script setup>
+const usuario = {
+  nombre: 'Ana',
+  edad: 28,
+  email: 'ana@ejemplo.com',
+  rol: 'desarrolladora',
+  activo: true
+};
+</script>
+```
+
+En este ejemplo:
+- `valor`: Contiene el valor de cada propiedad
+- `clave`: Contiene el nombre de la propiedad
+- `index`: Contiene el índice de la iteración actual
+
+## Ejercicio Práctico: Lista de Tareas Avanzada
+
+En este ejercicio, crearemos una lista de tareas avanzada que incluye:
+- Filtrado de tareas (Todas, Pendientes, Completadas)
+- Edición en línea de tareas
+- Persistencia en localStorage
+- Contadores de tareas
+- Interfaz intuitiva
+
+### Componente SFC (Single File Component)
+
+```vue
+<template>
+  <div class="tareas-container">
+    <h1>Lista de Tareas Avanzada</h1>
+    
+    <!-- Formulario para agregar tareas -->
+    <div class="form-group">
+      <input 
+        v-model="nuevaTarea" 
+        @keyup.enter="agregarTarea"
+        placeholder="Nueva tarea..."
+        class="tarea-input"
+      >
+      <button @click="agregarTarea" class="btn btn-agregar">
+        Agregar
+      </button>
+    </div>
+    
+    <!-- Filtros -->
+    <div class="filtros">
+      <button 
+        v-for="filtro in filtros" 
+        :key="filtro"
+        @click="filtroActual = filtro"
+        :class="['btn-filtro', { 'activo': filtro === filtroActual }]"
+      >
+        {{ filtro }}
+      </button>
+    </div>
+    
+    <!-- Lista de tareas -->
+    <ul class="lista-tareas">
+      <li 
+        v-for="tarea in tareasFiltradas" 
+        :key="tarea.id"
+        :class="['tarea-item', { 'completada': tarea.completada }]"
+      >
+        <input 
+          type="checkbox" 
+          v-model="tarea.completada"
+          @change="actualizarTarea(tarea)"
+          class="tarea-checkbox"
+        >
+        <span class="tarea-texto" @dblclick="editarTarea(tarea)">
+          {{ tarea.texto }}
+        </span>
+        <div class="acciones-tarea">
+          <button class="btn btn-editar" @click="editarTarea(tarea)">
+            ✏️
+          </button>
+          <button class="btn btn-eliminar" @click="eliminarTarea(tarea.id)">
+            🗑️
+          </button>
+        </div>
+        
+        <!-- Input de edición (se muestra al hacer doble clic) -->
+        <input 
+          v-if="tarea.editando"
+          v-model="tarea.texto"
+          @blur="guardarEdicion(tarea)"
+          @keyup.enter="guardarEdicion(tarea)"
+          @keyup.esc="cancelarEdicion(tarea)"
+          v-focus
+          class="input-edicion"
+        >
+      </li>
+    </ul>
+    
+    <!-- Contadores -->
+    <div class="contadores">
+      <p>Total: {{ tareas.length }}</p>
+      <p>Completadas: {{ tareasCompletadas }}</p>
+      <p>Pendientes: {{ tareasPendientes }}</p>
+    </div>
+    
+    <!-- Mensaje cuando no hay tareas -->
+    <p v-if="tareas.length === 0" class="sin-tareas">
+      No hay tareas. ¡Agrega una para comenzar!
+    </p>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from 'vue';
+
+// Estado reactivo
+const nuevaTarea = ref('');
+const tareas = ref(JSON.parse(localStorage.getItem('tareas')) || []);
+const filtroActual = ref('Todas');
+const tareasAntesDeEditar = {};
+
+// Constantes
+const filtros = ['Todas', 'Pendientes', 'Completadas'];
+
+// Propiedades computadas
+const tareasCompletadas = computed(() => 
+  tareas.value.filter(t => t.completada).length
+);
+
+const tareasPendientes = computed(() => 
+  tareas.value.filter(t => !t.completada).length
+);
+
+const tareasFiltradas = computed(() => {
+  switch (filtroActual.value) {
+    case 'Pendientes':
+      return tareas.value.filter(t => !t.completada);
+    case 'Completadas':
+      return tareas.value.filter(t => t.completada);
+    default:
+      return tareas.value;
+  }
+});
+
+// Métodos
+function agregarTarea() {
+  if (nuevaTarea.value.trim() === '') return;
+  
+  tareas.value.push({
+    id: Date.now(),
+    texto: nuevaTarea.value.trim(),
+    completada: false,
+    editando: false
+  });
+  
+  nuevaTarea.value = '';
+  guardarTareas();
+}
+
+function eliminarTarea(id) {
+  if (confirm('¿Estás seguro de que quieres eliminar esta tarea?')) {
+    tareas.value = tareas.value.filter(t => t.id !== id);
+    guardarTareas();
+  }
+}
+
+function editarTarea(tarea) {
+  tareasAntesDeEditar[tarea.id] = tarea.texto;
+  tarea.editando = true;
+}
+
+function guardarEdicion(tarea) {
+  if (tarea.texto.trim() === '') {
+    tarea.texto = tareasAntesDeEditar[tarea.id] || '';
+  }
+  tarea.editando = false;
+  guardarTareas();
+}
+
+function cancelarEdicion(tarea) {
+  tarea.texto = tareasAntesDeEditar[tarea.id] || tarea.texto;
+  tarea.editando = false;
+}
+
+function actualizarTarea(tarea) {
+  guardarTareas();
+}
+
+function guardarTareas() {
+  localStorage.setItem('tareas', JSON.stringify(tareas.value));
+}
+
+// Directiva personalizada para enfocar el input de edición
+const vFocus = {
+  mounted: (el) => el.focus()
+};
+
+// Cargar tareas guardadas al iniciar
+onMounted(() => {
+  const tareasGuardadas = localStorage.getItem('tareas');
+  if (tareasGuardadas) {
+    tareas.value = JSON.parse(tareasGuardadas);
+  }
+});
+</script>
+
+<style scoped>
+/* Estilos para el contenedor principal */
+.tareas-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos para el formulario */
+.form-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tarea-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Estilos para los botones */
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-agregar:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para los filtros */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn-filtro {
+  background-color: #f1f1f1;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-filtro.activo {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #45a049;
+}
+
+/* Estilos para la lista de tareas */
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+}
+
+.tarea-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.tarea-item:hover {
+  background-color: #f1f1f1;
+}
+
+.tarea-item.completada {
+  opacity: 0.7;
+}
+
+.tarea-checkbox {
+  margin-right: 10px;
+}
+
+.tarea-texto {
+  flex: 1;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tarea-item.completada .tarea-texto {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.acciones-tarea {
+  display: flex;
+  gap: 5px;
+}
+
+.btn-editar {
+  background-color: #2196F3;
+  color: white;
+}
+
+.btn-eliminar {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-editar:hover, .btn-eliminar:hover {
+  opacity: 0.9;
+}
+
+/* Estilos para el input de edición */
+.input-edicion {
+  flex: 1;
+  padding: 5px;
+  margin-left: 10px;
+  border: 1px solid #2196F3;
+  border-radius: 4px;
+}
+
+/* Estilos para los contadores */
+.contadores {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+/* Estilos para el mensaje de sin tareas */
+.sin-tareas {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+## Explicación del Código
+
+1. **Estructura del Componente**:
+   - Usamos la sintaxis de `<script setup>` para una mejor organización del código.
+   - El componente está dividido en tres secciones principales: template, script y estilos.
+
+2. **Funcionalidades Clave**:
+   - **Agregar tareas**: Con validación de entrada vacía.
+   - **Marcar como completada**: Usando `v-model` en los checkboxes.
+   - **Editar tareas**: Con doble clic o botón de editar.
+   - **Eliminar tareas**: Con confirmación antes de eliminar.
+   - **Filtrar tareas**: Entre todas, completadas o pendientes.
+   - **Persistencia**: Guarda las tareas en `localStorage`.
+
+3. **Características Avanzadas**:
+   - Directiva personalizada `v-focus` para enfocar automáticamente los inputs de edición.
+   - Uso de `computed` para tareas filtradas y contadores.
+   - Manejo de eventos del teclado (Enter, Esc) para mejor usabilidad.
+   - Estilos responsivos y con feedback visual para las interacciones del usuario.
+
+4. **Buenas Prácticas**:
+   - Uso de `:key` en los bucles `v-for` para un renderizado eficiente.
+   - Separación clara entre lógica, presentación y estilos.
+   - Código limpio y bien documentado.
+
+Este ejercicio demuestra el uso efectivo de las directivas `v-if`, `v-for` y `v-model` en un contexto práctico, mostrando cómo se pueden combinar para crear interfaces de usuario interactivas y responsivas con Vue.js.
+
+/* Títulos */
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Formulario */
+.form-group {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background: #42b983;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+button:hover {
+  background: #3aa876;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Filtros */
+.filtros {
+  margin: 1.5rem 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filtros button {
+  background: #f0f0f0;
+  color: #333;
+  padding: 8px 15px;
+  margin: 5px;
+}
+
+.filtros button.activo {
+  background: #42b983;
+  color: white;
+  font-weight: 600;
+}
+
+/* Lista de tareas */
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-tareas li {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  margin: 10px 0;
+  background: #ffffff;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-left: 4px solid #42b983;
+}
+
+.lista-tareas li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.lista-tareas li.completada {
+  opacity: 0.8;
+  border-left-color: #95a5a6;
+}
+
+.lista-tareas li.completada span {
+  text-decoration: line-through;
+  color: #7f8c8d;
+}
+
+.lista-tareas input[type="checkbox"] {
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.lista-tareas span {
+  flex: 1;
+  margin: 0 15px;
+  cursor: pointer;
+  word-break: break-word;
+  padding: 5px 0;
+}
+
+/* Botones de acción */
+.acciones-tarea {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-eliminar {
+  background-color: #e74c3c !important;
+  padding: 6px 10px !important;
+  border-radius: 4px;
+}
+
+.btn-eliminar:hover {
+  background-color: #c0392b !important;
+}
+
+.btn-editar {
+  background-color: #3498db !important;
+  padding: 6px 10px !important;
+  border-radius: 4px;
+}
+
+.btn-editar:hover {
+  background-color: #2980b9 !important;
+}
+
+/* Contadores */
+.contadores {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contadores p {
+  margin: 0;
+  padding: 5px 10px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Mensaje sin tareas */
+.sin-tareas {
+  color: #7f8c8d;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin: 2rem 0;
+}
+
+/* Input de edición */
+.input-edicion {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #42b983;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-right: 10px;
+  box-shadow: 0 0 0 2px rgba(66, 185, 131, 0.2);
+}
+
+/* Efecto para el modo edición */
+[contenteditable="true"],
+input[type="text"]:focus {
+  outline: none;
+  border-color: #42b983;
+  box-shadow: 0 0 0 2px rgba(66, 185, 131, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-group {
+    flex-direction: column;
+  }
+  
+  button, input[type="text"] {
+    width: 100%;
+  }
+  
+  .contadores {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .contadores p {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .lista-tareas li {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .acciones-tarea {
+    margin-left: auto;
+  }
+}
+```
+
+### Cómo usar la aplicación
+
+1. **Agregar tareas**: Escribe en el campo de texto y presiona Enter o haz clic en "Agregar".
+2. **Marcar como completada**: Usa el checkbox al lado de cada tarea.
+3. **Editar tarea**: Haz doble clic en el texto de la tarea o haz clic en el botón de editar (✏️).
+4. **Eliminar tarea**: Haz clic en el botón de eliminar (🗑️).
+5. **Filtrar tareas**: Usa los botones de filtro para ver todas las tareas, solo las pendientes o solo las completadas.
+
+### Características implementadas
+
+- **Persistencia de datos**: Las tareas se guardan automáticamente en el localStorage del navegador.
+- **Diseño responsive**: Se adapta a diferentes tamaños de pantalla.
+- **Interfaz intuitiva**: Retroalimentación visual al interactuar con los elementos.
+- **Accesibilidad**: Controles accesibles y fáciles de usar.
+
+### Posibles mejoras
+
+1. **Validación de entrada**: Evitar tareas duplicadas o vacías.
+2. **Categorías de tareas**: Agrupar tareas por categorías.
+3. **Fechas de vencimiento**: Añadir fechas límite a las tareas.
+4. **Búsqueda**: Añadir un campo de búsqueda para encontrar tareas específicas.
+5. **Ordenamiento**: Permitir ordenar las tareas por diferentes criterios (fecha, completadas, etc.).
+
+¡Ahora tienes una aplicación de lista de tareas completa y funcional construida con Vue 3 y la Composition API! Puedes personalizar los estilos y agregar más funcionalidades según tus necesidades.
+
+## Siguiente paso
+
+En la siguiente sección, exploraremos las propiedades computadas en Vue, que nos permiten realizar cálculos complejos sobre nuestros datos reactivos de manera eficiente.
+
+[Siguiente: Propiedades Computadas →](propiedades-computadas.md)
