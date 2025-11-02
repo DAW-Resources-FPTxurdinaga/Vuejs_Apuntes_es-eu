@@ -14,25 +14,25 @@
 ### Baldintzak
 ```vue
 <template>
-  <div v-if="ikusgaiDago">Ikusgai</div>
-  <div v-else-if="besteBaldintzaBat">Beste baldintza bat</div>
+  <div v-if="ikustenDa">Ikusten da</div>
+  <div v-else-if="besteBaldintza">Beste baldintza</div>
   <div v-else>Lehenetsia</div>
   
-  <div v-show="ikusgaiDago">v-if-ren ordezkoa</div>
+  <div v-show="ikustenDa">v-if-ren ordezko bat</div>
 </template>
 ```
 
 ### Begiztak
 ```vue
 <template>
-  <!-- Array baten gainean iteratu -->
+  <!-- Array-a errepikatu -->
   <ul>
-    <li v-for="(elementua, index) in elementuak" :key="elementua.id">
-      {{ index }} - {{ elementua.izena }}
+    <li v-for="(elementua, indizea) in elementuak" :key="elementua.id">
+      {{ indizea }} - {{ elementua.izena }}
     </li>
   </ul>
   
-  <!-- Objektu baten gainean iteratu -->
+  <!-- Objektua errepikatu -->
   <div v-for="(balioa, gakoa) in objektua" :key="gakoa">
     {{ gakoa }}: {{ balioa }}
   </div>
@@ -44,7 +44,7 @@
 <template>
   <!-- v-bind edo : -->
   <a :href="esteka">Esteka</a>
-  <img :src="irudiarenUrl" :alt="testuAlternatiboa">
+  <img :src="irudiEsteka" :alt="ordezkoTestua">
   
   <!-- v-model -->
   <input v-model="testua" placeholder="Idatzi zerbait">
@@ -59,7 +59,7 @@
 
 ## Composition API
 
-### Erantzunkortasun Oinarrizkoa
+### Erreaktibotasun Oinarrizkoa
 ```vue
 <script setup>
 import { ref, reactive, computed, watch, watchEffect } from 'vue'
@@ -67,14 +67,27 @@ import { ref, reactive, computed, watch, watchEffect } from 'vue'
 // Aldagai eraginkorrak
 const kontadorea = ref(0)
 const egoera = reactive({
-  izena: 'Mikel',
+  izena: 'Jon',
   adina: 30
 })
 
 // Kalkulatutako propietateak
 const izenOsoa = computed(() => {
-  return `${egoera.izena} Lopez`
+  return `${egoera.izena} Perez`
 })
+
+// Ikusleak
+watch(kontadorea, (balioBerria, balioZaharra) => {
+  console.log(`Kontadorea ${balioZaharra}-tik ${balioBerria}-ra aldatu da`)
+})
+
+// Efektuaren ikuslea
+exekutatu edozein menpekotasun eraginkor aldatzen denean
+watchEffect(() => {
+  console.log(`Kontadorea: ${kontadorea.value}`)
+})
+</script>
+```
 
 ### Bizitza Zikloa
 ```vue
@@ -106,8 +119,8 @@ onUnmounted(() => {
     <button type="submit">Bidali</button>
   </form>
   
-  <!-- Argumentuak dituzten gertaera-kudeatzaileak -->
-  <button @click="(event) => agurtu('Kaixo', $event)">Agurtu</button>
+  <!-- Argumentudun gertaera-kudeatzaileak -->
+  <button @click="(gertaera) => agurtu('Kaixo', $event)">Agurtu</button>
 </template>
 
 <script setup>
@@ -119,31 +132,31 @@ function bidaliInprimakia() {
   // Inprimakiaren logika
 }
 
-function agurtu(mezua, event) {
-  console.log(mezua, event.target)
+function agurtu(mezua, gertaera) {
+  console.log(mezua, gertaera.target)
 }
 </script>
 ```
 
-## Txantiloi-erreferentziak (refs)
+## Txantiloi Erreferentziak (refs)
 ```vue
 <template>
-  <input ref="sarreraRef" type="text">
+  <input ref="sarreraErref" type="text">
   <button @click="fokuratuSarrera">Fokuratu sarrera</button>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const sarreraRef = ref(null)
+const sarreraErref = ref(null)
 
 onMounted(() => {
-  // sarreraRef.value-k DOM-eko elementuaren erreferentzia du
-  console.log(sarreraRef.value) // <input type="text">
+  // sarreraErref.value-k DOM elementuaren erreferentzia du
+  console.log(sarreraErref.value) // <input type="text">
 })
 
 function fokuratuSarrera() {
-  sarreraRef.value.focus()
+  sarreraErref.value.focus()
 }
 </script>
 ```
@@ -151,16 +164,16 @@ function fokuratuSarrera() {
 ## Zuzentarau Pertsonalizatuak
 ```vue
 <template>
-  <p v-nabarmendu="'horia'">Testu nabarmendua</p>
-  <button v-finkatu="200">Botoi finkoa</button>
+  <p v-nabarmentu="'horia'">Nabarmendutako testua</p>
+  <button v-finkatu="200">Finkatutako botoia</button>
 </template>
 
 <script setup>
 // Zuzentarau globala (main.js edo antzekoa)
 const app = createApp(App)
 
-// Nabarmendzeko zuzentaraua
-app.directive('nabarmendu', {
+// Nabarmentzeko zuzentaraua
+app.directive('nabarmentu', {
   mounted(el, binding) {
     el.style.backgroundColor = binding.value || 'yellow'
     el.style.padding = '5px'
@@ -180,13 +193,13 @@ app.directive('finkatu', {
 </script>
 ```
 
-## Props eta Emits
+## Prop-ak eta Emit-ak
 ```vue
 <!-- Seme-osagaia -->
 <template>
   <div>
     <h2>{{ izenburua }}</h2>
-    <button @click="bidalitakoGertakizuna">Egin klik</button>
+    <button @click="jakinarazi">Jakinarazi gurasoari</button>
   </div>
 </template>
 
@@ -194,68 +207,298 @@ app.directive('finkatu', {
 const props = defineProps({
   izenburua: {
     type: String,
-    required: true
+    required: true,
+    default: 'Lehenetsitako izenburua'
   },
-  zenbakia: {
+  hasierakoBalioa: {
     type: Number,
     default: 0
   }
 })
 
-const emit = defineEmits(['gertakizunPertsonalizatua'])
+const emit = defineEmits(['eguneratu'])
 
-function bidalitakoGertakizuna() {
-  emit('gertakizunPertsonalizatua', 'Datuak')
+function jakinarazi() {
+  emit('eguneratu', 'Semearen datuak')
 }
 </script>
 
 <!-- Guraso-osagaia -->
 <template>
   <SemeOsagaia 
-    :izenburua="izenburua" 
-    @gertakizunPertsonalizatua="kudeatuGertakizuna"
+    izenburua="Nire Osagaia" 
+    :hasierako-balioa="kontadorea"
+    @eguneratu="kudeatuEguneraketa"
   />
 </template>
 ```
 
-## Beste Aholku Garrantzitsu Batzuk
+## Eman/Hartu
+```vue
+<!-- Guraso-osagaia -->
+<script setup>
+import { provide, ref } from 'vue'
 
-1. **Errendimendua**: Erabili `v-once` behin bakarrik errendatu behar diren elementuentzat.
-2. **Gakoak**: Erabili `:key` beti `v-for`-rekin errendatze egokiagoa lortzeko.
-3. **Konputazio Astunak**: Erabili `computed` propietateak emaitzak cacheatzeko.
-4. **Gertaera Modifikatzaileak**: Erabili `.prevent`, `.stop`, `.self`, etab. gertaeren portaera kontrolatzeko.
-5. **Dinamikoki Osagaiak**: Erabili `<component :is="...">` osagaiak dinamikoki aldatzeko.
-6. **Slot-ak**: Erabili `<slot>` eduki moldagarrirako.
-7. **Dinamikoki Zuzentarauak**: Erabili `v-bind:[directiva]="balioa"` zuzentarau dinamikoak sortzeko.
-8. **Teleport**: Erabili `<teleport>` modalen edo tooltip-ak goragoko mailako elementuetara bidaltzeko.
-9. **Berrizabiltzea**: Atera logika errepikatua `composables`-etan.
+const gaia = ref('argia')
 
-   ```javascript
-   // erabiliKontadorea.js
-   import { ref, computed } from 'vue'
-   
-   export function erabiliKontadorea() {
-     const kontadorea = ref(0)
-     
-     function handitu() {
-       kontadorea.value++
+provide('gaia', gaia)
+</script>
+
+<!-- Seme-osagaia -->
+<template>
+  <div :class="gaia">
+    <!-- Edukia -->
+  </div>
+</template>
+
+<script setup>
+import { inject } from 'vue'
+
+const gaia = inject('gaia', 'argia')
+</script>
+```
+
+## Txartelak
+```vue
+<!-- OinarrizkoDiseinua Osagaia -->
+<template>
+  <div class="edukiontzia">
+    <header>
+      <slot name="goiburua"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="oinarria"></slot>
+    </footer>
+  </div>
+</template>
+
+<!-- Erabilera -->
+<OinarrizkoDiseinua>
+  <template #goiburua>
+    <h1>Orriaren izenburua</h1>
+  </template>
+  
+  <p>Eduki nagusia</p>
+  
+  <template #oinarria>
+    <p>Orri-oina</p>
+  </template>
+</OinarrizkoDiseinua>
+```
+
+## Trantsizioak
+```vue
+<template>
+  <button @click="erakutsi = !erakutsi">Aldatu</button>
+  
+  <transition name="desagertu">
+    <p v-if="erakutsi">Agertzen/desagertzen den testua</p>
+  </transition>
+</template>
+
+<style>
+.desagertu-enter-active, .desagertu-leave-active {
+  transition: opacity 0.5s;
+}
+.desagertu-enter-from, .desagertu-leave-to {
+  opacity: 0;
+}
+</style>
+```
+
+## Baldintzazko Errendatzearen Zuzentarau Aurreratuak
+
+### v-once
+Elementua behin bakarrik errendatzen du, eta ez du berriz eguneratzen:
+```vue
+<template>
+  <div v-once>Balio hau ez da inoiz aldatuko: {{ kontadorea }}</div>
+  <div>Balio hau bai aldatuko da: {{ kontadorea }}</div>
+</template>
+```
+
+### v-memo
+Txantiloiaren azpizuhaitza cachean gordetzen du. Errendimendua optimizatzeko baliagarria:
+```vue
+<template>
+  <div v-memo="[menpekotasun1, menpekotasun2]">
+    <!-- Eduki hau berriz errendatuko da soilik menpekotasun1 edo menpekotasun2 aldatzen badira -->
+    {{ datuHandiak }}
+  </div>
+</template>
+```
+
+### v-cloak
+Konpilatu gabeko edukien keinua ekiditeko baliagarria:
+```vue
+<template>
+  <div v-cloak>
+    {{ mezua }}
+  </div>
+</template>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+</style>
+```
+
+## Osagaien Konposaketa
+
+### Adibideko Osagaia Composition API-rekin
+```vue
+<template>
+  <div>
+    <h2>{{ izenburua }}</h2>
+    <p>Kontadorea: {{ kontadorea }}</p>
+    <button @click="handitu">Handitu</button>
+    <button @click="txikitu">Txikitu</button>
+    <p>Bikoitza: {{ bikoitza }}</p>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+
+// Prop-ak
+defineProps({
+  izenburua: {
+    type: String,
+    default: 'Kontadorea'
+  },
+  hasierakoBalioa: {
+    type: Number,
+    default: 0
+  }
+})
+
+// Egoera eraginkorra
+const kontadorea = ref(hasierakoBalioa)
+const bikoitza = computed(() => kontadorea.value * 2)
+
+// Metodoak
+function handitu() {
+  kontadorea.value++
+}
+
+function txikitu() {
+  kontadorea.value--
+}
+
+// Bizitza-zikloaren hook-ak
+onMounted(() => {
+  console.log('Osagaia muntatuta')
+})
+</script>
+```
+
+## Praktika onak
+
+1) **Osagaien Izenak**: Erabili izen anitzeko hitzak HTML elementuekin gatazkak ekiditeko.
+
+```javascript
+// Gaizki
+export default {
+  name: 'Botoia',
+}
+
+// Ongi
+export default {
+  name: 'OinarriBotoia',
+  // ...
+}
+```
+
+2) **Prop-ak zehatzak**: Zehaztu prop-ak balidazioarekin ahal denean.
+
+```javascript
+prop-ak: {
+  egoera: {
+    type: String,
+    required: true,
+    validator: (balioa) => {
+      return ['arrakasta', 'abisu', 'arrisku'].includes(balioa)
      }
-     
-     const bikoitza = computed(() => kontadorea.value * 2)
-     
-     return { kontadorea, handitu, bikoitza }
+    }
    }
-   ```
+```
 
-10. **Erroreak Kudeatzea**: Erabili `onErrorCaptured` barneko erroreak harrapatzeko.
+3) **Gakoak v-for-ean**: Erabili beti `:key` `v-for`-rekin.
 
-## Ondorioa
+```html
+<!-- Gaizki -->
+<li v-for="elementua in elementuak">{{ elementua.testua }}</li>
 
-Hau Vue 3-ren erabilerarik ohikoenen laburpen azkar bat da. Dokumentazio ofizialean sakondu dezakezu: [Vue 3 Dokumentazioa](https://v3.vuejs.org/)
+<!-- Ongi -->
+<li v-for="elementua in elementuak" :key="elementua.id">
+  {{ elementua.testua }}
+</li>
+```
 
+4) **Estiloak eskopioarekin**: Erabili `<style scoped>` osagai jakin baterako estiloetarako.
+
+5) **Gertaeren Kudeaketa**: Erabili kebab-case gertaera pertsonalizatuen izenetan.
+
+```html
+<!-- Seme-osagaia -->
+<button @click="$emit('gorde-aldaketak')">Gorde</button>
+
+<!-- Guraso-osagaia -->
+<nire-osagaia @gorde-aldaketak="gordeDatuak" />
+```
+
+6) **Konposaketa heredentziaren gainean**: Hobetsi konposaketa `setup()` edo `<script setup>` erabiliz osagaien arteko heredentziaren gainean.
+
+7) **Erroreen Kudeaketa**: Inplementatu erroreen kudeaketa dei asinkronoetan.
+
+```javascript
+async function kargatuDatuak() {
+  try {
+    const erantzuna = await fetch('https://api.adibidea.eus/datuak')
+    if (!erantzuna.ok) throw new Error('Errorea datuak kargatzean')
+    datuak.value = await erantzuna.json()
+  } catch (errorea) {
+    console.error('Errorea:', errorea)
+    erroreEgoera.value = 'Ezin izan dira datuak kargatu'
+  }
+}
+```
+
+8) **Deskonposaketa**: Mantendu osagaiak txikiak eta erantzukizun bakarrean zentratuta.
+
+9) **Berriz erabiltzea**: Atera logika errepikakorrak konposagarrietan.
+
+```javascript
+// erabiliKontadorea.js
+import { ref, computed } from 'vue'
+
+export function erabiliKontadorea(hasierakoBalioa = 0) {
+  const kontadorea = ref(hasierakoBalioa)
+  
+  const handitu = () => kontadorea.value++
+  const txikitu = () => kontadorea.value--
+  const berrabiarazi = () => kontadorea.value = hasierakoBalioa
+  
+  const bikoitia = computed(() => kontadorea.value % 2 === 0)
+  
+  return {
+    kontadorea,
+    handitu,
+    txikitu,
+    berrabiarazi,
+    bikoitia
+  }
+}
+```
+
+10) **Dokumentazioa**: Dokumentatu prop-ak, gertaerak eta txartelak osagaietan.
 
 ## Hurrengo urratsa
 
-Ikasitako guztia praktikan jarriko dugu ariketa praktiko batekin
+Orain arte ikasitako guztia praktikan jarriko dugu ariketa praktiko batekin
 
 [Hurrengoa: Ariketa praktikoa →](ariketa-praktikoa.md)
