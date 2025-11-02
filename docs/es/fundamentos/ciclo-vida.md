@@ -1,4 +1,4 @@
-# Ciclo de Vida de una Instancia Vue
+# 2.6 Ciclo de Vida de una Instancia Vue
 
 El ciclo de vida de una instancia Vue es un concepto fundamental que todo desarrollador debe comprender para crear aplicaciones robustas y eficientes. Este ciclo define una serie de etapas por las que pasa cada componente Vue, desde su creación hasta su destrucción.
 
@@ -183,15 +183,17 @@ export default {
 ## Preguntas Frecuentes
 
 **¿Cuál es la diferencia entre `created` y `mounted`?**
-- `created` se llama cuando la instancia ha sido creada pero aún no se ha montado en el DOM.
-- `mounted` se llama después de que el componente ha sido insertado en el DOM.
+
+   - `created` se llama cuando la instancia ha sido creada pero aún no se ha montado en el DOM.
+   - `mounted` se llama después de que el componente ha sido insertado en el DOM.
 
 **¿Cuándo debo usar `beforeUnmount`?**
 Usa `beforeUnmount` para limpiar cualquier recurso que pueda causar fugas de memoria, como:
-- Temporizadores con `setTimeout` o `setInterval`
-- Suscripciones a eventos globales
-- Conexiones WebSocket
-- Cualquier otro recurso que necesite ser liberado
+
+   - Temporizadores con `setTimeout` o `setInterval`
+   - Suscripciones a eventos globales
+   - Conexiones WebSocket
+   - Cualquier otro recurso que necesite ser liberado
 
 **¿Puedo usar async/await en los hooks del ciclo de vida?**
 Sí, pero ten en cuenta que el ciclo de vida continuará ejecutándose sin esperar a que se resuelva la promesa. Si necesitas esperar a que se complete una operación asíncrona, considera usar `onMounted` de la Composition API o manejar la lógica asíncrona de otra manera.
@@ -200,4 +202,4 @@ Sí, pero ten en cuenta que el ciclo de vida continuará ejecutándose sin esper
 
 Ahora que has aprendido sobre el ciclo de vida de los componentes en Vue, el siguiente paso es revisar la hoja de referencia rápida que resume los conceptos fundamentales de Vue que hemos cubierto hasta ahora.
 
-[Siguiente: Hoja de Referencia Rápida →](cheat-sheet.md)
+[Siguiente: Reactividad →](reactividad.md)

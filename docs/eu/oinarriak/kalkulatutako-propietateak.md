@@ -1,204 +1,227 @@
-# Kalkulatutako Propietateak
+# 2.5 Kalkulatutako Propietateak
 
-## Sarrera
+Kalkulatutako propietateak beste propietate erreaktiboetan oinarrituta automatikoki kalkulatzen diren balioak dira. Eragiketa konplexuak egiteko edo datuak modu eraginkorrean iragazteko ideala dira.
 
-Kalkulatutako propietateak (`computed` propietateak) datu-ereduaren balioetan oinarritutako balio kalkulatuak gordetzeko erabiltzen dira. Hauek cachean gordetzen dira eta beren mendekotasunak aldatzen direnean bakarrik berriro kalkulatzen dira.
+## Oinarrizko Kontzeptuak
 
-## Oinarrizko Adibidea
+### Zer da kalkulatutako propietate bat?
 
-```vue
+Kalkulatutako propietatea beste propietate erreaktiboetan oinarritutako balioa itzultzen duen funtzio bat da. Vue-k bere menpekotasunak automatikoki jarraitzen ditu eta beharrezkoa denean balioa berriro kalkulatzea kudeatzen du.
+
+### Sintaxi Oinarrizkoa
+
+```html
 <template>
   <div>
-    <h2>Erosketa Txartela</h2>
-    <div v-for="produktua in produktuak" :key="produktua.id" class="produktua">
-      <span>{{ produktua.izena }} - {{ produktua.prezioa }}€</span>
-      <input type="number" v-model.number="produktua.kopurua" min="0">
+    <p>Izen osoa: {{ izenOsoa }}</p>
+    <p>Izena maiuskulaz: {{ izenMaiuskulatan }}</p>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from 'vue';
+
+const izena = ref('Ane');
+const abizena = ref('Garcia');
+
+// Kalkulatutako propietate oinarrizkoa
+const izenOsoa = computed(() => {
+  return `${izena.value} ${abizena.value}`;
+});
+
+// Beste kalkulatutako propietate baten menpe dagoen propietatea
+const izenMaiuskulatan = computed(() => {
+  return izenOsoa.value.toUpperCase();
+});
+</script>
+```
+
+## Ezaugarri Nagusiak
+
+### 1. Cache Automatikoa
+
+Kalkulatutako propietateek beren emaitzak cachean gordetzen dituzte eta beren menpekotasun erreaktiboetako bat aldatzen denean bakarrik berriro kalkulatzen dira.
+
+**Cache-aren adibidea:**
+
+```javascript
+const orain = computed(() => {
+  // Propietate hau soilik berriro kalkulatuko da bertara sartzen denean
+  // eta bere menpekotasunetako bat aldatu bada
+  return new Date().toLocaleTimeString();
+});
+```
+
+### 2. Irakurtzeko soilik diren kalkulatutako propietateak
+
+Berez, kalkulatutako propietateak irakurtzeko soilik dira. Idazteko moduko propietate bat behar baduzu, getter eta setter bat eman ditzakezu.
+
+```javascript
+const izenOsoa = computed({
+  // getter
+  get() {
+    return `${izena.value} ${abizena.value}`;
+  },
+  // setter
+  set(balioBerria) {
+    const [izenBerria, ...abizenak] = balioBerria.split(' ');
+    izena.value = izenBerria;
+    abizena.value = abizenak.join(' ');
+  }
+});
+
+// Orain hau egin dezakezu:
+// izenOsoa.value = 'Mikel Otegi Lopez';
+```
+
+### 3. Praktika Onak
+
+1. **Saihestu albo-ondorioak**: Kalkulatutako propietateek ez lukete albo-ondoriorik izan behar. Ez egin eskaera asinkronorik ezta DOM-a aldatu haien barruan.
+
+2. **Ez aldatu daturik**: Ez aldatu estaturik kalkulatutako propietate baten barruan. Erabili metodoak edo watchers horretarako.
+
+3. **Mantendu sinpletasuna**: Kalkulatutako propietate bat gehiegi konplexu bihurtzen bada, kontuan izan kalkulatutako propietate txikiagoetan banatzea.
+
+## Adibide Praktikoa: Erosketa Saskia
+
+```html
+<template>
+  <div class="saskia">
+    <h2>Erosketa Saskia</h2>
+    
+    <div v-for="elementua in elementuak" :key="elementua.id" class="elementua">
+      <span>{{ elementua.izena }}</span>
+      <input 
+        type="number" 
+        v-model.number="elementua.kopurua" 
+        min="1"
+        @change="eguneratuKopurua(elementua)"
+      >
+      <span>{{ formatuPrezioa(elementua.prezioa * elementua.kopurua) }}</span>
     </div>
     
-    <div class="totalak">
-      <p>Guztira produktuak: {{ guztiraKopurua }}</p>
-      <p>Guztira prezioa (BEZ gabe): {{ guztiraPrezioa }}€</p>
-      <p>BEZ (21%): {{ bez }}€</p>
-      <p><strong>Guztira (BEZ barne): {{ guztiraBEZrekin }}€</strong></p>
+    <div class="guztira">
+      <strong>Guztira:</strong> {{ formatuPrezioa(guztira) }}
+    </div>
+    <div class="beherapena" v-if="beherapena > 0">
+      <strong>Beherapena:</strong> -{{ formatuPrezioa(beherapena) }}
+    </div>
+    <div class="ordaindu" v-if="guztira > 0">
+      <strong>Ordaindu beharrekoa:</strong> {{ formatuPrezioa(ordainduBeharrekoa) }}
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      produktuak: [
-        { id: 1, izena: 'Teklatua', prezio: 25, kopurua: 0 },
-        { id: 2, izena: 'Sagua', prezio: 15, kopurua: 0 },
-        { id: 3, izena: 'Monitorea', prezio: 150, kopurua: 0 }
-      ]
-    }
-  },
-  computed: {
-    guztiraKopurua() {
-      return this.produktuak.reduce((total, p) => total + p.kopurua, 0);
-    },
-    guztiraPrezioa() {
-      return this.produktuak.reduce((total, p) => total + (p.prezio * p.kopurua), 0);
-    },
-    bez() {
-      return (this.guztiraPrezioa * 0.21).toFixed(2);
-    },
-    guztiraBEZrekin() {
-      return (this.guztiraPrezioa * 1.21).toFixed(2);
-    }
+<script setup>
+import { ref, computed } from 'vue';
+
+const elementuak = ref([
+  { id: 1, izena: 'Liburua', prezioa: 15.99, kopurua: 1 },
+  { id: 2, izena: 'Arkatza', prezioa: 1.50, kopurua: 3 },
+  { id: 3, izena: 'Koadernoa', prezioa: 4.99, kopurua: 2 },
+]);
+
+// Kalkulatutako propietateak
+const guztira = computed(() => {
+  return elementuak.value.reduce((total, elementua) => {
+    return total + (elementua.prezioa * elementua.kopurua);
+  }, 0);
+});
+
+const beherapena = computed(() => {
+  // %10eko beherapena 50€-tik gorako erosketetarako
+  return guztira.value > 50 ? guztira.value * 0.1 : 0;
+});
+
+const ordainduBeharrekoa = computed(() => {
+  return guztira.value - beherapena.value;
+});
+
+// Metodoak
+const eguneratuKopurua = (elementua) => {
+  if (elementua.kopurua < 1) {
+    elementua.kopurua = 1;
   }
-}
+};
+
+const formatuPrezioa = (prezioa) => {
+  return `${prezioa.toFixed(2)} €`;
+};
 </script>
 
 <style scoped>
-.produktua {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 4px;
+.saskia {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.elementua {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.elementua:last-child {
+  border-bottom: none;
 }
 
 input[type="number"] {
   width: 60px;
+  text-align: center;
   padding: 5px;
 }
 
-.totalak {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
+.guztira, .beherapena, .ordaindu {
+  text-align: right;
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
 }
 
-.totalak p {
-  margin: 5px 0;
+.ordaindu {
+  font-size: 1.2em;
+  color: #2c3e50;
+  font-weight: bold;
 }
 </style>
 ```
 
-## Kalkulatutako Propietateak vs Metodoak
-
-### Metodoaren bidez:
-```vue
-<template>
-  <div>
-    <p>Alderantzizko mezua: {{ irakurriAtzerantz() }}</p>
-    <p>Alderantzizko mezua (berriro): {{ irakurriAtzerantz() }}</p>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      mezua: 'Kaixo, Vue!'
-    }
-  },
-  methods: {
-    irakurriAtzerantz() {
-      console.log('Metodoa deitu da');
-      return this.mezua.split('').reverse().join('');
-    }
-  }
-}
-</script>
-```
-
-### Kalkulatutako Propietatearekin:
-```vue
-<template>
-  <div>
-    <p>Alderantzizko mezua: {{ irakurriAtzerantz }}</p>
-    <p>Alderantzizko mezua (berriro): {{ irakurriAtzerantz }}</p>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      mezua: 'Kaixo, Vue!'
-    }
-  },
-  computed: {
-    irakurriAtzerantz() {
-      console.log('Kalkulatutako propietatea berrikusi da');
-      return this.mezua.split('').reverse().join('');
-    }
-  }
-}
-</script>
-```
-
-**Desberdintasun nagusia**: Kalkulatutako propietateak cachean gordetzen dira eta beren mendekotasunak aldatzen direnean bakarrik berriro kalkulatzen dira, metodoak aldiz, beraien emaitza ez dute cachean gordetzen eta deitu ahala beti exekutatzen dira.
-
-## Setter-a duen Kalkulatutako Propietatea
-
-Kalkulatutako propietateek setter bat izan dezakete:
-
-```vue
-<template>
-  <div>
-    <h2>Izena eta Abizena</h2>
-    <div>
-      <label>Izena:</label>
-      <input v-model="izena">
-    </div>
-    <div>
-      <label>Abizena:</label>
-      <input v-model="abizena">
-    </div>
-    <div>
-      <label>Izen osoa:</label>
-      <input v-model="izenOsoa">
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  data() {
-    return {
-      izena: 'Pertsona',
-      abizena: 'Bat'
-    }
-  },
-  computed: {
-    izenOsoa: {
-      // getter
-      get() {
-        return `${this.izena} ${this.abizena}`.trim();
-      },
-      // setter
-      set(berria) {
-        const izenak = berria.split(' ');
-        this.izena = izenak[0] || '';
-        this.abizena = izenak.length > 1 ? izenak.slice(1).join(' ') : '';
-      }
-    }
-  }
-}
-</script>
-```
-
 ## Ariketa Praktikoa
 
-Sortu eskola-kuaderno bat ikasleen kalifikazioak kudeatzeko:
+1. Sortu kalkulatutako propietate bat produktu baten prezioa eta kantitatea biderkatzen dituena.
+2. Gehitu kalkulatutako propietate bat produktu bakoitzaren guztizko prezioa erakusteko.
+3. Sortu kalkulatutako propietate bat saskiko guztizko prezioa kalkulatzeko.
+4. Gehitu beherapen bat %15ekoa 100€-tik gorako erosketetarako.
+5. Erakutsi beherapenaren zenbatekoa eta guztizko prezioa beherapenarekin.
 
-1. Datuak:
-   - Ikasleen zerrenda (izena, abizena, hainbat gairen kalifikazioak)
-   - Gairen zerrenda (Matematika, Euskara, Historia, ...)
+## Laburpena
 
-2. Kalkulatutako propietateak:
-   - Batez besteko kalifikazioa ikasle bakoitzarentzat
-   - Batez besteko kalifikazioa gai bakoitzarentzat
-   - Kalifikazio altuena eta baxuena
-   - Onenak diren ikasleak (batez bestekoa >= 9)
-   - Kalifikazioen histograma
+- **Kalkulatutako propietateak** datuak prozesatzeko eta formatu egokian erakusteko balio dute.
+- **Cache-aren** abantaila dute, hau da, beren menpekotasunak aldatzen ez diren bitartean ez dute berriro exekutatzen.
+- **Irakurtzeko soilik** diren arren, setter bat defini daiteke idazteko aukera emateko.
+- **Ez dute** inoiz izan behar **albo-ondoriorik** (API deiak, DOM aldaketak, etc.).
 
-3. Aukera eman ikasleen zerrenda iragazteko eta ordenatzeko (izena, abizena, batez bestekoa).
+## Berrikusteko Galderak
+
+1. Zein da metodo baten eta kalkulatutako propietate baten arteko alderik nagusiena?
+2. Noiz berriro kalkulatzen da kalkulatutako propietate bat?
+3. Zergatik da garrantzitsua kalkulatutako propietateek ez izatea albo-ondoriorik?
+4. Nola sortuko zenuke idazteko moduko kalkulatutako propietate bat?
+5. Zein da kalkulatutako propietateen cache-aren abantaila?
+
+## Baliabide Gehigarriak
+
+- [Kalkulatutako Propietateen Dokumentazio Ofiziala](https://vuejs.org/guide/essentials/computed.html)
+- [Erreaktibotasunari buruzko Gida Sakona](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+- [Vue Mastery: Kalkulatutako Propietateak](https://www.vuemastery.com/courses/vue-3-essentials/computed-properties)
+
+## Hurrengo Urratsa
+
+Orain kalkulatutako propietateei buruz ikasi duzunez, hurrengo pausoa da Vue-n gertaeren kudeaketa ikastea.
+
+[Hurrengoa: Gertaeren Kudeaketa →](gertaerak.md)

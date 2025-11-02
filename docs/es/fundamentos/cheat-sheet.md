@@ -415,36 +415,38 @@ button {
 
 ## Buenas Prácticas
 
-1. **Nombrado de componentes**: Usa nombres multi-palabra para evitar conflictos con elementos HTML.
-   ```javascript
-   // Mal
-   export default {
-     name: 'Button',
-     // ...
-   }
-   
-   // Bien
-   export default {
-     name: 'BaseButton',
-     // ...
-   }
-   ```
+1) **Nombrado de componentes**: Usa nombres multi-palabra para evitar conflictos con elementos HTML.
 
-2. **Props detalladas**: Especifica props con validación cuando sea posible.
-   ```javascript
-   props: {
-     status: {
-       type: String,
-       required: true,
-       validator: (value) => {
-         return ['success', 'warning', 'danger'].includes(value)
-       }
+```javascript
+// Mal
+export default {
+  name: 'Button',
+}
+
+// Bien
+export default {
+  name: 'BaseButton',
+  // ...
+}
+```
+
+2) **Props detalladas**: Especifica props con validación cuando sea posible.
+
+```javascript
+props: {
+  status: {
+    type: String,
+    required: true,
+    validator: (value) => {
+      return ['success', 'warning', 'danger'].includes(value)
      }
+    }
    }
-   ```
+```
 
-3. **Claves en v-for**: Siempre usa `:key` con `v-for`.
-   ```vue
+3) **Claves en v-for**: Siempre usa `:key` con `v-for`.
+
+```html
    <!-- Mal -->
    <li v-for="item in items">{{ item.text }}</li>
    
@@ -452,23 +454,25 @@ button {
    <li v-for="item in items" :key="item.id">
      {{ item.text }}
    </li>
-   ```
+```
 
-4. **Estilos con scope**: Usa `<style scoped>` para estilos específicos del componente.
+4) **Estilos con scope**: Usa `<style scoped>` para estilos específicos del componente.
 
-5. **Manejo de eventos**: Usa kebab-case para nombres de eventos personalizados.
-   ```vue
+5) **Manejo de eventos**: Usa kebab-case para nombres de eventos personalizados.
+
+```html
    <!-- Componente hijo -->
    <button @click="$emit('guardar-cambios')">Guardar</button>
    
    <!-- Componente padre -->
    <mi-componente @guardar-cambios="guardarDatos" />
-   ```
+```
 
-6. **Composición sobre herencia**: Prefiere la composición con `setup()` o `<script setup>` sobre la herencia de componentes.
+6) **Composición sobre herencia**: Prefiere la composición con `setup()` o `<script setup>` sobre la herencia de componentes.
 
-7. **Manejo de errores**: Implementa manejo de errores en llamadas asíncronas.
-   ```javascript
+7) **Manejo de errores**: Implementa manejo de errores en llamadas asíncronas.
+
+```javascript
    async function cargarDatos() {
      try {
        const respuesta = await fetch('https://api.ejemplo.com/datos')
@@ -479,12 +483,13 @@ button {
        estadoError.value = 'No se pudieron cargar los datos'
      }
    }
-   ```
+```
 
-8. **Desacoplamiento**: Mantén los componentes pequeños y enfocados en una sola responsabilidad.
+8) **Desacoplamiento**: Mantén los componentes pequeños y enfocados en una sola responsabilidad.
 
-9. **Reutilización**: Extrae lógica repetitiva en composables.
-   ```javascript
+9) **Reutilización**: Extrae lógica repetitiva en composables.
+
+```javascript
    // useContador.js
    import { ref, computed } from 'vue'
    
@@ -505,12 +510,12 @@ button {
        esPar
      }
    }
-   ```
+```
 
-10. **Documentación**: Documenta props, eventos y slots en los componentes.
+10) **Documentación**: Documenta props, eventos y slots en los componentes.
 
 ## Siguiente paso
 
-¡Felicidades! Has completado la sección de Fundamentos de Vue 3. Ahora estás listo para avanzar a la siguiente sección, donde aprenderás sobre la creación y uso de componentes en Vue 3.
+Vamos a poner en práctica todo lo aprendido con un ejercicio práctico
 
-[Siguiente: Creación y Uso de Componentes →](../componentes/creacion.md)
+[Siguiente: Ejercicio práctico→](ejercicio-practico.md)

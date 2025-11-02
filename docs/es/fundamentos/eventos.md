@@ -101,10 +101,10 @@ Puedes acceder al evento nativo del DOM usando la variable especial `$event` o u
 ```html
 <template>
   <div>
-    <!-- Usando $event -->
+    <!-- Usando $event. Como llamo a una funcion con dos argumentos tengo que pasarle el evento como segundo argumento . Además al ser una funcione normal se le designa con $event-->
     <button @click="mostrarMensaje('Hola', $event)">Saludar 1</button>
     
-    <!-- Usando función flecha -->
+    <!-- Usando función flecha. En este caso al ser función flecha no necesita $event. En este caso se le designa con event -->
     <button @click="(event) => mostrarMensaje('Hola', event)">Saludar 2</button>
     
     <!-- Con argumentos personalizados -->

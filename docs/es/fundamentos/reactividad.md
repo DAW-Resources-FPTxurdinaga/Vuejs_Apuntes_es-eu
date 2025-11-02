@@ -159,4 +159,4 @@ copy.count++
 
 Ahora que entiendes los fundamentos de la reactividad en Vue 3, estás listo para aprender sobre la creación y composición de componentes.
 
-[👉 Siguiente: Creación de Componentes](../componentes/creacion.md)
+[👉 Siguiente: Referencia rápida](cheat-sheet.md)

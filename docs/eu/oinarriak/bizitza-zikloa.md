@@ -1,112 +1,141 @@
-# Konponenteen Bizitza Zikloa
+# 2.6 Konponenteen Bizitza Zikloa
 
-## Sarrera
 
-Vue konponenteek bizitza-ziklo bat dute, sortzetik suntsitu arte. Ziklo honen puntu garrantzitsuenetan kode propioa exekutatu dezakezu.
+Vue konponente baten bizitza zikloa garatzaile guztiek ulertu behar duten oinarrizko kontzeptua da, aplikazio sendo eta eraginkorrak sortzeko. Ziklo honek Vue osagai bakoitzak igarotzen dituen faseak definitzen ditu, sortzetik suntsipenera arte.
 
-## Bizitza-Zikloaren Diagrama
+## Bizitza Zikloko Hooks-ak
+
+Vue-k "hooks" edo kako batzuk eskaintzen ditu, osagaien bizitza zikloko momentu jakin batzuetan kodea exekutatzeko aukera ematen digutenak. Garrantzitsuenak hauek dira:
+
+### 1. Sortzea
+- **beforeCreate**: Instantzia hasi ondoren exekutatzen da, erreaktibotasuna injektatu aurretik.
+- **created**: Instantzia sortu ondoren deitzen da. Une honetan, propietate erreboteak, kalkulatutako propietateak, metodoak eta begiraleak konfiguratuta daude.
+
+### 2. DOM-ean Muntatzea
+- **beforeMount**: Osagaia DOM-ean muntatu aurretik exekutatzen da.
+- **mounted**: Osagaia DOM-ean muntatu ondoren deitzen da. Une honetan, `this.$el` bidez atzitu dezakezu DOM-era.
+
+### 3. Eguneratzea
+- **beforeUpdate**: Datuak aldatzen direnean exekutatzen da, DOM-a eguneratu aurretik.
+- **updated**: Datuen aldaketaren ondorioz DOM-a eguneratu ondoren deitzen da.
+
+### 4. Desmuntatzea
+- **beforeUnmount**: Osagaia desmuntatu aurretik exekutatzen da.
+- **unmounted**: Osagaia desmuntatu ondoren deitzen da.
+
+## Bizitza Zikloko Diagrama
 
 ```
-beforeCreate  -->  created  -->  beforeMount  -->  mounted
-      |               |              |               |
-      v               v              v               v
-data()      methods  template     render()       DOM-a
-      \               |              |               |
-       \              v              v               v
-        \         beforeUpdate  ->  updated  ->  nextTick()
-         \              |              |
-          \             v              v
-           \------> beforeUnmount  ->  unmounted
+Vue osagai berria
+      │
+      ▼
+┌─────────────┐
+│ beforeCreate │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   created   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│ beforeMount │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│   mounted   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────┐
+│ Datu berriak?   │───Bai──► beforeUpdate ─► updated
+└─────────────────┘   │
+       Ez             │
+       │             ▼
+       │       ┌─────────────┐
+       │       │  updated    │
+       │       └─────────────┘
+       │             │
+       ▼             ▼
+┌─────────────┐     │
+│ beforeUnmount│◄────┘
+└──────┬──────┘
+       │
+       ▼
+┌─────────────┐
+│  unmounted  │
+└─────────────┘
 ```
 
-## Bizitza-Zikloaren Hook-ak
+## Adibide Praktikoa
 
-### Sortzearen Hurrenean (Creation)
-
-1. **beforeCreate**: Konponentea sortu aurretik exekutatzen da
-2. **created**: Konponentea sortu ondoren exekutatzen da
-
-```vue
-<script>
+```javascript
 export default {
   data() {
     return {
-      mezua: 'Kaixo, Vue!',
-      datuak: null
+      mezua: 'Kaixo Vue!'
     }
   },
   beforeCreate() {
-    console.log('beforeCreate - Datuak ez daude oraindik eskuragarri', this.mezua) // undefined
+    console.log('Instantzia sortu aurretik');
+    // this.mezua ez dago eskuragarri oraindik
   },
   created() {
-    console.log('created - Datuak eskuragarri', this.mezua) // 'Kaixo, Vue!'
-    
-    // API deialdiak eta datuak kargatzea
-    this.kargatuDatuak()
+    console.log('Instantzia sortuta');
+    // this.mezua eskuragarri dago
   },
-  methods: {
-    async kargatuDatuak() {
-      try {
-        const erantzuna = await fetch('https://api.ejemplo.eus/datuak')
-        this.datuak = await erantzuna.json()
-      } catch (errorea) {
-        console.error('Errorea datuak kargatzean:', errorea)
-      }
-    }
-  }
-}
-</script>
-```
-
-### Muntatzearen Hurrenean (Mounting)
-
-3. **beforeMount**: DOM-a muntatu aurretik exekutatzen da
-4. **mounted**: DOM-a muntatu ondoren exekutatzen da
-
-```vue
-<template>
-  <div ref="nireElementua">Elementu bat</div>
-</template>
-
-<script>
-export default {
   beforeMount() {
-    console.log('beforeMount - Oraindik ezin dugu DOM elementurik atzitu')
-    console.log(this.$refs.nireElementua) // undefined
+    console.log('Osagaia muntatu aurretik');
   },
   mounted() {
-    console.log('mounted - Orain DOM elementua eskuragarri dago')
-    console.log(this.$refs.nireElementua) // <div>Elementu bat</div>
-    
-    // Hirugarrenen API-ekin integrazioa
-    this.mapaInprimatu()
+    console.log('Osagaia DOM-ean muntatuta');
+    // DOM-era sarbidea this.$el bidez
   },
-  methods: {
-    mapaInprimatu() {
-      // Adibidez, Google Maps inplementazioa
-      // this.mapa = new google.maps.Map(this.$refs.mapa, { ... })
-    }
+  beforeUpdate() {
+    console.log('DOM-a eguneratu aurretik');
+  },
+  updated() {
+    console.log('DOM-a eguneratuta');
   },
   beforeUnmount() {
-    // Garbitu errekurtsoak
-    // clearInterval(this.temporizador)
-    // this.mapa = null
+    console.log('Osagaia desmuntatu aurretik');
+  },
+  unmounted() {
+    console.log('Osagaia desmuntatuta');
   }
 }
-</script>
 ```
 
-### Eguneraketaren Hurrenean (Updating)
+## Noiz Erabili Hook Bakoitza
 
-5. **beforeUpdate**: Datuak aldatzen direnean, baina DOM-a eguneratu aurretik
-6. **updated**: Datuak eta DOM-a eguneratu ondoren
+- **created**: AJAX eskaerak edo DOM-era sarbide behar ez duten hasierako konfigurazioak egiteko ideala.
+- **mounted**: DOM-era sarbidea behar duten eragiketetarako edo hirugarrenen liburutegiak hasieratzeko egokia.
+- **updated**: Datuen aldaketaren ondorioz DOM-a eguneratu ondoren egin beharreko eragiketetarako erabilgarria.
+- **beforeUnmount**: Tenporizadoreak, eskaerak edo gertaeren harpidetzak garbitzeko egokia.
+
+## Errendimenduaren Aholkuak
+
+1. Saiatu operazio astun sinkronoak ekiditen `created` edo `mounted`-en, hari nagusia blokea dezaketelako.
+2. Erabili `nextTick` datuen aldaketaren ondoren Vue-k DOM-a eguneratzea amaitzea itxaroteko baduzu.
+3. Garbitu beti gertaen entzuleak eta tenporizadoreak `beforeUnmount`-en, memoria-ihesak saihesteko.
+
+## Ariketa Praktikoa
+
+Sortu segidako osagai hau:
+1. Segundoro handitzen den kontagailu bat erakutsi
+2. Erregistratu kontsolan bizitza zikloko etapa bakoitza
+3. Baimendu kontagailua pausatzea/berrestea
+4. Garbitu behar bezala desmuntatzean
 
 ```vue
 <template>
   <div>
-    <p>Kontagailua: {{ kontadorea }}</p>
-    <button @click="kontadorea++">Gehitu</button>
-    <div ref="kontadoreElementua"></div>
+    <h2>Kontagailua: {{ kontagailua }}</h2>
+    <button @click="aldatuPausa">
+      {{ pausatuta ? 'Berreztu' : 'Pausatu' }}
+    </button>
   </div>
 </template>
 
@@ -114,105 +143,64 @@ export default {
 export default {
   data() {
     return {
-      kontadorea: 0,
-      eguneraketaKopurua: 0
-    }
-  },
-  beforeUpdate() {
-    console.log('beforeUpdate - Kontadorea:', this.kontadorea)
-    console.log('DOM-eko balioa:', this.$refs.kontadoreElementua.textContent)
-  },
-  updated() {
-    this.eguneraketaKopurua++
-    console.log('updated - DOM eguneratu da')
-    console.log('DOM-eko balio berria:', this.$refs.kontadoreElementua.textContent)
-    
-    // Kontuz: updated hook-ean datuak aldatzeak beste eguneraketa bat eragin dezake
-    // Hau saihestu behar da, bestela begizta infinitua sor daiteke
-    // this.kontadore++ // Hau ez!
-  }
-}
-</script>
-```
-
-### Desmuntatzearen Hurrenean (Unmounting)
-
-7. **beforeUnmount**: Konponentea suntsitu aurretik
-8. **unmounted**: Konponentea suntsitu ondoren
-
-```vue
-<script>
-export default {
-  data() {
-    return {
-      intervalId: null,
-      kontadorea: 0
+      kontagailua: 0,
+      tartea: null,
+      pausatuta: false
     }
   },
   created() {
-    // Sortu denbora-eremuko eguneraketa
-    this.intervalId = setInterval(() => {
-      console.log('Tic-tac:', this.kontadorea++)
-    }, 1000)
+    console.log('Osagaia sortuta');
+  },
+  mounted() {
+    console.log('Osagaia muntatuta');
+    this.hasiKontagailua();
   },
   beforeUnmount() {
-    console.log('beforeUnmount - Garbitu errekurtsoak')
-    // Garbitu denbora-eremua
-    if (this.intervalId) {
-      clearInterval(this.intervalId)
-      this.intervalId = null
-    }
-    
-    // Beste garbiketa ekintzak
-    // window.removeEventListener('scroll', this.handleScroll)
-    // this.socket?.disconnect()
+    console.log('Desmuntatu aurretik');
+    this.garbituKontagailua();
   },
-  unmounted() {
-    console.log('unmounted - Konponentea suntsitu da')
+  methods: {
+    hasiKontagailua() {
+      this.tartea = setInterval(() => {
+        if (!this.pausatuta) {
+          this.kontagailua++;
+        }
+      }, 1000);
+    },
+    garbituKontagailua() {
+      if (this.tartea) {
+        clearInterval(this.tartea);
+        this.tartea = null;
+      }
+    },
+    aldatuPausa() {
+      this.pausatuta = !this.pausatuta;
+    }
   }
 }
 </script>
 ```
 
-## Beste Hook Garrantzitsu Batzuk
+## Ohiko Galderak
 
-### errorCaptured
+**Zein da `created` eta `mounted` arteko aldea?**
 
-Hau atzizpi-konponente batean errore bat harrapatzen denean aktibatzen da.
+   - `created` instantzia sortu ondoren deitzen da, baina oraindik ez da DOM-ean sartu.
+   - `mounted` osagaia DOM-ean sartu ondoren deitzen da.
 
-```javascript
-errorCaptured(err, instance, info) {
-  // Errorea kudeatu
-  console.error('Errorea harrapatuta:', err)
-  console.log('Konponentearen instantzia:', instance)
-  console.log('Errorearen informazioa:', info)
-  
-  // Errorea zabaltzea ekiditeko
-  return false
-}
-```
+**Noiz erabili behar dut `beforeUnmount`?**
+Erabili `beforeUnmount` memoria-ihesak eragin ditzaketen baliabideak garbitzeko, hala nola:
 
-### renderTracked eta renderTriggered
+   - `setTimeout` edo `setInterval` bidezko tenporizadoreak
+   - Gertaera globaletarako harpidetzak
+   - WebSocket konexioak
+   - Askatu beharreko beste edozein baliabide
 
-**Garapenerako** erabilgarriak, birtualaren DOM-aren berrerenderizazioak aztertzeko.
+**Erabil al dezaket async/await bizitza zikloko hooks-etan?**
+Bai, baina kontuan izan bizitza zikloak promesa ebatzi arte itxarongo ez duela. Errendimendu asinkronoa behar baduzu, erabili `onMounted` Composition API-a edo kudeatu logika asinkronoa beste modu batean.
 
-```javascript
-renderTracked({ key, target, type }) {
-  console.log(`renderTracked - ${type}:`, key, target)
-},
-renderTriggered({ key, target, type }) {
-  console.log(`renderTriggered - ${type}:`, key, target)
-}
-```
+## Hurrengo Urratsa
 
-## Ariketa Praktikoa
+Orain Vue-ren osagaien bizitza zikloari buruz ikasi duzula, hurrengo pausoa Vue-ren oinarrizko kontzeptuen laburpen orria berrikustea da.
 
-Sortu denbora-errealeko datuen bidezko panel bat:
-
-1. Erabili `setInterval` datuak eguneratzeko
-2. Erabili WebSocket konexio bat benetako denbora errealeko datuetarako
-3. Inplementatu kargatze-egoerak kudeatzeko logika
-4. Erabili `beforeUnmount` konexioak eta denbora-eremuak garbitzeko
-5. Gehitu errore-kudeaketa eta kargatze-egoeraren bidezko erabiltzaileari feedbacka
-6. Sortu cache-sistema sinple bat datuak berreskuratzeko
-7. Inplementatu `errorCaptured` erroreak harrapatzeko eta erakutsi mezu adierazgarriak erabiltzaileari
+[Hurrengoa: Txantiloi sintaxia →](txantiloi-sintaxia.md)

@@ -236,6 +236,16 @@ button:hover {
 </style>
 ```
 
+## Ejercicio Práctico
+
+Basándote en el ejemplo del carrito de compras, realiza los siguientes ejercicios:
+
+1. Crea una propiedad computada que calcule el precio total de cada producto (precio × cantidad).
+2. Añade una propiedad computada que muestre el total de productos en el carrito.
+3. Implementa un sistema de descuentos que aplique un 10% si el subtotal supera los 50€.
+4. Crea una propiedad computada que muestre un mensaje especial cuando el carrito esté vacío.
+5. Añade un contador que muestre cuántos productos tienen una cantidad mayor a 1.
+
 ## Preguntas de Repaso
 
 1. ¿Cuál es la principal diferencia entre un método y una propiedad computada?

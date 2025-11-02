@@ -447,3 +447,4 @@ onMounted(() => {
     - Kode garbia eta ondo dokumentatua.
 
 Ariketa honek `v-if`, `v-for` eta `v-model` deribatuen erabilera erakusten du testuinguru praktiko batean, nola konbinatu daitezkeen erakutsiz Vue.js-eko erabiltzaile-interfaze interaktibo eta erantzunkorrak sortzeko.
+[Hurrengoa: kalkulatutako propietateak →](kalkulatutako_propietateak.md)

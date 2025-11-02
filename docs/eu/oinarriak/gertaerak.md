@@ -1,212 +1,427 @@
-# Gertaeren Kudeaketa Vue-n
+# 2.5 Gertaeren Kudeaketa Vue-n
 
-## Oinarrizko Erabilera
+Gertaeren kudeaketa Vue.js-n erabiltzailearen elkarrekintzei erantzuteko aukera ematen du modu deklaratiboan. Vue-k `v-on` zuzentaraua (edo `@` lasterbidea) eskaintzen du DOM-eko gertaerak entzuteko eta JavaScript kodea exekutatzeko gertaera horiek gertatzen direnean.
 
-`v-on` zuzentzailearekin gertaerak entzun ditzakezu:
+## Oinarrizko Kontzeptuak
 
-```vue
+### Oinarrizko Sintaxia
+
+```html
 <template>
   <div>
-    <button v-on:click="kontadorea++">Gehitu</button>
-    <p>Zenbakia: {{ kontadorea }}</p>
+    <!-- v-on erabiliz -->
+    <button v-on:click="kontadorea++">Kontadorea: {{ kontadorea }}</button>
     
-    <!-- Laburdura: @ erabiltzen da v-on: ordez -->
-    <button @click="kendu">Kendu</button>
+    <!-- @ lasterbidea erabiliz -->
+    <button @click="kontadorea = 0">Berrabiarazi</button>
     
-    <!-- Metodo baten deia -->
-    <button @click="agurraErakutsi('Kaixo, Vue!')">Agurra bistaratu</button>
+    <!-- Metodo bati deituz -->
+    <button @click="agurtu">Agurtu</button>
+    
+    <!-- Argumentuekin -->
+    <button @click="agurtuIzenarekin('Mikel')">Agurtu Mikel</button>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      kontadorea: 0
-    }
-  },
-  methods: {
-    kendu() {
-      this.kontadorea--
-    },
-    agurraErakutsi(mezua) {
-      alert(mezua)
-    }
-  }
+<script setup>
+import { ref } from 'vue';
+
+const kontadorea = ref(0);
+const izena = ref('Bisitaria');
+
+function agurtu() {
+  alert(`Kaixo, ${izena.value}!`);
+}
+
+function agurtuIzenarekin(izena) {
+  alert(`Kaixo, ${izena}!`);
 }
 </script>
 ```
 
-## Gertaera-Objektuarekin Lan Egitea
+## Gertaeren Aldatzaileak
 
-Gertaera-objektura sarbidea lortzeko, `$event` aldagaia erabil dezakezu:
+Vue-k gertaeretarako aldagailuak eskaintzen ditu ohiko zereginetarako:
 
-```vue
+### 1. Gertaeraren Aldatzaileak
+
+```html
+<!-- Submit gertaerak ez du orria berriz kargatuko -->
+<form @submit.prevent="bidaliInprimakia">
+  <button type="submit">Bidali</button>
+</form>
+
+<!-- Gertaeraren hedapena gelditzen du -->
+<div @click="alerta('div')">
+  <button @click.stop="alerta('botoia')">Egin klik</button>
+</div>
+
+<!-- Gertaera behin bakarrik aktibatuko da -->
+<button @click.once="eginZerbait">Behin bakarrik</button>
+
+<!-- Gertaera ezkerreko botoiarekin aktibatuko da soilik -->
+<button @click.left="ezkerrekoa">Ezkerrekoa</button>
+```
+
+### 2. Teklaren Aldatzaileak
+
+```html
+<!-- Enterrekin soilik aktibatzen da -->
+<input @keyup.enter="bidali" placeholder="Sakatu Enter">
+
+<!-- Tekla zehatzekin -->
+<input 
+  @keyup.enter="bidali"
+  @keyup.esc="utzi"
+  @keyup.space="tartea"
+  placeholder="Saiatu Enter, Esc edo Zuribete"
+>
+
+<!-- Tekla-kodeekin -->
+<input @keyup.page-down="hurrengoOrria">
+
+<!-- Tekla konbinazioak -->
+<input @keyup.ctrl.enter="bidali" placeholder="Ctrl+Enter bidaltzeko">
+```
+
+### 3. Saguaren Aldatzaileak
+
+```html
+<button 
+  @click.right.prevent="testuinguruMenua"
+  @click.middle="erdikoBotoia"
+>
+  Egin eskuineko klik edo gurpila erabiliz
+</button>
+```
+
+## Gertaera Natiboaren Objektua
+
+`$event` aldagai berezia edo gezi-funtzio bat erabil dezakezu DOM-eko gertaera natibora sarbidea izateko:
+
+```html
 <template>
   <div>
-    <!-- Gertaera-objektuarekin -->
-    <button @click="gertaeraArgaztu($event)">Sakatu nire gainean</button>
+    <!-- $event erabiliz. Funtzio normala denez gerataeran informazioa pasatzeko erabili behar dut $. $event -->
+    <button @click="erakutsiMezua('Kaixo', $event)">Agurtu 1</button>
     
-    <!-- Saguaren posizioa -->
-    <div 
-      @mousemove="eguneratuPosizioa" 
-      style="width: 300px; height: 200px; background: #f0f0f0; margin: 20px 0;"
-    >
-      Mugitu sagua honen gainean: {{ x }}, {{ y }}
+    <!-- Gezi-funtzioa erabiliz. Kasu honetan funtzio flecha erabiliz gerataeran informazioa pasatzeko erabili ez dut erabili behar $.  -->
+    <button @click="(event) => erakutsiMezua('Kaixo', event)">Agurtu 2</button>
+    
+    <!-- Argumentu pertsonalizatuekin -->
+    <button @click="(e) => bidaliInprimakia('erabiltzailea123', e)">
+      Bidali inprimakia
+    </button>
+  </div>
+</template>
+
+<script setup>
+function erakutsiMezua(mezua, event) {
+  console.log(event.target.tagName); // "BUTTON" erakusten du
+  alert(mezua);
+}
+
+function bidaliInprimakia(erabiltzaileId, event) {
+  console.log(`Inprimakia bidaltzen erabiltzailearentzat: ${erabiltzaileId}`);
+  // Inprimakia bidaltzeko logika
+}
+</script>
+```
+
+## Adibide Praktikoa: Memoria Jokoa
+
+Sortuko dugu memoria-joko bat Vue-ko gertaeren kudeaketa erakutsiko duena:
+
+```html
+<template>
+  <div class="memoria-jokoa">
+    <h1>Memoria Jokoa</h1>
+    
+    <div class="kontrolak">
+      <button @click="hasieratuJokoa">
+        {{ jokoaHasiDa ? 'Berrabiarazi' : 'Hasi' }} Jokoa
+      </button>
+      <div class="puntuazioa">
+        <span>Aurkitu diren bikoteak: {{ aurkitutakoBikoteak }}/{{ guztiraBikoteak }}</span>
+        <span>Saiakerak: {{ saiakerak }}</span>
+      </div>
     </div>
     
-    <!-- Tekla-sakatzeak detektatzea -->
-    <input 
-      @keyup.enter="bidaliMezua"
-      @keyup.esc="garbituSarrera"
-      placeholder="Sakatu Enter bidaltzeko"
-    >
+    <div class="taula" :class="{ 'jokoa-aktiboa': jokoaHasiDa }">
+      <div 
+        v-for="(karta, index) in kartak" 
+        :key="index"
+        class="karta"
+        :class="{ 
+          'itxita': !karta.ittxita, 
+          'aurkitua': karta.aurkitua 
+        }"
+        @click="kartaIrauli(index)"
+      >
+        <div class="aurreko-aurpegia">?</div>
+        <div class="atzeko-aurpegia">
+          {{ karta.balioa }}
+        </div>
+      </div>
+    </div>
+    
+    <div v-if="jokoaAmaituDa" class="amaierako-mezua">
+      <h2>Irabazi duzu! 🎉</h2>
+      <p>Jokoa {saiakerak} saiakera desberdinetan amaitu duzu.</p>
+      <button @click="hasieratuJokoa">Jokatu berriro</button>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      x: 0,
-      y: 0
-    }
-  },
-  methods: {
-    gertaeraArgaztu(event) {
-      console.log('Gertaera-mota:', event.type)
-      console.log('Elementua:', event.target.tagName)
-    },
-    eguneratuPosizioa(event) {
-      this.x = event.offsetX
-      this.y = event.offsetY
-    },
-    bidaliMezua(event) {
-      alert('Mezua bidalita: ' + event.target.value)
-      event.target.value = ''
-    },
-    garbituSarrera(event) {
-      event.target.value = ''
-    }
-  }
+<script setup>
+import { ref, computed, onMounted } from 'vue';
+
+// Jokoaren egoera
+const jokoaHasiDa = ref(false);
+const jokoaAmaituDa = ref(false);
+const kartak = ref([]);
+const saiakerak = ref(0);
+const itxitakoKartak = ref([]);
+const aurkitutakoBikoteak = ref(0);
+
+// Konstanteak
+const guztiraBikoteak = 8; // Jokoan dauden bikote kopurua
+const emotikoiak = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🦁', '🐮'];
+
+// Kalkulatutako propietateak
+const geratzenDirenKartak = computed(() => {
+  return kartak.value.filter(k => !k.aurkitua).length;
+});
+
+// Jokoa hasieratu
+function jokoaHasieratu() {
+  // Sortu kartak bikoteka
+  const balioak = [];
+  const ausazkoEmotikoiak = [...emotikoiak].sort(() => 0.5 - Math.random()).slice(0, guztiraBikoteak);
+  
+  // Bikoiztu emotikoiak bikoteak egiteko
+  ausazkoEmotikoiak.forEach(emotikoia => {
+    balioak.push({ balioa: emotikoia, id: Math.random() });
+    balioak.push({ balioa: emotikoia, id: Math.random() });
+  });
+  
+  // Nahastu kartak
+  return balioak.sort(() => 0.5 - Math.random());
 }
-</script>
-```
 
-## Gertaera Modifikatzaileak
-
-Gertaerei modifikatzaileak gehitu dakioke:
-
-```vue
-<template>
-  <div>
-    <!-- Gertaera behin bakarrik exekutatu -->
-    <button @click.once="behinBakarrik">Sakatu behin bakarrik</button>
-    
-    <!-- Lehenetsitako gertaera ekidin -->
-    <form @submit.prevent="bidaliFormularioa">
-      <button type="submit">Bidali</button>
-    </form>
-    
-    <!-- Kateatutako modifikatzaileak -->
-    <a 
-      href="https://vuejs.org" 
-      @click.prevent.stop="orriaIreki"
-    >
-      Vue.js webgunea (ez da nabigatuko)
-    </a>
-    
-    <!-- Modifikatzaile pertsonalizatuak -->
-    <input 
-      @keyup.ctrl.enter="bidaliMezua"
-      placeholder="Sakatu Ctrl+Enter"
-    >
-  </div>
-</template>
-
-<script>
-export default {
-  methods: {
-    behinBakarrik() {
-      alert('Gertaera hau behin bakarrik exekutatuko da')
-    },
-    bidaliFormularioa() {
-      alert('Formularioa bidalita!')
-    },
-    orriaIreki() {
-      console.log('Esteka sakatu da, baina ez da nabigatuko')
-    },
-    bidaliMezua() {
-      alert('Ctrl+Enter sakatu duzu!')
-    }
-  }
+// Jokoa hasi edo berrabiarazi
+function hasieratuJokoa() {
+  const kartenBalioak = jokoaHasieratu();
+  
+  kartak.value = kartenBalioak.map(karta => ({
+    ...karta,
+    itxita: false,
+    aurkitua: false
+  }));
+  
+  jokoaHasiDa.value = true;
+  jokoaAmaituDa.value = false;
+  saiakerak.value = 0;
+  aurkitutakoBikoteak.value = 0;
+  itxitakoKartak.value = [];
+  
+  // Itzali karta guztiak hasieran 2 segundoz
+  kartak.value.forEach(karta => {
+    karta.ittxita = true;
+  });
+  
+  setTimeout(() => {
+    kartak.value.forEach(karta => {
+      karta.ittxita = false;
+    });
+  }, 2000);
 }
-</script>
-```
 
-## Gertaera Modifikatzaile Komunak
-
-- `.stop`: `event.stopPropagation()` deitzen du
-- `.prevent`: `event.preventDefault()` deitzen du
-- `.capture`: Barruko elementu batek gertatutako gertaerak lehenago prozesatzeko
-- `.self`: Soilik elementuaren buruan gertatutako gertaerak erantzuteko
-- `.once`: Gertaera behin bakarrik exekutatzeko
-- `.passive`: `{ passive: true }` moduan ezartzen du
-
-## Saguaren Eskumako Klik-a Detektatzea
-
-```vue
-<template>
-  <div 
-    @contextmenu.prevent="menuKontestuala"
-    style="padding: 20px; border: 1px solid #ccc;"
-  >
-    Eskuin-klika egin nire gainean menu kontextuala ikusteko.
-  </div>
-</template>
-
-<script>
-export default {
-  methods: {
-    menuKontestuala(event) {
-      // Menu kontextuala erakusteko kodea
-      alert('Eskuin-klika detektatuta: ' + event.button + ' botoia')
+// Karta bat itzali
+function kartaIrauli(indizea) {
+  const karta = kartak.value[indizea];
+  
+  // Ez ezer egin karta jadanik itzalita edo aurkituta badago
+  if (karta.ittxita || karta.aurkitua || itxitakoKartak.value.length >= 2) {
+    return;
+  }
+  
+  // Itzali karta
+  karta.ittxita = true;
+  itxitakoKartak.value.push(indizea);
+  
+  // Bi karta itzalita badaude, egiaztatu bikotea osatzen duten
+  if (itxitakoKartak.value.length === 2) {
+    saiakerak.value++;
+    const [lehenengoa, bigarrena] = itxitakoKartak.value;
+    
+    if (kartak.value[lehenengoa].balioa === kartak.value[bigarrena].balioa) {
+      // Bikotea aurkitu da
+      kartak.value[lehenengoa].aurkitua = true;
+      kartak.value[bigarrena].aurkitua = true;
+      itxitakoKartak.value = [];
+      aurkitutakoBikoteak.value++;
       
-      // Menu kontextuala erakusteko adibidea
-      const menu = document.createElement('div')
-      menu.style.position = 'absolute'
-      menu.style.left = event.pageX + 'px'
-      menu.style.top = event.pageY + 'px'
-      menu.style.border = '1px solid #ccc'
-      menu.style.padding = '10px'
-      menu.style.background = 'white'
-      menu.innerHTML = 'Menu Kontextuala<br>Elementu bat<br>Beste bat'
-      
-      document.body.appendChild(menu)
-      
-      // Menua itxi klik egitean
-      const itxiMenua = () => {
-        document.body.removeChild(menu)
-        document.removeEventListener('click', itxiMenua)
+      // Egiaztatu jokoa amaitu den
+      if (aurkitutakoBikoteak.value === guztiraBikoteak) {
+        jokoaAmaituDa.value = true;
       }
-      
+    } else {
+      // Ez dira berdinak, itzuli denbora batez
       setTimeout(() => {
-        document.addEventListener('click', itxiMenua)
-      }, 0)
+        kartak.value[lehenengoa].ittxita = false;
+        kartak.value[bigarrena].ittxita = false;
+        itxitakoKartak.value = [];
+      }, 1000);
     }
   }
 }
+
+// Hasieratu jokoa osagaia kargatzean
+onMounted(() => {
+  // Aukerakoa: Automatikoki hasi
+  // hasieratuJokoa();
+});
 </script>
+
+<style scoped>
+.memoria-jokoa {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.kontrolak {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.puntuazioa {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.taula {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.taula.jokoa-aktiboa {
+  opacity: 1;
+}
+
+.karta {
+  aspect-ratio: 1;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.karta > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.5s, background-color 0.3s;
+}
+
+.aurreko-aurpegia {
+  background: #3498db;
+  color: white;
+  font-size: 2em;
+  transform: rotateY(0deg);
+}
+
+.atzeko-aurpegia {
+  background: white;
+  transform: rotateY(180deg);
+  font-size: 2em;
+}
+
+.karta.itxita .aurreko-aurpegia {
+  transform: rotateY(180deg);
+}
+
+.karta.itxita .atzeko-aurpegia {
+  transform: rotateY(0deg);
+}
+
+.karta.aurkitua .atzeko-aurpegia {
+  background: #2ecc71;
+  color: white;
+}
+
+.amaierako-mezua {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #2980b9;
+}
+
+@media (max-width: 600px) {
+  .taula {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
 ```
 
-## Ariketa Praktikoa
+## Berreskuratzeko Galderak
 
-Sortu arratsezko joko sinple bat:
+1. Zer da `v-on` zuzentarauaren lana Vue-n?
+2. Nola erabiltzen dituzu gertaera-aldatzaileak formulario batean?
+3. Zer egiten du `.prevent` aldatzaileak?
+4. Nola kudeatzen dituzu teklatu-sakatzeak Vue-n?
+5. Zer abantaila dute gertaeren kudeaketa deklaratiboak kudeaketa inperatiboarekin alderatuta?
 
-1. Sortu lauki bat pantailan zehar mugitzen dena
-2. Erabiltzaileak laukia klikatu behar du
-3. Laukia kolorez aldatuko da erabiltzaileak klik egiten duen bakoitzean
-4. Kontagailu bat erakutsi segundo kopuruarekin behar dena har dezakezun
-5. Erregistratu erabiltzailearen puntuazioa (denbora gutxien behar izan duena)
-6. Gehitu zailtasun-mailak (laukia azkarrago edo motelago mugitzea)
-7. Gehitu soinu-efektuak klik egitean eta jokoa irabaztean
+## Baliabide Gehiago
+
+- [Gertaeren Kudeaketarako Dokumentazio Ofiziala](https://vuejs.org/guide/essentials/event-handling.html)
+- [Gertaera Aldatzaileen Gida](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers)
+- [Teklatuaren Gertaerak Vue-n](https://vuejs.org/guide/essentials/event-handling.html#key-modifiers)
+- [Saguaren Gertaerak](https://vuejs.org/guide/essentials/event-handling.html#mouse-button-modifiers)
+- [Formularioen Kudeaketa](https://vuejs.org/guide/essentials/forms.html)
+
+## Hurrengo Urratsa
+
+Orain gertaeren kudeaketa ikasi duzula, hurrengo pausoa Vue-ko formularioen kudeaketa da.
+
+[Hurrengoa: Bizitaza zikloa →](bizitaza-zikloa.md)

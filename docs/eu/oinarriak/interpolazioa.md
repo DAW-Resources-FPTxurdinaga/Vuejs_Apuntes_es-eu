@@ -123,5 +123,5 @@ img {
 2. Zergatik da garrantzitsua `v-html` erabiltzerakoan kontuz ibiltzea?
 3. Zein abantaila du `v-bind`-erako `:` laburdura erabiltzeak?
 
-Hurrengo atalean `v-model` aztertuko dugu formularioetarako.
+[Hurrengoa: v-vind eta v-model →](vbind-vmodel.md) 
 
