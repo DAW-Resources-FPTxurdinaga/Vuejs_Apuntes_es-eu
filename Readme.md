@@ -1,75 +1,79 @@
-# Tutorial de Safe Exam Browser / Safe Exam Browser Tutoriala
+# Vue.js 3 Composition API Tutorial
 
-Tutorial bilingüe (Español/Euskera) sobre Safe Exam Browser (SEB) para entornos educativos.
+Bienvenido/a al tutorial de Vue.js 3 Composition API. Este repositorio contiene documentación y ejemplos sobre el uso de la Composition API de Vue.js 3, tanto en español como en euskera.
 
-## 📚 Contenido / Edukia
+## 📋 Contenido
 
-### Español
-- **Introducción**: ¿Qué es SEB? Ventajas, inconvenientes y casos de uso
-- **Instalación**: Guía paso a paso para Windows, macOS e iPad
+El tutorial cubre los siguientes temas:
 
-### Euskara
-- **Sarrera**: Zer da SEB? Abantailak, desabantailak eta erabilera kasuak
-- **Instalazioa**: Urrats-urratseko gida Windows, macOS eta iPad-erako
+- **Fundamentos de Vue 3**
+  - Reactividad con `ref` y `reactive`
+  - Propiedades computadas y watchers
+  - Ciclo de vida de los componentes
+  - Manejo de eventos
+  - Directivas personalizadas
+  - Props y emisores de eventos
+  - Proveer/Inyectar dependencias
+  - Slots y componentes dinámicos
+  - Transiciones y animaciones
 
-## 🚀 Cómo usar este tutorial
+- **Composition API**
+  - `setup()` y `<script setup>`
+  - Composables y lógica reutilizable
+  - Gestión de estado con `ref` y `reactive`
+  - `computed` y `watch`
+  - Hooks del ciclo de vida
+  - `provide`/`inject`
+  - Refs de plantilla y componentes
 
-### Instalar dependencias
+- **Buenas Prácticas**
+  - Organización del código
+  - Patrones de diseño
+  - Optimización de rendimiento
+  - Pruebas unitarias
 
-```bash
-pip install mkdocs mkdocs-material mkdocs-static-i18n
-```
+## 🌍 Idiomas
 
-### Iniciar el servidor
+- 🇪🇸 [Documentación en español](/docs/es/)
+- 🏴󠁥󠁵󠁥󠁳󠁿 [Dokumentazioa euskaraz](/docs/eu/)
 
-```bash
-cd Tutorial_SEB
-mkdocs serve
-```
+## 🚀 Cómo empezar
 
-### Abrir en el navegador
+1. Clona este repositorio:
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   ```
 
-Abre tu navegador en: `http://127.0.0.1:8000`
+2. Instala las dependencias:
+   ```bash
+   npm install
+   # o
+   yarn
+   ```
 
-## 📁 Estructura del proyecto
+3. Ejecuta el servidor de desarrollo:
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
 
-```
-Tutorial_SEB/
-├── docs/
-│   ├── eu/                    # Contenido en euskera
-│   │   ├── index.md
-│   │   ├── sarrera/
-│   │   │   └── zer_da_seb.md
-│   │   └── instalazioa/
-│   │       └── instalatu.md
-│   ├── es/                    # Contenido en español
-│   │   ├── index.md
-│   │   ├── sarrera/
-│   │   │   └── zer_da_seb.md
-│   │   └── instalazioa/
-│   │       └── instalatu.md
-│   └── stylesheets/
-│       └── extra.css
-├── mkdocs.yml
-└── README.md
-```
+## 📚 Recursos Adicionales
 
-## 🌐 Cambio de idioma
+- [Documentación oficial de Vue 3](https://v3.vuejs.org/)
+- [Composition API RFC](https://composition-api.vuejs.org/)
+- [Vue Mastery - Vue 3 Composition API](https://www.vuemastery.com/courses/vue-3-essentials/why-the-composition-api/)
 
-El tutorial incluye un selector de idioma en la esquina superior derecha que permite cambiar entre español y euskera.
+## 🤝 Contribuciones
 
-## 🔗 Enlaces útiles
-
-- [Safe Exam Browser - Sitio oficial](https://safeexambrowser.org/)
-- [Descargas de SEB](https://safeexambrowser.org/download_en.html)
-- [Documentación Moodle + SEB](https://docs.moodle.org/403/en/Safe_Exam_Browser)
-
-## 📝 Notas
-
-- Este tutorial sigue la misma estructura que otros materiales del Instituto
-- El tutorial es bilingüe usando el plugin `mkdocs-static-i18n`
-- El idioma por defecto es euskera
+¡Las contribuciones son bienvenidas! Por favor, lee nuestra guía de contribución para más detalles.
 
 ## 📄 Licencia
 
-Este material educativo está disponible para uso en entornos educativos.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para más información.
+
+## 🙏 Agradecimientos
+
+- Al equipo de Vue.js por crear un framework increíble
+- A la comunidad de código abierto por su apoyo continuo
+- A todos los colaboradores que han ayudado a mejorar este tutorial

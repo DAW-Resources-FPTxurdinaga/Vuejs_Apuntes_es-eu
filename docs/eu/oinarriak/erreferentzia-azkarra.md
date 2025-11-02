@@ -82,7 +82,6 @@ watch(kontadorea, (balioBerria, balioZaharra) => {
 })
 
 // Efektuaren ikuslea
-exekutatu edozein menpekotasun eraginkor aldatzen denean
 watchEffect(() => {
   console.log(`Kontadorea: ${kontadorea.value}`)
 })
