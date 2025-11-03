@@ -1,0 +1,37 @@
+# 4.1 HTTP Eskariak Vue 3-n
+
+Web aplikazio modernoetan, HTTP bidezko zerbitzariekin komunikatzeko gaitasuna ezinbestekoa da. Vue 3-k, JavaScript ekosistemarekin batera, modu eraginkorrean eskaera hauek egiteko hainbat modu eskaintzen ditu.
+
+## Zergatik dira garrantzitsuak HTTP eskaerak?
+
+HTTP eskaerek gure aplikazioei aukera ematen diete:
+- Datuak eskuratzeko zerbitzaritik (GET)
+- Prozesatzeko datuak bidaltzeko (POST)
+- Datu existenteak eguneratzeko (PUT/PATCH)
+- Baliabideak ezabatzeko (DELETE)
+- Erabiltzaile-interfazea zerbitzariaren datuekin sinkronizatuta mantentzeko
+
+## Vue 3-n eskuragarri dauden aukerak
+
+### 1. Fetch API
+Nabigatzailearen Fetch API-ak interfaze bat eskaintzen du baliabideak modu asinkronoan eskuratzeko sarearen bidez.
+
+### 2. Axios
+Promise-etan oinarritutako HTTP bezero liburutegia da, eta nabigatzailean eta Node.js-en funtzionatzen du.
+
+### 3. Alova
+Vue, React eta Svelte-rentzako datu-eskaerarako irtenbide arina da, cachea eta egoeraren kudeaketa bezalako funtzio aurreratuekin.
+
+## Zer ikasiko duzu atal honetan?
+
+1. Nola egin HTTP eskaerak metodo desberdinak erabiliz
+2. Erantzunak eta erroreen kudeaketa
+3. Eskaerak optimizatzea
+4. API-ekin komunikatzeko praktika onenak
+5. Atzizain erabilera ohikoen zereginetarako
+
+## Hurrengo urratsak
+
+Hurrengo ataletan, aukera hauetako bakoitza xehetasunez aztertuko ditugu, Fetch API nativarekin hasita.
+
+[Joan hurrengo atalera: Fetch API-ren Erabilera](./fetch.md)

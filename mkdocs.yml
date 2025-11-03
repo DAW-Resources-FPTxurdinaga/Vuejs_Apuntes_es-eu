@@ -57,8 +57,8 @@ plugins:
       'conceptos-basicos/primer-ejemplo.md': 'oinarrizko-kontzeptuak/lehen-aurkezpena.md'
       
       # Componentes / Osagaiak
-      'componentes/creacion.md': 'osagaiak/sortu.md'
-      'componentes/comunicacion.md': 'osagaiak/komunikazioa.md'
+      'componentes/creacion.md': 'componentes/creacion.md'
+      'componentes/comunicacion.md': 'componentes/comunicacion.md'
     languages:
       - locale: es
         name: Español
@@ -81,8 +81,9 @@ plugins:
             - '2.9. Referencia Rápida': 'es/fundamentos/cheat-sheet.md'
             - '2.10. Ejercicio Práctico': 'es/fundamentos/ejercicio-practico.md'
           - '3. Componentes':
-            - '3.1. Creación y Uso': 'es/componentes/creacion.md'
-            - '3.2. Comunicación entre Componentes': 'es/componentes/comunicacion.md'
+            - '3.1. Introducción': 'es/componentes/introduccion.md'
+            - '3.2. Creación y Uso': 'es/componentes/creacion.md'
+            - '3.3. Comunicación entre Componentes': 'es/componentes/comunicacion.md'
           - '4. Peticiones HTTP':
             - '4.1. Introducción': 'http/introduccion.md'
             - '4.2. Uso de Fetch API': 'http/fetch.md'
@@ -119,11 +120,12 @@ plugins:
             - '2.9. Erreferentzia Azkarra': 'eu/oinarriak/erreferentzia-azkarra.md'
             - '2.10. Ariketa Praktikoa': 'eu/oinarriak/ariketa-praktikoa.md'
           - '3. Osagaiak':
-            - '3.1. Sortzea eta Erabiltzea': 'eu/osagaiak/sortu.md'
-            - '3.2. Osagaien Arteko Komunikazioa': 'eu/osagaiak/komunikazioa.md'
+            - '3.1. Sarrera': 'eu/componentes/sarrera.md'
+            - '3.2. Sortzea eta Erabiltzea': 'eu/componentes/creacion.md'
+            - '3.3. Osagaien Arteko Komunikazioa': 'eu/componentes/comunicacion.md'
           - '4. HTTP Eskariak':
-            - '4.1. Sarrera': 'http-eskariak/sarrera.md'
-            - '4.2. Fetch API Erabiliz': 'http-eskariak/fetch.md'
+            - '4.1. Sarrera': 'eu/http-eskariak/sarrera.md'
+            - '4.2. Fetch API Erabiliz': 'eu/http-eskariak/fetch.md'
             - '4.3. Axios Erabiliz': 'http-eskariak/axios.md'
             - '4.4. Alova Erabiliz': 'http-eskariak/alova.md'
           - '5. Vue Router-ekin':

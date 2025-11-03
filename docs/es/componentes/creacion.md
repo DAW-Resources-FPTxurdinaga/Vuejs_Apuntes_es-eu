@@ -2,64 +2,6 @@
 
 Los componentes son los bloques de construcción fundamentales de las aplicaciones Vue. Permiten dividir la interfaz de usuario en piezas independientes y reutilizables.
 
-## Opciones de la API
-
-### Componente con Options API
-
-```vue
-<template>
-  <div>
-    <h1>{{ title }}</h1>
-    <p>{{ message }}</p>
-    <button @click="increment">Contador: {{ count }}</button>
-  </div>
-</template>
-
-<script>
-export default {
-  // Datos reactivos
-  data() {
-    return {
-      count: 0,
-      title: 'Mi Componente',
-      message: '¡Hola desde Vue 3!'
-    }
-  },
-  // Métodos
-  methods: {
-    increment() {
-      this.count++
-    }
-  },
-  // Propiedades computadas
-  computed: {
-    doubleCount() {
-      return this.count * 2
-    }
-  },
-  // Hooks del ciclo de vida
-  mounted() {
-    console.log('Componente montado')
-  }
-}
-</script>
-
-<style scoped>
-/* Estilos con alcance al componente */
-button {
-  background-color: #42b983;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #3aa876;
-}
-</style>
-```
 
 ## Componente con Composition API
 
