@@ -15,32 +15,214 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/PeticionesHttp/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/ciclo-vida/hooks/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.1-introduccion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/ciclo-vida/hooks/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/ciclo-vida/hooks/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.1-introduccion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/comunicacion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.2-primer-ejemplo/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/comunicacion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/comunicacion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.2-primer-ejemplo/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.2-primer-ejemplo/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/creacion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.0-introduccion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/creacion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/creacion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.0-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.0-introduccion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.1-interpolacion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.1-interpolacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.1-interpolacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.10-ejercicio-practico/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.10-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.2-vbind-vmodel/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.2-vbind-vmodel/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.2-vbind-vmodel/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.3-v-if_v-for/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.3-v-if_v-for/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.3-v-if_v-for/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.4-propiedades-computadas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.4-propiedades-computadas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.4-propiedades-computadas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.5-eventos/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.5-eventos/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.5-eventos/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.6-ciclo-vida/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.6-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.6-ciclo-vida/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.7-sintaxis-plantillas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.8-reactividad/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.8-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.8-reactividad/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.9-cheat-sheet/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.9-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.9-cheat-sheet/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.2-creacion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.2-creacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.2-creacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.3-comunicacion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.3-comunicacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.3-comunicacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.2-fetch/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.2-fetch/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.2-fetch/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.3-axios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.3-axios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.3-axios/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.4-alova/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.4-alova/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.4-alova/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/ejercicios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/ejercicios/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.2-rutas-basicas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.2-rutas-basicas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.2-rutas-basicas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.3-navegacion-avanzada/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.3-navegacion-avanzada/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.3-navegacion-avanzada/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.4-ejercicio-practico/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.4-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.4-ejercicio-practico/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.2-stores/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.2-stores/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.2-stores/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.3-avanzado/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.3-avanzado/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.3-avanzado/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.1-estructura/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.1-estructura/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.1-estructura/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.2-ejercicios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.2-ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.2-ejercicios/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/composicion/ciclo-vida/</loc>
@@ -78,195 +260,6 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/composicion/setup/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/introduccion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/introduccion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/primer-ejemplo/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/primer-ejemplo/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/primer-ejemplo/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/cheat-sheet/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/cheat-sheet/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/cheat-sheet/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ciclo-vida/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ciclo-vida/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ciclo-vida/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ejercicio-practico/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ejercicio-practico/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/eventos/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/eventos/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/eventos/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/interpolacion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/interpolacion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/interpolacion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/introduccion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/introduccion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/propiedades-computadas/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/propiedades-computadas/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/propiedades-computadas/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/reactividad/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/reactividad/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/reactividad/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/sintaxis-plantillas/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/sintaxis-plantillas/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/sintaxis-plantillas/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/v-if_v-for/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/v-if_v-for/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/v-if_v-for/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/vbind-vmodel/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/vbind-vmodel/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/vbind-vmodel/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/alova/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/alova/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/alova/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/axios/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/axios/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/axios/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/ejercicios/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/ejercicios/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/ejercicios/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/fetch/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/fetch/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/fetch/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/introduccion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/introduccion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/avanzado/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/avanzado/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/avanzado/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/introduccion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/introduccion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/stores/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/stores/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/stores/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/ejercicios/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/ejercicios/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/ejercicios/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/estructura/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/estructura/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/estructura/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/ejercicio-practico/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/ejercicio-practico/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/introduccion/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/introduccion/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/navegacion-avanzada/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/navegacion-avanzada/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/navegacion-avanzada/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/rutas-basicas/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/rutas-basicas/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/rutas-basicas/"/>
-    </url>
-    <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
@@ -281,32 +274,214 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/PeticionesHttp/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/ciclo-vida/hooks/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.1-introduccion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/ciclo-vida/hooks/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/ciclo-vida/hooks/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.1-introduccion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/comunicacion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.2-primer-ejemplo/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/comunicacion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/comunicacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-conceptos-basicos/1.2-primer-ejemplo/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/1-conceptos-basicos/1.2-primer-ejemplo/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/creacion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.0-introduccion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/creacion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/creacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.0-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.0-introduccion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.1-interpolacion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.1-interpolacion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.1-interpolacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.10-ejercicio-practico/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.2-vbind-vmodel/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.2-vbind-vmodel/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.2-vbind-vmodel/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.3-v-if_v-for/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.3-v-if_v-for/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.3-v-if_v-for/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.4-propiedades-computadas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.4-propiedades-computadas/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.4-propiedades-computadas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.5-eventos/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.5-eventos/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.5-eventos/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.6-ciclo-vida/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.6-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.6-ciclo-vida/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.8-reactividad/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.8-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.8-reactividad/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.9-cheat-sheet/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-fundamentos/2.9-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/2-fundamentos/2.9-cheat-sheet/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.2-creacion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.2-creacion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.2-creacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.3-comunicacion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-componentes/3.3-comunicacion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/3-componentes/3.3-comunicacion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.2-fetch/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.2-fetch/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.2-fetch/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.3-axios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.3-axios/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.3-axios/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.4-alova/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/4.4-alova/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/4.4-alova/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/ejercicios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http/ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/4-http/ejercicios/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.2-rutas-basicas/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.2-rutas-basicas/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.2-rutas-basicas/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.3-navegacion-avanzada/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.3-navegacion-avanzada/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.3-navegacion-avanzada/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.4-ejercicio-practico/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.4-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/5-vue-router/5.4-ejercicio-practico/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.1-introduccion/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.1-introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.1-introduccion/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.2-stores/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.2-stores/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.2-stores/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.3-avanzado/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.3-avanzado/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/6-pinia/6.3-avanzado/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.1-estructura/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.1-estructura/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.1-estructura/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.2-ejercicios/</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proyecto/7.2-ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/7-proyecto/7.2-ejercicios/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/composicion/ciclo-vida/</loc>
@@ -344,300 +519,171 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/composicion/setup/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-oinarrizko-kontzeptuak/1.1-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-oinarrizko-kontzeptuak/1.1-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/primer-ejemplo/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/conceptos-basicos/primer-ejemplo/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/conceptos-basicos/primer-ejemplo/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/cheat-sheet/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.0-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/cheat-sheet/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.0-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ciclo-vida/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.1-interpolazioa/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ciclo-vida/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.1-interpolazioa/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ejercicio-practico/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.10-ariketa-praktikoa/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.10-ariketa-praktikoa/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/eventos/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.2-vbind-vmodel/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/eventos/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/eventos/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.2-vbind-vmodel/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/interpolacion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.3-v-if_v-for/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/interpolacion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/interpolacion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.3-v-if_v-for/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.4-kalkulatutako-propietateak/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.4-kalkulatutako-propietateak/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/propiedades-computadas/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.5-gertaerak/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/propiedades-computadas/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/propiedades-computadas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.5-gertaerak/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/reactividad/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.6-bizitza-zikloa/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/reactividad/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.6-bizitza-zikloa/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/sintaxis-plantillas/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.7-txantiloi-sintaxia/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/sintaxis-plantillas/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.7-txantiloi-sintaxia/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/v-if_v-for/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.8-erantzunkortasuna/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/v-if_v-for/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/v-if_v-for/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.8-erantzunkortasuna/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/vbind-vmodel/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.9-erreferentzia-azkarra/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/vbind-vmodel/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/fundamentos/vbind-vmodel/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.9-erreferentzia-azkarra/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/alova/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.1-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/alova/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/alova/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.1-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/axios/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.2-creacion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/axios/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/axios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.2-creacion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/ejercicios/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.3-comunicacion/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/ejercicios/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/3-osagaiak/3.3-comunicacion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/fetch/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.1-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/fetch/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/fetch/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.1-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.2-fetch/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/http/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.2-fetch/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/avanzado/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.3-axios/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/avanzado/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/avanzado/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.3-axios/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.4-alova/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/4-http-eskariak/4.4-alova/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/stores/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.1-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/pinia/stores/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/pinia/stores/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.1-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/ejercicios/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.2-oinarrizko-bideak/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/ejercicios/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/ejercicios/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.2-oinarrizko-bideak/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/estructura/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.3-nabigazio-aurreratua/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/proyecto/estructura/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/proyecto/estructura/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/5-vue-router/5.3-nabigazio-aurreratua/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/ejercicio-practico/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.1-sarrera/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.1-sarrera/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/introduccion/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.2-dendak/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/introduccion/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/introduccion/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.2-dendak/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/navegacion-avanzada/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.3-aurreratua/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/navegacion-avanzada/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/navegacion-avanzada/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/6-pinia/6.3-aurreratua/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/rutas-basicas/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proiektua/7.1-egitura/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/routing/rutas-basicas/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/routing/rutas-basicas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proiektua/7.1-egitura/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/sarrera/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proiektua/7.2-ariketak/</loc>
         <lastmod>2025-11-18</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/componentes/sarrera/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/alova/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/alova/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/axios/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/axios/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/fetch/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/fetch/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/sarrera/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/sarrera/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/ariketa-praktikoa/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/ariketa-praktikoa/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/bizitza-zikloa/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/bizitza-zikloa/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/erantzunkortasuna/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/erantzunkortasuna/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/erreferentzia-azkarra/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/erreferentzia-azkarra/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/gertaerak/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/gertaerak/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/interpolazioa/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/interpolazioa/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/kalkulatutako-propietateak/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/kalkulatutako-propietateak/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/sarrera/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/sarrera/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/txantiloi-sintaxia/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/txantiloi-sintaxia/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/v-if_v-for/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/v-if_v-for/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/vbind-vmodel/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarriak/vbind-vmodel/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarrizko-kontzeptuak/lehen-aurkezpena/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarrizko-kontzeptuak/lehen-aurkezpena/"/>
-    </url>
-    <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarrizko-kontzeptuak/sarrera/</loc>
-        <lastmod>2025-11-18</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/oinarrizko-kontzeptuak/sarrera/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/7-proiektua/7.2-ariketak/"/>
     </url>
 </urlset>
