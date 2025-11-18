@@ -1,0 +1,1756 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/fundamentos/reactividad/">
+      
+      
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>🔄 Reactividad en Vue 3 - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#reactividad-en-vue-3" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🔄 Reactividad en Vue 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../fundamentos/reactividad/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Oinarrizko Kontzeptuak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Oinarrizko Kontzeptuak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarrizko-kontzeptuak/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Vue-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarrizko-kontzeptuak/lehen-aurkezpena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Zure Lehen Aplikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Oinarriak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Oinarriak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/interpolazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolazioa eta Zuzentarauak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind eta V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if eta V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/kalkulatutako-propietateak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Kalkulatutako Propietateak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/gertaerak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Gertaeren Kudeaketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/bizitza-zikloa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Bizitza Zikloa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/txantiloi-sintaxia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Txantiloi-sintaxia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/erantzunkortasuna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Erantzunkortasuna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/erreferentzia-azkarra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erreferentzia Azkarra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/ariketa-praktikoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Ariketa Praktikoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Osagaiak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Osagaiak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. HTTP Eskariak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. HTTP Eskariak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-eskariak/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-eskariak/fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Fetch API Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-eskariak/axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-eskariak/alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Alova Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Vue Router-ekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Vue Router-ekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/sarrera.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/oinarrizko-bideak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Oinarrizko Bideak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/nabigazio-aurreratua.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Nabigazio Aurreratua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Egoeraren Kudeaketa Pinia-rekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Egoeraren Kudeaketa Pinia-rekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/sarrera.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Pinia-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/dendak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Pinia-ko Denda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/aurreratua.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Gai Aurreratuak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proiektu Praktikoa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proiektu Praktikoa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proiektua/egitura.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Proiektuaren Egitura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proiektua/ariketak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Gidatutako Ariketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fundamentos-de-la-reactividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fundamentos de la Reactividad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fundamentos de la Reactividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ref" class="md-nav__link">
+    <span class="md-ellipsis">
+      ref()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      reactive()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ref-vs-reactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      ref vs reactive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desestructuracion-reactiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      Desestructuración Reactiva
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computed" class="md-nav__link">
+    <span class="md-ellipsis">
+      computed
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watch-y-watcheffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      watch y watchEffect
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="watch y watchEffect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#watch" class="md-nav__link">
+    <span class="md-ellipsis">
+      watch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#watcheffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      watchEffect
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reactividad-avanzada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reactividad Avanzada
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reactividad Avanzada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shallowref-y-shallowreactive" class="md-nav__link">
+    <span class="md-ellipsis">
+      shallowRef y shallowReactive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readonly" class="md-nav__link">
+    <span class="md-ellipsis">
+      readonly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Próximos pasos
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="reactividad-en-vue-3">🔄 Reactividad en Vue 3<a class="headerlink" href="#reactividad-en-vue-3" title="Permanent link">&para;</a></h1>
+<p>La reactividad es uno de los conceptos más poderosos de Vue. Es el sistema que permite a Vue rastrear cambios en los datos y actualizar automáticamente la vista cuando estos cambian.</p>
+<h2 id="fundamentos-de-la-reactividad">Fundamentos de la Reactividad<a class="headerlink" href="#fundamentos-de-la-reactividad" title="Permanent link">&para;</a></h2>
+<p>En Vue 3, la reactividad se ha rediseñado completamente utilizando los Proxies de JavaScript, lo que proporciona un mejor rendimiento y más capacidades.</p>
+<h3 id="ref"><code>ref()</code><a class="headerlink" href="#ref" title="Permanent link">&para;</a></h3>
+<p><code>ref</code> se utiliza para crear una referencia reactiva a un valor primitivo o a un objeto:</p>
+<pre><code class="language-javascript">import { ref } from 'vue'
+
+const count = ref(0)
+
+console.log(count.value) // 0
+
+count.value++
+console.log(count.value) // 1
+</code></pre>
+<h3 id="reactive"><code>reactive()</code><a class="headerlink" href="#reactive" title="Permanent link">&para;</a></h3>
+<p><code>reactive</code> crea un objeto reactivo. A diferencia de <code>ref</code>, no es necesario usar <code>.value</code> para acceder a sus propiedades:</p>
+<pre><code class="language-javascript">import { reactive } from 'vue'
+
+const state = reactive({
+  count: 0,
+  name: 'Vue 3'
+})
+
+console.log(state.count) // 0
+state.count++
+</code></pre>
+<h2 id="ref-vs-reactive"><code>ref</code> vs <code>reactive</code><a class="headerlink" href="#ref-vs-reactive" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th><code>ref</code></th>
+<th><code>reactive</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tipo de datos</td>
+<td>Cualquier tipo</td>
+<td>Solo objetos</td>
+</tr>
+<tr>
+<td>Acceso a valores</td>
+<td>Requiere <code>.value</code></td>
+<td>Acceso directo</td>
+</tr>
+<tr>
+<td>Reactividad</td>
+<td>Reactivo en <code>.value</code></td>
+<td>Reactivo en propiedades</td>
+</tr>
+<tr>
+<td>Reemplazo de objeto</td>
+<td>Se puede reemplazar</td>
+<td>No se puede reemplazar directamente</td>
+</tr>
+</tbody>
+</table>
+<h2 id="desestructuracion-reactiva">Desestructuración Reactiva<a class="headerlink" href="#desestructuracion-reactiva" title="Permanent link">&para;</a></h2>
+<p>Al desestructurar un objeto reactivo, se pierde la reactividad. Para mantenerla, usa <code>toRefs</code>:</p>
+<pre><code class="language-javascript">import { reactive, toRefs } from 'vue'
+
+const state = reactive({
+  count: 0,
+  name: 'Vue 3'
+})
+
+// ❌ Pierde reactividad
+const { count, name } = state
+
+// ✅ Mantiene la reactividad
+const { count, name } = toRefs(state)
+</code></pre>
+<h2 id="computed"><code>computed</code><a class="headerlink" href="#computed" title="Permanent link">&para;</a></h2>
+<p>Las propiedades computadas te permiten declarar valores que dependen de otros valores de forma reactiva:</p>
+<pre><code class="language-javascript">import { ref, computed } from 'vue'
+
+const count = ref(0)
+const doubleCount = computed(() =&gt; count.value * 2)
+
+console.log(doubleCount.value) // 0
+count.value++
+console.log(doubleCount.value) // 2
+</code></pre>
+<h2 id="watch-y-watcheffect"><code>watch</code> y <code>watchEffect</code><a class="headerlink" href="#watch-y-watcheffect" title="Permanent link">&para;</a></h2>
+<h3 id="watch"><code>watch</code><a class="headerlink" href="#watch" title="Permanent link">&para;</a></h3>
+<p>Observa una o varias fuentes de datos reactivas y ejecuta una función de devolución de llamada cuando cambian:</p>
+<pre><code class="language-javascript">import { ref, watch } from 'vue'
+
+const count = ref(0)
+
+const name = ref('Vue')
+
+watch(count, (newValue, oldValue) =&gt; {
+  console.log(`count cambió de ${oldValue} a ${newValue}`)
+})
+
+// Observar múltiples fuentes
+watch([count, name], ([newCount, newName], [oldCount, oldName]) =&gt; {
+  console.log('count o name cambiaron')
+})
+</code></pre>
+<h3 id="watcheffect"><code>watchEffect</code><a class="headerlink" href="#watcheffect" title="Permanent link">&para;</a></h3>
+<p>Ejecuta un efecto que rastrea automáticamente sus dependencias reactivas y las vuelve a ejecutar cuando cambian:</p>
+<pre><code class="language-javascript">import { ref, watchEffect } from 'vue'
+
+const count = ref(0)
+
+const doubleCount = ref(0)
+
+
+watchEffect(() =&gt; {
+  doubleCount.value = count.value * 2
+  console.log(`El doble es: ${doubleCount.value}`)
+})
+
+count.value++ // Registra: &quot;El doble es: 2&quot;
+</code></pre>
+<h2 id="reactividad-avanzada">Reactividad Avanzada<a class="headerlink" href="#reactividad-avanzada" title="Permanent link">&para;</a></h2>
+<h3 id="shallowref-y-shallowreactive"><code>shallowRef</code> y <code>shallowReactive</code><a class="headerlink" href="#shallowref-y-shallowreactive" title="Permanent link">&para;</a></h3>
+<p>Versiones de <code>ref</code> y <code>reactive</code> que no realizan un seguimiento profundo de los cambios:</p>
+<pre><code class="language-javascript">import { shallowRef, shallowReactive } from 'vue'
+
+const state = shallowReactive({
+  nested: {
+    count: 0 // No es reactivo
+  }
+})
+
+const shallowCount = shallowRef({ count: 0 })
+</code></pre>
+<h3 id="readonly"><code>readonly</code><a class="headerlink" href="#readonly" title="Permanent link">&para;</a></h3>
+<p>Crea un proxy de solo lectura para un objeto reactivo o ref:</p>
+<pre><code class="language-javascript">import { reactive, readonly } from 'vue'
+
+const original = reactive({ count: 0 })
+const copy = readonly(original)
+
+// Advertencia: No se puede modificar una propiedad de solo lectura
+copy.count++
+</code></pre>
+<h2 id="proximos-pasos">Próximos pasos<a class="headerlink" href="#proximos-pasos" title="Permanent link">&para;</a></h2>
+<p>Ahora que entiendes los fundamentos de la reactividad en Vue 3, estás listo para aprender sobre la creación y composición de componentes.</p>
+<p><a href="../cheat-sheet/">👉 Siguiente: Referencia rápida</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>

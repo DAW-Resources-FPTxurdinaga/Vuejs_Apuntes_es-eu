@@ -1,0 +1,2201 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/componentes/comunicacion/">
+      
+      
+        <link rel="prev" href="../creacion/">
+      
+      
+        <link rel="next" href="../../http/introduccion/">
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>3.3. Comunicación entre Componentes - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#32-comunicacion-entre-componentes" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.3. Comunicación entre Componentes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../eu/componentes/comunicacion/" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Conceptos Básicos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Conceptos Básicos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conceptos-basicos/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Introducción a Vue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conceptos-basicos/primer-ejemplo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Tu primera aplicación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Fundamentos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Fundamentos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/interpolacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolación y Directivas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind y V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if y V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/propiedades-computadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Propiedades Computadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/eventos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Manejo de Eventos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/ciclo-vida/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Ciclo de Vida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/sintaxis-plantillas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Sintaxis de Plantillas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/reactividad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Reactividad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/cheat-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Referencia Rápida
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentos/ejercicio-practico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Ejercicio Práctico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Componentes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Componentes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Creación y Uso
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    3.3. Comunicación entre Componentes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Comunicación entre Componentes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-props-padre-hijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Props (Padre → Hijo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-eventos-personalizados-hijo-padre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Eventos Personalizados (Hijo → Padre)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-provideinject-comunicacion-profunda" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Provide/Inject (Comunicación Profunda)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comunicacion-entre-componentes-hermanos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Comunicación entre Componentes Hermanos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comunicación entre Componentes Hermanos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usando-un-event-bus-patron-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usando un Event Bus (Patrón de diseño)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addtodovue" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddTodo.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todolistvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoList.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todoitemvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoItem.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todofiltervue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoFilter.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-de-repaso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas de Repaso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siguiente-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siguiente paso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. Peticiones HTTP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. Peticiones HTTP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Uso de Fetch API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Uso de Axios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http/alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Uso de Alova
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Enrutamiento con Vue Router
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Enrutamiento con Vue Router
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/rutas-basicas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Rutas Básicas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../routing/navegacion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Navegación Avanzada
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Gestión de Estado con Pinia
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Gestión de Estado con Pinia
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pinia/introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Introducción a Pinia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pinia/stores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Stores en Pinia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pinia/avanzado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Conceptos Avanzados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proyecto Práctico
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proyecto Práctico
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyecto/estructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Estructura del Proyecto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proyecto/ejercicios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Ejercicios Guiados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-props-padre-hijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Props (Padre → Hijo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-eventos-personalizados-hijo-padre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Eventos Personalizados (Hijo → Padre)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-provideinject-comunicacion-profunda" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Provide/Inject (Comunicación Profunda)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comunicacion-entre-componentes-hermanos" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Comunicación entre Componentes Hermanos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comunicación entre Componentes Hermanos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usando-un-event-bus-patron-de-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usando un Event Bus (Patrón de diseño)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addtodovue" class="md-nav__link">
+    <span class="md-ellipsis">
+      AddTodo.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todolistvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoList.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todoitemvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoItem.vue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todofiltervue" class="md-nav__link">
+    <span class="md-ellipsis">
+      TodoFilter.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-de-repaso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas de Repaso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siguiente-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Siguiente paso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="32-comunicacion-entre-componentes">3.2 Comunicación entre Componentes<a class="headerlink" href="#32-comunicacion-entre-componentes" title="Permanent link">&para;</a></h1>
+<p>En aplicaciones Vue, los componentes necesitan comunicarse entre sí. Aquí veremos los diferentes patrones de comunicación.</p>
+<h2 id="1-props-padre-hijo">1. Props (Padre → Hijo)<a class="headerlink" href="#1-props-padre-hijo" title="Permanent link">&para;</a></h2>
+<p>Los props permiten pasar datos de un componente padre a un componente hijo.</p>
+<p><strong>Componente Padre (ParentComponent.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Lista de Tareas&lt;/h1&gt;
+    &lt;task-list :tareas=&quot;tareas&quot; @tarea-completada=&quot;marcarComoCompletada&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref } from 'vue';
+import TaskList from './TaskList.vue';
+
+export default {
+  components: { TaskList },
+  setup() {
+    const tareas = ref([
+      { id: 1, texto: 'Aprender Vue', completada: false },
+      { id: 2, texto: 'Hacer la compra', completada: true },
+      { id: 3, texto: 'Hacer ejercicio', completada: false }
+    ]);
+
+    function marcarComoCompletada(id) {
+      const tarea = tareas.value.find(t =&gt; t.id === id);
+      if (tarea) {
+        tarea.completada = !tarea.completada;
+      }
+    }
+
+    return { tareas, marcarComoCompletada };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<p><strong>Componente Hijo (TaskList.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;tarea in tareas&quot; :key=&quot;tarea.id&quot; 
+        :class=&quot;{ 'completada': tarea.completada }&quot;
+        @click=&quot;toggleTarea(tarea.id)&quot;&gt;
+      {{ tarea.texto }}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    tareas: {
+      type: Array,
+      required: true
+    }
+  },
+  emits: ['tarea-completada'],
+  setup(props, { emit }) {
+    function toggleTarea(id) {
+      emit('tarea-completada', id);
+    }
+
+    return { toggleTarea };
+  }
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.completada {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="2-eventos-personalizados-hijo-padre">2. Eventos Personalizados (Hijo → Padre)<a class="headerlink" href="#2-eventos-personalizados-hijo-padre" title="Permanent link">&para;</a></h2>
+<p>Los eventos personalizados permiten que los componentes hijos se comuniquen con sus padres.</p>
+<h2 id="3-provideinject-comunicacion-profunda">3. Provide/Inject (Comunicación Profunda)<a class="headerlink" href="#3-provideinject-comunicacion-profunda" title="Permanent link">&para;</a></h2>
+<p>Útil para pasar datos a componentes profundamente anidados sin usar props en cada nivel.</p>
+<p><strong>Componente Ancestro (App.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Aplicación de Tareas&lt;/h1&gt;
+    &lt;task-manager /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { provide, ref } from 'vue';
+import TaskManager from './TaskManager.vue';
+
+export default {
+  components: { TaskManager },
+  setup() {
+    const tareas = ref([]);
+
+    function agregarTarea(texto) {
+      tareas.value.push({
+        id: Date.now(),
+        texto,
+        completada: false
+      });
+    }
+
+    // Proveer datos a componentes descendientes
+    provide('tareas', tareas);
+    provide('agregarTarea', agregarTarea);
+
+    return { tareas };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<p><strong>Componente Descendiente (TaskList.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;ul&gt;
+      &lt;task-item 
+        v-for=&quot;tarea in tareas&quot; 
+        :key=&quot;tarea.id&quot; 
+        :tarea=&quot;tarea&quot;
+      /&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { inject } from 'vue';
+import TaskItem from './TaskItem.vue';
+
+export default {
+  components: { TaskItem },
+  setup() {
+    const tareas = inject('tareas');
+    return { tareas };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<h2 id="4-comunicacion-entre-componentes-hermanos">4. Comunicación entre Componentes Hermanos<a class="headerlink" href="#4-comunicacion-entre-componentes-hermanos" title="Permanent link">&para;</a></h2>
+<h3 id="usando-un-event-bus-patron-de-diseno">Usando un Event Bus (Patrón de diseño)<a class="headerlink" href="#usando-un-event-bus-patron-de-diseno" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// eventBus.js
+import { createApp } from 'vue';
+export const eventBus = createApp({});
+</code></pre>
+<p><strong>Componente Emisor:</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;button @click=&quot;enviarMensaje&quot;&gt;Enviar Mensaje&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { eventBus } from '../eventBus';
+
+export default {
+  setup() {
+    function enviarMensaje() {
+      eventBus.config.globalProperties.$emit('mensaje', '¡Hola desde el componente emisor!');
+    }
+
+    return { enviarMensaje };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<p><strong>Componente Receptor:</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;p&gt;Mensaje recibido: {{ mensaje }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref, onMounted, onUnmounted } from 'vue';
+import { eventBus } from '../eventBus';
+
+export default {
+  setup() {
+    const mensaje = ref('');
+
+    function actualizarMensaje(msg) {
+      mensaje.value = msg;
+    }
+
+    onMounted(() =&gt; {
+      eventBus.config.globalProperties.$on('mensaje', actualizarMensaje);
+    });
+
+    onUnmounted(() =&gt; {
+      eventBus.config.globalProperties.$off('mensaje', actualizarMensaje);
+    });
+
+    return { mensaje };
+  }
+};
+&lt;/script&gt;
+
+## Ejercicio Práctico: Aplicación de Tareas con Comunicación entre Componentes
+
+Crea una aplicación de tareas con los siguientes componentes, utilizando solo props y eventos personalizados para la comunicación:
+
+### Estructura de Componentes:
+</code></pre>
+<p>TodoApp (padre)
+├── AddTodo (hijo)
+├── TodoFilter (hijo)
+└── TodoList (hijo)
+    └── TodoItem (nieto)</p>
+<pre><code>
+### TodoApp.vue (Componente Principal)
+
+```vue
+&lt;template&gt;
+  &lt;div class=&quot;todo-app&quot;&gt;
+    &lt;h1&gt;Lista de Tareas&lt;/h1&gt;
+    &lt;add-todo @add-todo=&quot;addTodo&quot; /&gt;
+    &lt;todo-filter :filter=&quot;currentFilter&quot; @update:filter=&quot;setFilter&quot; /&gt;
+    &lt;todo-list 
+      :todos=&quot;filteredTodos&quot; 
+      @toggle-todo=&quot;toggleTodo&quot; 
+      @delete-todo=&quot;deleteTodo&quot; 
+    /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref, computed } from 'vue';
+import AddTodo from './AddTodo.vue';
+import TodoList from './TodoList.vue';
+import TodoFilter from './TodoFilter.vue';
+
+export default {
+  components: { AddTodo, TodoList, TodoFilter },
+  setup() {
+    const todos = ref([
+      { id: 1, text: 'Aprender Vue', completed: false },
+      { id: 2, text: 'Hacer la compra', completed: true },
+      { id: 3, text: 'Hacer ejercicio', completed: false }
+    ]);
+
+    const currentFilter = ref('all');
+
+    const filteredTodos = computed(() =&gt; {
+      switch (currentFilter.value) {
+        case 'active':
+          return todos.value.filter(todo =&gt; !todo.completed);
+        case 'completed':
+          return todos.value.filter(todo =&gt; todo.completed);
+        default:
+          return todos.value;
+      }
+    });
+
+    function addTodo(text) {
+      todos.value.push({
+        id: Date.now(),
+        text,
+        completed: false
+      });
+    }
+
+    function toggleTodo(id) {
+      const todo = todos.value.find(t =&gt; t.id === id);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    }
+
+    function deleteTodo(id) {
+      todos.value = todos.value.filter(todo =&gt; todo.id !== id);
+    }
+
+    function setFilter(filter) {
+      currentFilter.value = filter;
+    }
+
+    return {
+      filteredTodos,
+      currentFilter,
+      addTodo,
+      toggleTodo,
+      deleteTodo,
+      setFilter
+    };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<h3 id="addtodovue">AddTodo.vue<a class="headerlink" href="#addtodovue" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;form @submit.prevent=&quot;handleSubmit&quot; class=&quot;add-todo&quot;&gt;
+    &lt;input 
+      type=&quot;text&quot; 
+      v-model=&quot;newTodo&quot; 
+      placeholder=&quot;Nueva tarea...&quot;
+      required
+    &gt;
+    &lt;button type=&quot;submit&quot;&gt;Agregar&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  emits: ['add-todo'],
+  setup(props, { emit }) {
+    const newTodo = ref('');
+
+    function handleSubmit() {
+      emit('add-todo', newTodo.value);
+      newTodo.value = '';
+    }
+
+    return {
+      newTodo,
+      handleSubmit
+    };
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<h3 id="todolistvue">TodoList.vue<a class="headerlink" href="#todolistvue" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;ul class=&quot;todo-list&quot;&gt;
+    &lt;todo-item
+      v-for=&quot;todo in todos&quot;
+      :key=&quot;todo.id&quot;
+      :todo=&quot;todo&quot;
+      @toggle=&quot;$emit('toggle-todo', todo.id)&quot;
+      @delete=&quot;$emit('delete-todo', todo.id)&quot;
+    /&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import TodoItem from './TodoItem.vue';
+
+export default {
+  components: { TodoItem },
+  props: {
+    todos: {
+      type: Array,
+      required: true
+    }
+  },
+  emits: ['toggle-todo', 'delete-todo']
+};
+&lt;/script&gt;
+</code></pre>
+<h3 id="todoitemvue">TodoItem.vue<a class="headerlink" href="#todoitemvue" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;li class=&quot;todo-item&quot;&gt;
+    &lt;input 
+      type=&quot;checkbox&quot; 
+      :checked=&quot;todo.completed&quot;
+      @change=&quot;$emit('toggle')&quot;
+    &gt;
+    &lt;span :class=&quot;{ 'completed': todo.completed }&quot;&gt;
+      {{ todo.text }}
+    &lt;/span&gt;
+    &lt;button @click=&quot;$emit('delete')&quot; class=&quot;delete-btn&quot;&gt;×&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    todo: {
+      type: Object,
+      required: true
+    }
+  },
+  emits: ['toggle', 'delete']
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="todofiltervue">TodoFilter.vue<a class="headerlink" href="#todofiltervue" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;todo-filter&quot;&gt;
+    &lt;button 
+      v-for=&quot;option in options&quot; 
+      :key=&quot;option.value&quot;
+      @click=&quot;$emit('update:filter', option.value)&quot;
+      :class=&quot;{ active: option.value === modelValue }&quot;
+    &gt;
+      {{ option.label }}
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  props: {
+    modelValue: {
+      type: String,
+      required: true
+    }
+  },
+  emits: ['update:filter'],
+  setup() {
+    const options = [
+      { value: 'all', label: 'Todas' },
+      { value: 'active', label: 'Pendientes' },
+      { value: 'completed', label: 'Completadas' }
+    ];
+
+    return { options };
+  }
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.todo-filter {
+  margin: 20px 0;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.active {
+  background: #42b983;
+  color: white;
+  border-color: #42b983;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="preguntas-de-repaso">Preguntas de Repaso<a class="headerlink" href="#preguntas-de-repaso" title="Permanent link">&para;</a></h2>
+<ol>
+<li>¿Cómo se pasan los datos de un componente padre a un componente hijo?</li>
+<li>¿Cómo puede un componente hijo comunicarse con su componente padre?</li>
+<li>¿Qué es el "prop drilling" y cómo podrías evitarlo en una aplicación más grande?</li>
+<li>¿Cuándo sería apropiado usar provide/inject en lugar de pasar props?</li>
+</ol>
+<h2 id="siguiente-paso">Siguiente paso<a class="headerlink" href="#siguiente-paso" title="Permanent link">&para;</a></h2>
+<p>Ahora que has aprendido los diferentes métodos de comunicación entre componentes en Vue, es momento de explorar cómo implementar la navegación entre diferentes vistas en tu aplicación.</p>
+<p><a href="../../routing/introduccion/">→ Siguiente: Enrutamiento en Vue</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../scripts/checkboxes.js"></script>
+      
+        <script src="../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>

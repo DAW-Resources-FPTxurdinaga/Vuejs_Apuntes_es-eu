@@ -1,0 +1,2028 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/http-eskariak/axios/">
+      
+      
+        <link rel="prev" href="../fetch/">
+      
+      
+        <link rel="next" href="../alova/">
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>4.3. Axios Erabiliz - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#43-axios-en-erabilera-vue-3-n" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.3. Axios Erabiliz
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/VueJS_Tutorial_es-eu/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Oinarrizko Kontzeptuak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Oinarrizko Kontzeptuak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarrizko-kontzeptuak/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Vue-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarrizko-kontzeptuak/lehen-aurkezpena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Zure Lehen Aplikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Oinarriak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Oinarriak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/interpolazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolazioa eta Zuzentarauak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind eta V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if eta V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/kalkulatutako-propietateak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Kalkulatutako Propietateak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/gertaerak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Gertaeren Kudeaketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/bizitza-zikloa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Bizitza Zikloa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/txantiloi-sintaxia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Txantiloi-sintaxia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/erantzunkortasuna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Erantzunkortasuna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/erreferentzia-azkarra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erreferentzia Azkarra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../oinarriak/ariketa-praktikoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Ariketa Praktikoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Osagaiak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Osagaiak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../componentes/comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. HTTP Eskariak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. HTTP Eskariak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Fetch API Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko konfigurazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adibide-osatua-axios-ekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adibide osatua Axios-ekin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-metodoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP metodoak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP metodoak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    <span class="md-ellipsis">
+      PUT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      PATCH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      DELETE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ezaugarri-aurreratuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ezaugarri aurreratuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ezaugarri aurreratuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eskaeren-atzizainak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eskaeren atzizainak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eskaerak-bertan-uztea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eskaerak bertan uztea
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erroreen-kudeaketa-globala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erroreen kudeaketa globala
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konklusioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konklusioa
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Alova Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Vue Router-ekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Vue Router-ekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/sarrera.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/oinarrizko-bideak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Oinarrizko Bideak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vue-router/nabigazio-aurreratua.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Nabigazio Aurreratua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Egoeraren Kudeaketa Pinia-rekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Egoeraren Kudeaketa Pinia-rekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/sarrera.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Pinia-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/dendak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Pinia-ko Denda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pinia/aurreratua.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Gai Aurreratuak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proiektu Praktikoa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proiektu Praktikoa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proiektua/egitura.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Proiektuaren Egitura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../proiektua/ariketak.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Gidatutako Ariketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instalazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko konfigurazioa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adibide-osatua-axios-ekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adibide osatua Axios-ekin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-metodoak" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP metodoak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP metodoak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    <span class="md-ellipsis">
+      GET
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post" class="md-nav__link">
+    <span class="md-ellipsis">
+      POST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    <span class="md-ellipsis">
+      PUT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      PATCH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      DELETE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ezaugarri-aurreratuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ezaugarri aurreratuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ezaugarri aurreratuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eskaeren-atzizainak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eskaeren atzizainak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eskaerak-bertan-uztea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eskaerak bertan uztea
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#erroreen-kudeaketa-globala" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erroreen kudeaketa globala
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konklusioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Konklusioa
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="43-axios-en-erabilera-vue-3-n">4.3 Axios-en Erabilera Vue 3-n<a class="headerlink" href="#43-axios-en-erabilera-vue-3-n" title="Permanent link">&para;</a></h1>
+<p>Axios promesetan oinarritutako HTTP bezero liburutegi bat da, eta HTTP eskaerak kudeatzea errazten du JavaScript aplikazioetan. Bereziki erabilgarria da Vue 3 aplikazioetan, integrazio errazagatik eta ezaugarri aurreratuengatik.</p>
+<h2 id="instalazioa">Instalazioa<a class="headerlink" href="#instalazioa" title="Permanent link">&para;</a></h2>
+<p>Axios zure proiektuan instalatzeko:</p>
+<pre><code class="language-bash">npm install axios
+# edo
+yarn add axios
+</code></pre>
+<h2 id="oinarrizko-konfigurazioa">Oinarrizko konfigurazioa<a class="headerlink" href="#oinarrizko-konfigurazioa" title="Permanent link">&para;</a></h2>
+<p>Sortu Axios-en konfigurazio-fitxategi bat (adibidez, <code>src/utils/api.js</code>):</p>
+<pre><code class="language-javascript">import axios from 'axios'
+
+const api = axios.create({
+  baseURL: 'https://api.example.com',
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  }
+})
+
+export default api
+</code></pre>
+<h2 id="adibide-osatua-axios-ekin">Adibide osatua Axios-ekin<a class="headerlink" href="#adibide-osatua-axios-ekin" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;http-demo&quot;&gt;
+    &lt;h2&gt;Erabiltzaileen Zerrenda (Axios)&lt;/h2&gt;
+    &lt;button @click=&quot;fetchUsers&quot; :disabled=&quot;loading&quot;&gt;
+      {{ loading ? 'Kargatzen...' : 'Kargatu Erabiltzaileak' }}
+    &lt;/button&gt;
+
+    &lt;div v-if=&quot;error&quot; class=&quot;error&quot;&gt;
+      {{ error }}
+    &lt;/div&gt;
+
+    &lt;ul v-else-if=&quot;users.length &gt; 0&quot; class=&quot;user-list&quot;&gt;
+      &lt;li v-for=&quot;user in users&quot; :key=&quot;user.id&quot; class=&quot;user-item&quot;&gt;
+        &lt;img :src=&quot;user.avatar&quot; :alt=&quot;user.first_name&quot; class=&quot;avatar&quot;&gt;
+        &lt;div class=&quot;user-info&quot;&gt;
+          &lt;h3&gt;{{ user.first_name }} {{ user.last_name }}&lt;/h3&gt;
+          &lt;p&gt;{{ user.email }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p v-else-if=&quot;!loading&quot; class=&quot;no-data&quot;&gt;
+      Ez dago erakusteko erabiltzailerik. Egin klik botoian haiek kargatzeko.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from 'vue'
+import api from '@/utils/api'
+
+const users = ref([])
+const loading = ref(false)
+const error = ref(null)
+
+async function fetchUsers() {
+  loading.value = true
+  error.value = null
+
+  try {
+    const response = await api.get('/users')
+    users.value = response.data.data
+  } catch (err) {
+    console.error('Errorea erabiltzaileak kargatzean:', err)
+    error.value = 'Ezin izan dira erabiltzaileak kargatu. Saiatu berriro geroago.'
+  } finally {
+    loading.value = false
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="http-metodoak">HTTP metodoak<a class="headerlink" href="#http-metodoak" title="Permanent link">&para;</a></h2>
+<h3 id="get">GET<a class="headerlink" href="#get" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Baliabidea lortu
+const response = await api.get('/users')
+
+// Parametroekin
+const response = await api.get('/users', {
+  params: {
+    page: 1,
+    limit: 10
+  }
+})
+</code></pre>
+<h3 id="post">POST<a class="headerlink" href="#post" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Baliabide berria sortu
+const newUser = {
+  name: 'John',
+  job: 'Developer'
+}
+
+const response = await api.post('/users', newUser)
+</code></pre>
+<h3 id="put">PUT<a class="headerlink" href="#put" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Baliabide osoa eguneratu
+const updatedUser = {
+  name: 'John',
+  job: 'Senior Developer'
+}
+
+const response = await api.put('/users/1', updatedUser)
+</code></pre>
+<h3 id="patch">PATCH<a class="headerlink" href="#patch" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Baliabidearen zati bat eguneratu
+const updates = {
+  job: 'Team Lead'
+}
+
+const response = await api.patch('/users/1', updates)
+</code></pre>
+<h3 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Baliabidea ezabatu
+const response = await api.delete('/users/1')
+</code></pre>
+<h2 id="ezaugarri-aurreratuak">Ezaugarri aurreratuak<a class="headerlink" href="#ezaugarri-aurreratuak" title="Permanent link">&para;</a></h2>
+<h3 id="eskaeren-atzizainak">Eskaeren atzizainak<a class="headerlink" href="#eskaeren-atzizainak" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// Erantzuna aldez aurretik prozesatzeko atzizaina
+api.interceptors.request.use(
+  config =&gt; {
+    // Token-a gehitu eskaera bakoitzean
+    const token = localStorage.getItem('token')
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
+    }
+    return config
+  },
+  error =&gt; {
+    return Promise.reject(error)
+  }
+)
+
+// Erantzunak prozesatzeko atzizaina
+api.interceptors.response.use(
+  response =&gt; response,
+  error =&gt; {
+    if (error.response?.status === 401) {
+      // Erabiltzailea desautentikatu
+      router.push('/login')
+    }
+    return Promise.reject(error)
+  }
+)
+</code></pre>
+<h3 id="eskaerak-bertan-uztea">Eskaerak bertan uztea<a class="headerlink" href="#eskaerak-bertan-uztea" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">const source = axios.CancelToken.source()
+
+try {
+  const response = await api.get('/users', {
+    cancelToken: source.token
+  })
+  // Procesar respuesta
+} catch (err) {
+  if (axios.isCancel(err)) {
+    console.log('Eskaera bertan behera utzi da')
+  } else {
+    // Manejar otros errores
+  }
+}
+
+// Eskaera bertan uzteko
+source.cancel('Erabiltzaileak eskaera bertan behera utzi du')
+</code></pre>
+<h2 id="erroreen-kudeaketa-globala">Erroreen kudeaketa globala<a class="headerlink" href="#erroreen-kudeaketa-globala" title="Permanent link">&para;</a></h2>
+<pre><code class="language-javascript">// ErrorHandler.vue
+&lt;template&gt;
+  &lt;div v-if=&quot;error&quot; class=&quot;error-overlay&quot;&gt;
+    &lt;div class=&quot;error-content&quot;&gt;
+      &lt;h3&gt;Errorea gertatu da&lt;/h3&gt;
+      &lt;p&gt;{{ errorMessage }}&lt;/p&gt;
+      &lt;button @click=&quot;dismissError&quot;&gt;Itxi&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from 'vue'
+
+const error = ref(null)
+const errorMessage = ref('')
+
+const showError = (message) =&gt; {
+  error.value = true
+  errorMessage.value = message
+}
+
+const dismissError = () =&gt; {
+  error.value = false
+}
+
+defineExpose({
+  showError,
+  dismissError
+})
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.error-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="konklusioa">Konklusioa<a class="headerlink" href="#konklusioa" title="Permanent link">&para;</a></h2>
+<p>Axios-ek funtzionalitate aurreratuak eskaintzen ditu HTTP eskaerak kudeatzeko, hala nola:
+- Atzizainak eskaera eta erantzunetarako
+- Eskaeren bertan behera uztea
+- Erroreen kudeaketa zentralizatua
+- Automatikoki JSON bihurtzea
+- CSRF babesa</p>
+<p>Hurrengo atalean, Alova aztertuko dugu, Vue-rentzako alternatiba arin eta indartsu bat.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>
