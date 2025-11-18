@@ -1,0 +1,1965 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/composicion/ciclo-vida/">
+      
+      
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>🔄 Ciclo de Vida en Vue 3 - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ciclo-de-vida-en-vue-3" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🔄 Ciclo de Vida en Vue 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../composicion/ciclo-vida/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Oinarrizko Kontzeptuak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Oinarrizko Kontzeptuak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Vue-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Zure Lehen Aplikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Oinarriak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Oinarriak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.0-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.1-interpolazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolazioa eta Zuzentarauak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.2-vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind eta V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.3-v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if eta V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.4-kalkulatutako-propietateak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Kalkulatutako Propietateak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.5-gertaerak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Gertaeren Kudeaketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.6-bizitza-zikloa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Bizitza Zikloa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.7-txantiloi-sintaxia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Txantiloi-sintaxia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.8-erantzunkortasuna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Erantzunkortasuna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.9-erreferentzia-azkarra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erreferentzia Azkarra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.10-ariketa-praktikoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Ariketa Praktikoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Osagaiak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Osagaiak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.2-creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.3-comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. HTTP Eskariak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. HTTP Eskariak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.2-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Fetch API Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.3-axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.4-alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Alova Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Vue Router-ekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Vue Router-ekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.2-oinarrizko-bideak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Oinarrizko Bideak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.3-nabigazio-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Nabigazio Aurreratua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Egoeraren Kudeaketa Pinia-rekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Egoeraren Kudeaketa Pinia-rekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Pinia-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.2-dendak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Pinia-ko Denda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.3-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Gai Aurreratuak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proiektu Praktikoa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proiektu Praktikoa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.1-egitura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Proiektuaren Egitura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.2-ariketak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Gidatutako Ariketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tabla-de-hooks-del-ciclo-de-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabla de Hooks del Ciclo de Vida
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uso-basico-con-composition-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso Básico con Composition API
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicacion-de-los-hooks-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación de los Hooks Principales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explicación de los Hooks Principales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-onbeforemount-y-onmounted" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. onBeforeMount y onMounted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-onbeforeupdate-y-onupdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. onBeforeUpdate y onUpdated
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-onbeforeunmount-y-onunmounted" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. onBeforeUnmount y onUnmounted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-onerrorcaptured" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. onErrorCaptured
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-con-componente-hijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo con Componente Hijo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buenas Prácticas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusión
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ciclo-de-vida-en-vue-3">🔄 Ciclo de Vida en Vue 3<a class="headerlink" href="#ciclo-de-vida-en-vue-3" title="Permanent link">&para;</a></h1>
+<p>El ciclo de vida de un componente Vue 3 describe todos los eventos que ocurren desde su creación hasta su destrucción. Comprender estos eventos es crucial para ejecutar código en el momento adecuado, como realizar peticiones a una API, limpiar suscripciones o manipular el DOM.</p>
+<h2 id="tabla-de-hooks-del-ciclo-de-vida">Tabla de Hooks del Ciclo de Vida<a class="headerlink" href="#tabla-de-hooks-del-ciclo-de-vida" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Hook de la Composition API</th>
+<th>Hook de Options API</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onBeforeMount</code></td>
+<td><code>beforeMount</code></td>
+<td>Se ejecuta antes de que el componente se monte en el DOM</td>
+</tr>
+<tr>
+<td><code>onMounted</code></td>
+<td><code>mounted</code></td>
+<td>Se ejecuta después de que el componente se ha montado</td>
+</tr>
+<tr>
+<td><code>onBeforeUpdate</code></td>
+<td><code>beforeUpdate</code></td>
+<td>Se ejecuta cuando los datos cambian, antes de que el componente se actualice</td>
+</tr>
+<tr>
+<td><code>onUpdated</code></td>
+<td><code>updated</code></td>
+<td>Se ejecuta después de que el componente se ha actualizado</td>
+</tr>
+<tr>
+<td><code>onBeforeUnmount</code></td>
+<td><code>beforeUnmount</code></td>
+<td>Se ejecuta antes de que el componente se desmonte</td>
+</tr>
+<tr>
+<td><code>onUnmounted</code></td>
+<td><code>unmounted</code></td>
+<td>Se ejecuta después de que el componente se ha desmontado</td>
+</tr>
+<tr>
+<td><code>onErrorCaptured</code></td>
+<td><code>errorCaptured</code></td>
+<td>Se ejecuta cuando se captura un error en cualquier componente hijo</td>
+</tr>
+<tr>
+<td><code>onActivated</code></td>
+<td><code>activated</code></td>
+<td>Se ejecuta cuando un componente dentro de <code>&lt;keep-alive&gt;</code> se activa</td>
+</tr>
+<tr>
+<td><code>onDeactivated</code></td>
+<td><code>deactivated</code></td>
+<td>Se ejecuta cuando un componente dentro de <code>&lt;keep-alive&gt;</code> se desactiva</td>
+</tr>
+<tr>
+<td><code>onRenderTracked</code></td>
+<td>-</td>
+<td>Se ejecuta cuando una dependencia reactiva es rastreada</td>
+</tr>
+<tr>
+<td><code>onRenderTriggered</code></td>
+<td>-</td>
+<td>Se ejecuta cuando una dependencia reactiva desencadena una nueva renderización</td>
+</tr>
+<tr>
+<td><code>onServerPrefetch</code></td>
+<td><code>serverPrefetch</code></td>
+<td>Específico para SSR, se ejecuta durante la renderización del lado del servidor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="uso-basico-con-composition-api">Uso Básico con Composition API<a class="headerlink" href="#uso-basico-con-composition-api" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;lifecycle-demo&quot;&gt;
+    &lt;h2&gt;Demo del Ciclo de Vida&lt;/h2&gt;
+    &lt;p&gt;Contador: {{ count }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Incrementar&lt;/button&gt;
+    &lt;div ref=&quot;messageEl&quot; class=&quot;message&quot;&gt;Mensaje inicial&lt;/div&gt;
+
+    &lt;div v-if=&quot;showChild&quot;&gt;
+      &lt;ChildComponent :count=&quot;count&quot; /&gt;
+    &lt;/div&gt;
+    &lt;button @click=&quot;toggleChild&quot;&gt;
+      {{ showChild ? 'Ocultar' : 'Mostrar' }} componente hijo
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { 
+  ref, 
+  onBeforeMount, 
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+  onErrorCaptured,
+  onRenderTracked,
+  onRenderTriggered
+} from 'vue'
+import ChildComponent from './ChildComponent.vue'
+
+// Estado reactivo
+const count = ref(0)
+const messageEl = ref(null)
+const showChild = ref(true)
+const error = ref(null)
+
+// Métodos
+function increment() {
+  count.value++
+
+  // Simular un error cuando el contador llega a 5
+  if (count.value === 5) {
+    try {
+      // Esto lanzará un error que será capturado por errorCaptured
+      nonExistentFunction()
+    } catch (e) {
+      error.value = e.message
+    }
+  }
+}
+
+function toggleChild() {
+  showChild.value = !showChild.value
+}
+
+// Hooks del ciclo de vida
+onBeforeMount(() =&gt; {
+  console.log('1. onBeforeMount')
+  // El componente está a punto de montarse
+  // El DOM aún no está disponible
+  console.log('Elemento del mensaje:', messageEl.value) // null
+})
+
+onMounted(() =&gt; {
+  console.log('2. onMounted')
+  // El componente está montado
+  // El DOM está disponible
+  console.log('Elemento del mensaje:', messageEl.value) // &lt;div&gt;Mensaje inicial&lt;/div&gt;
+
+  // Ejemplo: Configurar un temporizador
+  const timer = setInterval(() =&gt; {
+    console.log('Temporizador activo')
+  }, 1000)
+
+  // Limpieza en onUnmounted
+  onUnmounted(() =&gt; {
+    console.log('Limpieza del temporizador')
+    clearInterval(timer)
+  })
+})
+
+onBeforeUpdate(() =&gt; {
+  console.log('3. onBeforeUpdate')
+  // Se ejecuta cuando los datos reactivos cambian,
+  // antes de que el componente se vuelva a renderizar
+  console.log('Contador a punto de actualizarse a:', count.value)
+})
+
+onUpdated(() =&gt; {
+  console.log('4. onUpdated')
+  // Se ejecuta después de que el componente se ha actualizado
+  // y el DOM se ha vuelto a renderizar
+  console.log('Contador actualizado a:', count.value)
+
+  // Puedes acceder al DOM actualizado aquí
+  if (messageEl.value) {
+    messageEl.value.textContent = `El contador es ${count.value}`
+  }
+})
+
+onBeforeUnmount(() =&gt; {
+  console.log('5. onBeforeUnmount')
+  // El componente está a punto de desmontarse
+  // Aún está completamente funcional
+})
+
+onUnmounted(() =&gt; {
+  console.log('6. onUnmounted')
+  // El componente se ha desmontado
+  // Todas las directivas están desvinculadas
+  // Los listeners de eventos son eliminados
+  // Las instancias de componentes hijos también están desmontadas
+})
+
+onErrorCaptured((err, instance, info) =&gt; {
+  console.error('Error capturado:', err)
+  console.log('Instancia del componente:', instance)
+  console.log('Información del error:', info)
+
+  // Podemos mostrar un mensaje de error en la interfaz
+  error.value = `Error: ${err.message}`
+
+  // Si retornamos false, el error no se propagará
+  return true
+})
+
+// Hooks de depuración (solo en desarrollo)
+if (process.env.NODE_ENV === 'development') {
+  onRenderTracked((event) =&gt; {
+    console.log('Dependencia rastreada:', event)
+  })
+
+  onRenderTriggered((event) =&gt; {
+    console.log('Dependencia que desencadenó la actualización:', event)
+  })
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.lifecycle-demo {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+button {
+  background-color: #42b983;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #3aa876;
+}
+
+.message {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-left: 4px solid #42b983;
+  font-family: monospace;
+}
+
+.error {
+  color: #e74c3c;
+  background-color: #fde8e7;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0;
+  border-left: 4px solid #e74c3c;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="explicacion-de-los-hooks-principales">Explicación de los Hooks Principales<a class="headerlink" href="#explicacion-de-los-hooks-principales" title="Permanent link">&para;</a></h2>
+<h3 id="1-onbeforemount-y-onmounted">1. <code>onBeforeMount</code> y <code>onMounted</code><a class="headerlink" href="#1-onbeforemount-y-onmounted" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong><code>onBeforeMount</code></strong>: Se ejecuta después de que el componente ha sido inicializado pero antes de que se monte en el DOM. Es útil para realizar configuraciones iniciales que no requieran acceso al DOM.</p>
+</li>
+<li>
+<p><strong><code>onMounted</code></strong>: Se ejecuta después de que el componente se ha montado en el DOM. Es el lugar ideal para realizar peticiones a APIs, configurar suscripciones o interactuar con el DOM.</p>
+</li>
+</ul>
+<h3 id="2-onbeforeupdate-y-onupdated">2. <code>onBeforeUpdate</code> y <code>onUpdated</code><a class="headerlink" href="#2-onbeforeupdate-y-onupdated" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong><code>onBeforeUpdate</code></strong>: Se ejecuta cuando los datos reactivos cambian, pero antes de que el componente se vuelva a renderizar. Útil para acceder al estado anterior del DOM.</p>
+</li>
+<li>
+<p><strong><code>onUpdated</code></strong>: Se ejecuta después de que el componente se ha actualizado y el DOM se ha vuelto a renderizar. Ten cuidado con las modificaciones al estado aquí para evitar bucles infinitos.</p>
+</li>
+</ul>
+<h3 id="3-onbeforeunmount-y-onunmounted">3. <code>onBeforeUnmount</code> y <code>onUnmounted</code><a class="headerlink" href="#3-onbeforeunmount-y-onunmounted" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong><code>onBeforeUnmount</code></strong>: Se ejecuta justo antes de que el componente se desmonte. El componente sigue estando completamente funcional.</p>
+</li>
+<li>
+<p><strong><code>onUnmounted</code></strong>: Se ejecuta después de que el componente se ha desmontado. Es el lugar ideal para limpiar temporizadores, cancelar peticiones o eliminar listeners de eventos globales.</p>
+</li>
+</ul>
+<h3 id="4-onerrorcaptured">4. <code>onErrorCaptured</code><a class="headerlink" href="#4-onerrorcaptured" title="Permanent link">&para;</a></h3>
+<p>Captura errores de cualquier componente hijo. Puedes usarlo para mostrar una interfaz de error o registrar el error en un servicio de monitoreo.</p>
+<h2 id="ejemplo-con-componente-hijo">Ejemplo con Componente Hijo<a class="headerlink" href="#ejemplo-con-componente-hijo" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;!-- ChildComponent.vue --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;child-component&quot;&gt;
+    &lt;h3&gt;Componente Hijo&lt;/h3&gt;
+    &lt;p&gt;Contador del padre: {{ props.count }}&lt;/p&gt;
+    &lt;p&gt;Contador local: {{ localCount }}&lt;/p&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Incrementar Local&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const props = defineProps({
+  count: {
+    type: Number,
+    required: true
+  }
+})
+
+
+const localCount = ref(0)
+
+
+function increment() {
+  localCount.value++
+}
+
+onMounted(() =&gt; {
+  console.log('Componente Hijo: Montado')
+
+  // Ejemplo de suscripción a un evento global
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() =&gt; {
+  console.log('Componente Hijo: Desmontado')
+  // Importante: Limpiar el event listener
+  window.removeEventListener('resize', handleResize)
+})
+
+function handleResize() {
+  console.log('Ventana redimensionada')
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+.child-component {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="buenas-practicas">Buenas Prácticas<a class="headerlink" href="#buenas-practicas" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Limpieza de recursos</strong>: Siempre limpia los temporizadores, suscripciones y event listeners en <code>onUnmounted</code>.</p>
+</li>
+<li>
+<p><strong>Evita efectos secundarios en el renderizado</strong>: No realices operaciones costosas o con efectos secundarios durante el renderizado. Usa <code>onMounted</code> o <code>onUpdated</code> en su lugar.</p>
+</li>
+<li>
+<p><strong>Manejo de errores</strong>: Usa <code>onErrorCaptured</code> para manejar errores de manera elegante.</p>
+</li>
+<li>
+<p><strong>Evita actualizaciones en <code>onUpdated</code></strong>: Ten cuidado al modificar el estado en <code>onUpdated</code> para evitar bucles infinitos.</p>
+</li>
+<li>
+<p><strong>Uso de <code>nextTick</code></strong>: Si necesitas esperar al siguiente ciclo de actualización del DOM, usa <code>nextTick</code>.</p>
+</li>
+</ol>
+<h2 id="conclusion">Conclusión<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>El ciclo de vida de los componentes es fundamental para entender cuándo y cómo interactuar con el DOM, realizar peticiones asíncronas y limpiar recursos. La Composition API de Vue 3 proporciona una forma más modular y organizada de trabajar con estos hooks en comparación con la Options API.</p>
+<p>Recuerda que un uso correcto de estos hooks puede mejorar significativamente el rendimiento y la estabilidad de tu aplicación.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>

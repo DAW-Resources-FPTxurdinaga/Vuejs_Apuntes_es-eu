@@ -43,7 +43,7 @@
 
 Para comenzar con Vue 3, sigue estos pasos:
 
-1. Navega a la sección de [Conceptos Básicos](./conceptos-basicos/introduccion.md) para una introducción completa a Vue 3.
+1. Navega a la sección de [Conceptos Básicos](./1-conceptos-basicos/1.1-introduccion.md) para una introducción completa a Vue 3.
 2. Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 16 o superior) y [pnpm](https://pnpm.io/installation) o [yarn](https://yarnpkg.com/getting-started/install).
 3. Crea un nuevo proyecto Vue con uno de estos comandos:
     - **npm:**
@@ -178,7 +178,7 @@ Este material ha sido desarrollado para el módulo de **Desarrollo de Aplicacion
 ---
 
 <div class="cta-buttons">
-  <a href="/fundamentos/introduccion" class="button primary">Comenzar Curso</a>
+  <a href="/2-fundamentos/2.0-introduccion" class="button primary">Comenzar Curso</a>
   <a href="/proyecto/ejercicios" class="button secondary">Ver Ejercicios</a>
 </div>
 

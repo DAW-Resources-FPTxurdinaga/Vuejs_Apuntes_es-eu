@@ -43,7 +43,7 @@
 
 Vue 3-rekin hasteko, jarraitu urrats hauek:
 
-1. Joan [Oinarrizko Kontzeptuak](./oinarrizko-kontzeptuak/sarrera.md) atalera Vue 3-ren sarrera osoa ikusteko.
+1. Joan [Oinarrizko Kontzeptuak](./1-oinarrizko-kontzeptuak/1.1-sarrera.md) atalera Vue 3-ren sarrera osoa ikusteko.
 
 2. Egiaztatu [Node.js](https://nodejs.org/) (16. bertsioa edo berriagoa) eta [pnpm](https://pnpm.io/installation) edo [yarn](https://yarnpkg.com/getting-started/install) instalatuta dituzula.
 

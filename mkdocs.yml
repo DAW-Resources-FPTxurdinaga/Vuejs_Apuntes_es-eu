@@ -35,30 +35,7 @@ extra_javascript:
 plugins:
 - search
 - i18n:
-    default_language: es
     docs_structure: folder
-    docs_dir: docs
-    nav_translations:
-      # Mapeo de rutas entre idiomas - Fundamentos/Oinarriak
-      'fundamentos/introduccion.md': 'oinarriak/sarrera.md'
-      'fundamentos/interpolacion.md': 'oinarriak/interpolazioa.md'
-      'fundamentos/vbind-vmodel.md': 'oinarriak/vbind-vmodel.md'
-      'fundamentos/v-if_v-for.md': 'oinarriak/v-if_v-for.md'
-      'fundamentos/propiedades-computadas.md': 'oinarriak/kalkulatutako-propietateak.md'
-      'fundamentos/eventos.md': 'oinarriak/gertaerak.md'
-      'fundamentos/ciclo-vida.md': 'oinarriak/bizitza-zikloa.md'
-      'fundamentos/sintaxis-plantillas.md': 'oinarriak/txantiloi-sintaxia.md'
-      'fundamentos/reactividad.md': 'oinarriak/erantzunkortasuna.md'
-      'fundamentos/cheat-sheet.md': 'oinarriak/erreferentzia-azkarra.md'
-      'fundamentos/ejercicio-practico.md': 'oinarriak/ariketa-praktikoa.md'
-      
-      # Conceptos Básicos / Oinarrizko Kontzeptuak
-      'conceptos-basicos/introduccion.md': 'oinarrizko-kontzeptuak/sarrera.md'
-      'conceptos-basicos/primer-ejemplo.md': 'oinarrizko-kontzeptuak/lehen-aurkezpena.md'
-      
-      # Componentes / Osagaiak
-      'componentes/creacion.md': 'componentes/creacion.md'
-      'componentes/comunicacion.md': 'componentes/comunicacion.md'
     languages:
       - locale: es
         name: Español
@@ -66,79 +43,79 @@ plugins:
         nav: 
           - Inicio: 'es/index.md'
           - '1. Conceptos Básicos':
-            - '1.1. Introducción a Vue': 'es/conceptos-basicos/introduccion.md'
-            - '1.2. Tu primera aplicación': 'es/conceptos-basicos/primer-ejemplo.md'
+            - '1.1. Introducción a Vue': 'es/1-conceptos-basicos/1.1-introduccion.md'
+            - '1.2. Tu primera aplicación': 'es/1-conceptos-basicos/1.2-primer-ejemplo.md'
           - '2. Fundamentos':
-            - '2.0. Introducción': 'es/fundamentos/introduccion.md'
-            - '2.1. Interpolación y Directivas': 'es/fundamentos/interpolacion.md'
-            - '2.2. V-bind y V-model': 'es/fundamentos/vbind-vmodel.md'
-            - '2.3. V-if y V-for': 'es/fundamentos/v-if_v-for.md'
-            - '2.4. Propiedades Computadas': 'es/fundamentos/propiedades-computadas.md'
-            - '2.5. Manejo de Eventos': 'es/fundamentos/eventos.md'
-            - '2.6. Ciclo de Vida': 'es/fundamentos/ciclo-vida.md'
-            - '2.7. Sintaxis de Plantillas': 'es/fundamentos/sintaxis-plantillas.md'
-            - '2.8. Reactividad': 'es/fundamentos/reactividad.md'
-            - '2.9. Referencia Rápida': 'es/fundamentos/cheat-sheet.md'
-            - '2.10. Ejercicio Práctico': 'es/fundamentos/ejercicio-practico.md'
+            - '2.0. Introducción': 'es/2-fundamentos/2.0-introduccion.md'
+            - '2.1. Interpolación y Directivas': 'es/2-fundamentos/2.1-interpolacion.md'
+            - '2.2. V-bind y V-model': 'es/2-fundamentos/2.2-vbind-vmodel.md'
+            - '2.3. V-if y V-for': 'es/2-fundamentos/2.3-v-if_v-for.md'
+            - '2.4. Propiedades Computadas': 'es/2-fundamentos/2.4-propiedades-computadas.md'
+            - '2.5. Manejo de Eventos': 'es/2-fundamentos/2.5-eventos.md'
+            - '2.6. Ciclo de Vida': 'es/2-fundamentos/2.6-ciclo-vida.md'
+            - '2.7. Sintaxis de Plantillas': 'es/2-fundamentos/2.7-sintaxis-plantillas.md'
+            - '2.8. Reactividad': 'es/2-fundamentos/2.8-reactividad.md'
+            - '2.9. Referencia Rápida': 'es/2-fundamentos/2.9-cheat-sheet.md'
+            - '2.10. Ejercicio Práctico': 'es/2-fundamentos/2.10-ejercicio-practico.md'
           - '3. Componentes':
-            - '3.1. Introducción': 'es/componentes/introduccion.md'
-            - '3.2. Creación y Uso': 'es/componentes/creacion.md'
-            - '3.3. Comunicación entre Componentes': 'es/componentes/comunicacion.md'
+            - '3.1. Introducción': 'es/3-componentes/3.1-introduccion.md'
+            - '3.2. Creación y Uso': 'es/3-componentes/3.2-creacion.md'
+            - '3.3. Comunicación entre Componentes': 'es/3-componentes/3.3-comunicacion.md'
           - '4. Peticiones HTTP':
-            - '4.1. Introducción': 'http/introduccion.md'
-            - '4.2. Uso de Fetch API': 'http/fetch.md'
-            - '4.3. Uso de Axios': 'http/axios.md'
-            - '4.4. Uso de Alova': 'http/alova.md'
+            - '4.1. Introducción': 'es/4-http/4.1-introduccion.md'
+            - '4.2. Uso de Fetch API': 'es/4-http/4.2-fetch.md'
+            - '4.3. Uso de Axios': 'es/4-http/4.3-axios.md'
+            - '4.4. Uso de Alova': 'es/4-http/4.4-alova.md'
           - '5. Enrutamiento con Vue Router':
-            - '5.1. Introducción': 'routing/introduccion.md'
-            - '5.2. Rutas Básicas': 'routing/rutas-basicas.md'
-            - '5.3. Navegación Avanzada': 'routing/navegacion-avanzada.md'
+            - '5.1. Introducción': 'es/5-vue-router/5.1-introduccion.md'
+            - '5.2. Rutas Básicas': 'es/5-vue-router/5.2-rutas-basicas.md'
+            - '5.3. Navegación Avanzada': 'es/5-vue-router/5.3-navegacion-avanzada.md'
           - '6. Gestión de Estado con Pinia':
-            - '6.1. Introducción a Pinia': 'pinia/introduccion.md'
-            - '6.2. Stores en Pinia': 'pinia/stores.md'
-            - '6.3. Conceptos Avanzados': 'pinia/avanzado.md'
+            - '6.1. Introducción a Pinia': 'es/6-pinia/6.1-introduccion.md'
+            - '6.2. Stores en Pinia': 'es/6-pinia/6.2-stores.md'
+            - '6.3. Conceptos Avanzados': 'es/6-pinia/6.3-avanzado.md'
           - '7. Proyecto Práctico':
-            - '7.1. Estructura del Proyecto': 'proyecto/estructura.md'
-            - '7.2. Ejercicios Guiados': 'proyecto/ejercicios.md'
+            - '7.1. Estructura del Proyecto': 'es/7-proyecto/7.1-estructura.md'
+            - '7.2. Ejercicios Guiados': 'es/7-proyecto/7.2-ejercicios.md'
       - locale: eu
         name: Euskara
         nav:
           - Hasiera: 'eu/index.md'
           - '1. Oinarrizko Kontzeptuak':
-            - '1.1. Vue-ri Sarrera': 'eu/oinarrizko-kontzeptuak/sarrera.md'
-            - '1.2. Zure Lehen Aplikazioa': 'eu/oinarrizko-kontzeptuak/lehen-aurkezpena.md'
+            - '1.1. Vue-ri Sarrera': 'eu/1-oinarrizko-kontzeptuak/1.1-sarrera.md'
+            - '1.2. Zure Lehen Aplikazioa': 'eu/1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena.md'
           - '2. Oinarriak':
-            - '2.0. Sarrera': 'eu/oinarriak/sarrera.md'
-            - '2.1. Interpolazioa eta Zuzentarauak': 'eu/oinarriak/interpolazioa.md'
-            - '2.2. V-bind eta V-model': 'eu/oinarriak/vbind-vmodel.md'
-            - '2.3. V-if eta V-for': 'eu/oinarriak/v-if_v-for.md'
-            - '2.4. Kalkulatutako Propietateak': 'eu/oinarriak/kalkulatutako-propietateak.md'
-            - '2.5. Gertaeren Kudeaketa': 'eu/oinarriak/gertaerak.md'
-            - '2.6. Bizitza Zikloa': 'eu/oinarriak/bizitza-zikloa.md'
-            - '2.7. Txantiloi-sintaxia': 'eu/oinarriak/txantiloi-sintaxia.md'
-            - '2.8. Erantzunkortasuna': 'eu/oinarriak/erantzunkortasuna.md'
-            - '2.9. Erreferentzia Azkarra': 'eu/oinarriak/erreferentzia-azkarra.md'
-            - '2.10. Ariketa Praktikoa': 'eu/oinarriak/ariketa-praktikoa.md'
+            - '2.0. Sarrera': 'eu/2-oinarriak/2.0-sarrera.md'
+            - '2.1. Interpolazioa eta Zuzentarauak': 'eu/2-oinarriak/2.1-interpolazioa.md'
+            - '2.2. V-bind eta V-model': 'eu/2-oinarriak/2.2-vbind-vmodel.md'
+            - '2.3. V-if eta V-for': 'eu/2-oinarriak/2.3-v-if_v-for.md'
+            - '2.4. Kalkulatutako Propietateak': 'eu/2-oinarriak/2.4-kalkulatutako-propietateak.md'
+            - '2.5. Gertaeren Kudeaketa': 'eu/2-oinarriak/2.5-gertaerak.md'
+            - '2.6. Bizitza Zikloa': 'eu/2-oinarriak/2.6-bizitza-zikloa.md'
+            - '2.7. Txantiloi-sintaxia': 'eu/2-oinarriak/2.7-txantiloi-sintaxia.md'
+            - '2.8. Erantzunkortasuna': 'eu/2-oinarriak/2.8-erantzunkortasuna.md'
+            - '2.9. Erreferentzia Azkarra': 'eu/2-oinarriak/2.9-erreferentzia-azkarra.md'
+            - '2.10. Ariketa Praktikoa': 'eu/2-oinarriak/2.10-ariketa-praktikoa.md'
           - '3. Osagaiak':
-            - '3.1. Sarrera': 'eu/componentes/sarrera.md'
-            - '3.2. Sortzea eta Erabiltzea': 'eu/componentes/creacion.md'
-            - '3.3. Osagaien Arteko Komunikazioa': 'eu/componentes/comunicacion.md'
+            - '3.1. Sarrera': 'eu/3-osagaiak/3.1-sarrera.md'
+            - '3.2. Sortzea eta Erabiltzea': 'eu/3-osagaiak/3.2-creacion.md'
+            - '3.3. Osagaien Arteko Komunikazioa': 'eu/3-osagaiak/3.3-comunicacion.md'
           - '4. HTTP Eskariak':
-            - '4.1. Sarrera': 'eu/http-eskariak/sarrera.md'
-            - '4.2. Fetch API Erabiliz': 'eu/http-eskariak/fetch.md'
-            - '4.3. Axios Erabiliz': 'http-eskariak/axios.md'
-            - '4.4. Alova Erabiliz': 'http-eskariak/alova.md'
+            - '4.1. Sarrera': 'eu/4-http-eskariak/4.1-sarrera.md'
+            - '4.2. Fetch API Erabiliz': 'eu/4-http-eskariak/4.2-fetch.md'
+            - '4.3. Axios Erabiliz': 'eu/4-http-eskariak/4.3-axios.md'
+            - '4.4. Alova Erabiliz': 'eu/4-http-eskariak/4.4-alova.md'
           - '5. Vue Router-ekin':
-            - '5.1. Sarrera': 'vue-router/sarrera.md'
-            - '5.2. Oinarrizko Bideak': 'vue-router/oinarrizko-bideak.md'
-            - '5.3. Nabigazio Aurreratua': 'vue-router/nabigazio-aurreratua.md'
+            - '5.1. Sarrera': 'eu/5-vue-router/5.1-sarrera.md'
+            - '5.2. Oinarrizko Bideak': 'eu/5-vue-router/5.2-oinarrizko-bideak.md'
+            - '5.3. Nabigazio Aurreratua': 'eu/5-vue-router/5.3-nabigazio-aurreratua.md'
           - '6. Egoeraren Kudeaketa Pinia-rekin':
-            - '6.1. Pinia-ri Sarrera': 'pinia/sarrera.md'
-            - '6.2. Pinia-ko Denda': 'pinia/dendak.md'
-            - '6.3. Gai Aurreratuak': 'pinia/aurreratua.md'
+            - '6.1. Pinia-ri Sarrera': 'eu/6-pinia/6.1-sarrera.md'
+            - '6.2. Pinia-ko Denda': 'eu/6-pinia/6.2-dendak.md'
+            - '6.3. Gai Aurreratuak': 'eu/6-pinia/6.3-aurreratua.md'
           - '7. Proiektu Praktikoa':
-            - '7.1. Proiektuaren Egitura': 'proiektua/egitura.md'
-            - '7.2. Gidatutako Ariketa': 'proiektua/ariketak.md'
+            - '7.1. Proiektuaren Egitura': 'eu/7-proiektua/7.1-egitura.md'
+            - '7.2. Gidatutako Ariketa': 'eu/7-proiektua/7.2-ariketak.md'
 markdown_extensions:
 - admonition
 - pymdownx.tasklist:

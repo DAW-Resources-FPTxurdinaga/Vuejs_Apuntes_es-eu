@@ -1,0 +1,2423 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/eu/2-oinarriak/2.9-erreferentzia-azkarra/">
+      
+      
+        <link rel="prev" href="../2.8-erantzunkortasuna/">
+      
+      
+        <link rel="next" href="../2.10-ariketa-praktikoa/">
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>2.9. Erreferentzia Azkarra - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vue-3-cheat-sheet-erreferentzia-azkarra" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2.9. Erreferentzia Azkarra
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="/VueJS_Tutorial_es-eu/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Oinarrizko Kontzeptuak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Oinarrizko Kontzeptuak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Vue-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Zure Lehen Aplikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Oinarriak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Oinarriak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.0-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1-interpolazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolazioa eta Zuzentarauak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2-vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind eta V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.3-v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if eta V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.4-kalkulatutako-propietateak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Kalkulatutako Propietateak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.5-gertaerak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Gertaeren Kudeaketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.6-bizitza-zikloa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Bizitza Zikloa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.7-txantiloi-sintaxia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Txantiloi-sintaxia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.8-erantzunkortasuna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Erantzunkortasuna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erreferentzia Azkarra
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erreferentzia Azkarra
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oinarrizko-zuzentarauak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko Zuzentarauak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oinarrizko Zuzentarauak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpolazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpolazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baldintzak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldintzak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#begiztak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Begiztak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datu-loturak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datu-loturak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composition-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composition API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erreaktibotasun-oinarrizkoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erreaktibotasun Oinarrizkoa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bizitza-zikloa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bizitza Zikloa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gertaeren-kudeaketa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gertaeren Kudeaketa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#txantiloi-erreferentziak-refs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Txantiloi Erreferentziak (refs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zuzentarau-pertsonalizatuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zuzentarau Pertsonalizatuak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prop-ak-eta-emit-ak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prop-ak eta Emit-ak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emanhartu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eman/Hartu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#txartelak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Txartelak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trantsizioak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trantsizioak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baldintzazko-errendatzearen-zuzentarau-aurreratuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldintzazko Errendatzearen Zuzentarau Aurreratuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Baldintzazko Errendatzearen Zuzentarau Aurreratuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-once
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-memo" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-memo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-cloak" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-cloak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osagaien-konposaketa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Osagaien Konposaketa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Osagaien Konposaketa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adibideko-osagaia-composition-api-rekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adibideko Osagaia Composition API-rekin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktika-onak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktika onak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hurrengo-urratsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hurrengo urratsa
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.10-ariketa-praktikoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Ariketa Praktikoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Osagaiak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Osagaiak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.2-creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.3-comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. HTTP Eskariak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. HTTP Eskariak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.2-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Fetch API Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.3-axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.4-alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Alova Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Vue Router-ekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Vue Router-ekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.2-oinarrizko-bideak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Oinarrizko Bideak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.3-nabigazio-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Nabigazio Aurreratua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Egoeraren Kudeaketa Pinia-rekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Egoeraren Kudeaketa Pinia-rekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Pinia-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.2-dendak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Pinia-ko Denda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.3-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Gai Aurreratuak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proiektu Praktikoa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proiektu Praktikoa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.1-egitura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Proiektuaren Egitura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.2-ariketak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Gidatutako Ariketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oinarrizko-zuzentarauak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko Zuzentarauak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oinarrizko Zuzentarauak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpolazioa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpolazioa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baldintzak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldintzak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#begiztak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Begiztak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datu-loturak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datu-loturak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composition-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Composition API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Composition API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#erreaktibotasun-oinarrizkoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Erreaktibotasun Oinarrizkoa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bizitza-zikloa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bizitza Zikloa
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gertaeren-kudeaketa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gertaeren Kudeaketa
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#txantiloi-erreferentziak-refs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Txantiloi Erreferentziak (refs)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zuzentarau-pertsonalizatuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zuzentarau Pertsonalizatuak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prop-ak-eta-emit-ak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prop-ak eta Emit-ak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emanhartu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eman/Hartu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#txartelak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Txartelak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trantsizioak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trantsizioak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baldintzazko-errendatzearen-zuzentarau-aurreratuak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldintzazko Errendatzearen Zuzentarau Aurreratuak
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Baldintzazko Errendatzearen Zuzentarau Aurreratuak">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v-once" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-once
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-memo" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-memo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v-cloak" class="md-nav__link">
+    <span class="md-ellipsis">
+      v-cloak
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osagaien-konposaketa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Osagaien Konposaketa
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Osagaien Konposaketa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adibideko-osagaia-composition-api-rekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adibideko Osagaia Composition API-rekin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktika-onak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktika onak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hurrengo-urratsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hurrengo urratsa
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vue-3-cheat-sheet-erreferentzia-azkarra">Vue 3 Cheat Sheet - Erreferentzia Azkarra<a class="headerlink" href="#vue-3-cheat-sheet-erreferentzia-azkarra" title="Permanent link">&para;</a></h1>
+<h2 id="oinarrizko-zuzentarauak">Oinarrizko Zuzentarauak<a class="headerlink" href="#oinarrizko-zuzentarauak" title="Permanent link">&para;</a></h2>
+<h3 id="interpolazioa">Interpolazioa<a class="headerlink" href="#interpolazioa" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;p&gt;{{ mezua }}&lt;/p&gt;
+  &lt;p v-text=&quot;'Kaixo ' + izena&quot;&gt;&lt;/p&gt;
+  &lt;p v-html=&quot;htmlEdukia&quot;&gt;&lt;/p&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="baldintzak">Baldintzak<a class="headerlink" href="#baldintzak" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div v-if=&quot;ikustenDa&quot;&gt;Ikusten da&lt;/div&gt;
+  &lt;div v-else-if=&quot;besteBaldintza&quot;&gt;Beste baldintza&lt;/div&gt;
+  &lt;div v-else&gt;Lehenetsia&lt;/div&gt;
+
+  &lt;div v-show=&quot;ikustenDa&quot;&gt;v-if-ren ordezko bat&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="begiztak">Begiztak<a class="headerlink" href="#begiztak" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;!-- Array-a errepikatu --&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;(elementua, indizea) in elementuak&quot; :key=&quot;elementua.id&quot;&gt;
+      {{ indizea }} - {{ elementua.izena }}
+    &lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;!-- Objektua errepikatu --&gt;
+  &lt;div v-for=&quot;(balioa, gakoa) in objektua&quot; :key=&quot;gakoa&quot;&gt;
+    {{ gakoa }}: {{ balioa }}
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="datu-loturak">Datu-loturak<a class="headerlink" href="#datu-loturak" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;!-- v-bind edo : --&gt;
+  &lt;a :href=&quot;esteka&quot;&gt;Esteka&lt;/a&gt;
+  &lt;img :src=&quot;irudiEsteka&quot; :alt=&quot;ordezkoTestua&quot;&gt;
+
+  &lt;!-- v-model --&gt;
+  &lt;input v-model=&quot;testua&quot; placeholder=&quot;Idatzi zerbait&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; v-model=&quot;hautatutaDago&quot;&gt;
+  &lt;select v-model=&quot;hautatua&quot;&gt;
+    &lt;option v-for=&quot;aukera in aukerak&quot; :key=&quot;aukera&quot;&gt;
+      {{ aukera }}
+    &lt;/option&gt;
+  &lt;/select&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="composition-api">Composition API<a class="headerlink" href="#composition-api" title="Permanent link">&para;</a></h2>
+<h3 id="erreaktibotasun-oinarrizkoa">Erreaktibotasun Oinarrizkoa<a class="headerlink" href="#erreaktibotasun-oinarrizkoa" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;script setup&gt;
+import { ref, reactive, computed, watch, watchEffect } from 'vue'
+
+// Aldagai eraginkorrak
+const kontadorea = ref(0)
+const egoera = reactive({
+  izena: 'Jon',
+  adina: 30
+})
+
+// Kalkulatutako propietateak
+const izenOsoa = computed(() =&gt; {
+  return `${egoera.izena} Perez`
+})
+
+// Ikusleak
+watch(kontadorea, (balioBerria, balioZaharra) =&gt; {
+  console.log(`Kontadorea ${balioZaharra}-tik ${balioBerria}-ra aldatu da`)
+})
+
+// Efektuaren ikuslea
+watchEffect(() =&gt; {
+  console.log(`Kontadorea: ${kontadorea.value}`)
+})
+&lt;/script&gt;
+</code></pre>
+<h3 id="bizitza-zikloa">Bizitza Zikloa<a class="headerlink" href="#bizitza-zikloa" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;script setup&gt;
+import { onMounted, onUpdated, onUnmounted } from 'vue'
+
+onMounted(() =&gt; {
+  console.log('Osagaia muntatuta')
+  // Hasieratu liburutegiak, egin eskaerak, etab.
+})
+
+onUpdated(() =&gt; {
+  console.log('Osagaia eguneratuta')
+})
+
+onUnmounted(() =&gt; {
+  console.log('Osagaia desmuntatuta')
+  // Garbitu entzuleak, tarteak, etab.
+})
+&lt;/script&gt;
+</code></pre>
+<h2 id="gertaeren-kudeaketa">Gertaeren Kudeaketa<a class="headerlink" href="#gertaeren-kudeaketa" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;button @click=&quot;handitu&quot;&gt;Handitu&lt;/button&gt;
+  &lt;input @keyup.enter=&quot;bidaliInprimakia&quot;&gt;
+  &lt;form @submit.prevent=&quot;bidaliInprimakia&quot;&gt;
+    &lt;button type=&quot;submit&quot;&gt;Bidali&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;!-- Argumentudun gertaera-kudeatzaileak --&gt;
+  &lt;button @click=&quot;(gertaera) =&gt; agurtu('Kaixo', $event)&quot;&gt;Agurtu&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+function handitu() {
+  kontadorea.value++
+}
+
+function bidaliInprimakia() {
+  // Inprimakiaren logika
+}
+
+function agurtu(mezua, gertaera) {
+  console.log(mezua, gertaera.target)
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="txantiloi-erreferentziak-refs">Txantiloi Erreferentziak (refs)<a class="headerlink" href="#txantiloi-erreferentziak-refs" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;input ref=&quot;sarreraErref&quot; type=&quot;text&quot;&gt;
+  &lt;button @click=&quot;fokuratuSarrera&quot;&gt;Fokuratu sarrera&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, onMounted } from 'vue'
+
+const sarreraErref = ref(null)
+
+onMounted(() =&gt; {
+  // sarreraErref.value-k DOM elementuaren erreferentzia du
+  console.log(sarreraErref.value) // &lt;input type=&quot;text&quot;&gt;
+})
+
+function fokuratuSarrera() {
+  sarreraErref.value.focus()
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="zuzentarau-pertsonalizatuak">Zuzentarau Pertsonalizatuak<a class="headerlink" href="#zuzentarau-pertsonalizatuak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;p v-nabarmentu=&quot;'horia'&quot;&gt;Nabarmendutako testua&lt;/p&gt;
+  &lt;button v-finkatu=&quot;200&quot;&gt;Finkatutako botoia&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+// Zuzentarau globala (main.js edo antzekoa)
+const app = createApp(App)
+
+// Nabarmentzeko zuzentaraua
+app.directive('nabarmentu', {
+  mounted(el, binding) {
+    el.style.backgroundColor = binding.value || 'yellow'
+    el.style.padding = '5px'
+  },
+  updated(el, binding) {
+    el.style.backgroundColor = binding.value
+  }
+})
+
+// Finkatzeko zuzentaraua
+app.directive('finkatu', {
+  mounted(el, binding) {
+    el.style.position = 'fixed'
+    el.style.top = binding.value + 'px'
+  }
+})
+&lt;/script&gt;
+</code></pre>
+<h2 id="prop-ak-eta-emit-ak">Prop-ak eta Emit-ak<a class="headerlink" href="#prop-ak-eta-emit-ak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;!-- Seme-osagaia --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;{{ izenburua }}&lt;/h2&gt;
+    &lt;button @click=&quot;jakinarazi&quot;&gt;Jakinarazi gurasoari&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+const props = defineProps({
+  izenburua: {
+    type: String,
+    required: true,
+    default: 'Lehenetsitako izenburua'
+  },
+  hasierakoBalioa: {
+    type: Number,
+    default: 0
+  }
+})
+
+const emit = defineEmits(['eguneratu'])
+
+function jakinarazi() {
+  emit('eguneratu', 'Semearen datuak')
+}
+&lt;/script&gt;
+
+&lt;!-- Guraso-osagaia --&gt;
+&lt;template&gt;
+  &lt;SemeOsagaia 
+    izenburua=&quot;Nire Osagaia&quot; 
+    :hasierako-balioa=&quot;kontadorea&quot;
+    @eguneratu=&quot;kudeatuEguneraketa&quot;
+  /&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="emanhartu">Eman/Hartu<a class="headerlink" href="#emanhartu" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;!-- Guraso-osagaia --&gt;
+&lt;script setup&gt;
+import { provide, ref } from 'vue'
+
+const gaia = ref('argia')
+
+provide('gaia', gaia)
+&lt;/script&gt;
+
+&lt;!-- Seme-osagaia --&gt;
+&lt;template&gt;
+  &lt;div :class=&quot;gaia&quot;&gt;
+    &lt;!-- Edukia --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { inject } from 'vue'
+
+const gaia = inject('gaia', 'argia')
+&lt;/script&gt;
+</code></pre>
+<h2 id="txartelak">Txartelak<a class="headerlink" href="#txartelak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;!-- OinarrizkoDiseinua Osagaia --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;edukiontzia&quot;&gt;
+    &lt;header&gt;
+      &lt;slot name=&quot;goiburua&quot;&gt;&lt;/slot&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+      &lt;slot name=&quot;oinarria&quot;&gt;&lt;/slot&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- Erabilera --&gt;
+&lt;OinarrizkoDiseinua&gt;
+  &lt;template #goiburua&gt;
+    &lt;h1&gt;Orriaren izenburua&lt;/h1&gt;
+  &lt;/template&gt;
+
+  &lt;p&gt;Eduki nagusia&lt;/p&gt;
+
+  &lt;template #oinarria&gt;
+    &lt;p&gt;Orri-oina&lt;/p&gt;
+  &lt;/template&gt;
+&lt;/OinarrizkoDiseinua&gt;
+</code></pre>
+<h2 id="trantsizioak">Trantsizioak<a class="headerlink" href="#trantsizioak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;button @click=&quot;erakutsi = !erakutsi&quot;&gt;Aldatu&lt;/button&gt;
+
+  &lt;transition name=&quot;desagertu&quot;&gt;
+    &lt;p v-if=&quot;erakutsi&quot;&gt;Agertzen/desagertzen den testua&lt;/p&gt;
+  &lt;/transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+.desagertu-enter-active, .desagertu-leave-active {
+  transition: opacity 0.5s;
+}
+.desagertu-enter-from, .desagertu-leave-to {
+  opacity: 0;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="baldintzazko-errendatzearen-zuzentarau-aurreratuak">Baldintzazko Errendatzearen Zuzentarau Aurreratuak<a class="headerlink" href="#baldintzazko-errendatzearen-zuzentarau-aurreratuak" title="Permanent link">&para;</a></h2>
+<h3 id="v-once">v-once<a class="headerlink" href="#v-once" title="Permanent link">&para;</a></h3>
+<p>Elementua behin bakarrik errendatzen du, eta ez du berriz eguneratzen:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div v-once&gt;Balio hau ez da inoiz aldatuko: {{ kontadorea }}&lt;/div&gt;
+  &lt;div&gt;Balio hau bai aldatuko da: {{ kontadorea }}&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="v-memo">v-memo<a class="headerlink" href="#v-memo" title="Permanent link">&para;</a></h3>
+<p>Txantiloiaren azpizuhaitza cachean gordetzen du. Errendimendua optimizatzeko baliagarria:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div v-memo=&quot;[menpekotasun1, menpekotasun2]&quot;&gt;
+    &lt;!-- Eduki hau berriz errendatuko da soilik menpekotasun1 edo menpekotasun2 aldatzen badira --&gt;
+    {{ datuHandiak }}
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="v-cloak">v-cloak<a class="headerlink" href="#v-cloak" title="Permanent link">&para;</a></h3>
+<p>Konpilatu gabeko edukien keinua ekiditeko baliagarria:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div v-cloak&gt;
+    {{ mezua }}
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+[v-cloak] {
+  display: none;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="osagaien-konposaketa">Osagaien Konposaketa<a class="headerlink" href="#osagaien-konposaketa" title="Permanent link">&para;</a></h2>
+<h3 id="adibideko-osagaia-composition-api-rekin">Adibideko Osagaia Composition API-rekin<a class="headerlink" href="#adibideko-osagaia-composition-api-rekin" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h2&gt;{{ izenburua }}&lt;/h2&gt;
+    &lt;p&gt;Kontadorea: {{ kontadorea }}&lt;/p&gt;
+    &lt;button @click=&quot;handitu&quot;&gt;Handitu&lt;/button&gt;
+    &lt;button @click=&quot;txikitu&quot;&gt;Txikitu&lt;/button&gt;
+    &lt;p&gt;Bikoitza: {{ bikoitza }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, computed, onMounted } from 'vue'
+
+// Prop-ak
+defineProps({
+  izenburua: {
+    type: String,
+    default: 'Kontadorea'
+  },
+  hasierakoBalioa: {
+    type: Number,
+    default: 0
+  }
+})
+
+// Egoera eraginkorra
+const kontadorea = ref(hasierakoBalioa)
+const bikoitza = computed(() =&gt; kontadorea.value * 2)
+
+// Metodoak
+function handitu() {
+  kontadorea.value++
+}
+
+function txikitu() {
+  kontadorea.value--
+}
+
+// Bizitza-zikloaren hook-ak
+onMounted(() =&gt; {
+  console.log('Osagaia muntatuta')
+})
+&lt;/script&gt;
+</code></pre>
+<h2 id="praktika-onak">Praktika onak<a class="headerlink" href="#praktika-onak" title="Permanent link">&para;</a></h2>
+<p>1) <strong>Osagaien Izenak</strong>: Erabili izen anitzeko hitzak HTML elementuekin gatazkak ekiditeko.</p>
+<pre><code class="language-javascript">// Gaizki
+export default {
+  name: 'Botoia',
+}
+
+// Ongi
+export default {
+  name: 'OinarriBotoia',
+  // ...
+}
+</code></pre>
+<p>2) <strong>Prop-ak zehatzak</strong>: Zehaztu prop-ak balidazioarekin ahal denean.</p>
+<pre><code class="language-javascript">prop-ak: {
+  egoera: {
+    type: String,
+    required: true,
+    validator: (balioa) =&gt; {
+      return ['arrakasta', 'abisu', 'arrisku'].includes(balioa)
+     }
+    }
+   }
+</code></pre>
+<p>3) <strong>Gakoak v-for-ean</strong>: Erabili beti <code>:key</code> <code>v-for</code>-rekin.</p>
+<pre><code class="language-html">&lt;!-- Gaizki --&gt;
+&lt;li v-for=&quot;elementua in elementuak&quot;&gt;{{ elementua.testua }}&lt;/li&gt;
+
+&lt;!-- Ongi --&gt;
+&lt;li v-for=&quot;elementua in elementuak&quot; :key=&quot;elementua.id&quot;&gt;
+  {{ elementua.testua }}
+&lt;/li&gt;
+</code></pre>
+<p>4) <strong>Estiloak eskopioarekin</strong>: Erabili <code>&lt;style scoped&gt;</code> osagai jakin baterako estiloetarako.</p>
+<p>5) <strong>Gertaeren Kudeaketa</strong>: Erabili kebab-case gertaera pertsonalizatuen izenetan.</p>
+<pre><code class="language-html">&lt;!-- Seme-osagaia --&gt;
+&lt;button @click=&quot;$emit('gorde-aldaketak')&quot;&gt;Gorde&lt;/button&gt;
+
+&lt;!-- Guraso-osagaia --&gt;
+&lt;nire-osagaia @gorde-aldaketak=&quot;gordeDatuak&quot; /&gt;
+</code></pre>
+<p>6) <strong>Konposaketa heredentziaren gainean</strong>: Hobetsi konposaketa <code>setup()</code> edo <code>&lt;script setup&gt;</code> erabiliz osagaien arteko heredentziaren gainean.</p>
+<p>7) <strong>Erroreen Kudeaketa</strong>: Inplementatu erroreen kudeaketa dei asinkronoetan.</p>
+<pre><code class="language-javascript">async function kargatuDatuak() {
+  try {
+    const erantzuna = await fetch('https://api.adibidea.eus/datuak')
+    if (!erantzuna.ok) throw new Error('Errorea datuak kargatzean')
+    datuak.value = await erantzuna.json()
+  } catch (errorea) {
+    console.error('Errorea:', errorea)
+    erroreEgoera.value = 'Ezin izan dira datuak kargatu'
+  }
+}
+</code></pre>
+<p>8) <strong>Deskonposaketa</strong>: Mantendu osagaiak txikiak eta erantzukizun bakarrean zentratuta.</p>
+<p>9) <strong>Berriz erabiltzea</strong>: Atera logika errepikakorrak konposagarrietan.</p>
+<pre><code class="language-javascript">// erabiliKontadorea.js
+import { ref, computed } from 'vue'
+
+export function erabiliKontadorea(hasierakoBalioa = 0) {
+  const kontadorea = ref(hasierakoBalioa)
+
+  const handitu = () =&gt; kontadorea.value++
+  const txikitu = () =&gt; kontadorea.value--
+  const berrabiarazi = () =&gt; kontadorea.value = hasierakoBalioa
+
+  const bikoitia = computed(() =&gt; kontadorea.value % 2 === 0)
+
+  return {
+    kontadorea,
+    handitu,
+    txikitu,
+    berrabiarazi,
+    bikoitia
+  }
+}
+</code></pre>
+<p>10) <strong>Dokumentazioa</strong>: Dokumentatu prop-ak, gertaerak eta txartelak osagaietan.</p>
+<h2 id="hurrengo-urratsa">Hurrengo urratsa<a class="headerlink" href="#hurrengo-urratsa" title="Permanent link">&para;</a></h2>
+<p>Orain arte ikasitako guztia praktikan jarriko dugu ariketa praktiko batekin</p>
+<p>[Hurrengoa: Ariketa praktikoa →](./2.10-ariketa-praktikoa.md)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>
