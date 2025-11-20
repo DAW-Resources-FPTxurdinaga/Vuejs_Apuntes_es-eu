@@ -1,5 +1,5 @@
 site_name: Curso de Vue.js 3 - CIFP Txurdinaga LHII
-site_url: https://daw-resources-fptxurdinaga.github.io/VueJS_Tutorial_es-eu/
+site_url: https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/
 theme:
   name: material
   language: es
@@ -52,11 +52,12 @@ plugins:
             - '2.3. V-if y V-for': 'es/2-fundamentos/2.3-v-if_v-for.md'
             - '2.4. Propiedades Computadas': 'es/2-fundamentos/2.4-propiedades-computadas.md'
             - '2.5. Manejo de Eventos': 'es/2-fundamentos/2.5-eventos.md'
-            - '2.6. Ciclo de Vida': 'es/2-fundamentos/2.6-ciclo-vida.md'
-            - '2.7. Sintaxis de Plantillas': 'es/2-fundamentos/2.7-sintaxis-plantillas.md'
-            - '2.8. Reactividad': 'es/2-fundamentos/2.8-reactividad.md'
-            - '2.9. Referencia Rápida': 'es/2-fundamentos/2.9-cheat-sheet.md'
-            - '2.10. Ejercicio Práctico': 'es/2-fundamentos/2.10-ejercicio-practico.md'
+            - '2.6. Enlace de Entradas de Formulario': 'es/2-fundamentos/2.6-form-input-bindings.md'
+            - '2.7. Ciclo de Vida': 'es/2-fundamentos/2.7-ciclo-vida.md'
+            - '2.8. Sintaxis de Plantillas': 'es/2-fundamentos/2.8-sintaxis-plantillas.md'
+            - '2.9. Reactividad': 'es/2-fundamentos/2.9-reactividad.md'
+            - '2.10. Referencia Rápida': 'es/2-fundamentos/2.10-cheat-sheet.md'
+            - '2.11. Ejercicio Práctico': 'es/2-fundamentos/2.11-ejercicio-practico.md'
           - '3. Componentes':
             - '3.1. Introducción': 'es/3-componentes/3.1-introduccion.md'
             - '3.2. Creación y Uso': 'es/3-componentes/3.2-creacion.md'
@@ -91,11 +92,12 @@ plugins:
             - '2.3. V-if eta V-for': 'eu/2-oinarriak/2.3-v-if_v-for.md'
             - '2.4. Kalkulatutako Propietateak': 'eu/2-oinarriak/2.4-kalkulatutako-propietateak.md'
             - '2.5. Gertaeren Kudeaketa': 'eu/2-oinarriak/2.5-gertaerak.md'
-            - '2.6. Bizitza Zikloa': 'eu/2-oinarriak/2.6-bizitza-zikloa.md'
-            - '2.7. Txantiloi-sintaxia': 'eu/2-oinarriak/2.7-txantiloi-sintaxia.md'
-            - '2.8. Erantzunkortasuna': 'eu/2-oinarriak/2.8-erantzunkortasuna.md'
-            - '2.9. Erreferentzia Azkarra': 'eu/2-oinarriak/2.9-erreferentzia-azkarra.md'
-            - '2.10. Ariketa Praktikoa': 'eu/2-oinarriak/2.10-ariketa-praktikoa.md'
+            - '2.6. Inprimaki Sarreren Lotura': 'eu/2-oinarriak/2.6-inprimaki-sarreren-lotura.md'
+            - '2.7. Bizitza Zikloa': 'eu/2-oinarriak/2.7-bizitza-zikloa.md'
+            - '2.8. Txantiloi-sintaxia': 'eu/2-oinarriak/2.8-txantiloi-sintaxia.md'
+            - '2.9. Erantzunkortasuna': 'eu/2-oinarriak/2.9-erantzunkortasuna.md'
+            - '2.10. Erreferentzia Azkarra': 'eu/2-oinarriak/2.10-erreferentzia-azkarra.md'
+            - '2.11. Ariketa Praktikoa': 'eu/2-oinarriak/2.11-ariketa-praktikoa.md'
           - '3. Osagaiak':
             - '3.1. Sarrera': 'eu/3-osagaiak/3.1-sarrera.md'
             - '3.2. Sortzea eta Erabiltzea': 'eu/3-osagaiak/3.2-creacion.md'
