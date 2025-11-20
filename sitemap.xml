@@ -43,11 +43,18 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.1-interpolacion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-ejercicio-practico/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-cheat-sheet/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-cheat-sheet/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.11-ejercicio-practico/</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.11-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.11-ejercicio-practico/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.2-vbind-vmodel/</loc>
@@ -78,32 +85,32 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.5-eventos/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-ciclo-vida/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-form-input-bindings/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-ciclo-vida/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-form-input-bindings/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-form-input-bindings/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-sintaxis-plantillas/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-ciclo-vida/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-ciclo-vida/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-reactividad/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-sintaxis-plantillas/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-reactividad/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-sintaxis-plantillas/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-cheat-sheet/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-reactividad/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-cheat-sheet/"/>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-reactividad/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/3-componentes/3.1-introduccion/</loc>
@@ -302,11 +309,18 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.1-interpolacion/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-cheat-sheet/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-ejercicio-practico/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.10-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.10-cheat-sheet/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.11-ejercicio-practico/</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.11-ejercicio-practico/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.11-ejercicio-practico/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.2-vbind-vmodel/</loc>
@@ -337,32 +351,32 @@
         <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.5-eventos/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-ciclo-vida/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-form-input-bindings/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-ciclo-vida/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.6-form-input-bindings/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.6-form-input-bindings/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-ciclo-vida/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.7-ciclo-vida/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.7-ciclo-vida/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-reactividad/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-sintaxis-plantillas/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-reactividad/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.8-sintaxis-plantillas/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.8-sintaxis-plantillas/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-cheat-sheet/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-reactividad/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-cheat-sheet/"/>
-        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-cheat-sheet/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-fundamentos/2.9-reactividad/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/2-fundamentos/2.9-reactividad/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/3-componentes/3.1-introduccion/</loc>
@@ -543,10 +557,16 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.1-interpolazioa/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.10-ariketa-praktikoa/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.10-erreferentzia-azkarra/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.10-ariketa-praktikoa/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.10-erreferentzia-azkarra/"/>
+    </url>
+    <url>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.11-ariketa-praktikoa/</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.11-ariketa-praktikoa/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.2-vbind-vmodel/</loc>
@@ -573,28 +593,28 @@
         <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.5-gertaerak/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.6-bizitza-zikloa/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.6-inprimaki-sarreren-lotura/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.6-bizitza-zikloa/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.6-inprimaki-sarreren-lotura/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.7-txantiloi-sintaxia/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.7-bizitza-zikloa/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.7-txantiloi-sintaxia/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.7-bizitza-zikloa/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.8-erantzunkortasuna/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.8-txantiloi-sintaxia/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.8-erantzunkortasuna/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.8-txantiloi-sintaxia/"/>
     </url>
     <url>
-        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.9-erreferentzia-azkarra/</loc>
+        <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.9-erantzunkortasuna/</loc>
         <lastmod>2025-11-20</lastmod>
         <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.9-erreferentzia-azkarra/"/>
+        <xhtml:link rel="alternate" hreflang="eu" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/2-oinarriak/2.9-erantzunkortasuna/"/>
     </url>
     <url>
         <loc>https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/3-osagaiak/3.1-sarrera/</loc>
