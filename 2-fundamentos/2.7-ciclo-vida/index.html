@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1756,38 +1756,39 @@
 └─────────────┘
 </code></pre>
 <h2 id="ejemplo-practico">Ejemplo Práctico<a class="headerlink" href="#ejemplo-practico" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">export default {
-  data() {
-    return {
-      mensaje: 'Hola Vue!'
-    }
-  },
-  beforeCreate() {
-    console.log('Antes de crear la instancia');
-    // this.mensaje no está disponible aún
-  },
-  created() {
-    console.log('Instancia creada');
-    // this.mensaje está disponible
-  },
-  beforeMount() {
-    console.log('Antes de montar el componente');
-  },
-  mounted() {
-    console.log('Componente montado en el DOM');
-    // Acceso al DOM con this.$el
-  },
-  beforeUpdate() {
-    console.log('Antes de actualizar el DOM');
-  },
-  updated() {
-    console.log('DOM actualizado');
-  },
-  beforeUnmount() {
-    console.log('Antes de desmontar el componente');
-  },
-  unmounted() {
-    console.log('Componente desmontado');
+<pre><code class="language-javascript">import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
+
+export default {
+  setup() {
+    const mensaje = ref('Hola Vue!')
+
+    console.log('setup ejecutado (equivalente a created)')
+
+    onBeforeMount(() =&gt; {
+      console.log('Antes de montar el componente')
+    })
+
+    onMounted(() =&gt; {
+      console.log('Componente montado en el DOM')
+    })
+
+    onBeforeUpdate(() =&gt; {
+      console.log('Antes de actualizar el DOM')
+    })
+
+    onUpdated(() =&gt; {
+      console.log('DOM actualizado')
+    })
+
+    onBeforeUnmount(() =&gt; {
+      console.log('Antes de desmontar el componente')
+    })
+
+    onUnmounted(() =&gt; {
+      console.log('Componente desmontado')
+    })
+
+    return { mensaje }
   }
 }
 </code></pre>
@@ -1819,45 +1820,43 @@
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  data() {
-    return {
-      contador: 0,
-      intervalo: null,
-      pausado: false
+&lt;script setup&gt;
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const contador = ref(0)
+const intervalo = ref(null)
+const pausado = ref(false)
+
+function iniciarContador() {
+  intervalo.value = setInterval(() =&gt; {
+    if (!pausado.value) {
+      contador.value++
     }
-  },
-  created() {
-    console.log('Componente creado');
-  },
-  mounted() {
-    console.log('Componente montado');
-    this.iniciarContador();
-  },
-  beforeUnmount() {
-    console.log('Antes de desmontar');
-    this.limpiarContador();
-  },
-  methods: {
-    iniciarContador() {
-      this.intervalo = setInterval(() =&gt; {
-        if (!this.pausado) {
-          this.contador++;
-        }
-      }, 1000);
-    },
-    limpiarContador() {
-      if (this.intervalo) {
-        clearInterval(this.intervalo);
-        this.intervalo = null;
-      }
-    },
-    alternarPausa() {
-      this.pausado = !this.pausado;
-    }
+  }, 1000)
+}
+
+function limpiarContador() {
+  if (intervalo.value) {
+    clearInterval(intervalo.value)
+    intervalo.value = null
   }
 }
+
+function alternarPausa() {
+  pausado.value = !pausado.value
+}
+
+console.log('Componente creado')
+
+onMounted(() =&gt; {
+  console.log('Componente montado')
+  iniciarContador()
+})
+
+onBeforeUnmount(() =&gt; {
+  console.log('Antes de desmontar')
+  limpiarContador()
+})
 &lt;/script&gt;
 </code></pre>
 <h2 id="preguntas-frecuentes">Preguntas Frecuentes<a class="headerlink" href="#preguntas-frecuentes" title="Permanent link">&para;</a></h2>
@@ -1952,10 +1951,10 @@ Sí, pero ten en cuenta que el ciclo de vida continuará ejecutándose sin esper
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../scripts/checkboxes.js"></script>
       
