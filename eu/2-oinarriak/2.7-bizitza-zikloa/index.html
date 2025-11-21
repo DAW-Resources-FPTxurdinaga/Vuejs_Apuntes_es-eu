@@ -1756,38 +1756,39 @@
 └─────────────┘
 </code></pre>
 <h2 id="adibide-praktikoa">Adibide Praktikoa<a class="headerlink" href="#adibide-praktikoa" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">export default {
-  data() {
-    return {
-      mezua: 'Kaixo Vue!'
-    }
-  },
-  beforeCreate() {
-    console.log('Instantzia sortu aurretik');
-    // this.mezua ez dago eskuragarri oraindik
-  },
-  created() {
-    console.log('Instantzia sortuta');
-    // this.mezua eskuragarri dago
-  },
-  beforeMount() {
-    console.log('Osagaia muntatu aurretik');
-  },
-  mounted() {
-    console.log('Osagaia DOM-ean muntatuta');
-    // DOM-era sarbidea this.$el bidez
-  },
-  beforeUpdate() {
-    console.log('DOM-a eguneratu aurretik');
-  },
-  updated() {
-    console.log('DOM-a eguneratuta');
-  },
-  beforeUnmount() {
-    console.log('Osagaia desmuntatu aurretik');
-  },
-  unmounted() {
-    console.log('Osagaia desmuntatuta');
+<pre><code class="language-javascript">import { ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue'
+
+export default {
+  setup() {
+    const mezua = ref('Kaixo Vue!')
+
+    console.log('setup exekutatua (created baliokidea)')
+
+    onBeforeMount(() =&gt; {
+      console.log('Osagaia muntatu aurretik')
+    })
+
+    onMounted(() =&gt; {
+      console.log('Osagaia DOM-ean muntatuta')
+    })
+
+    onBeforeUpdate(() =&gt; {
+      console.log('DOM-a eguneratu aurretik')
+    })
+
+    onUpdated(() =&gt; {
+      console.log('DOM-a eguneratuta')
+    })
+
+    onBeforeUnmount(() =&gt; {
+      console.log('Osagaia desmuntatu aurretik')
+    })
+
+    onUnmounted(() =&gt; {
+      console.log('Osagaia desmuntatuta')
+    })
+
+    return { mezua }
   }
 }
 </code></pre>
@@ -1819,45 +1820,43 @@
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  data() {
-    return {
-      kontagailua: 0,
-      tartea: null,
-      pausatuta: false
+&lt;script setup&gt;
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const kontagailua = ref(0)
+const tartea = ref(null)
+const pausatuta = ref(false)
+
+function hasiKontagailua() {
+  tartea.value = setInterval(() =&gt; {
+    if (!pausatuta.value) {
+      kontagailua.value++
     }
-  },
-  created() {
-    console.log('Osagaia sortuta');
-  },
-  mounted() {
-    console.log('Osagaia muntatuta');
-    this.hasiKontagailua();
-  },
-  beforeUnmount() {
-    console.log('Desmuntatu aurretik');
-    this.garbituKontagailua();
-  },
-  methods: {
-    hasiKontagailua() {
-      this.tartea = setInterval(() =&gt; {
-        if (!this.pausatuta) {
-          this.kontagailua++;
-        }
-      }, 1000);
-    },
-    garbituKontagailua() {
-      if (this.tartea) {
-        clearInterval(this.tartea);
-        this.tartea = null;
-      }
-    },
-    aldatuPausa() {
-      this.pausatuta = !this.pausatuta;
-    }
+  }, 1000)
+}
+
+function garbituKontagailua() {
+  if (tartea.value) {
+    clearInterval(tartea.value)
+    tartea.value = null
   }
 }
+
+function aldatuPausa() {
+  pausatuta.value = !pausatuta.value
+}
+
+console.log('Osagaia sortuta')
+
+onMounted(() =&gt; {
+  console.log('Osagaia muntatuta')
+  hasiKontagailua()
+})
+
+onBeforeUnmount(() =&gt; {
+  console.log('Desmuntatu aurretik')
+  garbituKontagailua()
+})
 &lt;/script&gt;
 </code></pre>
 <h2 id="ohiko-galderak">Ohiko Galderak<a class="headerlink" href="#ohiko-galderak" title="Permanent link">&para;</a></h2>
