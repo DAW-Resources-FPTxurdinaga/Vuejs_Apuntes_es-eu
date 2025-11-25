@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -893,6 +893,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Props (Padre → Hijo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-solo-con-props-padre-hijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Solo con Props (Padre → Hijo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-props-evento-al-padre-lista-de-tareas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 2: Props + evento al padre (lista de tareas)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1556,6 +1580,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. Props (Padre → Hijo)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-1-solo-con-props-padre-hijo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 1: Solo con Props (Padre → Hijo)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-2-props-evento-al-padre-lista-de-tareas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo 2: Props + evento al padre (lista de tareas)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1674,6 +1722,58 @@
 <p>En aplicaciones Vue, los componentes necesitan comunicarse entre sí. Aquí veremos los diferentes patrones de comunicación.</p>
 <h2 id="1-props-padre-hijo">1. Props (Padre → Hijo)<a class="headerlink" href="#1-props-padre-hijo" title="Permanent link">&para;</a></h2>
 <p>Los props permiten pasar datos de un componente padre a un componente hijo.</p>
+<h3 id="ejemplo-1-solo-con-props-padre-hijo">Ejemplo 1: Solo con Props (Padre → Hijo)<a class="headerlink" href="#ejemplo-1-solo-con-props-padre-hijo" title="Permanent link">&para;</a></h3>
+<p>En este ejemplo el componente hijo solo <strong>muestra información</strong> que recibe por props, sin emitir eventos.</p>
+<p><strong>Componente Padre (UserProfilePage.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Perfil de Usuario&lt;/h1&gt;
+    &lt;user-card :nombre=&quot;nombre&quot; :edad=&quot;edad&quot; :ciudad=&quot;ciudad&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from 'vue';
+import UserCard from './UserCard.vue';
+
+const nombre = ref('Ane');
+const edad = ref(28);
+const ciudad = ref('Bilbao');
+&lt;/script&gt;
+</code></pre>
+<p><strong>Componente Hijo (UserCard.vue):</strong></p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;user-card&quot;&gt;
+    &lt;h2&gt;{{ nombre }}&lt;/h2&gt;
+    &lt;p&gt;Edad: {{ edad }}&lt;/p&gt;
+    &lt;p&gt;Ciudad: {{ ciudad }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+// Opción 1: definir props como array de nombres (forma abreviada)
+// const props = defineProps(['nombre', 'edad', 'ciudad']);
+
+// Opción 2: definir props como objeto (con tipo y validación)
+const props = defineProps({
+  nombre: {
+    type: String,
+    required: true
+  },
+  edad: {
+    type: Number,
+    required: true
+  },
+  ciudad: {
+    type: String,
+    required: true
+  }
+});
+
+
+&lt;/script&gt;
+</code></pre>
+<h3 id="ejemplo-2-props-evento-al-padre-lista-de-tareas">Ejemplo 2: Props + evento al padre (lista de tareas)<a class="headerlink" href="#ejemplo-2-props-evento-al-padre-lista-de-tareas" title="Permanent link">&para;</a></h3>
 <p><strong>Componente Padre (ParentComponent.vue):</strong></p>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
@@ -1682,29 +1782,22 @@
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref } from 'vue';
 import TaskList from './TaskList.vue';
 
-export default {
-  components: { TaskList },
-  setup() {
-    const tareas = ref([
-      { id: 1, texto: 'Aprender Vue', completada: false },
-      { id: 2, texto: 'Hacer la compra', completada: true },
-      { id: 3, texto: 'Hacer ejercicio', completada: false }
-    ]);
+const tareas = ref([
+  { id: 1, texto: 'Aprender Vue', completada: false },
+  { id: 2, texto: 'Hacer la compra', completada: true },
+  { id: 3, texto: 'Hacer ejercicio', completada: false }
+]);
 
-    function marcarComoCompletada(id) {
-      const tarea = tareas.value.find(t =&gt; t.id === id);
-      if (tarea) {
-        tarea.completada = !tarea.completada;
-      }
-    }
-
-    return { tareas, marcarComoCompletada };
+function marcarComoCompletada(id) {
+  const tarea = tareas.value.find(t =&gt; t.id === id);
+  if (tarea) {
+    tarea.completada = !tarea.completada;
   }
-};
+}
 &lt;/script&gt;
 </code></pre>
 <p><strong>Componente Hijo (TaskList.vue):</strong></p>
@@ -1718,23 +1811,19 @@ export default {
   &lt;/ul&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  props: {
-    tareas: {
-      type: Array,
-      required: true
-    }
-  },
-  emits: ['tarea-completada'],
-  setup(props, { emit }) {
-    function toggleTarea(id) {
-      emit('tarea-completada', id);
-    }
-
-    return { toggleTarea };
+&lt;script setup&gt;
+const props = defineProps({
+  tareas: {
+    type: Array,
+    required: true
   }
-};
+});
+
+const emit = defineEmits(['tarea-completada']);
+
+function toggleTarea(id) {
+  emit('tarea-completada', id);
+}
 &lt;/script&gt;
 
 &lt;style scoped&gt;
@@ -1756,30 +1845,23 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { provide, ref } from 'vue';
 import TaskManager from './TaskManager.vue';
 
-export default {
-  components: { TaskManager },
-  setup() {
-    const tareas = ref([]);
+const tareas = ref([]);
 
-    function agregarTarea(texto) {
-      tareas.value.push({
-        id: Date.now(),
-        texto,
-        completada: false
-      });
-    }
+function agregarTarea(texto) {
+  tareas.value.push({
+    id: Date.now(),
+    texto,
+    completada: false
+  });
+}
 
-    // Proveer datos a componentes descendientes
-    provide('tareas', tareas);
-    provide('agregarTarea', agregarTarea);
-
-    return { tareas };
-  }
-};
+// Proveer datos a componentes descendientes
+provide('tareas', tareas);
+provide('agregarTarea', agregarTarea);
 &lt;/script&gt;
 </code></pre>
 <p><strong>Componente Descendiente (TaskList.vue):</strong></p>
@@ -1795,17 +1877,11 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { inject } from 'vue';
 import TaskItem from './TaskItem.vue';
 
-export default {
-  components: { TaskItem },
-  setup() {
-    const tareas = inject('tareas');
-    return { tareas };
-  }
-};
+const tareas = inject('tareas');
 &lt;/script&gt;
 </code></pre>
 <h2 id="4-comunicacion-entre-componentes-hermanos">4. Comunicación entre Componentes Hermanos<a class="headerlink" href="#4-comunicacion-entre-componentes-hermanos" title="Permanent link">&para;</a></h2>
@@ -1819,18 +1895,12 @@ export const eventBus = createApp({});
   &lt;button @click=&quot;enviarMensaje&quot;&gt;Enviar Mensaje&lt;/button&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { eventBus } from '../eventBus';
 
-export default {
-  setup() {
-    function enviarMensaje() {
-      eventBus.config.globalProperties.$emit('mensaje', '¡Hola desde el componente emisor!');
-    }
-
-    return { enviarMensaje };
-  }
-};
+function enviarMensaje() {
+  eventBus.config.globalProperties.$emit('mensaje', '¡Hola desde el componente emisor!');
+}
 &lt;/script&gt;
 </code></pre>
 <p><strong>Componente Receptor:</strong></p>
@@ -1840,29 +1910,23 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref, onMounted, onUnmounted } from 'vue';
 import { eventBus } from '../eventBus';
 
-export default {
-  setup() {
-    const mensaje = ref('');
+const mensaje = ref('');
 
-    function actualizarMensaje(msg) {
-      mensaje.value = msg;
-    }
+function actualizarMensaje(msg) {
+  mensaje.value = msg;
+}
 
-    onMounted(() =&gt; {
-      eventBus.config.globalProperties.$on('mensaje', actualizarMensaje);
-    });
+onMounted(() =&gt; {
+  eventBus.config.globalProperties.$on('mensaje', actualizarMensaje);
+});
 
-    onUnmounted(() =&gt; {
-      eventBus.config.globalProperties.$off('mensaje', actualizarMensaje);
-    });
-
-    return { mensaje };
-  }
-};
+onUnmounted(() =&gt; {
+  eventBus.config.globalProperties.$off('mensaje', actualizarMensaje);
+});
 &lt;/script&gt;
 
 ## Ejercicio Práctico: Aplicación de Tareas con Comunicación entre Componentes
@@ -1893,67 +1957,53 @@ Crea una aplicación de tareas con los siguientes componentes, utilizando solo p
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref, computed } from 'vue';
 import AddTodo from './AddTodo.vue';
 import TodoList from './TodoList.vue';
 import TodoFilter from './TodoFilter.vue';
 
-export default {
-  components: { AddTodo, TodoList, TodoFilter },
-  setup() {
-    const todos = ref([
-      { id: 1, text: 'Aprender Vue', completed: false },
-      { id: 2, text: 'Hacer la compra', completed: true },
-      { id: 3, text: 'Hacer ejercicio', completed: false }
-    ]);
+const todos = ref([
+  { id: 1, text: 'Aprender Vue', completed: false },
+  { id: 2, text: 'Hacer la compra', completed: true },
+  { id: 3, text: 'Hacer ejercicio', completed: false }
+]);
 
-    const currentFilter = ref('all');
+const currentFilter = ref('all');
 
-    const filteredTodos = computed(() =&gt; {
-      switch (currentFilter.value) {
-        case 'active':
-          return todos.value.filter(todo =&gt; !todo.completed);
-        case 'completed':
-          return todos.value.filter(todo =&gt; todo.completed);
-        default:
-          return todos.value;
-      }
-    });
-
-    function addTodo(text) {
-      todos.value.push({
-        id: Date.now(),
-        text,
-        completed: false
-      });
-    }
-
-    function toggleTodo(id) {
-      const todo = todos.value.find(t =&gt; t.id === id);
-      if (todo) {
-        todo.completed = !todo.completed;
-      }
-    }
-
-    function deleteTodo(id) {
-      todos.value = todos.value.filter(todo =&gt; todo.id !== id);
-    }
-
-    function setFilter(filter) {
-      currentFilter.value = filter;
-    }
-
-    return {
-      filteredTodos,
-      currentFilter,
-      addTodo,
-      toggleTodo,
-      deleteTodo,
-      setFilter
-    };
+const filteredTodos = computed(() =&gt; {
+  switch (currentFilter.value) {
+    case 'active':
+      return todos.value.filter(todo =&gt; !todo.completed);
+    case 'completed':
+      return todos.value.filter(todo =&gt; todo.completed);
+    default:
+      return todos.value;
   }
-};
+});
+
+function addTodo(text) {
+  todos.value.push({
+    id: Date.now(),
+    text,
+    completed: false
+  });
+}
+
+function toggleTodo(id) {
+  const todo = todos.value.find(t =&gt; t.id === id);
+  if (todo) {
+    todo.completed = !todo.completed;
+  }
+}
+
+function deleteTodo(id) {
+  todos.value = todos.value.filter(todo =&gt; todo.id !== id);
+}
+
+function setFilter(filter) {
+  currentFilter.value = filter;
+}
 &lt;/script&gt;
 </code></pre>
 <h3 id="addtodovue">AddTodo.vue<a class="headerlink" href="#addtodovue" title="Permanent link">&para;</a></h3>
@@ -1969,23 +2019,17 @@ export default {
   &lt;/form&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  emits: ['add-todo'],
-  setup(props, { emit }) {
-    const newTodo = ref('');
+&lt;script setup&gt;
+import { ref } from 'vue';
 
-    function handleSubmit() {
-      emit('add-todo', newTodo.value);
-      newTodo.value = '';
-    }
+const emit = defineEmits(['add-todo']);
 
-    return {
-      newTodo,
-      handleSubmit
-    };
-  }
-};
+const newTodo = ref('');
+
+function handleSubmit() {
+  emit('add-todo', newTodo.value);
+  newTodo.value = '';
+}
 &lt;/script&gt;
 </code></pre>
 <h3 id="todolistvue">TodoList.vue<a class="headerlink" href="#todolistvue" title="Permanent link">&para;</a></h3>
@@ -2001,19 +2045,17 @@ export default {
   &lt;/ul&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import TodoItem from './TodoItem.vue';
 
-export default {
-  components: { TodoItem },
-  props: {
-    todos: {
-      type: Array,
-      required: true
-    }
-  },
-  emits: ['toggle-todo', 'delete-todo']
-};
+const props = defineProps({
+  todos: {
+    type: Array,
+    required: true
+  }
+});
+
+const emit = defineEmits(['toggle-todo', 'delete-todo']);
 &lt;/script&gt;
 </code></pre>
 <h3 id="todoitemvue">TodoItem.vue<a class="headerlink" href="#todoitemvue" title="Permanent link">&para;</a></h3>
@@ -2031,16 +2073,15 @@ export default {
   &lt;/li&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  props: {
-    todo: {
-      type: Object,
-      required: true
-    }
-  },
-  emits: ['toggle', 'delete']
-};
+&lt;script setup&gt;
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true
+  }
+});
+
+const emit = defineEmits(['toggle', 'delete']);
 &lt;/script&gt;
 
 &lt;style scoped&gt;
@@ -2086,25 +2127,21 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  props: {
-    modelValue: {
-      type: String,
-      required: true
-    }
-  },
-  emits: ['update:filter'],
-  setup() {
-    const options = [
-      { value: 'all', label: 'Todas' },
-      { value: 'active', label: 'Pendientes' },
-      { value: 'completed', label: 'Completadas' }
-    ];
-
-    return { options };
+&lt;script setup&gt;
+const props = defineProps({
+  modelValue: {
+    type: String,
+    required: true
   }
-};
+});
+
+const emit = defineEmits(['update:filter']);
+
+const options = [
+  { value: 'all', label: 'Todas' },
+  { value: 'active', label: 'Pendientes' },
+  { value: 'completed', label: 'Completadas' }
+];
 &lt;/script&gt;
 
 &lt;style scoped&gt;
@@ -2212,10 +2249,10 @@ button.active {
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="../../scripts/checkboxes.js"></script>
       
