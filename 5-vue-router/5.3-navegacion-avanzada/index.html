@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1660,36 +1660,38 @@ router.beforeEach((to, from, next) =&gt; {
 </code></pre>
 <h3 id="guards-en-el-componente">Guards en el Componente<a class="headerlink" href="#guards-en-el-componente" title="Permanent link">&para;</a></h3>
 <p>Se definen dentro del componente:</p>
-<pre><code class="language-javascript">export default {
-  beforeRouteEnter(to, from, next) {
-    // Se llama antes de que la ruta que renderiza este componente sea confirmada.
-    // NO tiene acceso a `this` porque el componente no ha sido creado aún.
-    next(vm =&gt; {
-      // Acceso a la instancia del componente a través de `vm`
-      vm.loadUserData();
-    });
-  },
+<pre><code class="language-javascript">// En Vue 3 con Composition API suele ser más común usar guards globales o de ruta,
+// pero los guards de componente siguen existiendo (Options API).
+// Con &lt;script setup&gt; podemos simular comportamientos similares con composables
+// o usando el ciclo de vida y el router.
 
-  beforeRouteUpdate(to, from) {
-    // Se llama cuando la ruta cambia pero el componente se reutiliza
-    // Por ejemplo, cuando cambian los parámetros dinámicos
-    this.userData = null;
-    this.fetchUserData(to.params.id);
-  },
+import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
+import { ref } from 'vue';
 
-  beforeRouteLeave(to, from, next) {
-    // Se llama cuando la ruta que renderiza este componente está a punto de ser abandonada
-    if (this.unsavedChanges) {
-      if (confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?')) {
-        next();
-      } else {
-        next(false);
-      }
-    } else {
-      next();
-    }
-  }
+const userData = ref(null);
+const unsavedChanges = ref(false);
+
+const fetchUserData = (id) =&gt; {
+  // Lógica para cargar datos del usuario
 };
+
+// Equivalente aproximado a beforeRouteUpdate
+onBeforeRouteUpdate((to, from) =&gt; {
+  // Se llama cuando la ruta cambia pero el componente se reutiliza
+  // Por ejemplo, cuando cambian los parámetros dinámicos
+  userData.value = null;
+  fetchUserData(to.params.id);
+});
+
+// Equivalente aproximado a beforeRouteLeave
+onBeforeRouteLeave((to, from) =&gt; {
+  // Se llama cuando la ruta que renderiza este componente está a punto de ser abandonada
+  if (unsavedChanges.value) {
+    const answer = confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?');
+    // Si devolvemos false, se cancela la navegación
+    return answer;
+  }
+});
 </code></pre>
 <h2 id="lazy-loading-de-rutas">Lazy Loading de Rutas<a class="headerlink" href="#lazy-loading-de-rutas" title="Permanent link">&para;</a></h2>
 <p>Para mejorar el rendimiento, carga los componentes solo cuando sean necesarios:</p>
@@ -1823,10 +1825,10 @@ router.beforeEach((to, from, next) =&gt; {
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../scripts/checkboxes.js"></script>
       

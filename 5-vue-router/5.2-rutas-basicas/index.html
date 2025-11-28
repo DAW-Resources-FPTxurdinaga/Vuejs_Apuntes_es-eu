@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1651,33 +1651,19 @@
 </code></pre>
 <h2 id="navegacion-programatica">Navegación Programática<a class="headerlink" href="#navegacion-programatica" title="Permanent link">&para;</a></h2>
 <p>Puedes navegar mediante código usando el objeto <code>router</code>:</p>
-<pre><code class="language-javascript">// En métodos de opciones
-export default {
-  methods: {
-    goToAbout() {
-      this.$router.push('/about');
-      // O usando el nombre de la ruta
-      // this.$router.push({ name: 'about' });
-    },
-    goBack() {
-      this.$router.go(-1);
-    }
-  }
-};
-
-// En setup() (Composition API)
+<pre><code class="language-javascript">// En un componente con &lt;script setup&gt; (Composition API)
 import { useRouter } from 'vue-router';
 
-export default {
-  setup() {
-    const router = useRouter();
+const router = useRouter();
 
-    const goToAbout = () =&gt; {
-      router.push('/about');
-    };
+const goToAbout = () =&gt; {
+  router.push('/about');
+  // O usando el nombre de la ruta
+  // router.push({ name: 'about' });
+};
 
-    return { goToAbout };
-  }
+const goBack = () =&gt; {
+  router.go(-1);
 };
 </code></pre>
 <h2 id="rutas-con-parametros">Rutas con Parámetros<a class="headerlink" href="#rutas-con-parametros" title="Permanent link">&para;</a></h2>
@@ -1699,32 +1685,28 @@ export default {
 <h3 id="acceso-a-los-parametros">Acceso a los parámetros<a class="headerlink" href="#acceso-a-los-parametros" title="Permanent link">&para;</a></h3>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
-    &lt;h1&gt;Perfil de {{ $route.params.username }}&lt;/h1&gt;
-    &lt;!-- O usando Composition API --&gt;
-    &lt;p&gt;ID de usuario: {{ userId }}&lt;/p&gt;
+    &lt;h1&gt;Perfil de {{ username }}&lt;/h1&gt;
+    &lt;p&gt;ID de usuario (desde la ruta): {{ userId }}&lt;/p&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-export default {
-  name: 'UserView',
-  props: {
-    // Si usas props: true en la ruta
-    id: {
-      type: String,
-      required: true
-    }
-  },
-  setup(props) {
-    const route = useRoute();
-    const userId = computed(() =&gt; route.params.id);
-
-    return { userId };
+// Si usas props: true en la ruta
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
   }
-};
+});
+
+const route = useRoute();
+
+// Podemos obtener el id tanto de props como de los parámetros de la ruta
+const userId = computed(() =&gt; route.params.id ?? props.id);
+const username = computed(() =&gt; route.params.username);
 &lt;/script&gt;
 </code></pre>
 <h2 id="rutas-anidadas">Rutas Anidadas<a class="headerlink" href="#rutas-anidadas" title="Permanent link">&para;</a></h2>
@@ -1841,10 +1823,10 @@ export default {
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../scripts/checkboxes.js"></script>
       

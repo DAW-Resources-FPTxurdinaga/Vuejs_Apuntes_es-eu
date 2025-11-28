@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -1660,36 +1660,38 @@ router.beforeEach((to, from, next) =&gt; {
 </code></pre>
 <h3 id="osagaian-definitutako-guardiak">Osagaian Definitutako Guardiak<a class="headerlink" href="#osagaian-definitutako-guardiak" title="Permanent link">&para;</a></h3>
 <p>Osagaiaren barruan definitzen dira:</p>
-<pre><code class="language-javascript">export default {
-  beforeRouteEnter(to, from, next) {
-    // Osagai hau errendertzen duen ibilbidea baieztatu baino lehen deitzen da.
-    // EZ dago `this`-erako sarbiderik, osagaia oraindik sortu ez delako.
-    next(vm =&gt; {
-      // Osagaiaren instantziara sarbidea `vm` bidez
-      vm.loadUserData();
-    });
-  },
+<pre><code class="language-javascript">// Vue 3 eta Composition API-rekin ohikoena guardia globalak edo ibilbide mailakoak erabiltzea da,
+// baina osagai-mailako guardiak ere existitzen dira (Options API).
+// &lt;script setup&gt; erabiliz, antzeko jokabideak lor ditzakegu composable-en bidez
+// edo bizi-zikloa eta router-a erabiliz.
 
-  beforeRouteUpdate(to, from) {
-    // Ibilbidea aldatzen denean baina osagaia berrerabiltzen denean deitzen da
-    // Adibidez, parametro dinamikoak aldatzen direnean
-    this.userData = null;
-    this.fetchUserData(to.params.id);
-  },
+import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
+import { ref } from 'vue';
 
-  beforeRouteLeave(to, from, next) {
-    // Osagai hau errendertzen duen ibilbidea uztear dagoenean deitzen da
-    if (this.unsavedChanges) {
-      if (confirm('Gorde gabeko aldaketak dituzu. Ziur zaude irten nahi duzula?')) {
-        next();
-      } else {
-        next(false);
-      }
-    } else {
-      next();
-    }
-  }
+const userData = ref(null);
+const unsavedChanges = ref(false);
+
+const fetchUserData = (id) =&gt; {
+  // Erabiltzailearen datuak kargatzeko logika
 };
+
+// beforeRouteUpdate-ren baliokide hurbila
+onBeforeRouteUpdate((to, from) =&gt; {
+  // Ibilbidea aldatzen denean baina osagaia berrerabiltzen denean deitzen da
+  // Adibidez, parametro dinamikoak aldatzen direnean
+  userData.value = null;
+  fetchUserData(to.params.id);
+});
+
+// beforeRouteLeave-ren baliokide hurbila
+onBeforeRouteLeave((to, from) =&gt; {
+  // Osagai hau errendertzen duen ibilbidea uztear dagoenean deitzen da
+  if (unsavedChanges.value) {
+    const answer = confirm('Gorde gabeko aldaketak dituzu. Ziur zaude irten nahi duzula?');
+    // false itzuliz gero, nabigazioa bertan behera gelditzen da
+    return answer;
+  }
+});
 </code></pre>
 <h2 id="bideak-alfer-kargan-lazy-loading">Bideak Alfer-kargan (Lazy Loading)<a class="headerlink" href="#bideak-alfer-kargan-lazy-loading" title="Permanent link">&para;</a></h2>
 <p>Errendimendua hobetzeko, osagaiak behar direnean soilik kargatu:</p>
@@ -1823,10 +1825,10 @@ router.beforeEach((to, from, next) =&gt; {
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../../scripts/checkboxes.js"></script>
       

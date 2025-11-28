@@ -14,15 +14,15 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>4.4 Ejercicio Práctico: Blog con Vue Router - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+        <title>5.4 Ejercicio Práctico: Blog con Vue Router - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#44-ejercicio-practico-blog-con-vue-router" class="md-skip">
+        <a href="#54-ejercicio-practico-blog-con-vue-router" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.4 Ejercicio Práctico: Blog con Vue Router
+              5.4 Ejercicio Práctico: Blog con Vue Router
             
           </span>
         </div>
@@ -1558,7 +1558,7 @@
 
 
 
-<h1 id="44-ejercicio-practico-blog-con-vue-router">4.4 Ejercicio Práctico: Blog con Vue Router<a class="headerlink" href="#44-ejercicio-practico-blog-con-vue-router" title="Permanent link">&para;</a></h1>
+<h1 id="54-ejercicio-practico-blog-con-vue-router">5.4 Ejercicio Práctico: Blog con Vue Router<a class="headerlink" href="#54-ejercicio-practico-blog-con-vue-router" title="Permanent link">&para;</a></h1>
 <p>En este ejercicio, crearás un blog simple utilizando Vue Router. El blog tendrá las siguientes características:</p>
 <h2 id="requisitos">Requisitos<a class="headerlink" href="#requisitos" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1706,23 +1706,16 @@ export default router;
   &lt;/nav&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-export default {
-  name: 'NavBar',
-  setup() {
-    const router = useRouter();
-    const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
+const router = useRouter();
+const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
 
-    const logout = () =&gt; {
-      localStorage.removeItem('isAuthenticated');
-      router.push('/login');
-    };
-
-    return { isAuthenticated, logout };
-  }
+const logout = () =&gt; {
+  localStorage.removeItem('isAuthenticated');
+  router.push('/login');
 };
 &lt;/script&gt;
 
@@ -1739,23 +1732,15 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref } from 'vue';
 import PostList from '@/components/PostList.vue';
 
-export default {
-  name: 'HomeView',
-  components: { PostList },
-  setup() {
-    // Datos de ejemplo
-    const posts = ref([
-      { id: 1, title: 'Mi primer post', excerpt: 'Contenido de ejemplo...', author: 'usuario1' },
-      { id: 2, title: 'Segundo post', excerpt: 'Más contenido...', author: 'usuario2' }
-    ]);
-
-    return { posts };
-  }
-};
+// Datos de ejemplo
+const posts = ref([
+  { id: 1, title: 'Mi primer post', excerpt: 'Contenido de ejemplo...', author: 'usuario1' },
+  { id: 2, title: 'Segundo post', excerpt: 'Más contenido...', author: 'usuario2' }
+]);
 &lt;/script&gt;
 </code></pre>
 <h3 id="5-implementa-la-autenticacion">5. Implementa la Autenticación<a class="headerlink" href="#5-implementa-la-autenticacion" title="Permanent link">&para;</a></h3>
@@ -1771,30 +1756,23 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
-export default {
-  name: 'LoginView',
-  setup() {
-    const username = ref('');
-    const password = ref('');
-    const router = useRouter();
-    const route = useRoute();
+const username = ref('');
+const password = ref('');
+const router = useRouter();
+const route = useRoute();
 
-    const handleLogin = () =&gt; {
-      // Validación simple
-      if (username.value &amp;&amp; password.value) {
-        localStorage.setItem('isAuthenticated', 'true');
-        const redirect = route.query.redirect || '/';
-        router.push(redirect);
-      } else {
-        alert('Por favor ingresa usuario y contraseña');
-      }
-    };
-
-    return { username, password, handleLogin };
+const handleLogin = () =&gt; {
+  // Validación simple
+  if (username.value &amp;&amp; password.value) {
+    localStorage.setItem('isAuthenticated', 'true');
+    const redirect = route.query.redirect || '/';
+    router.push(redirect);
+  } else {
+    alert('Por favor ingresa usuario y contraseña');
   }
 };
 &lt;/script&gt;
@@ -1916,10 +1894,10 @@ export default {
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../../scripts/checkboxes.js"></script>
       

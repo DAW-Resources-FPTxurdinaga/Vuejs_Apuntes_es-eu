@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/4-http-eskariak/4.4-alova/">
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/5-vue-router/5.4-ariketa-praktikoa/">
       
       
-        <link rel="prev" href="../4.3-axios/">
-      
-      
-        <link rel="next" href="../../5-vue-router/5.1-sarrera/">
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>4.4. Alova Erabiliz - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+        <title>5.4 Ariketa Praktikoa: Bloga Vue Router-ekin - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
       
     
     
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#44-alova-ren-erabilera-vue-3-n" class="md-skip">
+        <a href="#54-ariketa-praktikoa-bloga-vue-router-ekin" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -111,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.4. Alova Erabiliz
+              5.4 Ariketa Praktikoa: Bloga Vue Router-ekin
             
           </span>
         </div>
@@ -864,10 +860,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -888,11 +882,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -908,7 +904,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             4. HTTP Eskariak
@@ -922,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.1-sarrera/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.1-sarrera/" class="md-nav__link">
         
   
   
@@ -945,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.2-fetch/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.2-fetch/" class="md-nav__link">
         
   
   
@@ -968,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../4.3-axios/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.3-axios/" class="md-nav__link">
         
   
   
@@ -988,32 +984,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    4.4. Alova Erabiliz
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.4-alova/" class="md-nav__link">
         
   
   
@@ -1024,131 +998,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Edukiak
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#instalazioa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instalazioa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oinarrizko konfigurazioa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#oinarrizko-erabilera-composable-ekin" class="md-nav__link">
-    <span class="md-ellipsis">
-      Oinarrizko erabilera Composable-ekin
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache-eta-egoera-kudeaketa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cache eta Egoera Kudeaketa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eskaera-aurreratuak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Eskaera aurreratuak
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ezaugarri-aurreratuak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ezaugarri aurreratuak
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ezaugarri aurreratuak">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-cache-estrategiak" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Cache estrategiak
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-eguneraketa-optimista" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Eguneraketa optimista
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-eskaera-berrabiaraztea" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Eskaera berrabiaraztea
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#abantailak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Abantailak
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ondorioak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ondorioak
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1221,7 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.1-sarrera/" class="md-nav__link">
+      <a href="../5.1-sarrera/" class="md-nav__link">
         
   
   
@@ -1244,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.2-oinarrizko-bideak/" class="md-nav__link">
+      <a href="../5.2-oinarrizko-bideak/" class="md-nav__link">
         
   
   
@@ -1267,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.3-nabigazio-aurreratua/" class="md-nav__link">
+      <a href="../5.3-nabigazio-aurreratua/" class="md-nav__link">
         
   
   
@@ -1550,82 +1399,103 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#instalazioa" class="md-nav__link">
+  <a href="#baldintzak" class="md-nav__link">
     <span class="md-ellipsis">
-      Instalazioa
+      Baldintzak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
+  <a href="#proiektuaren-egiturak" class="md-nav__link">
     <span class="md-ellipsis">
-      Oinarrizko konfigurazioa
+      Proiektuaren Egiturak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#oinarrizko-erabilera-composable-ekin" class="md-nav__link">
+  <a href="#urratsez-urratseko-argibideak" class="md-nav__link">
     <span class="md-ellipsis">
-      Oinarrizko erabilera Composable-ekin
+      Urratsez Urratseko Argibideak
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache-eta-egoera-kudeaketa" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cache eta Egoera Kudeaketa
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eskaera-aurreratuak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Eskaera aurreratuak
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ezaugarri-aurreratuak" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ezaugarri aurreratuak
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ezaugarri aurreratuak">
+    <nav class="md-nav" aria-label="Urratsez Urratseko Argibideak">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-cache-estrategiak" class="md-nav__link">
+  <a href="#1-hasierako-konfigurazioa" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Cache estrategiak
+      1. Hasierako konfigurazioa
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-eguneraketa-optimista" class="md-nav__link">
+  <a href="#2-router-a-konfiguratzea" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Eguneraketa optimista
+      2. Router-a konfiguratzea
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-eskaera-berrabiaraztea" class="md-nav__link">
+  <a href="#3-osagaiak-sortzea" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Eskaera berrabiaraztea
+      3. Osagaiak sortzea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Osagaiak sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navbarvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      NavBar.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-bistak-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Bistak sortzea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bistak sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#homeviewvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      HomeView.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autentifikazioa-inplementatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Autentifikazioa inplementatzea
     </span>
   </a>
   
@@ -1637,18 +1507,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#abantailak" class="md-nav__link">
+  <a href="#ariketa-gehigarriak" class="md-nav__link">
     <span class="md-ellipsis">
-      Abantailak
+      Ariketa Gehigarriak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ondorioak" class="md-nav__link">
+  <a href="#errepasorako-galderak" class="md-nav__link">
     <span class="md-ellipsis">
-      Ondorioak
+      Errepasorako Galderak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baliabide-gehigarriak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baliabide Gehigarriak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hurrengo-urratsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hurrengo urratsa
     </span>
   </a>
   
@@ -1670,247 +1558,269 @@
 
 
 
-<h1 id="44-alova-ren-erabilera-vue-3-n">4.4 Alova-ren Erabilera Vue 3-n<a class="headerlink" href="#44-alova-ren-erabilera-vue-3-n" title="Permanent link">&para;</a></h1>
-<p>Alova Vue, React eta Svelte-rentzako datu-eskaerarako irtenbide arina da, eta cachea, egoeraren kudeaketa eta eskaeren bertan behera uztea bezalako ezaugarri aurreratuak eskaintzen ditu.</p>
-<h2 id="instalazioa">Instalazioa<a class="headerlink" href="#instalazioa" title="Permanent link">&para;</a></h2>
-<pre><code class="language-bash">npm install alova
+<h1 id="54-ariketa-praktikoa-bloga-vue-router-ekin">5.4 Ariketa Praktikoa: Bloga Vue Router-ekin<a class="headerlink" href="#54-ariketa-praktikoa-bloga-vue-router-ekin" title="Permanent link">&para;</a></h1>
+<p>Ariketa honetan blog sinple bat sortuko duzu Vue Router erabiliz. Blogak honako ezaugarriak izango ditu:</p>
+<h2 id="baldintzak">Baldintzak<a class="headerlink" href="#baldintzak" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Beharrezko orriak</strong>:</p>
+<ul>
+<li>Hasiera: azken argitalpenen zerrenda erakusten du</li>
+<li>Argitalpenaren xehetasuna: argitalpen osoa erakusten du</li>
+<li>Erabiltzaile profila: egilearen informazioa erakusten du</li>
+<li>Argitalpena sortu: argitalpen berria sortzeko formularioa (babestua)</li>
+<li>404 orria: existitzen ez diren ibilbideentzako</li>
+</ul>
+</li>
+<li>
+<p><strong>Ezaugarriak</strong>:</p>
+<ul>
+<li>Orrien arteko nabigazioa</li>
+<li>Parametro dinamikoak dituzten ibilbideak</li>
+<li>Habiaratutako ibilbideak</li>
+<li>Ibilbideen babesa (auth)</li>
+<li>Osagaien karga alferra (lazy loading)</li>
+<li>Ibilbideen arteko trantsizioak</li>
+</ul>
+</li>
+</ol>
+<h2 id="proiektuaren-egiturak">Proiektuaren Egiturak<a class="headerlink" href="#proiektuaren-egiturak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">src/
+  components/
+    NavBar.vue
+    PostList.vue
+    PostItem.vue
+  views/
+    HomeView.vue
+    PostView.vue
+    UserView.vue
+    CreatePostView.vue
+    LoginView.vue
+    NotFoundView.vue
+  router/
+    index.js
+  App.vue
+  main.js
 </code></pre>
-<h2 id="oinarrizko-konfigurazioa">Oinarrizko konfigurazioa<a class="headerlink" href="#oinarrizko-konfigurazioa" title="Permanent link">&para;</a></h2>
-<p>Sortu konfigurazio-fitxategi bat (adibidez, <code>src/utils/alova.js</code>):</p>
-<pre><code class="language-javascript">import { createAlova } from 'alova'
-import GlobalFetch from 'alova/GlobalFetch'
-import VueHook from 'alova/vue'
+<h2 id="urratsez-urratseko-argibideak">Urratsez Urratseko Argibideak<a class="headerlink" href="#urratsez-urratseko-argibideak" title="Permanent link">&para;</a></h2>
+<h3 id="1-hasierako-konfigurazioa">1. Hasierako konfigurazioa<a class="headerlink" href="#1-hasierako-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Sortu Vue proiektu berri bat Vite-rekin:
+   <code>bash
+   npm create vite@latest vue-blog -- --template vue
+   cd vue-blog
+   npm install vue-router@4</code></p>
+</li>
+<li>
+<p>Sortu goiko egituran agertzen diren karpetak eta fitxategiak.</p>
+</li>
+</ol>
+<h3 id="2-router-a-konfiguratzea">2. Router-a konfiguratzea<a class="headerlink" href="#2-router-a-konfiguratzea" title="Permanent link">&para;</a></h3>
+<p><code>router/index.js</code> fitxategian:</p>
+<pre><code class="language-javascript">import { createRouter, createWebHistory } from 'vue-router';
 
-export const alovaInstance = createAlova({
-  baseURL: 'https://api.example.com',
-  requestAdapter: GlobalFetch(),
-  statesHook: VueHook,
+// Bistak
+const HomeView = () =&gt; import('@/views/HomeView.vue');
+const PostView = () =&gt; import('@/views/PostView.vue');
+const UserView = () =&gt; import('@/views/UserView.vue');
+const CreatePostView = () =&gt; import('@/views/CreatePostView.vue');
+const LoginView = () =&gt; import('@/views/LoginView.vue');
+const NotFoundView = () =&gt; import('@/views/NotFoundView.vue');
 
-  // Goiburu orokorren konfigurazioa
-  headers: {
-    'Content-Type': 'application/json',
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: HomeView
   },
-
-  // Lehenetsitako itxaronaldia
-  timeout: 10000,
-
-  // Eskaeren atzizainak
-  beforeRequest(method) {
-    const token = localStorage.getItem('auth_token')
-    if (token) {
-      method.config.headers.Authorization = `Bearer ${token}`
-    }
+  {
+    path: '/post/:id',
+    name: 'post',
+    component: PostView,
+    props: true
   },
-
-  // Erantzunen atzizainak
-  responded: {
-    onSuccess: async (response, method) =&gt; {
-      const data = await response.json()
-      if (response.status &gt;= 200 &amp;&amp; response.status &lt; 300) {
-        return data
-      }
-      throw new Error(data.message || 'Errorea eskaeran')
-    },
-    onError: (err, method) =&gt; {
-      console.error('Errorea eskaeran:', err)
-      throw err
-    }
+  {
+    path: '/user/:username',
+    name: 'user',
+    component: UserView,
+    props: true
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreatePostView,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundView
   }
-})
+];
 
-export default alovaInstance
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || { top: 0 };
+  }
+});
+
+// Nabigazio guardia globala
+router.beforeEach((to, from, next) =&gt; {
+  const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+  if (to.matched.some(record =&gt; record.meta.requiresAuth)) {
+    if (!isAuthenticated) {
+      next({
+        name: 'login',
+        query: { redirect: to.fullPath }
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;
 </code></pre>
-<h2 id="oinarrizko-erabilera-composable-ekin">Oinarrizko erabilera Composable-ekin<a class="headerlink" href="#oinarrizko-erabilera-composable-ekin" title="Permanent link">&para;</a></h2>
+<h3 id="3-osagaiak-sortzea">3. Osagaiak sortzea<a class="headerlink" href="#3-osagaiak-sortzea" title="Permanent link">&para;</a></h3>
+<h4 id="navbarvue">NavBar.vue<a class="headerlink" href="#navbarvue" title="Permanent link">&para;</a></h4>
 <pre><code class="language-vue">&lt;template&gt;
-  &lt;div&gt;
-    &lt;h2&gt;Produktuen Zerrenda (Alova)&lt;/h2&gt;
-    &lt;button @click=&quot;fetchProducts&quot; :disabled=&quot;loading&quot;&gt;
-      {{ loading ? 'Kargatzen...' : 'Kargatu Produktuak' }}
-    &lt;/button&gt;
-
-    &lt;div v-if=&quot;error&quot; class=&quot;error&quot;&gt;
-      {{ error }}
+  &lt;nav&gt;
+    &lt;router-link to=&quot;/&quot; class=&quot;logo&quot;&gt;Nire Bloga&lt;/router-link&gt;
+    &lt;div class=&quot;nav-links&quot;&gt;
+      &lt;router-link to=&quot;/&quot;&gt;Hasiera&lt;/router-link&gt;
+      &lt;router-link v-if=&quot;isAuthenticated&quot; to=&quot;/create&quot;&gt;Post berria&lt;/router-link&gt;
+      &lt;router-link v-if=&quot;!isAuthenticated&quot; to=&quot;/login&quot;&gt;Saioa hasi&lt;/router-link&gt;
+      &lt;button v-else @click=&quot;logout&quot; class=&quot;logout-btn&quot;&gt;Saioa itxi&lt;/button&gt;
     &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/template&gt;
 
-    &lt;ul v-else-if=&quot;products.length &gt; 0&quot; class=&quot;product-list&quot;&gt;
-      &lt;li v-for=&quot;product in products&quot; :key=&quot;product.id&quot; class=&quot;product-item&quot;&gt;
-        &lt;h3&gt;{{ product.title }}&lt;/h3&gt;
-        &lt;p&gt;{{ product.description }}&lt;/p&gt;
-        &lt;span class=&quot;price&quot;&gt;{{ product.price }}€&lt;/span&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+&lt;script setup&gt;
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
+
+const logout = () =&gt; {
+  localStorage.removeItem('isAuthenticated');
+  router.push('/login');
+};
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+/* Nabigazio barraren estiloak */
+&lt;/style&gt;
+</code></pre>
+<h3 id="4-bistak-sortzea">4. Bistak sortzea<a class="headerlink" href="#4-bistak-sortzea" title="Permanent link">&para;</a></h3>
+<h4 id="homeviewvue">HomeView.vue<a class="headerlink" href="#homeviewvue" title="Permanent link">&para;</a></h4>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;home&quot;&gt;
+    &lt;h1&gt;Azken argitalpenak&lt;/h1&gt;
+    &lt;PostList :posts=&quot;posts&quot; /&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ref } from 'vue'
-import { useRequest } from 'alova'
-import { alovaInstance } from '@/utils/alova'
+import { ref } from 'vue';
+import PostList from '@/components/PostList.vue';
 
-const products = ref([])
-const loading = ref(false)
-const error = ref(null)
-
-const fetchProducts = async () =&gt; {
-  loading.value = true
-  error.value = null
-
-  try {
-    const response = await alovaInstance.Get('/products')
-    products.value = response
-  } catch (err) {
-    console.error('Errorea produktuak kargatzean:', err)
-    error.value = 'Ezin izan dira produktuak kargatu. Saiatu berriro geroago.'
-  } finally {
-    loading.value = false
-  }
-}
+// Adibidezko datuak
+const posts = ref([
+  { id: 1, title: 'Nire lehen posta', excerpt: 'Adibidezko edukia...', author: 'erabiltzaile1' },
+  { id: 2, title: 'Bigarren posta', excerpt: 'Eduki gehiago...', author: 'erabiltzaile2' }
+]);
 &lt;/script&gt;
-
-&lt;style scoped&gt;
-.product-list {
-  list-style: none;
-  padding: 0;
-}
-
-.product-item {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: #f9f9f9;
-}
-
-.price {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-.error {
-  color: #e74c3c;
-  margin: 1rem 0;
-}
-&lt;/style&gt;
 </code></pre>
-<h2 id="cache-eta-egoera-kudeaketa">Cache eta Egoera Kudeaketa<a class="headerlink" href="#cache-eta-egoera-kudeaketa" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">// Produktu baten datuak kargatzeko funtzio bera erabiliz
-const { data, loading, error, send } = useRequest(
-  // Eskaeraren konfigurazioa
-  alovaInstance.Get('/products/1'),
+<h3 id="5-autentifikazioa-inplementatzea">5. Autentifikazioa inplementatzea<a class="headerlink" href="#5-autentifikazioa-inplementatzea" title="Permanent link">&para;</a></h3>
+<p><code>LoginView.vue</code> fitxategian:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;login&quot;&gt;
+    &lt;h1&gt;Saioa hasi&lt;/h1&gt;
+    &lt;form @submit.prevent=&quot;handleLogin&quot;&gt;
+      &lt;input v-model=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;Erabiltzailea&quot; required&gt;
+      &lt;input v-model=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Pasahitza&quot; required&gt;
+      &lt;button type=&quot;submit&quot;&gt;Sartu&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 
-  // Konfigurazioa
-  {
-    // Cachea 5 minutuz
-    localCache: 5 * 60 * 1000,
+&lt;script setup&gt;
+import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
-    // Emaitzak automatikoki kargatzeko
-    immediate: true,
+const username = ref('');
+const password = ref('');
+const router = useRouter();
+const route = useRoute();
 
-    // Emaitzak prozesatzeko
-    initialData: {}
+const handleLogin = () =&gt; {
+  // Baliozkotze sinplea
+  if (username.value &amp;&amp; password.value) {
+    localStorage.setItem('isAuthenticated', 'true');
+    const redirect = route.query.redirect || '/';
+    router.push(redirect);
+  } else {
+    alert('Mesedez, sartu erabiltzailea eta pasahitza');
   }
-)
-
-// Emaitza freskatzeko
-const refreshData = () =&gt; {
-  send()
-}
+};
+&lt;/script&gt;
 </code></pre>
-<h2 id="eskaera-aurreratuak">Eskaera aurreratuak<a class="headerlink" href="#eskaera-aurreratuak" title="Permanent link">&para;</a></h2>
-<pre><code class="language-javascript">// POST eskaera
-const { send: createProduct } = useRequest(
-  (productData) =&gt; alovaInstance.Post('/products', productData),
-  {
-    immediate: false,
-    onSuccess: (data) =&gt; {
-      // Emaitza onuragarria denean egitekoa
-      console.log('Produktua sortu da:', data)
-      // Eguneratu produktuen zerrenda
-      products.value = [...products.value, data]
-    },
-    onError: (error) =&gt; {
-      console.error('Errorea produktua sortzean:', error)
-    }
-  }
-)
-
-// Produktu berria sortu
-const newProduct = {
-  title: 'Produktu Berria',
-  description: 'Deskribapen labur bat',
-  price: 19.99
-}
-
-createProduct(newProduct)
-</code></pre>
-<h2 id="ezaugarri-aurreratuak">Ezaugarri aurreratuak<a class="headerlink" href="#ezaugarri-aurreratuak" title="Permanent link">&para;</a></h2>
-<h3 id="1-cache-estrategiak">1. Cache estrategiak<a class="headerlink" href="#1-cache-estrategiak" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">// Erabili cachea baina eguneratu atzeko aldetik
-useRequest(
-  alovaInstance.Get('/products', {
-    localCache: {
-      mode: 'restore',
-      expire: 5 * 60 * 1000 // 5 minutu
-    }
-  })
-)
-</code></pre>
-<h3 id="2-eguneraketa-optimista">2. Eguneraketa optimista<a class="headerlink" href="#2-eguneraketa-optimista" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">const { send: updateProduct } = useRequest(
-  (productId, updates) =&gt; alovaInstance.Patch(`/products/${productId}`, updates),
-  {
-    immediate: false,
-    // Eguneraketa optimista
-    optimisticData: (updates) =&gt; {
-      const productIndex = products.value.findIndex(p =&gt; p.id === updates.id)
-      if (productIndex !== -1) {
-        const updatedProducts = [...products.value]
-        updatedProducts[productIndex] = { 
-          ...updatedProducts[productIndex], 
-          ...updates 
-        }
-        products.value = updatedProducts
-      }
-    }
-  }
-)
-</code></pre>
-<h3 id="3-eskaera-berrabiaraztea">3. Eskaera berrabiaraztea<a class="headerlink" href="#3-eskaera-berrabiaraztea" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">// Erabili `useWatcher` datuak automatikoki berrabiarazteko
-const { data: userData, onSuccess } = useWatcher(
-  () =&gt; alovaInstance.Get(`/users/${userId.value}`),
-  [userId], // Berrabiarazi userId aldatzen denean
-  {
-    // Debounce 300ms
-    debounce: 300,
-
-    // Lehenetsitako datuak kargatzen ari den bitartean
-    initialData: {}
-  }
-)
-
-// Erabiltzailea eguneratu denean, berrabiarazi datuak
-onSuccess(() =&gt; {
-  console.log('Erabiltzailearen datuak eguneratu dira:', userData.value)
-})
-</code></pre>
-<h2 id="abantailak">Abantailak<a class="headerlink" href="#abantailak" title="Permanent link">&para;</a></h2>
+<h2 id="ariketa-gehigarriak">Ariketa Gehigarriak<a class="headerlink" href="#ariketa-gehigarriak" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>Arina</strong>: Tamaina txikia, baina boteretsua</li>
-<li><strong>Bateragarritasuna</strong>: Vue, React eta Svelte-rentzat eskuragarri</li>
-<li><strong>Cache aurreratua</strong>: Emaitzen cachea automatikoki kudeatzen du</li>
-<li><strong>Eguneraketa optimista</strong>: Erabiltzaile-esperientzia hobea</li>
-<li><strong>Baliabideen kudeaketa</strong>: Baliabideen erabilera optimizatzen du</li>
-<li><strong>Eskaeren bertan behera uztea</strong>: Erraza da eskaerak bertan behera uztea</li>
-<li><strong>Berriz saio-hasiera automatikoa</strong>: Konfigurazio erraza huts egindako eskaerentzako</li>
+<li>
+<p><strong>Hobetu autentifikazioa</strong>:</p>
+<ul>
+<li>Inplementatu autentifikazio erreala API batekin</li>
+<li>Gehitu JWT tokenen kudeaketa</li>
+<li>Inplementatu tokenen berritzea</li>
+</ul>
+</li>
+<li>
+<p><strong>Gehitu ezaugarri gehiago</strong>:</p>
+<ul>
+<li>Iruzkin sistema bat</li>
+<li>Posten bilaketa</li>
+<li>Kategoriak eta etiketak</li>
+<li>Emaitzen orrikatzea (paginazioa)</li>
+</ul>
+</li>
+<li>
+<p><strong>Hobetu erabiltzaile esperientzia</strong>:</p>
+<ul>
+<li>Gehitu karga eskeletoa (skeleton loading)</li>
+<li>Akatsen kudeaketa</li>
+<li>Jakinarazpenak (notifikazioak)</li>
+</ul>
+</li>
 </ol>
-<h2 id="ondorioak">Ondorioak<a class="headerlink" href="#ondorioak" title="Permanent link">&para;</a></h2>
-<p>Alova aukera bikaina da Vue 3 aplikazioetarako, batez ere:
-- Datu-eredu konplexuak dituzten aplikazioak
-- Errendimendu handiko interfazeak behar dituzten proiektuak
-- Baliabideen erabilera optimizatu behar duten aplikazioak
-- Erabiltzaile-esperientzia leuna eta erantzunkorra behar duten proiektuak</p>
-<p>Hurrengo atalean, HTTP eskaerak probatzeko eta simulatzeko teknikak ikusiko ditugu.</p>
+<h2 id="errepasorako-galderak">Errepasorako Galderak<a class="headerlink" href="#errepasorako-galderak" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Nola kudeatuko zenuke ibilbideen babesa benetako aplikazio batean?</li>
+<li>Zein da lazy loading erabiltzeko abantaila ibilbideetan?</li>
+<li>Nola inplementatuko zenuke rol eta baimenen sistema bat?</li>
+<li>Zein estrategia erabiliko zenituzke aplikazioaren egoera globala kudeatzeko?</li>
+</ol>
+<h2 id="baliabide-gehigarriak">Baliabide Gehigarriak<a class="headerlink" href="#baliabide-gehigarriak" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://router.vuejs.org/">Vue Router dokumentazio ofiziala</a></li>
+<li><a href="https://router.vuejs.org/guide/essentials/navigation.html">Nabigazio eredu arruntak</a></li>
+<li><a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards">Autentifikazioa Vue Router-rekin</a></li>
+</ul>
+<h2 id="hurrengo-urratsa">Hurrengo urratsa<a class="headerlink" href="#hurrengo-urratsa" title="Permanent link">&para;</a></h2>
+<p>Router-aren ariketa praktikoa amaitu duzu! Orain Vue Router-en ezaugarri nagusiekin praktikatu duzunez, prest zaude egoera kudeaketa Pinia-rekin esploratzeko.</p>
+<p><a href="../../6-pinia/6.1-sarrera/">→ Hurrengoa: Pinia-ren sarrera</a></p>
 
 
 
