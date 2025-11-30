@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="es" class="no-js">
+<html lang="eu" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/3-componentes/3.2-creacion/">
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/5-vue-router/5.4-ariketa-praktikoa/">
       
       
-        <link rel="prev" href="../3.1-introduccion/">
-      
-      
-        <link rel="next" href="../3.3-comunicacion/">
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
@@ -22,14 +18,14 @@
     
     
       
-        <title>3.2. Creación y Uso - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+        <title>5.4 Ariketa Praktikoa: Bloga Vue Router-ekin - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,8 +72,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#31-creacion-de-componentes-en-vue-3" class="md-skip">
-          Saltar a contenido
+        <a href="#54-ariketa-praktikoa-bloga-vue-router-ekin" class="md-skip">
+          Joan zuzenean edukira
         </a>
       
     </div>
@@ -91,10 +87,10 @@
   
 
 <header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href="../.." title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
       
-  <img src="../../images/Icono_TX.png" alt="logo">
+  <img src="../../../images/Icono_TX.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3.2. Creación y Uso
+              5.4 Ariketa Praktikoa: Bloga Vue Router-ekin
             
           </span>
         </div>
@@ -151,20 +147,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="es" class="md-select__link">
+            <a href="/Vuejs_Apuntes_es-eu/" hreflang="es" class="md-select__link">
               Español
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../eu/3-componentes/3.2-creacion/" hreflang="eu" class="md-select__link">
+            <a href="./" hreflang="eu" class="md-select__link">
               Euskara
             </a>
           </li>
@@ -185,16 +181,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Buscar">
+      <nav class="md-search__options" aria-label="Bilatu">
         
-        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -205,7 +201,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Inicializando búsqueda
+            Bilaketa hasieratzen
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -239,11 +235,11 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
       
-  <img src="../../images/Icono_TX.png" alt="logo">
+  <img src="../../../images/Icono_TX.png" alt="logo">
 
     </a>
     Curso de Vue.js 3 - CIFP Txurdinaga LHII
@@ -258,12 +254,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Inicio
+    Hasiera
     
   </span>
   
@@ -309,7 +305,7 @@
   
   
   <span class="md-ellipsis">
-    1. Conceptos Básicos
+    1. Oinarrizko Kontzeptuak
     
   </span>
   
@@ -320,7 +316,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            1. Conceptos Básicos
+            1. Oinarrizko Kontzeptuak
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -331,12 +327,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1-conceptos-basicos/1.1-introduccion/" class="md-nav__link">
+      <a href="../../1-oinarrizko-kontzeptuak/1.1-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    1.1. Introducción a Vue
+    1.1. Vue-ri Sarrera
     
   </span>
   
@@ -354,12 +350,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../1-conceptos-basicos/1.2-primer-ejemplo/" class="md-nav__link">
+      <a href="../../1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    1.2. Tu primera aplicación
+    1.2. Zure Lehen Aplikazioa
     
   </span>
   
@@ -433,7 +429,7 @@
   
   
   <span class="md-ellipsis">
-    2. Fundamentos
+    2. Oinarriak
     
   </span>
   
@@ -444,7 +440,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            2. Fundamentos
+            2. Oinarriak
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -455,12 +451,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.0-introduccion/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.0-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.0. Introducción
+    2.0. Sarrera
     
   </span>
   
@@ -478,12 +474,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.1-interpolacion/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.1-interpolazioa/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.1. Interpolación y Directivas
+    2.1. Interpolazioa eta Zuzentarauak
     
   </span>
   
@@ -501,12 +497,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.2-vbind-vmodel/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.2-vbind-vmodel/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.2. V-bind y V-model
+    2.2. V-bind eta V-model
     
   </span>
   
@@ -524,12 +520,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.3-v-if_v-for/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.3-v-if_v-for/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.3. V-if y V-for
+    2.3. V-if eta V-for
     
   </span>
   
@@ -547,12 +543,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.4-propiedades-computadas/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.4-kalkulatutako-propietateak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.4. Propiedades Computadas
+    2.4. Kalkulatutako Propietateak
     
   </span>
   
@@ -570,12 +566,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.5-eventos/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.5-gertaerak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.5. Manejo de Eventos
+    2.5. Gertaeren Kudeaketa
     
   </span>
   
@@ -593,12 +589,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.6-form-input-bindings/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.6-inprimaki-sarreren-lotura/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.6. Enlace de Entradas de Formulario
+    2.6. Inprimaki Sarreren Lotura
     
   </span>
   
@@ -616,12 +612,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.7-ciclo-vida/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.7-bizitza-zikloa/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.7. Ciclo de Vida
+    2.7. Bizitza Zikloa
     
   </span>
   
@@ -639,12 +635,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.8-sintaxis-plantillas/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.8-txantiloi-sintaxia/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.8. Sintaxis de Plantillas
+    2.8. Txantiloi-sintaxia
     
   </span>
   
@@ -662,12 +658,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.9-reactividad/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.9-erantzunkortasuna/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.9. Reactividad
+    2.9. Erantzunkortasuna
     
   </span>
   
@@ -685,12 +681,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.10-cheat-sheet/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.10-erreferentzia-azkarra/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.10. Referencia Rápida
+    2.10. Erreferentzia Azkarra
     
   </span>
   
@@ -708,12 +704,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2-fundamentos/2.11-ejercicio-practico/" class="md-nav__link">
+      <a href="../../2-oinarriak/2.11-ariketa-praktikoa/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    2.11. Ejercicio Práctico
+    2.11. Ariketa Praktikoa
     
   </span>
   
@@ -735,10 +731,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -757,11 +751,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -769,7 +765,7 @@
   
   
   <span class="md-ellipsis">
-    3. Componentes
+    3. Osagaiak
     
   </span>
   
@@ -777,10 +773,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            3. Componentes
+            3. Osagaiak
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -791,208 +787,17 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.1-introduccion/" class="md-nav__link">
+      <a href="../../3-osagaiak/3.1-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    3.1. Introducción
+    3.1. Sarrera
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    3.2. Creación y Uso
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    3.2. Creación y Uso
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sin-script-setup-vs-con-script-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sin &lt;script setup&gt; vs con &lt;script setup&gt;
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#componente-con-composition-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componente con Composition API
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#componentes-de-un-solo-archivo-sfc" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componentes de un Solo Archivo (SFC)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registro-de-componentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Registro de Componentes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registro de Componentes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#registro-global" class="md-nav__link">
-    <span class="md-ellipsis">
-      Registro Global
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#registro-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      Registro Local
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#componentes-dinamicos-intercambio-entre-componentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componentes Dinámicos (Intercambio entre componentes)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Componentes Dinámicos (Intercambio entre componentes)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-basico" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ejemplo Básico:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#carga-diferida-de-componentes-lazy-loading" class="md-nav__link">
-    <span class="md-ellipsis">
-      Carga Diferida de Componentes (Lazy Loading)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Carga Diferida de Componentes (Lazy Loading)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#carga-diferida-basica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Carga Diferida Básica:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#beneficios-de-la-carga-diferida" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beneficios de la Carga Diferida:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#siguiente-paso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Siguiente paso
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1005,12 +810,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../3.3-comunicacion/" class="md-nav__link">
+      <a href="../../3-osagaiak/3.2-creacion/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    3.3. Comunicación entre Componentes
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.3-comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
     
   </span>
   
@@ -1068,7 +896,7 @@
   
   
   <span class="md-ellipsis">
-    4. Peticiones HTTP
+    4. HTTP Eskariak
     
   </span>
   
@@ -1079,7 +907,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            4. Peticiones HTTP
+            4. HTTP Eskariak
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1090,12 +918,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../4-http/4.1-introduccion/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.1-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    4.1. Introducción
+    4.1. Sarrera
     
   </span>
   
@@ -1113,12 +941,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../4-http/4.2-fetch/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.2-fetch/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    4.2. Uso de Fetch API
+    4.2. Fetch API Erabiliz
     
   </span>
   
@@ -1136,12 +964,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../4-http/4.3-axios/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.3-axios/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    4.3. Uso de Axios
+    4.3. Axios Erabiliz
     
   </span>
   
@@ -1159,12 +987,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../4-http/4.4-alova/" class="md-nav__link">
+      <a href="../../4-http-eskariak/4.4-alova/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    4.4. Uso de Alova
+    4.4. Alova Erabiliz
     
   </span>
   
@@ -1220,7 +1048,7 @@
   
   
   <span class="md-ellipsis">
-    5. Enrutamiento con Vue Router
+    5. Vue Router-ekin
     
   </span>
   
@@ -1231,7 +1059,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            5. Enrutamiento con Vue Router
+            5. Vue Router-ekin
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1242,12 +1070,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.1-introduccion/" class="md-nav__link">
+      <a href="../5.1-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    5.1. Introducción
+    5.1. Sarrera
     
   </span>
   
@@ -1265,12 +1093,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.2-rutas-basicas/" class="md-nav__link">
+      <a href="../5.2-oinarrizko-bideak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    5.2. Rutas Básicas
+    5.2. Oinarrizko Bideak
     
   </span>
   
@@ -1288,12 +1116,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../5-vue-router/5.3-navegacion-avanzada/" class="md-nav__link">
+      <a href="../5.3-nabigazio-aurreratua/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    5.3. Navegación Avanzada
+    5.3. Nabigazio Aurreratua
     
   </span>
   
@@ -1349,7 +1177,7 @@
   
   
   <span class="md-ellipsis">
-    6. Gestión de Estado con Pinia
+    6. Egoeraren Kudeaketa Pinia-rekin
     
   </span>
   
@@ -1360,7 +1188,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            6. Gestión de Estado con Pinia
+            6. Egoeraren Kudeaketa Pinia-rekin
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1371,12 +1199,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../6-pinia/6.1-introduccion/" class="md-nav__link">
+      <a href="../../6-pinia/6.1-sarrera/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    6.1. Introducción a Pinia
+    6.1. Pinia-ri Sarrera
     
   </span>
   
@@ -1394,12 +1222,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../6-pinia/6.2-stores/" class="md-nav__link">
+      <a href="../../6-pinia/6.2-dendak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    6.2. Stores en Pinia
+    6.2. Pinia-ko Denda
     
   </span>
   
@@ -1417,12 +1245,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../6-pinia/6.3-avanzado/" class="md-nav__link">
+      <a href="../../6-pinia/6.3-aurreratua/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    6.3. Conceptos Avanzados
+    6.3. Gai Aurreratuak
     
   </span>
   
@@ -1476,7 +1304,7 @@
   
   
   <span class="md-ellipsis">
-    7. Proyecto Práctico
+    7. Proiektu Praktikoa
     
   </span>
   
@@ -1487,7 +1315,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            7. Proyecto Práctico
+            7. Proiektu Praktikoa
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1498,12 +1326,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../7-proyecto/7.1-estructura/" class="md-nav__link">
+      <a href="../../7-proiektua/7.1-egitura/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    7.1. Estructura del Proyecto
+    7.1. Proiektuaren Egitura
     
   </span>
   
@@ -1521,12 +1349,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../7-proyecto/7.2-ejercicios/" class="md-nav__link">
+      <a href="../../7-proiektua/7.2-ariketak/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    7.2. Ejercicios Guiados
+    7.2. Gidatutako Ariketa
     
   </span>
   
@@ -1557,7 +1385,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
   
   
   
@@ -1566,60 +1394,108 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
+      Edukiak
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sin-script-setup-vs-con-script-setup" class="md-nav__link">
+  <a href="#baldintzak" class="md-nav__link">
     <span class="md-ellipsis">
-      Sin &lt;script setup&gt; vs con &lt;script setup&gt;
+      Baldintzak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#componente-con-composition-api" class="md-nav__link">
+  <a href="#proiektuaren-egiturak" class="md-nav__link">
     <span class="md-ellipsis">
-      Componente con Composition API
+      Proiektuaren Egiturak
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#componentes-de-un-solo-archivo-sfc" class="md-nav__link">
+  <a href="#urratsez-urratseko-argibideak" class="md-nav__link">
     <span class="md-ellipsis">
-      Componentes de un Solo Archivo (SFC)
+      Urratsez Urratseko Argibideak
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registro-de-componentes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Registro de Componentes
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Registro de Componentes">
+    <nav class="md-nav" aria-label="Urratsez Urratseko Argibideak">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#registro-global" class="md-nav__link">
+  <a href="#1-hasierako-konfigurazioa" class="md-nav__link">
     <span class="md-ellipsis">
-      Registro Global
+      1. Hasierako konfigurazioa
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#registro-local" class="md-nav__link">
+  <a href="#2-router-a-konfiguratzea" class="md-nav__link">
     <span class="md-ellipsis">
-      Registro Local
+      2. Router-a konfiguratzea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-osagaiak-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Osagaiak sortzea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Osagaiak sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#navbarvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      NavBar.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-bistak-sortzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Bistak sortzea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Bistak sortzea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#homeviewvue" class="md-nav__link">
+    <span class="md-ellipsis">
+      HomeView.vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-autentifikazioa-inplementatzea" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Autentifikazioa inplementatzea
     </span>
   </a>
   
@@ -1631,66 +1507,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#componentes-dinamicos-intercambio-entre-componentes" class="md-nav__link">
+  <a href="#ariketa-gehigarriak" class="md-nav__link">
     <span class="md-ellipsis">
-      Componentes Dinámicos (Intercambio entre componentes)
+      Ariketa Gehigarriak
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Componentes Dinámicos (Intercambio entre componentes)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ejemplo-basico" class="md-nav__link">
-    <span class="md-ellipsis">
-      Ejemplo Básico:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#carga-diferida-de-componentes-lazy-loading" class="md-nav__link">
+  <a href="#errepasorako-galderak" class="md-nav__link">
     <span class="md-ellipsis">
-      Carga Diferida de Componentes (Lazy Loading)
+      Errepasorako Galderak
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Carga Diferida de Componentes (Lazy Loading)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#carga-diferida-basica" class="md-nav__link">
-    <span class="md-ellipsis">
-      Carga Diferida Básica:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#beneficios-de-la-carga-diferida" class="md-nav__link">
-    <span class="md-ellipsis">
-      Beneficios de la Carga Diferida:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#siguiente-paso" class="md-nav__link">
+  <a href="#baliabide-gehigarriak" class="md-nav__link">
     <span class="md-ellipsis">
-      Siguiente paso
+      Baliabide Gehigarriak
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hurrengo-urratsa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hurrengo urratsa
     </span>
   </a>
   
@@ -1712,195 +1558,269 @@
 
 
 
-<h1 id="31-creacion-de-componentes-en-vue-3">3.1 Creación de Componentes en Vue 3<a class="headerlink" href="#31-creacion-de-componentes-en-vue-3" title="Permanent link">&para;</a></h1>
-<p>Los componentes son los bloques de construcción fundamentales de las aplicaciones Vue. Permiten dividir la interfaz de usuario en piezas independientes y reutilizables.</p>
-<h2 id="sin-script-setup-vs-con-script-setup">Sin <code>&lt;script setup&gt;</code> vs con <code>&lt;script setup&gt;</code><a class="headerlink" href="#sin-script-setup-vs-con-script-setup" title="Permanent link">&para;</a></h2>
-<p>En Vue 3 podemos escribir componentes de dos formas principales:</p>
+<h1 id="54-ariketa-praktikoa-bloga-vue-router-ekin">5.4 Ariketa Praktikoa: Bloga Vue Router-ekin<a class="headerlink" href="#54-ariketa-praktikoa-bloga-vue-router-ekin" title="Permanent link">&para;</a></h1>
+<p>Ariketa honetan blog sinple bat sortuko duzu Vue Router erabiliz. Blogak honako ezaugarriak izango ditu:</p>
+<h2 id="baldintzak">Baldintzak<a class="headerlink" href="#baldintzak" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Beharrezko orriak</strong>:</p>
 <ul>
-<li><strong>Sin <code>&lt;script setup&gt;</code> (forma clásica)</strong>: hay que <strong>exportar</strong> el componente explícitamente con <code>export default</code>.</li>
+<li>Hasiera: azken argitalpenen zerrenda erakusten du</li>
+<li>Argitalpenaren xehetasuna: argitalpen osoa erakusten du</li>
+<li>Erabiltzaile profila: egilearen informazioa erakusten du</li>
+<li>Argitalpena sortu: argitalpen berria sortzeko formularioa (babestua)</li>
+<li>404 orria: existitzen ez diren ibilbideentzako</li>
 </ul>
-<p>```vue
-<br />
-<script>
-    export default {
-      name: 'Inicio',
+</li>
+<li>
+<p><strong>Ezaugarriak</strong>:</p>
+<ul>
+<li>Orrien arteko nabigazioa</li>
+<li>Parametro dinamikoak dituzten ibilbideak</li>
+<li>Habiaratutako ibilbideak</li>
+<li>Ibilbideen babesa (auth)</li>
+<li>Osagaien karga alferra (lazy loading)</li>
+<li>Ibilbideen arteko trantsizioak</li>
+</ul>
+</li>
+</ol>
+<h2 id="proiektuaren-egiturak">Proiektuaren Egiturak<a class="headerlink" href="#proiektuaren-egiturak" title="Permanent link">&para;</a></h2>
+<pre><code class="language-text">src/
+  components/
+    NavBar.vue
+    PostList.vue
+    PostItem.vue
+  views/
+    HomeView.vue
+    PostView.vue
+    UserView.vue
+    CreatePostView.vue
+    LoginView.vue
+    NotFoundView.vue
+  router/
+    index.js
+  App.vue
+  main.js
+</code></pre>
+<h2 id="urratsez-urratseko-argibideak">Urratsez Urratseko Argibideak<a class="headerlink" href="#urratsez-urratseko-argibideak" title="Permanent link">&para;</a></h2>
+<h3 id="1-hasierako-konfigurazioa">1. Hasierako konfigurazioa<a class="headerlink" href="#1-hasierako-konfigurazioa" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Sortu Vue proiektu berri bat Vite-rekin:
+   <code>bash
+   npm create vite@latest vue-blog -- --template vue
+   cd vue-blog
+   npm install vue-router@4</code></p>
+</li>
+<li>
+<p>Sortu goiko egituran agertzen diren karpetak eta fitxategiak.</p>
+</li>
+</ol>
+<h3 id="2-router-a-konfiguratzea">2. Router-a konfiguratzea<a class="headerlink" href="#2-router-a-konfiguratzea" title="Permanent link">&para;</a></h3>
+<p><code>router/index.js</code> fitxategian:</p>
+<pre><code class="language-javascript">import { createRouter, createWebHistory } from 'vue-router';
 
-      setup() {
-        // lógica del componente aquí (si necesitas)
-        return {}
-      }
+// Bistak
+const HomeView = () =&gt; import('@/views/HomeView.vue');
+const PostView = () =&gt; import('@/views/PostView.vue');
+const UserView = () =&gt; import('@/views/UserView.vue');
+const CreatePostView = () =&gt; import('@/views/CreatePostView.vue');
+const LoginView = () =&gt; import('@/views/LoginView.vue');
+const NotFoundView = () =&gt; import('@/views/NotFoundView.vue');
+
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/post/:id',
+    name: 'post',
+    component: PostView,
+    props: true
+  },
+  {
+    path: '/user/:username',
+    name: 'user',
+    component: UserView,
+    props: true
+  },
+  {
+    path: '/create',
+    name: 'create',
+    component: CreatePostView,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundView
+  }
+];
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || { top: 0 };
+  }
+});
+
+// Nabigazio guardia globala
+router.beforeEach((to, from, next) =&gt; {
+  const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+  if (to.matched.some(record =&gt; record.meta.requiresAuth)) {
+    if (!isAuthenticated) {
+      next({
+        name: 'login',
+        query: { redirect: to.fullPath }
+      });
+    } else {
+      next();
     }
-  </script></p>
-<p>```</p>
-<ul>
-<li><strong>Con <code>&lt;script setup&gt;</code></strong>: el propio bloque <code>&lt;script setup&gt;</code> se encarga del registro del componente. <strong>No hay que hacer <code>export default</code></strong>; simplemente defines estado, funciones, imports, etc.</li>
-</ul>
-<p>```vue
-<br />
-<script setup>
-  // aquí defines refs, funciones, imports, etc.
-  </script></p>
-<p>```</p>
-<p>En el resto de estos apuntes usaremos preferentemente <code>&lt;script setup&gt;</code> por ser la forma recomendada y más concisa en Vue 3.</p>
-<h2 id="componente-con-composition-api">Componente con Composition API<a class="headerlink" href="#componente-con-composition-api" title="Permanent link">&para;</a></h2>
+  } else {
+    next();
+  }
+});
+
+export default router;
+</code></pre>
+<h3 id="3-osagaiak-sortzea">3. Osagaiak sortzea<a class="headerlink" href="#3-osagaiak-sortzea" title="Permanent link">&para;</a></h3>
+<h4 id="navbarvue">NavBar.vue<a class="headerlink" href="#navbarvue" title="Permanent link">&para;</a></h4>
 <pre><code class="language-vue">&lt;template&gt;
-  &lt;div&gt;
-    &lt;h1&gt;{{ title }}&lt;/h1&gt;
-    &lt;p&gt;{{ message }}&lt;/p&gt;
-    &lt;button @click=&quot;increment&quot;&gt;Contador: {{ count }}&lt;/button&gt;
-    &lt;p&gt;Doble: {{ doubleCount }}&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;nav&gt;
+    &lt;router-link to=&quot;/&quot; class=&quot;logo&quot;&gt;Nire Bloga&lt;/router-link&gt;
+    &lt;div class=&quot;nav-links&quot;&gt;
+      &lt;router-link to=&quot;/&quot;&gt;Hasiera&lt;/router-link&gt;
+      &lt;router-link v-if=&quot;isAuthenticated&quot; to=&quot;/create&quot;&gt;Post berria&lt;/router-link&gt;
+      &lt;router-link v-if=&quot;!isAuthenticated&quot; to=&quot;/login&quot;&gt;Saioa hasi&lt;/router-link&gt;
+      &lt;button v-else @click=&quot;logout&quot; class=&quot;logout-btn&quot;&gt;Saioa itxi&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ref, computed, onMounted } from 'vue'
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
-// Estado reactivo
-const count = ref(0)
-const title = ref('Mi Componente con Composition API')
-const message = '¡Hola desde Vue 3 Composition API!'
+const router = useRouter();
+const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
 
-// Propiedad computada
-const doubleCount = computed(() =&gt; count.value * 2)
-
-// Método
-function increment() {
-  count.value++
-}
-
-// Hook del ciclo de vida
-onMounted(() =&gt; {
-  console.log('Componente montado')
-})
+const logout = () =&gt; {
+  localStorage.removeItem('isAuthenticated');
+  router.push('/login');
+};
 &lt;/script&gt;
 
 &lt;style scoped&gt;
-/* Estilos con alcance al componente */
-button {
-  background-color: #42b983;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #3aa876;
-}
+/* Nabigazio barraren estiloak */
 &lt;/style&gt;
 </code></pre>
-<h2 id="componentes-de-un-solo-archivo-sfc">Componentes de un Solo Archivo (SFC)<a class="headerlink" href="#componentes-de-un-solo-archivo-sfc" title="Permanent link">&para;</a></h2>
-<p>Los archivos <code>.vue</code> permiten encapsular la plantilla, lógica y estilos de un componente en un solo archivo:</p>
-<pre><code>mi-componente/
-├── MiComponente.vue    // Componente principal
-└── components/
-    └── BotonPersonalizado.vue  // Componente hijo
-</code></pre>
-<h2 id="registro-de-componentes">Registro de Componentes<a class="headerlink" href="#registro-de-componentes" title="Permanent link">&para;</a></h2>
-<h3 id="registro-global">Registro Global<a class="headerlink" href="#registro-global" title="Permanent link">&para;</a></h3>
-<pre><code class="language-javascript">import { createApp } from 'vue'
-import MiComponente from './components/MiComponente.vue'
-
-const app = createApp({})
-app.component('mi-componente', MiComponente)
-</code></pre>
-<h3 id="registro-local">Registro Local<a class="headerlink" href="#registro-local" title="Permanent link">&para;</a></h3>
-<pre><code class="language-vue">&lt;script setup&gt;
-import BotonPersonalizado from './BotonPersonalizado.vue'
-&lt;/script&gt;
-</code></pre>
-<h2 id="componentes-dinamicos-intercambio-entre-componentes">Componentes Dinámicos (Intercambio entre componentes)<a class="headerlink" href="#componentes-dinamicos-intercambio-entre-componentes" title="Permanent link">&para;</a></h2>
-<p>A veces necesitamos cambiar entre diferentes componentes en la misma ubicación de la pantalla. Vue nos permite hacer esto fácilmente con el componente especial <code>&lt;component&gt;</code> y la directiva <code>:is</code>.</p>
-<h3 id="ejemplo-basico">Ejemplo Básico:<a class="headerlink" href="#ejemplo-basico" title="Permanent link">&para;</a></h3>
-<pre><code class="language-vue">//Componente principal App.vue
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;!-- Botones para cambiar el componente mostrado --&gt;
-    &lt;button @click=&quot;mostrar = Inicio&quot;&gt;Inicio&lt;/button&gt;
-    &lt;button @click=&quot;mostrar = Perfil&quot;&gt;Perfil&lt;/button&gt;
-
-    &lt;!-- El componente que se muestra depende del valor de 'mostrar' --&gt;
-    &lt;component :is=&quot;mostrar&quot;&gt;&lt;/component&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-import Inicio from './Inicio.vue'
-import Perfil from './Perfil.vue'
-import { ref } from 'vue'
-
-const mostrar = ref(Inicio)
-&lt;/script&gt;
-
-//Componente Inicio.vue
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;h1&gt;Página de Inicio&lt;/h1&gt;
-    &lt;p&gt;Hau da inicio.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-
-&lt;/script&gt;
-
-&lt;style scoped&gt;
-h1 {
-  color: blue;
-}
-&lt;/style&gt;
-
-
-//Componente Perfil.vue
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;h1&gt; PERFIL&lt;/h1&gt;
-    &lt;p&gt;Ongi etorri PERFIL.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script setup&gt;
-
-&lt;/script&gt;
-
-&lt;style scoped&gt;
-h1 {
-  color: red;
-}
-&lt;/style&gt;
-</code></pre>
-<h2 id="carga-diferida-de-componentes-lazy-loading">Carga Diferida de Componentes (Lazy Loading)<a class="headerlink" href="#carga-diferida-de-componentes-lazy-loading" title="Permanent link">&para;</a></h2>
-<p>Para mejorar el rendimiento, podemos cargar componentes solo cuando sean necesarios. Esto es especialmente útil para componentes grandes que no se necesitan de inmediato.</p>
-<h3 id="carga-diferida-basica">Carga Diferida Básica:<a class="headerlink" href="#carga-diferida-basica" title="Permanent link">&para;</a></h3>
+<h3 id="4-bistak-sortzea">4. Bistak sortzea<a class="headerlink" href="#4-bistak-sortzea" title="Permanent link">&para;</a></h3>
+<h4 id="homeviewvue">HomeView.vue<a class="headerlink" href="#homeviewvue" title="Permanent link">&para;</a></h4>
 <pre><code class="language-vue">&lt;template&gt;
-  &lt;div&gt;
-    &lt;button @click=&quot;mostrar = true&quot;&gt;Mostrar Galería&lt;/button&gt;
-    &lt;GaleriaDeFotos v-if=&quot;mostrar&quot; /&gt;
+  &lt;div class=&quot;home&quot;&gt;
+    &lt;h1&gt;Azken argitalpenak&lt;/h1&gt;
+    &lt;PostList :posts=&quot;posts&quot; /&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
-import { ref, defineAsyncComponent } from 'vue'
+import { ref } from 'vue';
+import PostList from '@/components/PostList.vue';
 
-const mostrar = ref(false)
-
-// El componente GaleriaDeFotos solo se cargará cuando sea necesario
-const GaleriaDeFotos = defineAsyncComponent(() =&gt; 
-  import('./GaleriaDeFotos.vue')
-)
+// Adibidezko datuak
+const posts = ref([
+  { id: 1, title: 'Nire lehen posta', excerpt: 'Adibidezko edukia...', author: 'erabiltzaile1' },
+  { id: 2, title: 'Bigarren posta', excerpt: 'Eduki gehiago...', author: 'erabiltzaile2' }
+]);
 &lt;/script&gt;
 </code></pre>
-<h3 id="beneficios-de-la-carga-diferida">Beneficios de la Carga Diferida:<a class="headerlink" href="#beneficios-de-la-carga-diferida" title="Permanent link">&para;</a></h3>
+<h3 id="5-autentifikazioa-inplementatzea">5. Autentifikazioa inplementatzea<a class="headerlink" href="#5-autentifikazioa-inplementatzea" title="Permanent link">&para;</a></h3>
+<p><code>LoginView.vue</code> fitxategian:</p>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div class=&quot;login&quot;&gt;
+    &lt;h1&gt;Saioa hasi&lt;/h1&gt;
+    &lt;form @submit.prevent=&quot;handleLogin&quot;&gt;
+      &lt;input v-model=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;Erabiltzailea&quot; required&gt;
+      &lt;input v-model=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Pasahitza&quot; required&gt;
+      &lt;button type=&quot;submit&quot;&gt;Sartu&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+
+const username = ref('');
+const password = ref('');
+const router = useRouter();
+const route = useRoute();
+
+const handleLogin = () =&gt; {
+  // Baliozkotze sinplea
+  if (username.value &amp;&amp; password.value) {
+    localStorage.setItem('isAuthenticated', 'true');
+    const redirect = route.query.redirect || '/';
+    router.push(redirect);
+  } else {
+    alert('Mesedez, sartu erabiltzailea eta pasahitza');
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<h2 id="ariketa-gehigarriak">Ariketa Gehigarriak<a class="headerlink" href="#ariketa-gehigarriak" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Hobetu autentifikazioa</strong>:</p>
 <ul>
-<li>Mejora el tiempo de carga inicial de la aplicación</li>
-<li>Reduce el tamaño del paquete inicial</li>
-<li>Carga los componentes solo cuando el usuario los necesita</li>
+<li>Inplementatu autentifikazio erreala API batekin</li>
+<li>Gehitu JWT tokenen kudeaketa</li>
+<li>Inplementatu tokenen berritzea</li>
 </ul>
-<h2 id="siguiente-paso">Siguiente paso<a class="headerlink" href="#siguiente-paso" title="Permanent link">&para;</a></h2>
-<p>Ahora que has aprendido a crear componentes en Vue 3, es importante entender cómo estos componentes pueden comunicarse entre sí. En la siguiente sección exploraremos los diferentes métodos de comunicación entre componentes.</p>
-<p><a href="../3.3-comunicacion/">→ Siguiente: Comunicación entre Componentes</a></p>
+</li>
+<li>
+<p><strong>Gehitu ezaugarri gehiago</strong>:</p>
+<ul>
+<li>Iruzkin sistema bat</li>
+<li>Posten bilaketa</li>
+<li>Kategoriak eta etiketak</li>
+<li>Emaitzen orrikatzea (paginazioa)</li>
+</ul>
+</li>
+<li>
+<p><strong>Hobetu erabiltzaile esperientzia</strong>:</p>
+<ul>
+<li>Gehitu karga eskeletoa (skeleton loading)</li>
+<li>Akatsen kudeaketa</li>
+<li>Jakinarazpenak (notifikazioak)</li>
+</ul>
+</li>
+</ol>
+<h2 id="errepasorako-galderak">Errepasorako Galderak<a class="headerlink" href="#errepasorako-galderak" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Nola kudeatuko zenuke ibilbideen babesa benetako aplikazio batean?</li>
+<li>Zein da lazy loading erabiltzeko abantaila ibilbideetan?</li>
+<li>Nola inplementatuko zenuke rol eta baimenen sistema bat?</li>
+<li>Zein estrategia erabiliko zenituzke aplikazioaren egoera globala kudeatzeko?</li>
+</ol>
+<h2 id="baliabide-gehigarriak">Baliabide Gehigarriak<a class="headerlink" href="#baliabide-gehigarriak" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://router.vuejs.org/">Vue Router dokumentazio ofiziala</a></li>
+<li><a href="https://router.vuejs.org/guide/essentials/navigation.html">Nabigazio eredu arruntak</a></li>
+<li><a href="https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards">Autentifikazioa Vue Router-rekin</a></li>
+</ul>
+<h2 id="hurrengo-urratsa">Hurrengo urratsa<a class="headerlink" href="#hurrengo-urratsa" title="Permanent link">&para;</a></h2>
+<p>Router-aren ariketa praktikoa amaitu duzu! Orain Vue Router-en ezaugarri nagusiekin praktikatu duzunez, prest zaude egoera kudeaketa Pinia-rekin esploratzeko.</p>
+<p><a href="../../6-pinia/6.1-sarrera/">→ Hurrengoa: Pinia-ren sarrera</a></p>
 
 
 
@@ -1924,7 +1844,7 @@ const GaleriaDeFotos = defineAsyncComponent(() =&gt;
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Volver al principio
+  Igo goraino
 </button>
         
       </main>
@@ -1956,7 +1876,7 @@ const GaleriaDeFotos = defineAsyncComponent(() =&gt;
     <div class="md-footer-meta__inner md-grid">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
         </div>
         <div class="footer-text">
           Jose Insausti - CIFP Txurdinaga LHII
@@ -1974,14 +1894,14 @@ const GaleriaDeFotos = defineAsyncComponent(() =&gt;
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../../scripts/checkboxes.js"></script>
+        <script src="../../../scripts/checkboxes.js"></script>
       
-        <script src="../../javascripts/sidebar.js"></script>
+        <script src="../../../javascripts/sidebar.js"></script>
       
     
   </body>

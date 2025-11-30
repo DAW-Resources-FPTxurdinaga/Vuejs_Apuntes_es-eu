@@ -1399,6 +1399,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sin-script-setup-vs-con-script-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sin &lt;script setup&gt; vs con &lt;script setup&gt;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#componente-con-composition-api" class="md-nav__link">
     <span class="md-ellipsis">
       Componente con Composition API
@@ -1533,6 +1542,34 @@
 
 <h1 id="31-creacion-de-componentes-en-vue-3">3.1 Creación de Componentes en Vue 3<a class="headerlink" href="#31-creacion-de-componentes-en-vue-3" title="Permanent link">&para;</a></h1>
 <p>Los componentes son los bloques de construcción fundamentales de las aplicaciones Vue. Permiten dividir la interfaz de usuario en piezas independientes y reutilizables.</p>
+<h2 id="sin-script-setup-vs-con-script-setup">Sin <code>&lt;script setup&gt;</code> vs con <code>&lt;script setup&gt;</code><a class="headerlink" href="#sin-script-setup-vs-con-script-setup" title="Permanent link">&para;</a></h2>
+<p>En Vue 3 podemos escribir componentes de dos formas principales:</p>
+<ul>
+<li><strong>Sin <code>&lt;script setup&gt;</code> (forma clásica)</strong>: hay que <strong>exportar</strong> el componente explícitamente con <code>export default</code>.</li>
+</ul>
+<p>```vue
+<br />
+<script>
+    export default {
+      name: 'Inicio',
+
+      setup() {
+        // lógica del componente aquí (si necesitas)
+        return {}
+      }
+    }
+  </script></p>
+<p>```</p>
+<ul>
+<li><strong>Con <code>&lt;script setup&gt;</code></strong>: el propio bloque <code>&lt;script setup&gt;</code> se encarga del registro del componente. <strong>No hay que hacer <code>export default</code></strong>; simplemente defines estado, funciones, imports, etc.</li>
+</ul>
+<p>```vue
+<br />
+<script setup>
+  // aquí defines refs, funciones, imports, etc.
+  </script></p>
+<p>```</p>
+<p>En el resto de estos apuntes usaremos preferentemente <code>&lt;script setup&gt;</code> por ser la forma recomendada y más concisa en Vue 3.</p>
 <h2 id="componente-con-composition-api">Componente con Composition API<a class="headerlink" href="#componente-con-composition-api" title="Permanent link">&para;</a></h2>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
@@ -1598,24 +1635,19 @@ const app = createApp({})
 app.component('mi-componente', MiComponente)
 </code></pre>
 <h3 id="registro-local">Registro Local<a class="headerlink" href="#registro-local" title="Permanent link">&para;</a></h3>
-<pre><code class="language-vue">&lt;script&gt;
+<pre><code class="language-vue">&lt;script setup&gt;
 import BotonPersonalizado from './BotonPersonalizado.vue'
-
-export default {
-  components: {
-    BotonPersonalizado
-  }
-}
 &lt;/script&gt;
 </code></pre>
 <h2 id="componentes-dinamicos-intercambio-entre-componentes">Componentes Dinámicos (Intercambio entre componentes)<a class="headerlink" href="#componentes-dinamicos-intercambio-entre-componentes" title="Permanent link">&para;</a></h2>
 <p>A veces necesitamos cambiar entre diferentes componentes en la misma ubicación de la pantalla. Vue nos permite hacer esto fácilmente con el componente especial <code>&lt;component&gt;</code> y la directiva <code>:is</code>.</p>
 <h3 id="ejemplo-basico">Ejemplo Básico:<a class="headerlink" href="#ejemplo-basico" title="Permanent link">&para;</a></h3>
-<pre><code class="language-vue">&lt;template&gt;
+<pre><code class="language-vue">//Componente principal App.vue
+&lt;template&gt;
   &lt;div&gt;
     &lt;!-- Botones para cambiar el componente mostrado --&gt;
-    &lt;button @click=&quot;mostrar = 'Inicio'&quot;&gt;Inicio&lt;/button&gt;
-    &lt;button @click=&quot;mostrar = 'Perfil'&quot;&gt;Perfil&lt;/button&gt;
+    &lt;button @click=&quot;mostrar = Inicio&quot;&gt;Inicio&lt;/button&gt;
+    &lt;button @click=&quot;mostrar = Perfil&quot;&gt;Perfil&lt;/button&gt;
 
     &lt;!-- El componente que se muestra depende del valor de 'mostrar' --&gt;
     &lt;component :is=&quot;mostrar&quot;&gt;&lt;/component&gt;
@@ -1627,8 +1659,45 @@ import Inicio from './Inicio.vue'
 import Perfil from './Perfil.vue'
 import { ref } from 'vue'
 
-const mostrar = ref('Inicio')
+const mostrar = ref(Inicio)
 &lt;/script&gt;
+
+//Componente Inicio.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Página de Inicio&lt;/h1&gt;
+    &lt;p&gt;Hau da inicio.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+h1 {
+  color: blue;
+}
+&lt;/style&gt;
+
+
+//Componente Perfil.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt; PERFIL&lt;/h1&gt;
+    &lt;p&gt;Ongi etorri PERFIL.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+h1 {
+  color: red;
+}
+&lt;/style&gt;
 </code></pre>
 <h2 id="carga-diferida-de-componentes-lazy-loading">Carga Diferida de Componentes (Lazy Loading)<a class="headerlink" href="#carga-diferida-de-componentes-lazy-loading" title="Permanent link">&para;</a></h2>
 <p>Para mejorar el rendimiento, podemos cargar componentes solo cuando sean necesarios. Esto es especialmente útil para componentes grandes que no se necesitan de inmediato.</p>

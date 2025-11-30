@@ -18,7 +18,7 @@
     
     
       
-        <title>4.4 Ejercicio Práctico: Blog con Vue Router - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+        <title>5.4 Ejercicio Práctico: Blog con Vue Router - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#44-ejercicio-practico-blog-con-vue-router" class="md-skip">
+        <a href="#54-ejercicio-practico-blog-con-vue-router" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.4 Ejercicio Práctico: Blog con Vue Router
+              5.4 Ejercicio Práctico: Blog con Vue Router
             
           </span>
         </div>
@@ -1558,7 +1558,7 @@
 
 
 
-<h1 id="44-ejercicio-practico-blog-con-vue-router">4.4 Ejercicio Práctico: Blog con Vue Router<a class="headerlink" href="#44-ejercicio-practico-blog-con-vue-router" title="Permanent link">&para;</a></h1>
+<h1 id="54-ejercicio-practico-blog-con-vue-router">5.4 Ejercicio Práctico: Blog con Vue Router<a class="headerlink" href="#54-ejercicio-practico-blog-con-vue-router" title="Permanent link">&para;</a></h1>
 <p>En este ejercicio, crearás un blog simple utilizando Vue Router. El blog tendrá las siguientes características:</p>
 <h2 id="requisitos">Requisitos<a class="headerlink" href="#requisitos" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1706,23 +1706,16 @@ export default router;
   &lt;/nav&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
-export default {
-  name: 'NavBar',
-  setup() {
-    const router = useRouter();
-    const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
+const router = useRouter();
+const isAuthenticated = computed(() =&gt; localStorage.getItem('isAuthenticated'));
 
-    const logout = () =&gt; {
-      localStorage.removeItem('isAuthenticated');
-      router.push('/login');
-    };
-
-    return { isAuthenticated, logout };
-  }
+const logout = () =&gt; {
+  localStorage.removeItem('isAuthenticated');
+  router.push('/login');
 };
 &lt;/script&gt;
 
@@ -1739,23 +1732,15 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref } from 'vue';
 import PostList from '@/components/PostList.vue';
 
-export default {
-  name: 'HomeView',
-  components: { PostList },
-  setup() {
-    // Datos de ejemplo
-    const posts = ref([
-      { id: 1, title: 'Mi primer post', excerpt: 'Contenido de ejemplo...', author: 'usuario1' },
-      { id: 2, title: 'Segundo post', excerpt: 'Más contenido...', author: 'usuario2' }
-    ]);
-
-    return { posts };
-  }
-};
+// Datos de ejemplo
+const posts = ref([
+  { id: 1, title: 'Mi primer post', excerpt: 'Contenido de ejemplo...', author: 'usuario1' },
+  { id: 2, title: 'Segundo post', excerpt: 'Más contenido...', author: 'usuario2' }
+]);
 &lt;/script&gt;
 </code></pre>
 <h3 id="5-implementa-la-autenticacion">5. Implementa la Autenticación<a class="headerlink" href="#5-implementa-la-autenticacion" title="Permanent link">&para;</a></h3>
@@ -1771,30 +1756,23 @@ export default {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
-export default {
-  name: 'LoginView',
-  setup() {
-    const username = ref('');
-    const password = ref('');
-    const router = useRouter();
-    const route = useRoute();
+const username = ref('');
+const password = ref('');
+const router = useRouter();
+const route = useRoute();
 
-    const handleLogin = () =&gt; {
-      // Validación simple
-      if (username.value &amp;&amp; password.value) {
-        localStorage.setItem('isAuthenticated', 'true');
-        const redirect = route.query.redirect || '/';
-        router.push(redirect);
-      } else {
-        alert('Por favor ingresa usuario y contraseña');
-      }
-    };
-
-    return { username, password, handleLogin };
+const handleLogin = () =&gt; {
+  // Validación simple
+  if (username.value &amp;&amp; password.value) {
+    localStorage.setItem('isAuthenticated', 'true');
+    const redirect = route.query.redirect || '/';
+    router.push(redirect);
+  } else {
+    alert('Por favor ingresa usuario y contraseña');
   }
 };
 &lt;/script&gt;

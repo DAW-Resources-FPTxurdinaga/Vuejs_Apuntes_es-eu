@@ -1660,36 +1660,38 @@ router.beforeEach((to, from, next) =&gt; {
 </code></pre>
 <h3 id="guards-en-el-componente">Guards en el Componente<a class="headerlink" href="#guards-en-el-componente" title="Permanent link">&para;</a></h3>
 <p>Se definen dentro del componente:</p>
-<pre><code class="language-javascript">export default {
-  beforeRouteEnter(to, from, next) {
-    // Se llama antes de que la ruta que renderiza este componente sea confirmada.
-    // NO tiene acceso a `this` porque el componente no ha sido creado aún.
-    next(vm =&gt; {
-      // Acceso a la instancia del componente a través de `vm`
-      vm.loadUserData();
-    });
-  },
+<pre><code class="language-javascript">// En Vue 3 con Composition API suele ser más común usar guards globales o de ruta,
+// pero los guards de componente siguen existiendo (Options API).
+// Con &lt;script setup&gt; podemos simular comportamientos similares con composables
+// o usando el ciclo de vida y el router.
 
-  beforeRouteUpdate(to, from) {
-    // Se llama cuando la ruta cambia pero el componente se reutiliza
-    // Por ejemplo, cuando cambian los parámetros dinámicos
-    this.userData = null;
-    this.fetchUserData(to.params.id);
-  },
+import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
+import { ref } from 'vue';
 
-  beforeRouteLeave(to, from, next) {
-    // Se llama cuando la ruta que renderiza este componente está a punto de ser abandonada
-    if (this.unsavedChanges) {
-      if (confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?')) {
-        next();
-      } else {
-        next(false);
-      }
-    } else {
-      next();
-    }
-  }
+const userData = ref(null);
+const unsavedChanges = ref(false);
+
+const fetchUserData = (id) =&gt; {
+  // Lógica para cargar datos del usuario
 };
+
+// Equivalente aproximado a beforeRouteUpdate
+onBeforeRouteUpdate((to, from) =&gt; {
+  // Se llama cuando la ruta cambia pero el componente se reutiliza
+  // Por ejemplo, cuando cambian los parámetros dinámicos
+  userData.value = null;
+  fetchUserData(to.params.id);
+});
+
+// Equivalente aproximado a beforeRouteLeave
+onBeforeRouteLeave((to, from) =&gt; {
+  // Se llama cuando la ruta que renderiza este componente está a punto de ser abandonada
+  if (unsavedChanges.value) {
+    const answer = confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?');
+    // Si devolvemos false, se cancela la navegación
+    return answer;
+  }
+});
 </code></pre>
 <h2 id="lazy-loading-de-rutas">Lazy Loading de Rutas<a class="headerlink" href="#lazy-loading-de-rutas" title="Permanent link">&para;</a></h2>
 <p>Para mejorar el rendimiento, carga los componentes solo cuando sean necesarios:</p>

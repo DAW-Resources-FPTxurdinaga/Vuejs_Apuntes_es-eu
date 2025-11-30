@@ -1652,33 +1652,19 @@
 </code></pre>
 <h2 id="nabigazio-programatikoa">Nabigazio Programatikoa<a class="headerlink" href="#nabigazio-programatikoa" title="Permanent link">&para;</a></h2>
 <p>Kode bidez nabigatu dezakezu <code>router</code> objektua erabiliz:</p>
-<pre><code class="language-javascript">// Aukeren APIko metodoetan
-export default {
-  methods: {
-    goToAbout() {
-      this.$router.push('/about');
-      // Edo ibilbidearen izena erabiliz
-      // this.$router.push({ name: 'about' });
-    },
-    goBack() {
-      this.$router.go(-1);
-    }
-  }
-};
-
-// setup() barruan (Composition API)
+<pre><code class="language-javascript">// &lt;script setup&gt; duten osagai batean (Composition API)
 import { useRouter } from 'vue-router';
 
-export default {
-  setup() {
-    const router = useRouter();
+const router = useRouter();
 
-    const goToAbout = () =&gt; {
-      router.push('/about');
-    };
+const goToAbout = () =&gt; {
+  router.push('/about');
+  // Edo ibilbidearen izena erabiliz
+  // router.push({ name: 'about' });
+};
 
-    return { goToAbout };
-  }
+const goBack = () =&gt; {
+  router.go(-1);
 };
 </code></pre>
 <h2 id="parametroekin-ibilbideak">Parametroekin Ibilbideak<a class="headerlink" href="#parametroekin-ibilbideak" title="Permanent link">&para;</a></h2>
@@ -1700,33 +1686,29 @@ export default {
 <h3 id="parametroetara-sarbidea">Parametroetara Sarbidea<a class="headerlink" href="#parametroetara-sarbidea" title="Permanent link">&para;</a></h3>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
-    &lt;h1&gt;{{ $route.params.username }} erabiltzaileren profila&lt;/h1&gt;
-    &lt;!-- Edo Composition API erabiliz --&gt;
-    &lt;p&gt;Erabiltzailearen IDa: {{ userId }}&lt;/p&gt;
+    &lt;h1&gt;{{ username }} erabiltzaileren profila&lt;/h1&gt;
+    &lt;p&gt;Erabiltzailearen IDa (ibilbidetik): {{ userId }}&lt;/p&gt;
   &lt;/div&gt;
   &lt;/template&gt;
 
-&lt;script&gt;
+&lt;script setup&gt;
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
-export default {
-  name: 'UserView',
-  props: {
-    // props: true erabiltzen baduzu ibilbidean
-    id: {
-      type: String,
-      required: true
-    }
-  },
-  setup(props) {
-    const route = useRoute();
-    const userId = computed(() =&gt; route.params.id);
-
-    return { userId };
+// props: true erabiltzen baduzu ibilbidean
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
   }
-};
-  &lt;/script&gt;
+});
+
+const route = useRoute();
+
+// IDa bai props-etatik bai ibilbidearen parametroetatik lor dezakegu
+const userId = computed(() =&gt; route.params.id ?? props.id);
+const username = computed(() =&gt; route.params.username);
+&lt;/script&gt;
 </code></pre>
 <h2 id="habiaratutako-ibilbideak">Habiaratutako Ibilbideak<a class="headerlink" href="#habiaratutako-ibilbideak" title="Permanent link">&para;</a></h2>
 <p>Habiaratutako ibilbideek osagaien hierarkiak sortzea ahalbidetzen dute:</p>
