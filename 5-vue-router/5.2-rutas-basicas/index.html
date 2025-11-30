@@ -1162,6 +1162,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Navegación con &lt;router-link&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-sobre-a-tradicional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas sobre &lt;a&gt; tradicional:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1170,6 +1194,21 @@
       Navegación Programática
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Navegación Programática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-basico-con-composition-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso básico con Composition API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1538,6 +1577,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Navegación con &lt;router-link&gt;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-sobre-a-tradicional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas sobre &lt;a&gt; tradicional:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1546,6 +1609,21 @@
       Navegación Programática
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Navegación Programática">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uso-basico-con-composition-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uso básico con Composition API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1633,37 +1711,85 @@
 ];
 </code></pre>
 <h2 id="navegacion-con-router-link">Navegación con <code>&lt;router-link&gt;</code><a class="headerlink" href="#navegacion-con-router-link" title="Permanent link">&para;</a></h2>
-<p>El componente <code>&lt;router-link&gt;</code> se utiliza para crear enlaces de navegación:</p>
-<pre><code class="language-vue">&lt;!-- Navegación básica --&gt;
-&lt;router-link to=&quot;/about&quot;&gt;Acerca de&lt;/router-link&gt;
-
-&lt;!-- Usando el nombre de la ruta --&gt;
-&lt;router-link :to=&quot;{ name: 'user', params: { id: 123 }}&quot;&gt;Usuario 123&lt;/router-link&gt;
-&lt;!-- Con clases personalizadas --&gt;
-&lt;router-link 
-  to=&quot;/contact&quot;
-  class=&quot;nav-link&quot;
-  active-class=&quot;active-link&quot;
-  exact-active-class=&quot;exact-active-link&quot;
-&gt;
-  Contacto
-&lt;/router-link&gt;
-</code></pre>
+<p>El componente <code>&lt;router-link&gt;</code> es la forma declarativa de navegar entre rutas en Vue Router. Es similar a una etiqueta <code>&lt;a&gt;</code> de HTML, pero con características específicas para el enrutamiento del lado del cliente.</p>
+<h3 id="caracteristicas-principales">Características principales:<a class="headerlink" href="#caracteristicas-principales" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Navegación básica</strong>:</li>
+</ol>
+<p><code>vue
+   &lt;router-link to="/about"&gt;Acerca de&lt;/router-link&gt;</code></p>
+<ul>
+<li>
+<p><code>to</code>: Especifica la ruta de destino. Puede ser un string con la ruta o un objeto con más opciones.</p>
+</li>
+<li>
+<p><strong>Uso de nombres de ruta</strong>:</p>
+</li>
+</ul>
+<p><code>vue
+   &lt;router-link :to="{ name: 'user', params: { id: 123 }}"&gt;
+     Ver perfil de usuario 123
+   &lt;/router-link&gt;</code></p>
+<ul>
+<li><code>name</code>: Nombre de la ruta definida en el enrutador.</li>
+<li>
+<p><code>params</code>: Parámetros de la ruta.</p>
+</li>
+<li>
+<p><strong>Otras propiedades útiles</strong>:</p>
+</li>
+<li><code>replace</code>: Reemplaza la entrada actual en el historial en lugar de agregar una nueva.</li>
+<li><code>tag</code>: Especifica la etiqueta HTML que se renderizará (por defecto es <code>&lt;a&gt;</code>).</li>
+<li><code>custom</code>: Permite personalizar completamente el renderizado del enlace.</li>
+</ul>
+<h3 id="ventajas-sobre-a-tradicional">Ventajas sobre <code>&lt;a&gt;</code> tradicional:<a class="headerlink" href="#ventajas-sobre-a-tradicional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Maneja automáticamente el evento de clic para prevenir la recarga de página.</li>
+<li>Aplica automáticamente las clases de estado activo.</li>
+<li>Funciona con el modo de historial HTML5 y el modo hash.</li>
+<li>Permite navegación programática a través de <code>router.push()</code> o <code>router.replace()</code>.</li>
+</ul>
 <h2 id="navegacion-programatica">Navegación Programática<a class="headerlink" href="#navegacion-programatica" title="Permanent link">&para;</a></h2>
-<p>Puedes navegar mediante código usando el objeto <code>router</code>:</p>
-<pre><code class="language-javascript">// En un componente con &lt;script setup&gt; (Composition API)
+<p>Además de usar <code>&lt;router-link&gt;</code>, puedes navegar mediante código utilizando el objeto <code>router</code> de Vue Router. Esto es especialmente útil cuando necesitas navegar después de ciertas acciones del usuario o condiciones lógicas.</p>
+<h3 id="uso-basico-con-composition-api">Uso básico con Composition API<a class="headerlink" href="#uso-basico-con-composition-api" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// En un componente con &lt;script setup&gt;
 import { useRouter } from 'vue-router';
 
+// Obtener la instancia del router
 const router = useRouter();
 
+// Navegar a una ruta específica
 const goToAbout = () =&gt; {
+  // Usando la ruta como string
   router.push('/about');
-  // O usando el nombre de la ruta
-  // router.push({ name: 'about' });
+
+  // O usando un objeto con nombre de ruta y parámetros
+  // router.push({ 
+  //   name: 'user', 
+  //   params: { id: 123 },
+  //   query: { section: 'profile' } // Parámetros de consulta opcionales
+  // });
 };
 
+// Navegar hacia atrás en el historial
 const goBack = () =&gt; {
+  // Navega una página hacia atrás
   router.go(-1);
+
+  // Para ir hacia adelante: router.go(1)
+};
+
+// Reemplazar la entrada actual en el historial
+const replaceRoute = () =&gt; {
+  router.replace('/dashboard'); // No añade una nueva entrada al historial
+};
+
+// Navegar a una ruta con opciones adicionales
+const navigateWithOptions = () =&gt; {
+  router.push({
+    path: '/profile',
+    query: { tab: 'settings' }  // Añade ?tab=settings a la URL
+  });
 };
 </code></pre>
 <h2 id="rutas-con-parametros">Rutas con Parámetros<a class="headerlink" href="#rutas-con-parametros" title="Permanent link">&para;</a></h2>

@@ -1323,14 +1323,47 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vue-router-ekin-integrazioa" class="md-nav__link">
+    <nav class="md-nav" aria-label="Pinia-rekin Testing-a">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
     <span class="md-ellipsis">
-      Vue Router-ekin Integrazioa
+      Oinarrizko konfigurazioa
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#denda-baten-proba-adibidea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Denda baten proba adibidea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinia-darabilen-osagai-baten-proba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pinia darabilen osagai baten proba
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendako-ekintzak-mockeatu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dendako ekintzak mockeatu
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1523,14 +1556,47 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vue-router-ekin-integrazioa" class="md-nav__link">
+    <nav class="md-nav" aria-label="Pinia-rekin Testing-a">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oinarrizko-konfigurazioa" class="md-nav__link">
     <span class="md-ellipsis">
-      Vue Router-ekin Integrazioa
+      Oinarrizko konfigurazioa
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#denda-baten-proba-adibidea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Denda baten proba adibidea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pinia-darabilen-osagai-baten-proba" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pinia darabilen osagai baten proba
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dendako-ekintzak-mockeatu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dendako ekintzak mockeatu
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1573,103 +1639,273 @@
 <p>Orria birkargatzean egoera mantentzeko, erabili <code>pinia-plugin-persistedstate</code>:</p>
 <pre><code class="language-bash">npm install pinia-plugin-persistedstate
 </code></pre>
-<p>Aplikazioan konfigurazioa:</p>
-<pre><code class="language-javascript">import { createPinia } from 'pinia'
+<p>Aplicazioan konfigurazioa (ohikoena <code>main.ts</code> edo <code>main.js</code>-en):</p>
+<pre><code class="language-typescript">import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import App from './App.vue'
 
+const app = createApp(App)
 const pinia = createPinia()
+
+// Persistentzia plugina erabili
 pinia.use(piniaPluginPersistedstate)
 
 app.use(pinia)
+app.mount('#app')
 </code></pre>
-<p>Ondoren, zure dendan:</p>
-<pre><code class="language-javascript">export const useStore = defineStore('main', {
-  state: () =&gt; ({
-    user: null,
-    preferences: {},
-  }),
-  persist: true, // Egoera osoa persistitu
-  // Edo kontrol gehiagoz:
+<p>Ondoren, Composition API bidezko dendaren adibidea:</p>
+<pre><code class="language-typescript">// stores/user.ts
+import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore('user', () =&gt; {
+  // Egoera
+  const user = ref&lt;{id: string, name: string, email: string} | null&gt;(null)
+  const preferences = ref({
+    theme: 'light',
+    notifications: true,
+    language: 'eu',
+  })
+
+  // Ekintzak
+  function login(userData: {id: string, name: string, email: string}) {
+    user.value = userData
+  }
+
+  function updatePreferences(newPreferences: Partial&lt;typeof preferences.value&gt;) {
+    preferences.value = { ...preferences.value, ...newPreferences }
+  }
+
+  return {
+    // Egoera
+    user,
+    preferences,
+
+    // Ekintzak
+    login,
+    updatePreferences,
+  }
+}, {
+  // Persistentziaren konfigurazioa (aukerakoa)
   persist: {
-    paths: ['user'], // Erabiltzailea soilik persistitu
-    storage: sessionStorage, // localStorage-ren ordez sessionStorage erabili
-  },
+    paths: ['user'],
+    storage: localStorage,
+  }
 })
 </code></pre>
 <h2 id="moduluak-eta-habiaratutako-dendak">Moduluak eta Habiaratutako Dendak<a class="headerlink" href="#moduluak-eta-habiaratutako-dendak" title="Permanent link">&para;</a></h2>
 <p>Zure logika hainbat dendatan antola dezakezu eta elkarrekin erabili:</p>
-<pre><code class="language-javascript">// stores/user.js
-export const useUserStore = defineStore('user', {
-  state: () =&gt; ({
-    name: 'Erabiltzailea',
-    isAuthenticated: false,
-  }),
-  actions: {
-    login() {
-      this.isAuthenticated = true
-    },
-  },
+<pre><code class="language-typescript">// stores/user.ts
+export const useUserStore = defineStore('user', () =&gt; {
+  // Egoera
+  const name = ref('Erabiltzailea')
+  const isAuthenticated = ref(false)
+
+  // Ekintzak
+  function login() {
+    isAuthenticated.value = true
+  }
+
+  return {
+    name,
+    isAuthenticated,
+    login
+  }
 })
 
-// stores/cart.js
-export const useCartStore = defineStore('cart', {
-  state: () =&gt; ({
-    items: [],
-  }),
-  actions: {
-    addItem(item) {
-      this.items.push(item)
-    },
-  },
+// stores/cart.ts
+export const useCartStore = defineStore('cart', () =&gt; {
+  // Egoera
+  const items = ref&lt;Array&lt;{id: number, name: string, price: number}&gt;&gt;([])
+
+  // Getterrak
+  const totalItems = computed(() =&gt; items.value.length)
+  const totalPrice = computed(() =&gt;
+    items.value.reduce((total, item) =&gt; total + item.price, 0)
+  )
+
+  // Ekintzak
+  function addItem(item: {id: number, name: string, price: number}) {
+    items.value.push(item)
+  }
+
+  function removeItem(itemId: number) {
+    const index = items.value.findIndex(item =&gt; item.id === itemId)
+    if (index !== -1) items.value.splice(index, 1)
+  }
+
+  return {
+    items,
+    totalItems,
+    totalPrice,
+    addItem,
+    removeItem
+  }
 })
 
-// Osagai batean
+// Osagai baten adibidea
+&lt;script setup lang=&quot;ts&quot;&gt;
 import { useUserStore } from '@/stores/user'
 import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const user = useUserStore()
-    const cart = useCartStore()
+const user = useUserStore()
+const cart = useCartStore()
+const router = useRouter()
 
-    // Bi dendak batera erabili
-    const checkout = () =&gt; {
-      if (user.isAuthenticated) {
-        // Erosketa prozesatu
-      } else {
-        // Login-era birbideratu
-      }
-    }
-
-    return { user, cart, checkout }
-  },
+const checkout = () =&gt; {
+  if (user.isAuthenticated) {
+    // Erosketa prozesatu
+    console.log('Erosketa prozesatzen...', cart.items)
+  } else {
+    // Login-era birbideratu
+    router.push('/login')
+  }
 }
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Erosketa Saskia&lt;/h1&gt;
+    &lt;p v-if=&quot;!user.isAuthenticated&quot;&gt;
+      Mesedez, &lt;button @click=&quot;user.login&quot;&gt;hasi saioa&lt;/button&gt; jarraitzeko.
+    &lt;/p&gt;
+    &lt;div v-else&gt;
+      &lt;p&gt;Ongi etorri, {{ user.name }}&lt;/p&gt;
+      &lt;div v-if=&quot;cart.totalItems &gt; 0&quot;&gt;
+        &lt;p&gt;Produktu kopurua: {{ cart.totalItems }}&lt;/p&gt;
+        &lt;p&gt;Guztira: €{{ cart.totalPrice.toFixed(2) }}&lt;/p&gt;
+        &lt;button @click=&quot;checkout&quot;&gt;Erosi&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;p v-else&gt;Zure saskia hutsik dago&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 </code></pre>
 <h2 id="pinia-rekin-testing-a">Pinia-rekin Testing-a<a class="headerlink" href="#pinia-rekin-testing-a" title="Permanent link">&para;</a></h2>
-<p>Zure dendak probatzeko, erabili <code>@vue/test-utils</code> Pinia-rekin batera:</p>
-<pre><code class="language-bash">npm install -D @vue/test-utils @vue/vue3-jest
+<p>Zure dendak probatzeko, erabili <code>@vue/test-utils</code> eta <code>@pinia/testing</code>. Hona hemen konfigurazioa eta adibideak Composition API-rekin:</p>
+<pre><code class="language-bash">npm install -D @vue/test-utils @vue/vue3-jest @testing-library/vue @testing-library/jest-dom
 </code></pre>
-<p>Proba adibidea:</p>
-<pre><code class="language-javascript">import { setActivePinia, createPinia } from 'pinia'
+<h3 id="oinarrizko-konfigurazioa">Oinarrizko konfigurazioa<a class="headerlink" href="#oinarrizko-konfigurazioa" title="Permanent link">&para;</a></h3>
+<p><code>jest.config.js</code> adibidea:</p>
+<pre><code class="language-javascript">module.exports = {
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.js$': 'babel-jest',
+  },
+  moduleNameMapper: {
+    '^@/(.*)$': '&lt;rootDir&gt;/src/$1',
+  },
+  testMatch: ['**/__tests__/**/*.spec.[jt]s?(x)'],
+}
+</code></pre>
+<h3 id="denda-baten-proba-adibidea">Denda baten proba adibidea<a class="headerlink" href="#denda-baten-proba-adibidea" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/stores/counter.spec.ts
+import { setActivePinia, createPinia } from 'pinia'
 import { useCounterStore } from '@/stores/counter'
 
 describe('Counter Store', () =&gt; {
   beforeEach(() =&gt; {
-    // Proba bakoitzaren aurretik Pinia instantzia berria sortu
     setActivePinia(createPinia())
   })
 
-  it('kontagailua handitzen du', () =&gt; {
-    const store = useCounterStore()
-    expect(store.count).toBe(0)
-    store.increment()
-    expect(store.count).toBe(1)
+  it('hasieratzen da 0 balioarekin', () =&gt; {
+    const counter = useCounterStore()
+    expect(counter.count).toBe(0)
+  })
+
+  it('handitzen du balioa', () =&gt; {
+    const counter = useCounterStore()
+    counter.increment()
+    expect(counter.count).toBe(1)
+  })
+
+  it('berrezartzen du balioa', () =&gt; {
+    const counter = useCounterStore()
+    counter.increment()
+    counter.increment()
+    counter.$reset()
+    expect(counter.count).toBe(0)
   })
 })
 </code></pre>
-<h2 id="vue-router-ekin-integrazioa">Vue Router-ekin Integrazioa<a class="headerlink" href="#vue-router-ekin-integrazioa" title="Permanent link">&para;</a></h2>
-<p>Pinia Vue Router-ekin batera erabil dezakezu nabigazio babestua egiteko:</p>
-<pre><code class="language-javascript">// router/index.js
+<h3 id="pinia-darabilen-osagai-baten-proba">Pinia darabilen osagai baten proba<a class="headerlink" href="#pinia-darabilen-osagai-baten-proba" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/components/Counter.spec.ts
+import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
+import Counter from '@/components/Counter.vue'
+
+describe('Counter.vue', () =&gt; {
+  it('balioa erakusten du eta klikari erantzuten dio', async () =&gt; {
+    const wrapper = mount(Counter, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+            initialState: {
+              counter: { count: 5 }
+            }
+          })
+        ]
+      }
+    })
+
+    expect(wrapper.find('p').text()).toContain('5')
+
+    await wrapper.find('button').trigger('click')
+
+    expect(wrapper.find('p').text()).toContain('6')
+  })
+})
+</code></pre>
+<h3 id="dendako-ekintzak-mockeatu">Dendako ekintzak mockeatu<a class="headerlink" href="#dendako-ekintzak-mockeatu" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/components/UserProfile.spec.ts
+import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
+import UserProfile from '@/components/UserProfile.vue'
+
+describe('UserProfile.vue', () =&gt; {
+  it('fetchUser deitzen du osagaia muntatzean', async () =&gt; {
+    const mockUser = { id: 1, name: 'Proba Erabiltzailea' }
+
+    const wrapper = mount(UserProfile, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+            stubActions: false,
+            initialState: {
+              user: { user: null }
+            }
+          })
+        ]
+      }
+    })
+
+    const userStore = useUserStore()
+
+    userStore.fetchUser = vi.fn().mockResolvedValue(mockUser)
+
+    await wrapper.vm.$nextTick()
+
+    expect(userStore.fetchUser).toHaveBeenCalledTimes(1)
+
+    await userStore.fetchUser()
+
+    expect(userStore.user).toEqual(mockUser)
+  })
+})
+</code></pre>
+<pre><code>
+## Vue Router-ekin Integrazioa
+
+Pinia Vue Router-ekin batera erabil dezakezu nabigazio babestua egiteko:
+
+```javascript
+// router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 
@@ -1708,45 +1944,44 @@ export interface User {
   email: string
 }
 
-// stores/user.ts
+// stores/user.ts (Composition API)
 import { defineStore } from 'pinia'
 import type { User } from '@/types/user'
 
-interface UserState {
-  user: User | null
-  loading: boolean
-  error: string | null
-}
+export const useUserStore = defineStore('user', () =&gt; {
+  // Egoera tipatua
+  const user = ref&lt;User | null&gt;(null)
+  const loading = ref&lt;boolean&gt;(false)
+  const error = ref&lt;string | null&gt;(null)
 
-export const useUserStore = defineStore('user', {
-  state: (): UserState =&gt; ({
-    user: null,
-    loading: false,
-    error: null,
-  }),
+  // Getter tipatua
+  const isAdmin: ComputedRef&lt;boolean&gt; = computed(() =&gt; {
+    // @ts-expect-error role ez dago definituta oinarrizko User interfazean; zabaldu ezazu behar baduzu
+    return user.value?.role === 'admin'
+  })
 
-  actions: {
-    async fetchUser(userId: number) {
-      this.loading = true
-      this.error = null
+  // Ekintza tipatua
+  async function fetchUser(userId: number): Promise&lt;void&gt; {
+    loading.value = true
+    error.value = null
+    try {
+      const response = await fetch(`/api/users/${userId}`)
+      const data: User = await response.json()
+      user.value = data
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : 'Errore ezezaguna'
+    } finally {
+      loading.value = false
+    }
+  }
 
-      try {
-        const response = await fetch(`/api/users/${userId}`)
-        const data: User = await response.json()
-        this.user = data
-      } catch (error) {
-        this.error = error instanceof Error ? error.message : 'Errore ezezaguna'
-      } finally {
-        this.loading = false
-      }
-    },
-  },
-
-  getters: {
-    isAdmin: (state): boolean =&gt; {
-      return state.user?.role === 'admin'
-    },
-  },
+  return {
+    user,
+    loading,
+    error,
+    isAdmin,
+    fetchUser,
+  }
 })
 </code></pre>
 <p>Kontzeptu aurreratu hauekin, ahalik eta gehien aprobetxa dezakezu Pinia zure Vue 3 aplikazioetan.</p>

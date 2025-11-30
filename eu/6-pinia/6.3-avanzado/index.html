@@ -1423,14 +1423,47 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#integracion-con-vue-router" class="md-nav__link">
+    <nav class="md-nav" aria-label="Testing con Pinia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracion-basica-de-pruebas" class="md-nav__link">
     <span class="md-ellipsis">
-      Integración con Vue Router
+      Configuración básica de pruebas
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-de-prueba-para-un-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de prueba para un store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#probando-un-componente-que-usa-pinia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Probando un componente que usa Pinia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mockeando-acciones-del-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mockeando acciones del store
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1473,103 +1506,299 @@
 <p>Para mantener el estado entre recargas de página, puedes usar <code>pinia-plugin-persistedstate</code>:</p>
 <pre><code class="language-bash">npm install pinia-plugin-persistedstate
 </code></pre>
-<p>Configuración en tu aplicación:</p>
-<pre><code class="language-javascript">import { createPinia } from 'pinia'
+<p>Configuración en tu aplicación (generalmente en <code>main.ts</code> o <code>main.js</code>):</p>
+<pre><code class="language-typescript">import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import App from './App.vue'
 
+const app = createApp(App)
 const pinia = createPinia()
+
+// Usar el plugin de persistencia
 pinia.use(piniaPluginPersistedstate)
 
 app.use(pinia)
+app.mount('#app')
 </code></pre>
-<p>Luego, en tu store:</p>
-<pre><code class="language-javascript">export const useStore = defineStore('main', {
-  state: () =&gt; ({
-    user: null,
-    preferences: {},
-  }),
-  persist: true, // Persistir todo el estado
-  // O con más control:
+<p>Luego, en tu store con Composition API:</p>
+<pre><code class="language-typescript">// stores/user.ts
+import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore('user', () =&gt; {
+  // Estado
+  const user = ref&lt;{id: string, name: string, email: string} | null&gt;(null)
+  const preferences = ref({
+    theme: 'light',
+    notifications: true,
+    language: 'es',
+  })
+
+  // Acciones
+  function login(userData: {id: string, name: string, email: string}) {
+    user.value = userData
+  }
+
+  function updatePreferences(newPreferences: Partial&lt;typeof preferences.value&gt;) {
+    preferences.value = { ...preferences.value, ...newPreferences }
+  }
+
+  return {
+    // Estado
+    user,
+    preferences,
+
+    // Acciones
+    login,
+    updatePreferences,
+
+    // Configuración de persistencia
+    // Opción 1: Persistir todo el estado
+    persist: true,
+
+    // Opción 2: Configuración avanzada
+    /*
+    persist: {
+      paths: ['user'], // Solo persistir el usuario
+      storage: sessionStorage, // Usar sessionStorage en lugar de localStorage
+      key: 'user-storage', // Clave personalizada para el almacenamiento
+    }
+    */
+  }
+}, {
+  // Configuración de persistencia como segundo argumento (opcional)
   persist: {
-    paths: ['user'], // Solo persistir el usuario
-    storage: sessionStorage, // Usar sessionStorage en lugar de localStorage
-  },
+    paths: ['user'],
+    storage: localStorage,
+  }
 })
 </code></pre>
 <h2 id="modulos-y-stores-anidados">Módulos y Stores Anidados<a class="headerlink" href="#modulos-y-stores-anidados" title="Permanent link">&para;</a></h2>
 <p>Puedes organizar tu lógica en múltiples stores y usarlos juntos:</p>
-<pre><code class="language-javascript">// stores/user.js
-export const useUserStore = defineStore('user', {
-  state: () =&gt; ({
-    name: 'Usuario',
-    isAuthenticated: false,
-  }),
-  actions: {
-    login() {
-      this.isAuthenticated = true
-    },
-  },
+<pre><code class="language-typescript">// stores/user.ts
+export const useUserStore = defineStore('user', () =&gt; {
+  // Estado
+  const name = ref('Usuario')
+  const isAuthenticated = ref(false)
+
+  // Acciones
+  function login() {
+    isAuthenticated.value = true
+  }
+
+  return {
+    name,
+    isAuthenticated,
+    login
+  }
 })
 
-// stores/cart.js
-export const useCartStore = defineStore('cart', {
-  state: () =&gt; ({
-    items: [],
-  }),
-  actions: {
-    addItem(item) {
-      this.items.push(item)
-    },
-  },
+// stores/cart.ts
+export const useCartStore = defineStore('cart', () =&gt; {
+  // Estado
+  const items = ref&lt;Array&lt;{id: number, name: string, price: number}&gt;&gt;([])
+
+  // Getters
+  const totalItems = computed(() =&gt; items.value.length)
+  const totalPrice = computed(() =&gt; 
+    items.value.reduce((total, item) =&gt; total + item.price, 0)
+  )
+
+  // Acciones
+  function addItem(item: {id: number, name: string, price: number}) {
+    items.value.push(item)
+  }
+
+  function removeItem(itemId: number) {
+    const index = items.value.findIndex(item =&gt; item.id === itemId)
+    if (index !== -1) {
+      items.value.splice(index, 1)
+    }
+  }
+
+  return {
+    items,
+    totalItems,
+    totalPrice,
+    addItem,
+    removeItem
+  }
 })
 
 // En un componente
+&lt;script setup lang=&quot;ts&quot;&gt;
 import { useUserStore } from '@/stores/user'
 import { useCartStore } from '@/stores/cart'
+import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const user = useUserStore()
-    const cart = useCartStore()
+const user = useUserStore()
+const cart = useCartStore()
+const router = useRouter()
 
-    // Usar ambos stores juntos
-    const checkout = () =&gt; {
-      if (user.isAuthenticated) {
-        // Procesar compra
-      } else {
-        // Redirigir a login
-      }
-    }
-
-    return { user, cart, checkout }
-  },
+// Usar ambos stores juntos
+const checkout = () =&gt; {
+  if (user.isAuthenticated) {
+    // Procesar compra
+    console.log('Procesando compra...', cart.items)
+    // Aquí iría la lógica de checkout
+  } else {
+    // Redirigir a login
+    router.push('/login')
+  }
 }
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Carrito de Compras&lt;/h1&gt;
+    &lt;p v-if=&quot;!user.isAuthenticated&quot;&gt;
+      Por favor &lt;button @click=&quot;user.login&quot;&gt;inicia sesión&lt;/button&gt; para continuar.
+    &lt;/p&gt;
+    &lt;div v-else&gt;
+      &lt;p&gt;Bienvenido, {{ user.name }}&lt;/p&gt;
+      &lt;div v-if=&quot;cart.totalItems &gt; 0&quot;&gt;
+        &lt;p&gt;Productos en el carrito: {{ cart.totalItems }}&lt;/p&gt;
+        &lt;p&gt;Total: ${{ cart.totalPrice.toFixed(2) }}&lt;/p&gt;
+        &lt;button @click=&quot;checkout&quot;&gt;Finalizar Compra&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;p v-else&gt;Tu carrito está vacío&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 </code></pre>
 <h2 id="testing-con-pinia">Testing con Pinia<a class="headerlink" href="#testing-con-pinia" title="Permanent link">&para;</a></h2>
-<p>Para probar tus stores, puedes usar <code>@vue/test-utils</code> junto con Pinia:</p>
-<pre><code class="language-bash">npm install -D @vue/test-utils @vue/vue3-jest
+<p>Para probar tus stores, puedes usar <code>@vue/test-utils</code> junto con Pinia. Aquí te muestro cómo configurar y escribir pruebas para un store con Composition API:</p>
+<pre><code class="language-bash">npm install -D @vue/test-utils @vue/vue3-jest @testing-library/vue @testing-library/jest-dom
 </code></pre>
-<p>Ejemplo de prueba:</p>
-<pre><code class="language-javascript">import { setActivePinia, createPinia } from 'pinia'
+<h3 id="configuracion-basica-de-pruebas">Configuración básica de pruebas<a class="headerlink" href="#configuracion-basica-de-pruebas" title="Permanent link">&para;</a></h3>
+<p>Crea un archivo de configuración para Jest (por ejemplo, <code>jest.config.js</code>):</p>
+<pre><code class="language-javascript">module.exports = {
+  testEnvironment: 'jsdom',
+  moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
+  transform: {
+    '^.+\.tsx?$': 'ts-jest',
+    '^.+\.vue$': '@vue/vue3-jest',
+    '^.+\.js$': 'babel-jest',
+  },
+  moduleNameMapper: {
+    '^@/(.*)$': '&lt;rootDir&gt;/src/$1',
+  },
+  testMatch: ['**/__tests__/**/*.spec.[jt]s?(x)'],
+}
+</code></pre>
+<h3 id="ejemplo-de-prueba-para-un-store">Ejemplo de prueba para un store<a class="headerlink" href="#ejemplo-de-prueba-para-un-store" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/stores/counter.spec.ts
+import { setActivePinia, createPinia } from 'pinia'
 import { useCounterStore } from '@/stores/counter'
 
 describe('Counter Store', () =&gt; {
+  // Crea una nueva instancia de Pinia antes de cada prueba
   beforeEach(() =&gt; {
-    // Crea una nueva instancia de Pinia antes de cada prueba
     setActivePinia(createPinia())
   })
 
-  it('incrementa el contador', () =&gt; {
-    const store = useCounterStore()
-    expect(store.count).toBe(0)
-    store.increment()
-    expect(store.count).toBe(1)
+  it('inicializa con contador en 0', () =&gt; {
+    const counter = useCounterStore()
+    expect(counter.count).toBe(0)
+  })
+
+  it('incrementa el contador correctamente', () =&gt; {
+    const counter = useCounterStore()
+    counter.increment()
+    expect(counter.count).toBe(1)
+  })
+
+  it('reinicia el contador correctamente', () =&gt; {
+    const counter = useCounterStore()
+    counter.increment()
+    counter.increment()
+    counter.$reset()
+    expect(counter.count).toBe(0)
   })
 })
 </code></pre>
-<h2 id="integracion-con-vue-router">Integración con Vue Router<a class="headerlink" href="#integracion-con-vue-router" title="Permanent link">&para;</a></h2>
-<p>Puedes usar Pinia junto con Vue Router para la navegación protegida:</p>
-<pre><code class="language-javascript">// router/index.js
+<h3 id="probando-un-componente-que-usa-pinia">Probando un componente que usa Pinia<a class="headerlink" href="#probando-un-componente-que-usa-pinia" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/components/Counter.spec.ts
+import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
+import Counter from '@/components/Counter.vue'
+
+describe('Counter.vue', () =&gt; {
+  it('muestra el contador y responde a los clics', async () =&gt; {
+    const wrapper = mount(Counter, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn, // Usa vi.fn de Vitest o jest.fn de Jest
+            initialState: {
+              counter: { count: 5 } // Estado inicial para la prueba
+            }
+          })
+        ]
+      }
+    })
+
+    // Verifica que el contador muestre el valor inicial
+    expect(wrapper.find('p').text()).toContain('5')
+
+    // Simula un clic en el botón de incrementar
+    await wrapper.find('button').trigger('click')
+
+    // Verifica que el contador se haya incrementado
+    expect(wrapper.find('p').text()).toContain('6')
+  })
+})
+</code></pre>
+<h3 id="mockeando-acciones-del-store">Mockeando acciones del store<a class="headerlink" href="#mockeando-acciones-del-store" title="Permanent link">&para;</a></h3>
+<pre><code class="language-typescript">// __tests__/components/UserProfile.spec.ts
+import { mount } from '@vue/test-utils'
+import { createTestingPinia } from '@pinia/testing'
+import UserProfile from '@/components/UserProfile.vue'
+
+describe('UserProfile.vue', () =&gt; {
+  it('llama a fetchUser al montar el componente', async () =&gt; {
+    const mockUser = { id: 1, name: 'Usuario de prueba' }
+
+    const wrapper = mount(UserProfile, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            createSpy: vi.fn,
+            stubActions: false, // Permite espiar las acciones
+            initialState: {
+              user: { user: null }
+            }
+          })
+        ]
+      }
+    })
+
+    const userStore = useUserStore()
+
+    // Mock de la acción fetchUser
+    userStore.fetchUser = vi.fn().mockResolvedValue(mockUser)
+
+    // Forzar la ejecución de onMounted
+    await wrapper.vm.$nextTick()
+
+    // Verificar que se llamó a fetchUser
+    expect(userStore.fetchUser).toHaveBeenCalledTimes(1)
+
+    // Simular que la promesa se resuelve
+    await userStore.fetchUser()
+
+    // Verificar que el estado se actualizó correctamente
+    expect(userStore.user).toEqual(mockUser)
+  })
+})
+</code></pre>
+<pre><code>
+## Integración con Vue Router
+
+Puedes usar Pinia junto con Vue Router para la navegación protegida:
+
+```javascript
+// router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 
@@ -1608,45 +1837,44 @@ export interface User {
   email: string
 }
 
-// stores/user.ts
+// stores/user.ts (Composition API)
 import { defineStore } from 'pinia'
 import type { User } from '@/types/user'
 
-interface UserState {
-  user: User | null
-  loading: boolean
-  error: string | null
-}
+export const useUserStore = defineStore('user', () =&gt; {
+  // Estado tipado
+  const user = ref&lt;User | null&gt;(null)
+  const loading = ref&lt;boolean&gt;(false)
+  const error = ref&lt;string | null&gt;(null)
 
-export const useUserStore = defineStore('user', {
-  state: (): UserState =&gt; ({
-    user: null,
-    loading: false,
-    error: null,
-  }),
+  // Getter tipado
+  const isAdmin: ComputedRef&lt;boolean&gt; = computed(() =&gt; {
+    // @ts-expect-error role puede no existir en User básico; amplía tu tipo si lo usas
+    return user.value?.role === 'admin'
+  })
 
-  actions: {
-    async fetchUser(userId: number) {
-      this.loading = true
-      this.error = null
+  // Acción tipada
+  async function fetchUser(userId: number): Promise&lt;void&gt; {
+    loading.value = true
+    error.value = null
+    try {
+      const response = await fetch(`/api/users/${userId}`)
+      const data: User = await response.json()
+      user.value = data
+    } catch (err) {
+      error.value = err instanceof Error ? err.message : 'Error desconocido'
+    } finally {
+      loading.value = false
+    }
+  }
 
-      try {
-        const response = await fetch(`/api/users/${userId}`)
-        const data: User = await response.json()
-        this.user = data
-      } catch (error) {
-        this.error = error instanceof Error ? error.message : 'Error desconocido'
-      } finally {
-        this.loading = false
-      }
-    },
-  },
-
-  getters: {
-    isAdmin: (state): boolean =&gt; {
-      return state.user?.role === 'admin'
-    },
-  },
+  return {
+    user,
+    loading,
+    error,
+    isAdmin,
+    fetchUser,
+  }
 })
 </code></pre>
 <p>Con estos conceptos avanzados, podrás aprovechar al máximo Pinia en tus aplicaciones Vue 3.</p>
