@@ -1517,6 +1517,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ventajas-del-uso-de-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas del uso de querys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#definir-una-ruta-que-admite-querys" class="md-nav__link">
     <span class="md-ellipsis">
       Definir una ruta que admite querys
@@ -1754,6 +1763,21 @@ const username = computed(() =&gt; route.params.username);
 <li><strong>Estados de vista</strong> (ej: <code>?tab=settings</code>, <code>?view=grid</code>).</li>
 <li><strong>Búsquedas</strong> (ej: <code>?q=vue%20router</code>).</li>
 <li>Cualquier dato opcional que no tenga sentido como parte fija del <code>path</code>.</li>
+</ul>
+<h3 id="ventajas-del-uso-de-querys">Ventajas del uso de querys<a class="headerlink" href="#ventajas-del-uso-de-querys" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Compartir enlaces con el filtro aplicado</strong>: la URL incluye los filtros (por ejemplo, <code>?category=books&amp;page=2</code>), así que si copias y pegas el enlace, otra persona verá exactamente la misma vista.</p>
+</li>
+<li>
+<p><strong>El filtro persiste al refrescar la página</strong>: como el estado va en la URL, al hacer F5 o recargar, Vue Router puede reconstruir los filtros a partir de la query.</p>
+</li>
+<li>
+<p><strong>Navegación atrás/adelante sin perder filtros</strong>: cada cambio de filtro genera una nueva URL en el historial. Al darle a atrás/adelante, vuelves a cada estado anterior de filtros.</p>
+</li>
+<li>
+<p><strong>Puede ayudar al SEO (si la página es indexable)</strong>: cada combinación de query puede ser una URL distinta que los buscadores pueden indexar, siempre que el contenido sea relevante.</p>
+</li>
 </ul>
 <h3 id="definir-una-ruta-que-admite-querys">Definir una ruta que admite querys<a class="headerlink" href="#definir-una-ruta-que-admite-querys" title="Permanent link">&para;</a></h3>
 <p>No necesitas hacer nada especial: <em>cualquier</em> ruta puede recibir querys.</p>

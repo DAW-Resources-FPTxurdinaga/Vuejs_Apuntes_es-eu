@@ -1265,6 +1265,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#query-parametroen-abantailak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query parametroen abantailak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#query-parametroak-onartzen-dituen-ibilbide-bat-definitzea" class="md-nav__link">
     <span class="md-ellipsis">
       Query parametroak onartzen dituen ibilbide bat definitzea
@@ -1749,6 +1758,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#query-parametroen-abantailak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query parametroen abantailak
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#query-parametroak-onartzen-dituen-ibilbide-bat-definitzea" class="md-nav__link">
     <span class="md-ellipsis">
       Query parametroak onartzen dituen ibilbide bat definitzea
@@ -2002,6 +2020,21 @@ const username = computed(() =&gt; route.params.username);
 <li><strong>Ikuspegi-egoerak</strong> (adib.: <code>?tab=settings</code>, <code>?view=grid</code>).</li>
 <li><strong>Bilaketak</strong> (adib.: <code>?q=vue%20router</code>).</li>
 <li>Path-aren parte finko gisa zentzurik ez duen edozein datu aukerazko.</li>
+</ul>
+<h3 id="query-parametroen-abantailak">Query parametroen abantailak<a class="headerlink" href="#query-parametroen-abantailak" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Iragazkia aplikatuta duen esteka partekatzeko aukera</strong>: URLak iragazkiak jasotzen ditu (adibidez, <code>?category=books&amp;page=2</code>), eta esteka kopiatzen baduzu, beste erabiltzaileek ikuspegi berbera ikusiko dute.</p>
+</li>
+<li>
+<p><strong>Iragazkia mantentzen da orria berritzean</strong>: egoera URLan bertan dagoenez, F5 sakatzean edo berriro kargatzean, Vue Routerrek query parametroetatik berreraiki dezake iragazkia.</p>
+</li>
+<li>
+<p><strong>Atzera/aurrera nabigatu daiteke iragazkia galdu gabe</strong>: iragazkia aldatzen duzun bakoitzean URL berri bat sortzen da historialean; atzera edo aurrera eginez aurreko iragazki-egoeretara itzul zaitezke.</p>
+</li>
+<li>
+<p><strong>SEOrako lagungarria izan daiteke (orria indexagarria bada)</strong>: query konbinazio bakoitza URL desberdin bat izan daiteke, bilatzaileek indexatu dezaketena, betiere edukia erabilgarria eta esanguratsua bada.</p>
+</li>
 </ul>
 <h3 id="query-parametroak-onartzen-dituen-ibilbide-bat-definitzea">Query parametroak onartzen dituen ibilbide bat definitzea<a class="headerlink" href="#query-parametroak-onartzen-dituen-ibilbide-bat-definitzea" title="Permanent link">&para;</a></h3>
 <p>Ez da ezer berezirik definitu behar: <em>edozein</em> ibilbidek jaso ditzake query parametroak.</p>
