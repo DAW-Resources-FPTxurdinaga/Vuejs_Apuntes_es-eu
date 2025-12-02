@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.19">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1246,6 +1246,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rutas-con-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rutas con Querys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rutas con Querys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-que-se-usan" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Para qué se usan?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-una-ruta-que-admite-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definir una ruta que admite querys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceder-a-las-querys-en-el-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceder a las querys en el componente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navegar-usando-querys-con-router-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegar usando querys con &lt;router-link&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navegacion-programatica-con-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegación programática con querys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combinar-params-y-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinar params y querys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rutas-anidadas" class="md-nav__link">
     <span class="md-ellipsis">
       Rutas Anidadas
@@ -1661,6 +1730,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rutas-con-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rutas con Querys
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rutas con Querys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-que-se-usan" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Para qué se usan?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-una-ruta-que-admite-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definir una ruta que admite querys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceder-a-las-querys-en-el-componente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceder a las querys en el componente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navegar-usando-querys-con-router-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegar usando querys con &lt;router-link&gt;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navegacion-programatica-con-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navegación programática con querys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combinar-params-y-querys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combinar params y querys
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#rutas-anidadas" class="md-nav__link">
     <span class="md-ellipsis">
       Rutas Anidadas
@@ -1835,6 +1973,99 @@ const userId = computed(() =&gt; route.params.id ?? props.id);
 const username = computed(() =&gt; route.params.username);
 &lt;/script&gt;
 </code></pre>
+<h2 id="rutas-con-querys">Rutas con Querys<a class="headerlink" href="#rutas-con-querys" title="Permanent link">&para;</a></h2>
+<p>Las <em>querys</em> (o parámetros de consulta) son pares <code>clave=valor</code> que se añaden al final de la URL después de un <code>?</code>. Sirven para pasar información <strong>opcional</strong> a una ruta sin formar parte del <code>path</code>.</p>
+<p>Por ejemplo:</p>
+<ul>
+<li><code>https://midominio.com/products?category=books&amp;order=desc</code></li>
+</ul>
+<p>En este caso, la ruta base es <code>/products</code> y la query es <code>?category=books&amp;order=desc</code>.</p>
+<h3 id="para-que-se-usan">¿Para qué se usan?<a class="headerlink" href="#para-que-se-usan" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Filtros y ordenaciones</strong> (ej: <code>?page=2&amp;pageSize=20</code>, <code>?order=asc</code>).</li>
+<li><strong>Estados de vista</strong> (ej: <code>?tab=settings</code>, <code>?view=grid</code>).</li>
+<li><strong>Búsquedas</strong> (ej: <code>?q=vue%20router</code>).</li>
+<li>Cualquier dato opcional que no tenga sentido como parte fija del <code>path</code>.</li>
+</ul>
+<h3 id="definir-una-ruta-que-admite-querys">Definir una ruta que admite querys<a class="headerlink" href="#definir-una-ruta-que-admite-querys" title="Permanent link">&para;</a></h3>
+<p>No necesitas hacer nada especial: <em>cualquier</em> ruta puede recibir querys.</p>
+<pre><code class="language-javascript">const routes = [
+  {
+    path: '/products',
+    name: 'products',
+    component: ProductsView
+  }
+];
+</code></pre>
+<p>Podremos acceder a <code>/products</code>, <code>/products?page=2</code> o <code>/products?page=2&amp;category=books</code> sin cambiar la definición.</p>
+<h3 id="acceder-a-las-querys-en-el-componente">Acceder a las querys en el componente<a class="headerlink" href="#acceder-a-las-querys-en-el-componente" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Listado de productos&lt;/h1&gt;
+    &lt;p&gt;Página actual: {{ currentPage }}&lt;/p&gt;
+    &lt;p&gt;Categoría: {{ currentCategory ?? 'todas' }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+// Los valores de query SIEMPRE son strings (o arrays de strings)
+const currentPage = computed(() =&gt; Number(route.query.page ?? 1));
+const currentCategory = computed(() =&gt; route.query.category ?? null);
+&lt;/script&gt;
+</code></pre>
+<h3 id="navegar-usando-querys-con-router-link">Navegar usando querys con <code>&lt;router-link&gt;</code><a class="headerlink" href="#navegar-usando-querys-con-router-link" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;nav&gt;
+    &lt;!-- Pasando la query como string --&gt;
+    &lt;router-link to=&quot;/products?page=1&quot;&gt;Página 1&lt;/router-link&gt;
+    &lt;router-link to=&quot;/products?page=2&quot;&gt;Página 2&lt;/router-link&gt;
+
+    &lt;!-- Usando objeto, combinando nombre de ruta y querys --&gt;
+    &lt;router-link :to=&quot;{ name: 'products', query: { page: 3, category: 'books' } }&quot;&gt;
+      Libros página 3
+    &lt;/router-link&gt;
+  &lt;/nav&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="navegacion-programatica-con-querys">Navegación programática con querys<a class="headerlink" href="#navegacion-programatica-con-querys" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const goToFilteredProducts = () =&gt; {
+  router.push({
+    name: 'products',
+    query: {
+      page: 1,
+      category: 'electronics',
+      order: 'desc'
+    }
+  });
+};
+</code></pre>
+<h3 id="combinar-params-y-querys">Combinar params y querys<a class="headerlink" href="#combinar-params-y-querys" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">const routes = [
+  {
+    path: '/user/:id',
+    name: 'user',
+    component: UserView
+  }
+];
+
+// Ejemplo de navegación
+router.push({
+  name: 'user',
+  params: { id: 123 },
+  query: { section: 'profile', tab: 'activity' }
+});
+
+// Resultado: /user/123?section=profile&amp;tab=activity
+</code></pre>
 <h2 id="rutas-anidadas">Rutas Anidadas<a class="headerlink" href="#rutas-anidadas" title="Permanent link">&para;</a></h2>
 <p>Las rutas anidadas permiten crear jerarquías de componentes:</p>
 <pre><code class="language-javascript">const routes = [
@@ -1952,7 +2183,7 @@ const username = computed(() =&gt; route.params.username);
       <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
         <script src="../../scripts/checkboxes.js"></script>
       
