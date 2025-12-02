@@ -1,0 +1,1959 @@
+
+<!doctype html>
+<html lang="eu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://daw-resources-fptxurdinaga.github.io/Vuejs_Apuntes_es-eu/eu/1-conceptos-basicos/1.1-introduccion/">
+      
+      
+      
+      
+      <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>1.1 Introducción a Vue.js - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-introduccion-a-vuejs" class="md-skip">
+          Joan zuzenean edukira
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Atalburua">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-header__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Curso de Vue.js 3 - CIFP Txurdinaga LHII
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.1 Introducción a Vue.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu ilunera"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu ilunera" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#004c95" data-md-color-accent="#e95f15"  aria-label="Aldatu modu argira"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Aldatu modu argira" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Hautatu hizkuntza">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../1-conceptos-basicos/1.1-introduccion/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="eu" class="md-select__link">
+              Euskara
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Bilatu" placeholder="Bilatu" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Bilatu">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Garbitu" aria-label="Garbitu" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Bilaketa hasieratzen
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Nabigazioa" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Curso de Vue.js 3 - CIFP Txurdinaga LHII" class="md-nav__button md-logo" aria-label="Curso de Vue.js 3 - CIFP Txurdinaga LHII" data-md-component="logo">
+      
+  <img src="../../../images/Icono_TX.png" alt="logo">
+
+    </a>
+    Curso de Vue.js 3 - CIFP Txurdinaga LHII
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hasiera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    1. Oinarrizko Kontzeptuak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1. Oinarrizko Kontzeptuak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.1. Vue-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-oinarrizko-kontzeptuak/1.2-lehen-aurkezpena/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1.2. Zure Lehen Aplikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    2. Oinarriak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2. Oinarriak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.0-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.0. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.1-interpolazioa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.1. Interpolazioa eta Zuzentarauak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.2-vbind-vmodel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.2. V-bind eta V-model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.3-v-if_v-for/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.3. V-if eta V-for
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.4-kalkulatutako-propietateak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.4. Kalkulatutako Propietateak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.5-gertaerak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.5. Gertaeren Kudeaketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.6-inprimaki-sarreren-lotura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.6. Inprimaki Sarreren Lotura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.7-bizitza-zikloa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.7. Bizitza Zikloa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.8-txantiloi-sintaxia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.8. Txantiloi-sintaxia
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.9-erantzunkortasuna/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.9. Erantzunkortasuna
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.10-erreferentzia-azkarra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.10. Erreferentzia Azkarra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-oinarriak/2.11-ariketa-praktikoa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2.11. Ariketa Praktikoa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    3. Osagaiak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3. Osagaiak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.2-creacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.2. Sortzea eta Erabiltzea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-osagaiak/3.3-comunicacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3.3. Osagaien Arteko Komunikazioa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    4. HTTP Eskariak
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4. HTTP Eskariak
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.2-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.2. Fetch API Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.3-axios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.3. Axios Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4-http-eskariak/4.4-alova/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4.4. Alova Erabiliz
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    5. Vue Router-ekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5. Vue Router-ekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.1. Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.2-oinarrizko-bideak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.2. Oinarrizko Bideak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5-vue-router/5.3-nabigazio-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5.3. Nabigazio Aurreratua
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    6. Egoeraren Kudeaketa Pinia-rekin
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6. Egoeraren Kudeaketa Pinia-rekin
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.1-sarrera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.1. Pinia-ri Sarrera
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.2-dendak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.2. Pinia-ko Denda
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6-pinia/6.3-aurreratua/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6.3. Gai Aurreratuak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    7. Proiektu Praktikoa
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            7. Proiektu Praktikoa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.1-egitura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.1. Proiektuaren Egitura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7-proiektua/7.2-ariketak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7.2. Gidatutako Ariketa
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Edukiak">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Edukiak
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-vuejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es Vue.js?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características principales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo básico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo básico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcion-1-como-archivo-html-estandar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opción 1: Como archivo HTML estándar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-2-como-componente-de-un-solo-archivo-sfc-de-vue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Opción 2: Como Componente de un Solo Archivo (SFC) de Vue
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuevas-caracteristicas-de-vue-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nuevas características de Vue 3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nuevas características de Vue 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-probar-cada-opcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cómo probar cada opción:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cómo probar cada opción:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#para-la-opcion-1-html-estandar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para la Opción 1 (HTML estándar):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#para-la-opcion-2-sfc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Para la Opción 2 (SFC):
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicio-practico-tu-primera-aplicacion-vue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio práctico: Tu primera aplicación Vue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio práctico: Tu primera aplicación Vue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pasos-a-seguir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pasos a seguir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-deberias-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué deberías ver?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimenta-y-aprende" class="md-nav__link">
+    <span class="md-ellipsis">
+      Experimenta y aprende
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preguntas-de-repaso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preguntas de repaso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recursos adicionales
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="11-introduccion-a-vuejs">1.1 Introducción a Vue.js<a class="headerlink" href="#11-introduccion-a-vuejs" title="Permanent link">&para;</a></h1>
+<h2 id="que-es-vuejs">¿Qué es Vue.js?<a class="headerlink" href="#que-es-vuejs" title="Permanent link">&para;</a></h2>
+<p>Vue (pronunciado /vjuː/, como view) es un framework progresivo para construir interfaces de usuario. A diferencia de otros frameworks monolíticos, Vue está diseñado desde cero para ser adoptable de forma incremental.</p>
+<h2 id="caracteristicas-principales">Características principales<a class="headerlink" href="#caracteristicas-principales" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Reactivo</strong>: Actualiza automáticamente la vista cuando cambian los datos</li>
+<li><strong>Componentes</strong>: Permite crear elementos HTML personalizados y reutilizables</li>
+<li><strong>Fácil de aprender</strong>: Sintaxis sencilla basada en HTML y JavaScript</li>
+<li><strong>Flexible</strong>: Se puede integrar progresivamente en proyectos existentes</li>
+</ul>
+<h2 id="ejemplo-basico">Ejemplo básico<a class="headerlink" href="#ejemplo-basico" title="Permanent link">&para;</a></h2>
+<h3 id="opcion-1-como-archivo-html-estandar">Opción 1: Como archivo HTML estándar<a class="headerlink" href="#opcion-1-como-archivo-html-estandar" title="Permanent link">&para;</a></h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Mi Primera App Vue&lt;/title&gt;
+  &lt;!-- Importar Vue 3 desde CDN --&gt;
+  &lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;h1&gt;{{ mensaje }}&lt;/h1&gt;
+    &lt;button @click=&quot;cambiarMensaje&quot;&gt;Cambiar mensaje&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+  const { createApp, ref } = Vue
+
+  createApp({
+    setup() {
+      const mensaje = ref('¡Hola Vue 3!')
+
+      function cambiarMensaje() {
+        mensaje.value = '¡Mensaje cambiado!'
+      }
+
+      return {
+        mensaje,
+        cambiarMensaje
+      }
+    }
+  }).mount('#app')
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="opcion-2-como-componente-de-un-solo-archivo-sfc-de-vue">Opción 2: Como Componente de un Solo Archivo (SFC) de Vue<a class="headerlink" href="#opcion-2-como-componente-de-un-solo-archivo-sfc-de-vue" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;{{ mensaje }}&lt;/h1&gt;
+    &lt;button @click=&quot;cambiarMensaje&quot;&gt;Cambiar mensaje&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const mensaje = ref('¡Hola Vue 3!')
+
+    function cambiarMensaje() {
+      mensaje.value = '¡Mensaje cambiado!'
+    }
+
+    return {
+      mensaje,
+      cambiarMensaje
+    }
+  }
+}
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+/* Estilos específicos del componente */
+button {
+  background-color: #42b983;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+&lt;/style&gt;
+</code></pre>
+<h2 id="nuevas-caracteristicas-de-vue-3">Nuevas características de Vue 3<a class="headerlink" href="#nuevas-caracteristicas-de-vue-3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Composition API</strong>: Una forma más lógica de organizar el código</li>
+<li><strong>Mejor reactividad</strong>: Reactividad basada en Proxy</li>
+<li><strong>Soporte para TypeScript</strong>: Mejor integración con TypeScript</li>
+<li><strong>Fragmentos</strong>: Múltiples nodos raíz en los componentes</li>
+<li><strong>Teleport</strong>: Mover elementos en el DOM</li>
+<li><strong>Suspense</strong>: Soporte para componentes asíncronos</li>
+</ul>
+<h3 id="como-probar-cada-opcion">Cómo probar cada opción:<a class="headerlink" href="#como-probar-cada-opcion" title="Permanent link">&para;</a></h3>
+<h4 id="para-la-opcion-1-html-estandar">Para la Opción 1 (HTML estándar):<a class="headerlink" href="#para-la-opcion-1-html-estandar" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Copia todo el código de la Opción 1</li>
+<li>Guárdalo como <code>index.html</code></li>
+<li>Ábrelo directamente en tu navegador</li>
+</ol>
+<h4 id="para-la-opcion-2-sfc">Para la Opción 2 (SFC):<a class="headerlink" href="#para-la-opcion-2-sfc" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>En Vue Playground</strong>:</p>
+<ul>
+<li>Ve a <a href="https://play.vuejs.org/">Vue Playground</a></li>
+<li>Reemplaza el contenido de <code>App.vue</code> con el código de la Opción 2</li>
+</ul>
+</li>
+<li>
+<p><strong>En StackBlitz</strong>:</p>
+<ul>
+<li>Crea un nuevo proyecto Vue en <a href="https://stackblitz.com/edit/vue-afbpxwxy?file=src%2FApp.vue">StackBlitz</a></li>
+<li>Reemplaza el contenido de <code>App.vue</code> con el código de la Opción 2</li>
+</ul>
+</li>
+<li>
+<p><strong>En un proyecto local</strong>:</p>
+<ul>
+<li>Crea un archivo <code>MiComponente.vue</code> con el código de la Opción 2</li>
+<li>Asegúrate de tener configurado Vue CLI o Vite con soporte para archivos <code>.vue</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="ejercicio-practico-tu-primera-aplicacion-vue">Ejercicio práctico: Tu primera aplicación Vue<a class="headerlink" href="#ejercicio-practico-tu-primera-aplicacion-vue" title="Permanent link">&para;</a></h2>
+<p>En este ejercicio, crearás tu primera aplicación Vue desde cero. Sigue estos pasos detallados:</p>
+<h3 id="objetivos">Objetivos<a class="headerlink" href="#objetivos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Crear un archivo HTML básico con Vue 3</li>
+<li>Entender la estructura básica de una aplicación Vue</li>
+<li>Experimentar con la reactividad de Vue</li>
+</ul>
+<h3 id="pasos-a-seguir">Pasos a seguir<a class="headerlink" href="#pasos-a-seguir" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Prepara tu entorno de trabajo</strong></p>
+<ul>
+<li>Abre tu editor de código favorito (VS Code, Sublime Text, etc.)</li>
+<li>Crea una nueva carpeta para este proyecto</li>
+</ul>
+</li>
+<li>
+<p><strong>Crea un nuevo archivo</strong></p>
+<ul>
+<li>Crea un archivo llamado <code>hola-vue.html</code></li>
+<li>Copia y pega el siguiente código:</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Mi Primera App Vue&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        #app {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            background-color: #42b983;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3aa876;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Contenedor principal de la aplicación --&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;h1&gt;{{ mensaje }}&lt;/h1&gt;
+        &lt;button @click=&quot;cambiarMensaje&quot;&gt;
+            {{ textoBoton }}
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Incluye Vue 3 desde CDN --&gt;
+    &lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+    // Código JavaScript de la aplicación
+    const { createApp, ref } = Vue;
+
+    // Crea la aplicación Vue
+    const app = createApp({
+        // setup() es donde definimos la lógica del componente
+        setup() {
+            // Variables reactivas
+            const mensaje = ref('¡Hola Vue 3!');
+            const textoBoton = ref('Haz clic para cambiar el mensaje');
+
+            // Función que se ejecuta al hacer clic en el botón
+            function cambiarMensaje() {
+                mensaje.value = '¡Has cambiado el mensaje con éxito!';
+                textoBoton.value = '¡Mensaje cambiado!';
+            }
+
+            // Exponemos las variables y funciones al template
+            return {
+                mensaje,
+                textoBoton,
+                cambiarMensaje
+            };
+        }
+    });
+
+    // Monta la aplicación en el elemento con id=&quot;app&quot;
+    app.mount('#app');
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ol>
+<li>
+<p><strong>Guarda y abre el archivo</strong></p>
+<ul>
+<li>Guarda el archivo con el nombre <code>hola-vue.html</code></li>
+<li>Abre el archivo en tu navegador web (puedes hacer doble clic en él)</li>
+</ul>
+</li>
+</ol>
+<h3 id="que-deberias-ver">¿Qué deberías ver?<a class="headerlink" href="#que-deberias-ver" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Un título que dice "¡Hola Vue 3!"</li>
+<li>Un botón verde que dice "Haz clic para cambiar el mensaje"</li>
+<li>Al hacer clic en el botón, el texto del título y el botón cambiarán</li>
+</ul>
+<h3 id="experimenta-y-aprende">Experimenta y aprende<a class="headerlink" href="#experimenta-y-aprende" title="Permanent link">&para;</a></h3>
+<p>Una vez que hayas visto la aplicación en acción, intenta hacer los siguientes cambios:</p>
+<ol>
+<li>
+<p><strong>Modifica el mensaje inicial</strong>:</p>
+<ul>
+<li>Cambia el texto de <code>'¡Hola Vue 3!'</code> por otro mensaje</li>
+<li>Recarga la página para ver los cambios</li>
+</ul>
+</li>
+<li>
+<p><strong>Personaliza el botón</strong>:</p>
+<ul>
+<li>Cambia el color de fondo del botón modificando el valor de <code>background-color</code> en el CSS</li>
+<li>Ajusta el tamaño del texto o el padding</li>
+</ul>
+</li>
+<li>
+<p><strong>Añade un contador</strong>:</p>
+<ul>
+<li>Agrega una variable <code>contador</code> usando <code>const contador = ref(0)</code></li>
+<li>Crea un botón que incremente el contador cada vez que se haga clic</li>
+<li>Muestra el valor del contador en la página usando <code>{{ contador }}</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Añade un campo de entrada</strong>:</p>
+<ul>
+<li>Agrega un <code>&lt;input v-model="nombre"&gt;</code> al HTML</li>
+<li>Crea una variable <code>nombre</code> en el <code>setup()</code></li>
+<li>Muestra un mensaje personalizado que incluya el nombre ingresado</li>
+</ul>
+</li>
+</ol>
+<h2 id="preguntas-de-repaso">Preguntas de repaso<a class="headerlink" href="#preguntas-de-repaso" title="Permanent link">&para;</a></h2>
+<ol>
+<li>¿Qué significa que Vue sea un framework "progresivo"?</li>
+<li>¿Qué ventaja tiene que Vue use una sintaxis basada en HTML?</li>
+<li>En el ejemplo mostrado, ¿qué ocurre cuando haces clic en el botón "Cambiar mensaje"?</li>
+<li>¿Qué función cumple el método <code>mount('#app')</code> en el código de ejemplo?</li>
+</ol>
+<h2 id="recursos-adicionales">Recursos adicionales<a class="headerlink" href="#recursos-adicionales" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://v3.vuejs.org/">Documentación oficial de Vue 3</a></li>
+<li><a href="https://www.vuemastery.com/courses/intro-to-vue-3/intro-to-vue3/">Vue Mastery - Curso gratuito</a></li>
+</ul>
+<p><a href="../1.2-primer-ejemplo/">Siguiente: Tu primera aplicación →</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Igo goraino
+</button>
+        
+      </main>
+      
+        <style>
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+  }
+</style>
+
+<footer class="md-footer">
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../../../images/Icono_TX.png" alt="Logo CIFP Txurdinaga">
+        </div>
+        <div class="footer-text">
+          Jose Insausti - CIFP Txurdinaga LHII
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../../scripts/checkboxes.js"></script>
+      
+        <script src="../../../javascripts/sidebar.js"></script>
+      
+    
+  </body>
+</html>
