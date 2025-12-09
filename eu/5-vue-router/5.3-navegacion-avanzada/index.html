@@ -14,15 +14,15 @@
       
       
       <link rel="icon" href="http://fptxurdinaga.eus/wp-content/uploads/2022/10/favicon-96x96-1.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>4.3 Navegación Avanzada con Vue Router - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
+        <title>5.3 Navegación Avanzada con Vue Router en Composition API - Curso de Vue.js 3 - CIFP Txurdinaga LHII</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#43-navegacion-avanzada-con-vue-router" class="md-skip">
+        <a href="#53-navegacion-avanzada-con-vue-router-en-composition-api" class="md-skip">
           Joan zuzenean edukira
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              4.3 Navegación Avanzada con Vue Router
+              5.3 Navegación Avanzada con Vue Router en Composition API
             
           </span>
         </div>
@@ -1399,37 +1399,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guards-de-navegacion" class="md-nav__link">
+  <a href="#introduccion" class="md-nav__link">
     <span class="md-ellipsis">
-      Guards de Navegación
+      🎯 Introducción
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Guards de Navegación">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guards-de-navegacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔒 Guards de Navegación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔒 Guards de Navegación">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#guard-global" class="md-nav__link">
+  <a href="#1-guard-global" class="md-nav__link">
     <span class="md-ellipsis">
-      Guard Global
+      1. Guard Global
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#guard-de-ruta" class="md-nav__link">
+  <a href="#2-guard-de-ruta" class="md-nav__link">
     <span class="md-ellipsis">
-      Guard de Ruta
+      2. Guard de Ruta
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#guards-en-el-componente" class="md-nav__link">
+  <a href="#3-guards-en-componentes-composition-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Guards en el Componente
+      3. Guards en Componentes (Composition API)
     </span>
   </a>
   
@@ -1441,36 +1450,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy-loading-de-rutas" class="md-nav__link">
+  <a href="#carga-perezosa-lazy-loading" class="md-nav__link">
     <span class="md-ellipsis">
-      Lazy Loading de Rutas
+      ⚡ Carga Perezosa (Lazy Loading)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scroll-behavior" class="md-nav__link">
+  <a href="#comportamiento-del-scroll" class="md-nav__link">
     <span class="md-ellipsis">
-      Scroll Behavior
+      🖱️ Comportamiento del Scroll
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#transiciones" class="md-nav__link">
+  <a href="#transiciones-entre-rutas" class="md-nav__link">
     <span class="md-ellipsis">
-      Transiciones
+      ✨ Transiciones entre Rutas
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#siguiente-paso" class="md-nav__link">
+  <a href="#ejemplo-practico-proteccion-de-ruta" class="md-nav__link">
     <span class="md-ellipsis">
-      Siguiente paso
+      📌 Ejemplo Práctico: Protección de Ruta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recursos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Recursos Adicionales
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#siguientes-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Siguientes Pasos
     </span>
   </a>
   
@@ -1492,121 +1519,191 @@
 
 
 
-<h1 id="43-navegacion-avanzada-con-vue-router">4.3 Navegación Avanzada con Vue Router<a class="headerlink" href="#43-navegacion-avanzada-con-vue-router" title="Permanent link">&para;</a></h1>
-<h2 id="guards-de-navegacion">Guards de Navegación<a class="headerlink" href="#guards-de-navegacion" title="Permanent link">&para;</a></h2>
-<p>Los guards de navegación permiten controlar el acceso a las rutas y realizar acciones antes o después de la navegación.</p>
-<h3 id="guard-global">Guard Global<a class="headerlink" href="#guard-global" title="Permanent link">&para;</a></h3>
-<p>Se ejecuta antes de cada navegación:</p>
-<pre><code class="language-javascript">// router/index.js
-router.beforeEach((to, from, next) =&gt; {
-  // to: Ruta a la que se quiere navegar
-  // from: Ruta de la que se viene
-  // next: Función para continuar con la navegación
+<h1 id="53-navegacion-avanzada-con-vue-router-en-composition-api">5.3 Navegación Avanzada con Vue Router en Composition API<a class="headerlink" href="#53-navegacion-avanzada-con-vue-router-en-composition-api" title="Permanent link">&para;</a></h1>
+<h2 id="introduccion">🎯 Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>En esta guía aprenderemos a manejar la navegación avanzada en Vue 3 usando Vue Router con la Composition API. Veremos cómo proteger rutas, cargar componentes de forma perezosa y mejorar la experiencia de usuario con transiciones.</p>
+<h2 id="guards-de-navegacion">🔒 Guards de Navegación<a class="headerlink" href="#guards-de-navegacion" title="Permanent link">&para;</a></h2>
+<p>Los guards son funciones que nos permiten controlar la navegación entre rutas. Hay tres tipos principales:</p>
+<h3 id="1-guard-global">1. Guard Global<a class="headerlink" href="#1-guard-global" title="Permanent link">&para;</a></h3>
+<p>Se ejecuta antes de cada cambio de ruta. Ideal para verificar autenticación global. Aquí tienes un ejemplo completo de cómo quedaría el archivo <code>src/router/index.js</code>:</p>
+<pre><code class="language-javascript">// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
 
-  if (to.matched.some(record =&gt; record.meta.requiresAuth)) {
-    if (!isAuthenticated()) {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath }
-      });
-    } else {
-      next();
+// Definición de rutas
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: HomeView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () =&gt; import('../views/LoginView.vue'),
+    meta: { 
+      guestOnly: true // Solo usuarios no autenticados
     }
-  } else {
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () =&gt; import('../views/DashboardView.vue'),
+    meta: { 
+      requiresAuth: true // Requiere autenticación
+    }
+  },
+  {
+    path: '/perfil',
+    name: 'perfil',
+    component: () =&gt; import('../views/PerfilView.vue'),
+    meta: { 
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () =&gt; import('../views/NotFoundView.vue')
+  }
+];
+
+// Creación del router
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes
+});
+
+// Guard de navegación global
+router.beforeEach((to, from, next) =&gt; {
+  // Verificar si la ruta requiere autenticación
+  if (to.meta.requiresAuth &amp;&amp; !localStorage.getItem('token')) {
+    // Redirigir a login con la ruta de retorno
+    next({ 
+      name: 'login', 
+      query: { redirect: to.fullPath } 
+    });
+  } 
+  // Si la ruta es solo para invitados y el usuario está autenticado
+  else if (to.meta.guestOnly &amp;&amp; localStorage.getItem('token')) {
+    next({ name: 'dashboard' });
+  }
+  // En cualquier otro caso, continuar con la navegación
+  else {
     next();
   }
 });
+
+// Manejo de errores global
+router.onError((error) =&gt; {
+  console.error('Error de enrutamiento:', error);
+  // Podrías redirigir a una página de error aquí si lo deseas
+});
+
+export default router;
 </code></pre>
-<h3 id="guard-de-ruta">Guard de Ruta<a class="headerlink" href="#guard-de-ruta" title="Permanent link">&para;</a></h3>
-<p>Se define en la configuración de la ruta:</p>
+<h3 id="2-guard-de-ruta">2. Guard de Ruta<a class="headerlink" href="#2-guard-de-ruta" title="Permanent link">&para;</a></h3>
+<p>Se aplica a rutas específicas.</p>
 <pre><code class="language-javascript">const routes = [
   {
-    path: '/dashboard',
-    component: Dashboard,
+    path: '/perfil',
+    name: 'perfil',
+    component: () =&gt; import('../views/PerfilView.vue'),
     meta: { requiresAuth: true },
+    // Guard específico de esta ruta
     beforeEnter: (to, from, next) =&gt; {
-      if (isAuthenticated()) {
-        next();
+      const userRole = localStorage.getItem('userRole');
+      if (userRole !== 'admin') {
+        next({ name: 'acceso-denegado' });
       } else {
-        next('/login');
+        next();
       }
     }
   }
 ];
 </code></pre>
-<h3 id="guards-en-el-componente">Guards en el Componente<a class="headerlink" href="#guards-en-el-componente" title="Permanent link">&para;</a></h3>
-<p>Se definen dentro del componente:</p>
-<pre><code class="language-javascript">// En Vue 3 con Composition API suele ser más común usar guards globales o de ruta,
-// pero los guards de componente siguen existiendo (Options API).
-// Con &lt;script setup&gt; podemos simular comportamientos similares con composables
-// o usando el ciclo de vida y el router.
+<h3 id="3-guards-en-componentes-composition-api">3. Guards en Componentes (Composition API)<a class="headerlink" href="#3-guards-en-componentes-composition-api" title="Permanent link">&para;</a></h3>
+<pre><code class="language-vue">&lt;!-- PerfilView.vue --&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;Mi Perfil&lt;/h1&gt;
+    &lt;!-- Contenido del perfil --&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
 
-import { onBeforeRouteUpdate, onBeforeRouteLeave } from 'vue-router';
+&lt;script setup&gt;
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 import { ref } from 'vue';
 
-const userData = ref(null);
-const unsavedChanges = ref(false);
+const cambiosSinGuardar = ref(false);
 
-const fetchUserData = (id) =&gt; {
-  // Lógica para cargar datos del usuario
-};
-
-// Equivalente aproximado a beforeRouteUpdate
-onBeforeRouteUpdate((to, from) =&gt; {
-  // Se llama cuando la ruta cambia pero el componente se reutiliza
-  // Por ejemplo, cuando cambian los parámetros dinámicos
-  userData.value = null;
-  fetchUserData(to.params.id);
-});
-
-// Equivalente aproximado a beforeRouteLeave
-onBeforeRouteLeave((to, from) =&gt; {
-  // Se llama cuando la ruta que renderiza este componente está a punto de ser abandonada
-  if (unsavedChanges.value) {
-    const answer = confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?');
-    // Si devolvemos false, se cancela la navegación
-    return answer;
+// Se ejecuta cuando el componente está a punto de ser abandonado
+onBeforeRouteLeave((to, from, next) =&gt; {
+  if (cambiosSinGuardar.value) {
+    if (confirm('¿Tienes cambios sin guardar. ¿Seguro que quieres salir?')) {
+      next();
+    } else {
+      next(false); // Cancela la navegación
+    }
+  } else {
+    next();
   }
 });
+
+// Se ejecuta cuando cambian los parámetros de la ruta
+onBeforeRouteUpdate((to, from) =&gt; {
+  // Por ejemplo, si la ruta es /usuario/1 y cambia a /usuario/2
+  console.log('El ID del usuario cambió de', from.params.id, 'a', to.params.id);
+});
+&lt;/script&gt;
 </code></pre>
-<h2 id="lazy-loading-de-rutas">Lazy Loading de Rutas<a class="headerlink" href="#lazy-loading-de-rutas" title="Permanent link">&para;</a></h2>
-<p>Para mejorar el rendimiento, carga los componentes solo cuando sean necesarios:</p>
+<h2 id="carga-perezosa-lazy-loading">⚡ Carga Perezosa (Lazy Loading)<a class="headerlink" href="#carga-perezosa-lazy-loading" title="Permanent link">&para;</a></h2>
+<p>Mejora el rendimiento cargando los componentes solo cuando se necesitan:</p>
 <pre><code class="language-javascript">const routes = [
   {
-    path: '/about',
-    name: 'about',
-    component: () =&gt; import('../views/AboutView.vue')
+    path: '/',
+    name: 'inicio',
+    component: () =&gt; import('../views/InicioView.vue')
   },
   {
-    path: '/contact',
-    name: 'contact',
-    // Agrupa componentes en el mismo chunk
-    component: () =&gt; import(/* webpackChunkName: &quot;contact&quot; */ '../views/ContactView.vue')
+    path: '/productos',
+    name: 'productos',
+    // Carga perezosa con agrupación
+    component: () =&gt; import(/* webpackChunkName: &quot;catalogo&quot; */ '../views/ProductosView.vue')
+  },
+  {
+    path: '/contacto',
+    name: 'contacto',
+    component: () =&gt; import(/* webpackChunkName: &quot;info&quot; */ '../views/ContactoView.vue')
   }
 ];
 </code></pre>
-<h2 id="scroll-behavior">Scroll Behavior<a class="headerlink" href="#scroll-behavior" title="Permanent link">&para;</a></h2>
-<p>Controla el comportamiento del scroll al navegar:</p>
+<h2 id="comportamiento-del-scroll">🖱️ Comportamiento del Scroll<a class="headerlink" href="#comportamiento-del-scroll" title="Permanent link">&para;</a></h2>
+<p>Controla la posición del scroll al navegar entre rutas:</p>
 <pre><code class="language-javascript">const router = createRouter({
-  // ...
+  history: createWebHistory(),
+  routes,
   scrollBehavior(to, from, savedPosition) {
-    // Retorna la posición deseada
-    if (savedPosition) {
-      return savedPosition;
-    } else if (to.hash) {
+    // Si hay un hash (ej: #seccion), hacer scroll a ese elemento
+    if (to.hash) {
       return {
         el: to.hash,
         behavior: 'smooth',
       };
-    } else {
-      return { top: 0 };
     }
+    // Si es una navegación hacia atrás/adelante, restaurar posición
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // Por defecto, ir al inicio de la página
+    return { top: 0 };
   },
 });
 </code></pre>
-<h2 id="transiciones">Transiciones<a class="headerlink" href="#transiciones" title="Permanent link">&para;</a></h2>
-<p>Agrega animaciones a las transiciones entre rutas:</p>
+<h2 id="transiciones-entre-rutas">✨ Transiciones entre Rutas<a class="headerlink" href="#transiciones-entre-rutas" title="Permanent link">&para;</a></h2>
+<p>Añade animaciones suaves al cambiar de ruta:</p>
 <pre><code class="language-vue">&lt;template&gt;
+  &lt;!-- Transición para todas las vistas del router --&gt;
   &lt;router-view v-slot=&quot;{ Component }&quot;&gt;
     &lt;transition name=&quot;fade&quot; mode=&quot;out-in&quot;&gt;
       &lt;component :is=&quot;Component&quot; /&gt;
@@ -1615,6 +1712,7 @@ onBeforeRouteLeave((to, from) =&gt; {
 &lt;/template&gt;
 
 &lt;style&gt;
+/* Animación de fundido */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -1624,10 +1722,114 @@ onBeforeRouteLeave((to, from) =&gt; {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* Animación de deslizamiento */
+.slide-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.slide-enter-from {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.slide-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
 &lt;/style&gt;
 </code></pre>
-<h2 id="siguiente-paso">Siguiente paso<a class="headerlink" href="#siguiente-paso" title="Permanent link">&para;</a></h2>
-<p>Ahora que conoces la navegación avanzada, puedes revisar el <a href="../5.4-ejercicio-practico/">ejercicio práctico</a> para aplicar estos conceptos.</p>
+<h2 id="ejemplo-practico-proteccion-de-ruta">📌 Ejemplo Práctico: Protección de Ruta<a class="headerlink" href="#ejemplo-practico-proteccion-de-ruta" title="Permanent link">&para;</a></h2>
+<p>Vamos a implementar un sistema de autenticación simple:</p>
+<ol>
+<li><strong>Crea un store de autenticación</strong> (usando Pinia):</li>
+</ol>
+<pre><code class="language-javascript">// stores/auth.js
+import { defineStore } from 'pinia';
+
+export const useAuthStore = defineStore('auth', {
+  state: () =&gt; ({
+    user: null,
+    token: localStorage.getItem('token') || null,
+  }),
+  getters: {
+    isAuthenticated: (state) =&gt; !!state.token,
+  },
+  actions: {
+    login(credentials) {
+      // Lógica de autenticación
+      this.token = 'token_simulado';
+      localStorage.setItem('token', this.token);
+    },
+    logout() {
+      this.token = null;
+      localStorage.removeItem('token');
+    },
+  },
+});
+</code></pre>
+<ol>
+<li><strong>Configura las rutas protegidas</strong>:</li>
+</ol>
+<pre><code class="language-javascript">const routes = [
+  {
+    path: '/',
+    name: 'inicio',
+    component: () =&gt; import('../views/InicioView.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () =&gt; import('../views/DashboardView.vue'),
+    meta: { requiresAuth: true } // Ruta protegida
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () =&gt; import('../views/LoginView.vue'),
+    meta: { guestOnly: true } // Solo para usuarios no autenticados
+  }
+];
+</code></pre>
+<ol>
+<li><strong>Implementa el guard de navegación</strong>:</li>
+</ol>
+<pre><code class="language-javascript">router.beforeEach((to, from, next) =&gt; {
+  const authStore = useAuthStore();
+
+  // Si la ruta requiere autenticación y el usuario no está autenticado
+  if (to.meta.requiresAuth &amp;&amp; !authStore.isAuthenticated) {
+    next({ name: 'login', query: { redirect: to.fullPath } });
+  } 
+  // Si la ruta es solo para invitados y el usuario está autenticado
+  else if (to.meta.guestOnly &amp;&amp; authStore.isAuthenticated) {
+    next({ name: 'dashboard' });
+  } 
+  // En cualquier otro caso, continuar
+  else {
+    next();
+  }
+});
+</code></pre>
+<h2 id="recursos-adicionales">📚 Recursos Adicionales<a class="headerlink" href="#recursos-adicionales" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://router.vuejs.org/">Documentación oficial de Vue Router</a></li>
+<li><a href="https://router.vuejs.org/guide/migration/">Guía de migración a Vue Router 4</a></li>
+<li><a href="https://router.vuejs.org/guide/advanced/navigation-guards.html">Patrones de navegación avanzados</a></li>
+</ul>
+<h2 id="siguientes-pasos">🚀 Siguientes Pasos<a class="headerlink" href="#siguientes-pasos" title="Permanent link">&para;</a></h2>
+<p>Ahora que has aprendido sobre navegación avanzada, te animo a:</p>
+<ol>
+<li>Implementar un sistema de roles y permisos</li>
+<li>Crear rutas anidadas para interfaces complejas</li>
+<li>Experimentar con diferentes tipos de transiciones</li>
+<li>Probar el lazy loading con diferentes estrategias de agrupación</li>
+</ol>
+<p>¡Practica estos conceptos en el <a href="../5.4-ejercicio-practico/">ejercicio práctico</a> para afianzar tus conocimientos!</p>
 
 
 
@@ -1701,10 +1903,10 @@ onBeforeRouteLeave((to, from) =&gt; {
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.expand", "i18n.redirect", "i18n"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Arbelean kopiatuta", "clipboard.copy": "Kopiatu arbelean", "search.result.more.one": "Bat gehiago orri honetan", "search.result.more.other": "# gehiago orri honetan", "search.result.none": "Bat datorren dokumenturik ez", "search.result.one": "Bat datorren dokumentu bat", "search.result.other": "Bat datozen # dokumentu", "search.result.placeholder": "Idatzi bilatzen hasteko", "search.result.term.missing": "Falta da", "select.version": "Hautatu bertsioa"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../../scripts/checkboxes.js"></script>
       
