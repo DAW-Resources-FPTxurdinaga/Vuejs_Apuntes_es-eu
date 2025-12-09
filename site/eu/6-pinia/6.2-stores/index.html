@@ -1486,67 +1486,97 @@
 </ol>
 <pre><code class="language-javascript">import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', {
+// Usando la sintaxis de Composition API (recomendado para Vue 3)
+export const useCounterStore = defineStore('counter', () =&gt; {
   // Estado reactivo
-  state: () =&gt; ({
-    count: 0,
-    name: 'Contador',
-  }),
+  const count = ref(0)
+  const name = ref('Contador')
+  const data = ref(null)
 
   // Getters (computadas)
-  getters: {
-    doubleCount: (state) =&gt; state.count * 2,
-    // Getters que usan otros getters
-    greeting: (state) =&gt; {
-      return `Hola, ${state.name}. El contador es ${state.count}`
-    },
-  },
+  const doubleCount = computed(() =&gt; count.value * 2)
+  const greeting = computed(() =&gt; `Hola, ${name.value}. El contador es ${count.value}`)
 
   // Acciones (métodos)
-  actions: {
-    increment() {
-      this.count++
-    },
-    async fetchData() {
-      try {
-        const response = await fetch('https://api.example.com/data')
-        const data = await response.json()
-        // Actualizar el estado
-        this.data = data
-        return data
-      } catch (error) {
-        console.error('Error al cargar datos:', error)
-      }
-    },
-  },
+  function increment() {
+    count.value++
+  }
+
+  async function fetchData() {
+    try {
+      const response = await fetch('https://api.example.com/data')
+      const result = await response.json()
+      data.value = result
+      return result
+    } catch (error) {
+      console.error('Error al cargar datos:', error)
+      throw error
+    }
+  }
+
+  return {
+    // Estado
+    count,
+    name,
+    data,
+
+    // Getters
+    doubleCount,
+    greeting,
+
+    // Acciones
+    increment,
+    fetchData
+  }
 })
 </code></pre>
 <h2 id="usando-el-store-en-un-componente">Usando el Store en un Componente<a class="headerlink" href="#usando-el-store-en-un-componente" title="Permanent link">&para;</a></h2>
 <pre><code class="language-vue">&lt;template&gt;
   &lt;div&gt;
-    &lt;h1&gt;{{ store.name }}&lt;/h1&gt;
-    &lt;p&gt;Contador: {{ store.count }}&lt;/p&gt;
-    &lt;p&gt;Doble: {{ store.doubleCount }}&lt;/p&gt;
-    &lt;p&gt;{{ store.greeting }}&lt;/p&gt;
+    &lt;h1&gt;{{ name }}&lt;/h1&gt;
+    &lt;p&gt;Contador: {{ count }}&lt;/p&gt;
+    &lt;p&gt;Doble: {{ doubleCount }}&lt;/p&gt;
+    &lt;p&gt;{{ greeting }}&lt;/p&gt;
 
-    &lt;button @click=&quot;store.increment()&quot;&gt;Incrementar&lt;/button&gt;
-    &lt;button @click=&quot;store.$reset()&quot;&gt;Reiniciar&lt;/button&gt;
+    &lt;button @click=&quot;increment&quot;&gt;Incrementar&lt;/button&gt;
+    &lt;button @click=&quot;reset&quot;&gt;Reiniciar&lt;/button&gt;
+
+    &lt;div v-if=&quot;loading&quot;&gt;Cargando datos...&lt;/div&gt;
+    &lt;div v-else-if=&quot;error&quot;&gt;Error: {{ error }}&lt;/div&gt;
+    &lt;pre v-else-if=&quot;store.data&quot;&gt;{{ store.data }}&lt;/pre&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script setup&gt;
+import { ref, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useCounterStore } from '@/stores/counter'
 
 const store = useCounterStore()
+const loading = ref(false)
+const error = ref(null)
 
-// Acceder al estado
-console.log(store.count) // 0
+// Desestructuración reactiva del estado y getters
+const { count, name, doubleCount, greeting } = storeToRefs(store)
 
-// Llamar a una acción
-store.increment()
+// Desestructuración de acciones
+const { increment } = store
 
-// Acciones asíncronas
-const data = await store.fetchData()
+// Función para reiniciar el contador
+const reset = () =&gt; store.$reset()
+
+// Cargar datos al montar el componente
+onMounted(async () =&gt; {
+  try {
+    loading.value = true
+    error.value = null
+    await store.fetchData()
+  } catch (err) {
+    error.value = err.message || 'Error al cargar los datos'
+  } finally {
+    loading.value = false
+  }
+})
 &lt;/script&gt;
 </code></pre>
 <h2 id="desestructuracion-reactiva">Desestructuración Reactiva<a class="headerlink" href="#desestructuracion-reactiva" title="Permanent link">&para;</a></h2>

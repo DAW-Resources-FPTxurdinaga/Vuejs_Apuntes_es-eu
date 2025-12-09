@@ -1162,6 +1162,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Nabigazioa &lt;router-link&gt; erabiliz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ezaugarri-nagusiak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ezaugarri nagusiak:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-tradizionalaren-aldean-dituen-abantailak" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;a&gt; tradizionalaren aldean dituen abantailak:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1170,6 +1194,21 @@
       Nabigazio Programatikoa
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Nabigazio Programatikoa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oinarrizko-erabilera-composition-api-rekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko erabilera Composition API-rekin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1538,6 +1577,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Nabigazioa &lt;router-link&gt; erabiliz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ezaugarri-nagusiak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ezaugarri nagusiak:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-tradizionalaren-aldean-dituen-abantailak" class="md-nav__link">
+    <span class="md-ellipsis">
+      &lt;a&gt; tradizionalaren aldean dituen abantailak:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1546,6 +1609,21 @@
       Nabigazio Programatikoa
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Nabigazio Programatikoa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oinarrizko-erabilera-composition-api-rekin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oinarrizko erabilera Composition API-rekin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1633,38 +1711,101 @@
 ];
 </code></pre>
 <h2 id="nabigazioa-router-link-erabiliz">Nabigazioa <code>&lt;router-link&gt;</code> erabiliz<a class="headerlink" href="#nabigazioa-router-link-erabiliz" title="Permanent link">&para;</a></h2>
-<p><code>&lt;router-link&gt;</code> osagaia nabigazio estekak sortzeko erabiltzen da:</p>
-<pre><code class="language-vue">&lt;!-- Nabigazio oinarrizkoa --&gt;
-&lt;router-link to=&quot;/about&quot;&gt;Honi buruz&lt;/router-link&gt;
-
-&lt;!-- Ibilbidearen izena erabiliz --&gt;
-&lt;router-link :to=&quot;{ name: 'user', params: { id: 123 }}&quot;&gt;Erabiltzailea 123&lt;/router-link&gt;
-
-&lt;!-- Klase pertsonalizatuekin --&gt;
-&lt;router-link 
-  to=&quot;/contact&quot;
-  class=&quot;nav-link&quot;
-  active-class=&quot;active-link&quot;
-  exact-active-class=&quot;exact-active-link&quot;
-&gt;
-  Kontaktua
-  &lt;/router-link&gt;
+<p><code>&lt;router-link&gt;</code> osagaia Vue Router-en erabiltzen den modu deklaratiboa da nabigatzeko. HTML-ko <code>&lt;a&gt;</code> etiketa baten antzekoa da, baina bezeroaren aldeko bideratzean erabiltzeko ezaugarri bereziekin.</p>
+<h3 id="ezaugarri-nagusiak">Ezaugarri nagusiak:<a class="headerlink" href="#ezaugarri-nagusiak" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Nabigazio oinarrizkoa</strong>:
+   <code>vue
+   &lt;router-link to="/about"&gt;Honi buruz&lt;/router-link&gt;</code></li>
+<li>
+<p><code>to</code>: Helburuko ibilbidea zehazten du. Kate bat izan daiteke ibilbidearekin edo aukera gehiagoko objektu bat.</p>
+</li>
+<li>
+<p><strong>Ibilbide-izenaren erabilera</strong>:
+   <code>vue
+   &lt;router-link :to="{ name: 'user', params: { id: 123 }}"&gt;
+     Ikusi 123 erabiltzailearen profila
+   &lt;/router-link&gt;</code></p>
+</li>
+<li><code>name</code>: Bideratzailean definitutako ibilbidearen izena.</li>
+<li>
+<p><code>params</code>: Ibilbideko parametroak.</p>
+</li>
+<li>
+<p><strong>Pertsonalizatutako CSS klaseak</strong>:
+   ```vue
+   &lt;router-link 
+     to="/contact"
+     class="nav-link"
+     active-class="active"
+     exact-active-class="exact-active"</p>
+<blockquote>
+<pre><code> Kontaktua
 </code></pre>
+<p></router-link>
+   ```</p>
+</blockquote>
+</li>
+<li><code>active-class</code>: Ibilbidea partzialki bat datorrenean aplikatzen den CSS klasea.</li>
+<li><code>exact-active-class</code>: Ibilbidea zehazki bat datorrenean aplikatzen den CSS klasea.</li>
+<li>
+<p><code>class</code>: Beti aplikatzen diren CSS klase estatikoa.</p>
+</li>
+<li>
+<p><strong>Erabilgarriak diren beste propietate batzuk</strong>:</p>
+</li>
+<li><code>replace</code>: Uneko sarrera ordezkatzen du historialean, berri bat gehitu beharrean.</li>
+<li><code>tag</code>: Sortuko den HTML etiketa zehazten du (lehenetsia <code>&lt;a&gt;</code> da).</li>
+<li><code>custom</code>: Esteka erabat pertsonalizatzea ahalbidetzen du.</li>
+</ol>
+<h3 id="a-tradizionalaren-aldean-dituen-abantailak"><code>&lt;a&gt;</code> tradizionalaren aldean dituen abantailak:<a class="headerlink" href="#a-tradizionalaren-aldean-dituen-abantailak" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Klikaren gertaera automatikoki maneiatzen du orria berriz kargatzea ekiditeko.</li>
+<li>Egoera aktiboko klaseak automatikoki aplikatzen ditu.</li>
+<li>HTML5 histori moduarekin eta hash moduarekin funtzionatzen du.</li>
+<li>Nabigazio programatikoa ahalbidetzen du <code>router.push()</code> edo <code>router.replace()</code> bidez.</li>
+</ul>
 <h2 id="nabigazio-programatikoa">Nabigazio Programatikoa<a class="headerlink" href="#nabigazio-programatikoa" title="Permanent link">&para;</a></h2>
-<p>Kode bidez nabigatu dezakezu <code>router</code> objektua erabiliz:</p>
-<pre><code class="language-javascript">// &lt;script setup&gt; duten osagai batean (Composition API)
+<p><code>&lt;router-link&gt;</code> erabili beharrean, kode bidez ere nabiga dezakezu Vue Router-eko <code>router</code> objektua erabiliz. Hau oso erabilgarria da erabiltzailearen ekintzen ondoren edo baldintza logikoen arabera nabigatu behar duzunean.</p>
+<h3 id="oinarrizko-erabilera-composition-api-rekin">Oinarrizko erabilera Composition API-rekin<a class="headerlink" href="#oinarrizko-erabilera-composition-api-rekin" title="Permanent link">&para;</a></h3>
+<pre><code class="language-javascript">// &lt;script setup&gt; duten osagai batean
 import { useRouter } from 'vue-router';
 
+// Router instantzia lortu
 const router = useRouter();
 
+// Ibilbide jakin batera nabigatu
 const goToAbout = () =&gt; {
+  // Katen bidezko ibilbidea erabiliz
   router.push('/about');
-  // Edo ibilbidearen izena erabiliz
-  // router.push({ name: 'about' });
+
+  // Edo izena eta parametroak dituen objektu bat erabiliz
+  // router.push({ 
+  //   name: 'user', 
+  //   params: { id: 123 },
+  //   query: { section: 'profile' } // Aukerako kontsulta-parametroak
+  // });
 };
 
+// Atzera nabigatu historian
 const goBack = () =&gt; {
+  // Orri bat atzera joan
   router.go(-1);
+
+  // Aurrera joateko: router.go(1)
+};
+
+// Uneko sarrera ordeztu historialean
+const replaceRoute = () =&gt; {
+  router.replace('/dashboard'); // Ez du sarrera berririk gehitzen historian
+};
+
+// Aukera gehigarriekin nabigatu
+const navigateWithOptions = () =&gt; {
+  router.push({
+    path: '/profile',
+    query: { tab: 'settings' }  // URL-era ?tab=settings gehitzen du
+  });
 };
 </code></pre>
 <h2 id="parametroekin-ibilbideak">Parametroekin Ibilbideak<a class="headerlink" href="#parametroekin-ibilbideak" title="Permanent link">&para;</a></h2>
